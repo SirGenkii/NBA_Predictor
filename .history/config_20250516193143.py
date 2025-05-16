@@ -7,7 +7,7 @@ DATA_RAW_DIR = os.path.join(DATA_DIR, 'raw')
 DATA_GAMES_DIR = os.path.join(DATA_RAW_DIR, 'games')
 DATA_PLAYERS_DIR = os.path.join(DATA_RAW_DIR, 'players')
 DATA_BOXSCORES_DIR = os.path.join(DATA_RAW_DIR, 'boxscores')
-DATA_BOXSCORES_BATCHES_DIR = os.path.join(DATA_BOXSCORES_DIR, 'batches')
+DATA_BOXSCORES_DIR = os.path.join(DATA_RAW_DIR, 'boxscores')
 
 DATA_TEAMS_DIR = os.path.join(DATA_RAW_DIR, 'teams')
 
