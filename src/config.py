@@ -23,6 +23,8 @@ DATA_FINAL_CLEANED_DATASET_DIR = os.path.join(DATA_DIR, 'final_cleaned_dataset')
 
 DATA_TEAMS_DIR = os.path.join(DATA_RAW_DIR, 'teams')
 
+DATA_PREDICTION_ROWS_DIR = os.path.join(DATA_DIR, 'predictions_rows')
+
 BATCH_SIZE = 25
 
 ERROR_LOG_FOLDER = 'logs'
