@@ -3,8 +3,9 @@ import pandas as pd
 from datetime import datetime
 import time
 from nba_api.stats.endpoints import leaguegamefinder, boxscoretraditionalv2
-from config import *
-from utils import save_dataframe_to_csv, get_latest_file
+from src.config import *
+from src.utils import save_dataframe_to_csv, get_latest_file
+import glob
 
 # -- 1. Download all games for a season (or several)
 def download_games_for_seasons(seasons, output_dir, run_timestamp):
@@ -19,8 +20,11 @@ def download_games_for_seasons(seasons, output_dir, run_timestamp):
     df_games = pd.concat(all_games, ignore_index=True)
     df_games['GAME_DATE'] = pd.to_datetime(df_games['GAME_DATE'])
     df_games = df_games[df_games['GAME_ID'].astype(str).str.startswith(('002','004', '005'))]
+    
+    
+    print(df_games.columns)    
     df_games = df_games.sort_values(by='GAME_DATE')
-    file_path = save_dataframe_to_csv(df_games, os.path.join(output_dir, run_timestamp), prefix=f'nba_games', suffix=run_timestamp)
+    file_path = save_dataframe_to_csv(df_games, os.path.join(output_dir), prefix=f'nba_games', suffix=run_timestamp)
     return file_path
 
 # -- 2. Trouver les nouveaux matchs à scraper
@@ -28,6 +32,8 @@ def get_new_games(hist_games_path, new_games_path):
     hist_games = pd.read_csv(hist_games_path, dtype={'GAME_ID': str})
     new_games = pd.read_csv(new_games_path, dtype={'GAME_ID': str})
     old_ids = set(hist_games['GAME_ID'])
+    
+    
     to_add = new_games[~new_games['GAME_ID'].isin(old_ids)]
     print(f"{len(to_add)} nouveaux matchs à traiter")
     return to_add
@@ -42,7 +48,8 @@ def scrape_boxscores_for_games(games_df, output_dir, run_timestamp, batch_size=2
     batch_num = 0
     for idx, gid in enumerate(game_ids):
         try:
-            print(f"[{idx+1}/{len(game_ids)}] GAME_ID: {gid}")
+            #print game_id and game_date
+            print(f"[{idx+1}/{len(game_ids)}] GAME_ID: {gid} - {games_df.loc[games_df['GAME_ID'] == gid, 'GAME_DATE'].values[0]}")
             box = boxscoretraditionalv2.BoxScoreTraditionalV2(game_id=gid, timeout=60)
             stats = box.player_stats.get_data_frame()
             stats['GAME_ID'] = gid
@@ -70,18 +77,27 @@ def scrape_boxscores_for_games(games_df, output_dir, run_timestamp, batch_size=2
     return True
 
 # -- 4. Merge boxscores historiques et nouveaux
+
+def load_all_csvs(folder):
+    files = glob.glob(os.path.join(folder, "*.csv"))
+    dfs = [pd.read_csv(f, dtype={'GAME_ID': str}) for f in files]
+    if dfs:
+        return pd.concat(dfs, ignore_index=True)
+    else:
+        return pd.DataFrame()
+
 def merge_boxscores_batches(hist_dir, new_dir, out_dir, run_timestamp):
-    def load_all_csvs(folder):
-        import glob
-        files = glob.glob(os.path.join(folder, "*.csv"))
-        dfs = [pd.read_csv(f) for f in files]
-        if dfs:
-            return pd.concat(dfs, ignore_index=True)
-        else:
-            return pd.DataFrame()
-    hist = load_all_csvs(hist_dir)
+
+    #hist = load_all_csvs(hist_dir)
+    
+    hist_file = get_latest_file(hist_dir)
+    hist = pd.read_csv(hist_file, dtype={'GAME_ID': str})
+    
     new = load_all_csvs(new_dir)
-    all_boxscores = pd.concat([hist, new]).drop_duplicates(subset=['GAME_ID', 'PLAYER_ID'])
+    all_boxscores = pd.concat([hist, new])
     merged_path = save_dataframe_to_csv(all_boxscores, out_dir, prefix='merged_boxscores', suffix=run_timestamp)
-    print(f"Merged boxscores saved at {merged_path}")
+    print(f"Merged boxscores from {hist_file} and {new_dir}  saved at {merged_path}")
+    
     return merged_path
+
+
