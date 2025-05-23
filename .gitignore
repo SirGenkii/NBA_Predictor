@@ -1,11 +1,14 @@
 .history/
-.local/share/
+.local/
+.jupyter/
 /data/raw/
 /data/final_cleaned_dataset/
 /data/final_dataset/
 /data/raw_last/
 
 /logs/
+
+/catboost_info/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
