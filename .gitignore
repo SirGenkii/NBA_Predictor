@@ -1,3 +1,11 @@
+.history/
+.local/share/
+/data/raw/
+/data/final_cleaned_dataset/
+/data/final_dataset/
+
+/logs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
