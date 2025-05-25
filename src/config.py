@@ -25,6 +25,8 @@ DATA_TEAMS_DIR = os.path.join(DATA_RAW_DIR, 'teams')
 
 DATA_PREDICTION_ROWS_DIR = os.path.join(DATA_DIR, 'predictions_rows')
 
+DATA_MODELS_DIR = os.path.join(DATA_DIR, 'models')
+
 BATCH_SIZE = 25
 
 ERROR_LOG_FOLDER = 'logs'

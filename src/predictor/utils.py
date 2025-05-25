@@ -62,6 +62,9 @@ def build_prediction_rows(home_team_id: int, away_team_id: int, dataset: pd.Data
     temp_df = compute_elo(temp_df)
     temp_df = compute_elo_season(temp_df)
 
+    drop_cols = ['GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'SEASON', 'GAME_DATE','IS_WIN']
+    temp_df = temp_df.drop(columns=drop_cols, errors='ignore')
+
     return temp_df.tail(2)
 
 
