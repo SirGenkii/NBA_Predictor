@@ -108,12 +108,14 @@ def compute_winrates(df: pd.DataFrame, group_col: str, win_col: str, home_col: s
               .groupby(group_col)
               .apply(lambda d: d[win_col].where(d[home_col] == 1).shift(1).rolling(n, min_periods=1).mean())
               .reset_index(level=0, drop=True)
+               .fillna(0.5)
         )
         df[f"ROLL_AWAY_WINRATE_{n}"] = (
             df.sort_values([group_col, "GAME_DATE"])
               .groupby(group_col)
               .apply(lambda d: d[win_col].where(d[home_col] == 0).shift(1).rolling(n, min_periods=1).mean())
               .reset_index(level=0, drop=True)
+               .fillna(0.5)
         )
     return df
 
