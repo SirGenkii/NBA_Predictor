@@ -35,11 +35,11 @@ def compute_win_ratio(df: pd.DataFrame, group_col: str, win_col: str, windows: l
 
 
 
-def streak_grouped(group, is_home):
+def streak_grouped_shifted(group, is_home):
     streak = 0
     streaks = []
     for _, row in group.iterrows():
-        if row["IS_HOME"] == is_home and row["IS_WIN"]:
+        if row["IS_HOME"] == is_home and row["IS_WIN_SHIFTED"]:
             streak += 1
         elif row["IS_HOME"] == is_home:
             streak = 0
@@ -49,11 +49,13 @@ def streak_grouped(group, is_home):
 
 def compute_side_win_streak(df: pd.DataFrame) -> pd.DataFrame:
     df = df.sort_values(["TEAM_ID", "GAME_DATE"]).copy()
-    
-    df["HOME_WIN_STREAK"] = df.groupby("TEAM_ID").apply(lambda g: streak_grouped(g, is_home=1)).reset_index(level=0, drop=True)
-    df["AWAY_WIN_STREAK"] = df.groupby("TEAM_ID").apply(lambda g: streak_grouped(g, is_home=0)).reset_index(level=0, drop=True)
-    
-    return df
+    df["IS_WIN_SHIFTED"] = df.groupby("TEAM_ID")["IS_WIN"].shift(1).fillna(0).astype(int)
+
+    df["HOME_WIN_STREAK"] = df.groupby("TEAM_ID").apply(lambda g: streak_grouped_shifted(g, is_home=1)).reset_index(level=0, drop=True)
+    df["AWAY_WIN_STREAK"] = df.groupby("TEAM_ID").apply(lambda g: streak_grouped_shifted(g, is_home=0)).reset_index(level=0, drop=True)
+
+    return df.drop(columns=["IS_WIN_SHIFTED"])
+
 
 def rename_pts_against_columns(df: pd.DataFrame) -> pd.DataFrame:
     for n in [3, 5, 10, 25, 50, 100, 200]:
