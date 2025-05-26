@@ -6,7 +6,7 @@ from src.feature_builder import *
 
 def build_prediction_rows(home_team_id: int, away_team_id: int, dataset: pd.DataFrame) -> pd.DataFrame:
 
-    N_LIST = [5, 10, 25, 50, 100, 200]
+    N_LIST = [3, 5, 10, 25, 50, 100, 200]
 
     # Création du jeu de données tronqué pour éviter toute fuite
     
@@ -62,8 +62,8 @@ def build_prediction_rows(home_team_id: int, away_team_id: int, dataset: pd.Data
     temp_df = compute_elo(temp_df)
     temp_df = compute_elo_season(temp_df)
 
-    drop_cols = ['GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'SEASON', 'GAME_DATE','IS_WIN']
-    temp_df = temp_df.drop(columns=drop_cols, errors='ignore')
+    #drop_cols = ['GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'SEASON', 'GAME_DATE','IS_WIN']
+    #temp_df = temp_df.drop(columns=drop_cols, errors='ignore')
 
     return temp_df.tail(2)
 
