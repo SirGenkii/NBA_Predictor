@@ -1,0 +1,1320 @@
+date,home_team,away_team,home_score,away_score,home_odds,away_odds
+2014-06-16,San Antonio Spurs,Miami Heat,,104,1.34,2.53
+2014-06-13,Miami Heat,San Antonio Spurs,86,107,1.32,2.57
+2014-06-11,Miami Heat,San Antonio Spurs,92,111,1.39,2.35
+2014-06-09,San Antonio Spurs,Miami Heat,96,98,1.42,2.24
+2014-06-06,San Antonio Spurs,Miami Heat,,110,1.37,2.39
+2014-06-01,Oklahoma City Thunder,San Antonio Spurs,107,112,1.49,2.09
+2014-05-31,Miami Heat,Indiana Pacers,,117,1.14,3.72
+2014-05-30,San Antonio Spurs,Oklahoma City Thunder,,117,1.35,2.46
+2014-05-29,Indiana Pacers,Miami Heat,,93,1.76,1.70
+2014-05-28,Oklahoma City Thunder,San Antonio Spurs,,105,1.59,1.92
+2014-05-27,Miami Heat,Indiana Pacers,,102,1.29,2.78
+2014-05-26,Oklahoma City Thunder,San Antonio Spurs,,106,1.58,1.96
+2014-05-25,Miami Heat,Indiana Pacers,,99,1.23,2.90
+2014-05-22,San Antonio Spurs,Oklahoma City Thunder,,112,1.31,2.62
+2014-05-21,Indiana Pacers,Miami Heat,83,87,2.00,1.57
+2014-05-20,San Antonio Spurs,Oklahoma City Thunder,,122,1.30,2.62
+2014-05-18,Indiana Pacers,Miami Heat,,107,1.98,1.56
+2014-05-16,Los Angeles Clippers,Oklahoma City Thunder,98,104,1.42,2.28
+2014-05-16,Washington Wizards,Indiana Pacers,80,93,1.42,2.20
+2014-05-15,San Antonio Spurs,Portland Trail Blazers,,104,1.15,3.45
+2014-05-15,Miami Heat,Brooklyn Nets,,96,1.20,3.22
+2014-05-14,Oklahoma City Thunder,Los Angeles Clippers,,105,1.30,2.55
+2014-05-14,Indiana Pacers,Washington Wizards,79,102,1.32,2.50
+2014-05-13,Portland Trail Blazers,San Antonio Spurs,,103,2.37,1.38
+2014-05-13,Brooklyn Nets,Miami Heat,96,102,1.95,1.59
+2014-05-12,Washington Wizards,Indiana Pacers,92,95,1.48,2.08
+2014-05-11,Los Angeles Clippers,Oklahoma City Thunder,,101,1.38,2.45
+2014-05-11,Portland Trail Blazers,San Antonio Spurs,103,118,1.71,1.75
+2014-05-11,Brooklyn Nets,Miami Heat,,104,1.80,1.67
+2014-05-10,Los Angeles Clippers,Oklahoma City Thunder,112,118,1.41,2.22
+2014-05-10,Washington Wizards,Indiana Pacers,63,85,1.35,2.40
+2014-05-09,San Antonio Spurs,Portland Trail Blazers,,114,1.22,2.95
+2014-05-09,Miami Heat,Brooklyn Nets,,94,1.20,3.17
+2014-05-08,Oklahoma City Thunder,Los Angeles Clippers,,112,1.33,2.45
+2014-05-08,Indiana Pacers,Washington Wizards,,86,1.39,2.30
+2014-05-07,San Antonio Spurs,Portland Trail Blazers,,116,1.22,3.04
+2014-05-07,Miami Heat,Brooklyn Nets,,107,1.17,3.40
+2014-05-06,Oklahoma City Thunder,Los Angeles Clippers,105,122,1.32,2.50
+2014-05-06,Indiana Pacers,Washington Wizards,96,102,1.41,2.22
+2014-05-04,San Antonio Spurs,Dallas Mavericks,,119,1.22,3.12
+2014-05-04,Toronto Raptors,Brooklyn Nets,103,104,1.54,2.04
+2014-05-04,Los Angeles Clippers,Golden State Warriors,,126,1.22,3.05
+2014-05-04,Oklahoma City Thunder,Memphis Grizzlies,,120,1.11,4.03
+2014-05-03,Indiana Pacers,Atlanta Hawks,,92,1.28,2.78
+2014-05-03,Portland Trail Blazers,Houston Rockets,,99,1.41,2.30
+2014-05-03,Dallas Mavericks,San Antonio Spurs,,113,2.12,1.50
+2014-05-03,Brooklyn Nets,Toronto Raptors,,97,1.39,2.42
+2014-05-02,Golden State Warriors,Los Angeles Clippers,,100,1.79,1.70
+2014-05-02,Memphis Grizzlies,Oklahoma City Thunder,84,104,1.97,1.57
+2014-05-02,Atlanta Hawks,Indiana Pacers,88,95,1.71,1.81
+2014-05-01,Houston Rockets,Portland Trail Blazers,,108,1.36,2.48
+2014-05-01,Toronto Raptors,Brooklyn Nets,,115,1.52,2.08
+2014-05-01,San Antonio Spurs,Dallas Mavericks,,109,1.26,2.85
+2014-04-30,Los Angeles Clippers,Golden State Warriors,,113,1.22,3.08
+2014-04-30,Oklahoma City Thunder,Memphis Grizzlies,99,100,1.21,3.18
+2014-04-30,Chicago Bulls,Washington Wizards,69,75,1.43,2.22
+2014-04-29,Dallas Mavericks,San Antonio Spurs,89,93,2.33,1.39
+2014-04-29,Indiana Pacers,Atlanta Hawks,97,107,1.22,3.05
+2014-04-29,Charlotte Hornets,Miami Heat,98,109,3.45,1.17
+2014-04-28,Portland Trail Blazers,Houston Rockets,,123,1.47,2.13
+2014-04-28,Brooklyn Nets,Toronto Raptors,79,87,1.44,2.22
+2014-04-27,Golden State Warriors,Los Angeles Clippers,,118,1.94,1.60
+2014-04-27,Washington Wizards,Chicago Bulls,,98,1.65,1.89
+2014-04-27,Memphis Grizzlies,Oklahoma City Thunder,89,92,2.07,1.50
+2014-04-27,Charlotte Hornets,Miami Heat,85,98,2.32,1.39
+2014-04-26,Dallas Mavericks,San Antonio Spurs,,109,2.15,1.49
+2014-04-26,Atlanta Hawks,Indiana Pacers,88,91,2.01,1.58
+2014-04-26,Portland Trail Blazers,Houston Rockets,116,121,1.59,1.94
+2014-04-26,Washington Wizards,Chicago Bulls,97,100,1.55,1.99
+2014-04-26,Brooklyn Nets,Toronto Raptors,,102,1.37,2.47
+2014-04-25,Golden State Warriors,Los Angeles Clippers,96,98,2.02,1.53
+2014-04-25,Memphis Grizzlies,Oklahoma City Thunder,,98,1.98,1.57
+2014-04-25,Atlanta Hawks,Indiana Pacers,,98,1.94,1.59
+2014-04-24,Houston Rockets,Portland Trail Blazers,105,112,1.25,2.83
+2014-04-24,San Antonio Spurs,Dallas Mavericks,92,113,1.18,3.32
+2014-04-24,Miami Heat,Charlotte Hornets,,101,1.09,4.47
+2014-04-23,Chicago Bulls,Washington Wizards,99,101,1.34,2.60
+2014-04-23,Toronto Raptors,Brooklyn Nets,,100,1.38,2.35
+2014-04-23,Indiana Pacers,Atlanta Hawks,,101,1.20,3.30
+2014-04-22,Los Angeles Clippers,Golden State Warriors,,138,1.16,3.55
+2014-04-22,Oklahoma City Thunder,Memphis Grizzlies,105,111,1.19,3.40
+2014-04-21,Houston Rockets,Portland Trail Blazers,120,122,1.32,2.58
+2014-04-21,Chicago Bulls,Washington Wizards,93,102,1.40,2.30
+2014-04-20,Miami Heat,Charlotte Hornets,,99,1.07,5.08
+2014-04-20,San Antonio Spurs,Dallas Mavericks,,90,1.11,4.28
+2014-04-20,Oklahoma City Thunder,Memphis Grizzlies,,100,1.20,3.32
+2014-04-20,Indiana Pacers,Atlanta Hawks,93,101,1.19,3.55
+2014-04-19,Los Angeles Clippers,Golden State Warriors,105,109,1.22,3.23
+2014-04-19,Toronto Raptors,Brooklyn Nets,87,94,1.50,2.11
+2014-04-17,Denver Nuggets,Golden State Warriors,112,116,1.15,3.68
+2014-04-17,Portland Trail Blazers,Los Angeles Clippers,,110,1.53,2.03
+2014-04-17,Sacramento Kings,Phoenix Suns,99,104,2.00,1.56
+2014-04-17,Boston Celtics,Washington Wizards,102,118,3.50,1.17
+2014-04-17,Cleveland Cavaliers,Brooklyn Nets,,114,1.17,3.50
+2014-04-17,Miami Heat,Philadelphia 76ers,87,100,1.31,2.63
+2014-04-17,Milwaukee Bucks,Atlanta Hawks,103,111,1.51,2.08
+2014-04-17,Minnesota Timberwolves,Utah Jazz,130,136,1.05,5.30
+2014-04-17,New Orleans Pelicans,Houston Rockets,,105,1.51,2.08
+2014-04-17,Oklahoma City Thunder,Detroit Pistons,,112,1.01,7.42
+2014-04-17,San Antonio Spurs,Los Angeles Lakers,100,113,1.11,4.08
+2014-04-17,Memphis Grizzlies,Dallas Mavericks,,106,1.48,2.13
+2014-04-17,New York Knicks,Toronto Raptors,,95,2.58,1.31
+2014-04-17,Charlotte Hornets,Chicago Bulls,,91,1.65,1.85
+2014-04-17,Orlando Magic,Indiana Pacers,86,101,1.47,2.13
+2014-04-16,Los Angeles Clippers,Denver Nuggets,,117,1.10,4.20
+2014-04-16,Brooklyn Nets,New York Knicks,98,109,1.29,2.68
+2014-04-15,Golden State Warriors,Minnesota Timberwolves,,130,1.19,3.25
+2014-04-15,Phoenix Suns,Memphis Grizzlies,91,97,1.48,2.13
+2014-04-15,Utah Jazz,Los Angeles Lakers,104,119,1.30,2.63
+2014-04-15,Chicago Bulls,Orlando Magic,,108,1.05,5.63
+2014-04-15,Houston Rockets,San Antonio Spurs,,104,1.36,2.42
+2014-04-15,New Orleans Pelicans,Oklahoma City Thunder,,101,3.30,1.19
+2014-04-15,Atlanta Hawks,Charlotte Hornets,93,95,2.35,1.39
+2014-04-15,Philadelphia 76ers,Boston Celtics,76,113,1.98,1.57
+2014-04-15,Toronto Raptors,Milwaukee Bucks,,110,1.06,5.13
+2014-04-15,Washington Wizards,Miami Heat,,114,1.40,2.30
+2014-04-14,Los Angeles Lakers,Memphis Grizzlies,90,102,4.60,1.07
+2014-04-14,Portland Trail Blazers,Golden State Warriors,,119,1.44,2.22
+2014-04-14,Sacramento Kings,Minnesota Timberwolves,,106,1.96,1.59
+2014-04-14,New York Knicks,Chicago Bulls,,100,2.10,1.49
+2014-04-14,Brooklyn Nets,Orlando Magic,,97,1.05,5.17
+2014-04-13,Detroit Pistons,Toronto Raptors,107,116,3.00,1.23
+2014-04-13,Indiana Pacers,Oklahoma City Thunder,,102,1.64,1.89
+2014-04-13,Denver Nuggets,Utah Jazz,,101,1.11,4.20
+2014-04-13,Dallas Mavericks,Phoenix Suns,,101,1.40,2.30
+2014-04-13,Houston Rockets,New Orleans Pelicans,,111,1.01,7.88
+2014-04-13,Atlanta Hawks,Miami Heat,,98,2.50,1.34
+2014-04-13,Cleveland Cavaliers,Boston Celtics,99,111,1.13,3.83
+2014-04-13,Charlotte Hornets,Philadelphia 76ers,,111,1.03,5.88
+2014-04-13,Washington Wizards,Milwaukee Bucks,,104,1.07,4.95
+2014-04-12,Los Angeles Clippers,Sacramento Kings,,117,1.08,4.70
+2014-04-12,Los Angeles Lakers,Golden State Warriors,95,112,4.20,1.11
+2014-04-12,Utah Jazz,Portland Trail Blazers,99,111,3.90,1.13
+2014-04-12,Milwaukee Bucks,Cleveland Cavaliers,,119,2.30,1.40
+2014-04-12,San Antonio Spurs,Phoenix Suns,,112,1.47,2.13
+2014-04-12,Chicago Bulls,Detroit Pistons,,106,1.08,4.75
+2014-04-12,Memphis Grizzlies,Philadelphia 76ers,,117,1.01,7.38
+2014-04-12,Minnesota Timberwolves,Houston Rockets,,112,1.85,1.68
+2014-04-12,Oklahoma City Thunder,New Orleans Pelicans,,116,1.00,10.75
+2014-04-12,Boston Celtics,Charlotte Hornets,,106,2.38,1.38
+2014-04-12,Brooklyn Nets,Atlanta Hawks,88,93,1.42,2.25
+2014-04-12,Miami Heat,Indiana Pacers,,98,1.28,2.75
+2014-04-12,Orlando Magic,Washington Wizards,86,96,3.08,1.22
+2014-04-12,Toronto Raptors,New York Knicks,100,108,1.34,2.48
+2014-04-11,Golden State Warriors,Denver Nuggets,99,100,1.04,5.50
+2014-04-11,Dallas Mavericks,San Antonio Spurs,100,109,1.60,1.93
+2014-04-10,Los Angeles Clippers,Oklahoma City Thunder,101,107,1.51,2.05
+2014-04-10,Portland Trail Blazers,Sacramento Kings,,100,1.01,6.33
+2014-04-10,Denver Nuggets,Houston Rockets,,123,1.90,1.61
+2014-04-10,Memphis Grizzlies,Miami Heat,,107,1.41,2.28
+2014-04-10,Milwaukee Bucks,Indiana Pacers,102,104,1.81,1.69
+2014-04-10,Minnesota Timberwolves,Chicago Bulls,87,102,2.05,1.53
+2014-04-10,New Orleans Pelicans,Phoenix Suns,88,94,3.53,1.16
+2014-04-10,Atlanta Hawks,Boston Celtics,,105,1.21,3.10
+2014-04-10,Cleveland Cavaliers,Detroit Pistons,,122,1.26,2.82
+2014-04-10,Orlando Magic,Brooklyn Nets,,115,2.45,1.35
+2014-04-10,Toronto Raptors,Philadelphia 76ers,,125,1.03,6.68
+2014-04-10,Washington Wizards,Charlotte Hornets,88,94,1.33,2.52
+2014-04-09,Los Angeles Lakers,Houston Rockets,130,145,3.95,1.12
+2014-04-09,Sacramento Kings,Oklahoma City Thunder,92,107,3.95,1.12
+2014-04-09,Utah Jazz,Dallas Mavericks,83,95,3.05,1.23
+2014-04-09,Miami Heat,Brooklyn Nets,87,88,1.22,3.02
+2014-04-09,Minnesota Timberwolves,San Antonio Spurs,,110,3.08,1.22
+2014-04-09,Atlanta Hawks,Detroit Pistons,95,102,1.22,3.07
+2014-04-07,Golden State Warriors,Utah Jazz,,130,1.05,5.33
+2014-04-07,Phoenix Suns,Oklahoma City Thunder,,122,2.04,1.53
+2014-04-07,Portland Trail Blazers,New Orleans Pelicans,,100,1.09,4.42
+2014-04-07,Houston Rockets,Denver Nuggets,,130,1.06,5.13
+2014-04-07,San Antonio Spurs,Memphis Grizzlies,,112,1.24,3.05
+2014-04-07,Indiana Pacers,Atlanta Hawks,88,107,1.18,3.38
+2014-04-07,Sacramento Kings,Dallas Mavericks,91,93,3.05,1.22
+2014-04-06,Los Angeles Clippers,Los Angeles Lakers,,120,1.01,7.88
+2014-04-06,Miami Heat,New York Knicks,,102,1.25,2.93
+2014-04-06,Milwaukee Bucks,Toronto Raptors,98,102,2.92,1.24
+2014-04-06,Cleveland Cavaliers,Charlotte Hornets,94,96,1.48,2.13
+2014-04-06,Detroit Pistons,Boston Celtics,,115,1.28,2.75
+2014-04-06,Philadelphia 76ers,Brooklyn Nets,101,105,5.33,1.05
+2014-04-06,Orlando Magic,Minnesota Timberwolves,,100,2.11,1.50
+2014-04-06,Washington Wizards,Chicago Bulls,78,96,1.59,1.96
+2014-04-05,Golden State Warriors,Sacramento Kings,,102,1.13,3.77
+2014-04-05,Los Angeles Lakers,Dallas Mavericks,95,107,3.38,1.18
+2014-04-05,Portland Trail Blazers,Phoenix Suns,93,109,1.41,2.27
+2014-04-05,Houston Rockets,Oklahoma City Thunder,,111,1.59,1.96
+2014-04-05,Utah Jazz,New Orleans Pelicans,,100,1.49,2.10
+2014-04-05,Chicago Bulls,Milwaukee Bucks,,102,1.02,6.27
+2014-04-05,Atlanta Hawks,Cleveland Cavaliers,,117,1.65,1.84
+2014-04-05,Boston Celtics,Philadelphia 76ers,102,111,1.12,4.05
+2014-04-05,Brooklyn Nets,Detroit Pistons,,116,1.10,4.40
+2014-04-05,Miami Heat,Minnesota Timberwolves,121,122,1.16,3.58
+2014-04-05,New York Knicks,Washington Wizards,89,90,1.38,2.40
+2014-04-05,Charlotte Hornets,Orlando Magic,,91,1.10,4.40
+2014-04-05,Memphis Grizzlies,Denver Nuggets,,100,1.12,4.10
+2014-04-05,Toronto Raptors,Indiana Pacers,,102,1.81,1.71
+2014-04-04,Los Angeles Clippers,Dallas Mavericks,107,113,1.42,2.28
+2014-04-04,Oklahoma City Thunder,San Antonio Spurs,,106,1.46,2.15
+2014-04-03,Phoenix Suns,Los Angeles Clippers,108,112,1.53,2.02
+2014-04-03,Sacramento Kings,Los Angeles Lakers,,107,1.19,3.22
+2014-04-03,Denver Nuggets,New Orleans Pelicans,,137,1.46,2.15
+2014-04-03,San Antonio Spurs,Golden State Warriors,,111,1.10,4.22
+2014-04-03,Minnesota Timberwolves,Memphis Grizzlies,,102,2.33,1.39
+2014-04-03,Atlanta Hawks,Chicago Bulls,92,105,1.96,1.61
+2014-04-03,Miami Heat,Milwaukee Bucks,,96,1.02,6.17
+2014-04-03,Indiana Pacers,Detroit Pistons,,101,1.08,4.54
+2014-04-03,New York Knicks,Brooklyn Nets,,110,1.57,1.97
+2014-04-03,Orlando Magic,Cleveland Cavaliers,98,119,1.89,1.62
+2014-04-03,Philadelphia 76ers,Charlotte Hornets,93,123,3.62,1.15
+2014-04-03,Toronto Raptors,Houston Rockets,,107,1.64,1.86
+2014-04-03,Washington Wizards,Boston Celtics,,118,1.17,3.40
+2014-04-02,Los Angeles Lakers,Portland Trail Blazers,112,124,3.73,1.15
+2014-04-02,Dallas Mavericks,Golden State Warriors,120,122,1.40,2.32
+2014-04-02,Brooklyn Nets,Houston Rockets,,105,1.50,2.08
+2014-04-01,Denver Nuggets,Memphis Grizzlies,92,94,2.30,1.40
+2014-04-01,Utah Jazz,New York Knicks,83,92,2.18,1.46
+2014-04-01,Chicago Bulls,Boston Celtics,,94,1.11,4.15
+2014-04-01,Minnesota Timberwolves,Los Angeles Clippers,104,114,2.10,1.49
+2014-04-01,New Orleans Pelicans,Sacramento Kings,97,102,1.43,2.25
+2014-04-01,Atlanta Hawks,Philadelphia 76ers,,103,1.03,6.00
+2014-04-01,Detroit Pistons,Milwaukee Bucks,,116,1.24,2.93
+2014-04-01,Miami Heat,Toronto Raptors,,93,1.30,2.62
+2014-04-01,Charlotte Hornets,Washington Wizards,,100,1.53,2.03
+2014-04-01,Indiana Pacers,San Antonio Spurs,77,103,2.30,1.40
+2014-03-31,Los Angeles Lakers,Phoenix Suns,,115,4.20,1.11
+2014-03-31,Golden State Warriors,New York Knicks,84,89,1.27,2.78
+2014-03-31,Portland Trail Blazers,Memphis Grizzlies,,105,1.63,1.88
+2014-03-31,Boston Celtics,Chicago Bulls,102,107,2.45,1.37
+2014-03-31,Brooklyn Nets,Minnesota Timberwolves,,114,1.45,2.20
+2014-03-31,Orlando Magic,Toronto Raptors,93,98,2.32,1.39
+2014-03-30,Cleveland Cavaliers,Indiana Pacers,,90,2.48,1.35
+2014-03-30,Oklahoma City Thunder,Utah Jazz,,116,1.01,7.88
+2014-03-30,Dallas Mavericks,Sacramento Kings,,103,1.05,5.25
+2014-03-30,Milwaukee Bucks,Miami Heat,67,88,3.72,1.14
+2014-03-30,San Antonio Spurs,New Orleans Pelicans,,96,1.01,6.75
+2014-03-30,Houston Rockets,Los Angeles Clippers,107,118,1.68,1.82
+2014-03-30,Washington Wizards,Atlanta Hawks,,101,1.30,2.63
+2014-03-30,Philadelphia 76ers,Detroit Pistons,76,123,2.68,1.30
+2014-03-29,Golden State Warriors,Memphis Grizzlies,,100,1.60,1.94
+2014-03-29,Phoenix Suns,New York Knicks,,112,1.29,2.68
+2014-03-29,Denver Nuggets,San Antonio Spurs,102,133,3.30,1.19
+2014-03-29,Chicago Bulls,Portland Trail Blazers,74,91,1.41,2.28
+2014-03-29,Minnesota Timberwolves,Los Angeles Lakers,,143,1.05,5.30
+2014-03-29,New Orleans Pelicans,Utah Jazz,,102,1.23,3.00
+2014-03-29,Oklahoma City Thunder,Sacramento Kings,,94,1.02,6.00
+2014-03-29,Brooklyn Nets,Cleveland Cavaliers,,108,1.15,3.62
+2014-03-29,Detroit Pistons,Miami Heat,78,110,2.45,1.36
+2014-03-29,Orlando Magic,Charlotte Hornets,,110,2.33,1.39
+2014-03-29,Toronto Raptors,Boston Celtics,,105,1.10,4.28
+2014-03-29,Washington Wizards,Indiana Pacers,,91,1.85,1.65
+2014-03-28,Dallas Mavericks,Los Angeles Clippers,103,109,1.80,1.71
+2014-03-28,Houston Rockets,Philadelphia 76ers,,120,1.00,10.00
+2014-03-28,Milwaukee Bucks,Los Angeles Lakers,,108,1.60,1.98
+2014-03-28,Atlanta Hawks,Portland Trail Blazers,85,100,2.34,1.41
+2014-03-27,Utah Jazz,Memphis Grizzlies,87,91,3.75,1.14
+2014-03-27,Sacramento Kings,New York Knicks,99,107,1.92,1.60
+2014-03-27,San Antonio Spurs,Denver Nuggets,,108,1.01,6.42
+2014-03-27,Indiana Pacers,Miami Heat,,84,1.65,1.84
+2014-03-27,Minnesota Timberwolves,Atlanta Hawks,,107,1.29,2.68
+2014-03-27,New Orleans Pelicans,Los Angeles Clippers,,98,3.08,1.22
+2014-03-27,Boston Celtics,Toronto Raptors,90,99,2.08,1.49
+2014-03-27,Detroit Pistons,Cleveland Cavaliers,96,97,1.30,2.68
+2014-03-27,Charlotte Hornets,Brooklyn Nets,,116,1.62,1.90
+2014-03-27,Washington Wizards,Phoenix Suns,93,99,1.92,1.63
+2014-03-26,Los Angeles Lakers,New York Knicks,,127,3.15,1.21
+2014-03-26,Dallas Mavericks,Oklahoma City Thunder,,128,2.02,1.53
+2014-03-26,Cleveland Cavaliers,Toronto Raptors,,102,2.29,1.43
+2014-03-26,Orlando Magic,Portland Trail Blazers,,95,2.73,1.31
+2014-03-25,Los Angeles Clippers,Milwaukee Bucks,,106,1.01,7.88
+2014-03-25,Utah Jazz,Detroit Pistons,94,114,1.87,1.65
+2014-03-25,San Antonio Spurs,Philadelphia 76ers,,113,1.01,10.13
+2014-03-25,Chicago Bulls,Indiana Pacers,,89,1.65,1.85
+2014-03-25,Memphis Grizzlies,Minnesota Timberwolves,,109,1.20,3.25
+2014-03-25,New Orleans Pelicans,Brooklyn Nets,,109,1.70,1.79
+2014-03-25,Oklahoma City Thunder,Denver Nuggets,,117,1.06,5.00
+2014-03-25,Atlanta Hawks,Phoenix Suns,95,102,1.97,1.57
+2014-03-25,Miami Heat,Portland Trail Blazers,,93,1.29,2.70
+2014-03-25,Charlotte Hornets,Houston Rockets,89,100,2.35,1.38
+2014-03-24,Los Angeles Lakers,Orlando Magic,,103,1.41,2.30
+2014-03-24,Dallas Mavericks,Brooklyn Nets,104,107,1.38,2.35
+2014-03-24,New York Knicks,Cleveland Cavaliers,100,106,1.10,4.27
+2014-03-23,Sacramento Kings,Milwaukee Bucks,,124,1.18,3.42
+2014-03-23,Denver Nuggets,Washington Wizards,,105,1.63,1.92
+2014-03-23,Minnesota Timberwolves,Phoenix Suns,120,127,1.54,2.03
+2014-03-23,Toronto Raptors,Atlanta Hawks,,96,1.22,3.22
+2014-03-23,Golden State Warriors,San Antonio Spurs,90,99,1.50,2.07
+2014-03-23,Los Angeles Clippers,Detroit Pistons,,112,1.02,6.13
+2014-03-23,Utah Jazz,Orlando Magic,,89,1.39,2.38
+2014-03-23,Chicago Bulls,Philadelphia 76ers,,91,1.01,7.25
+2014-03-23,Memphis Grizzlies,Indiana Pacers,,82,1.59,1.96
+2014-03-23,New Orleans Pelicans,Miami Heat,,105,2.47,1.35
+2014-03-23,Cleveland Cavaliers,Houston Rockets,111,118,3.38,1.18
+2014-03-23,Charlotte Hornets,Portland Trail Blazers,,124,1.70,1.80
+2014-03-22,Los Angeles Lakers,Washington Wizards,107,117,2.28,1.41
+2014-03-22,Phoenix Suns,Detroit Pistons,,98,1.18,3.38
+2014-03-22,Sacramento Kings,San Antonio Spurs,79,99,3.30,1.19
+2014-03-22,Dallas Mavericks,Denver Nuggets,,122,1.18,3.35
+2014-03-22,Atlanta Hawks,New Orleans Pelicans,105,111,1.31,2.62
+2014-03-22,Brooklyn Nets,Boston Celtics,,114,1.17,3.47
+2014-03-22,Miami Heat,Memphis Grizzlies,,91,1.40,2.30
+2014-03-22,Indiana Pacers,Chicago Bulls,,91,1.28,2.78
+2014-03-22,Philadelphia 76ers,New York Knicks,92,93,5.63,1.04
+2014-03-22,Toronto Raptors,Oklahoma City Thunder,118,119,2.03,1.52
+2014-03-21,Golden State Warriors,Milwaukee Bucks,,115,1.02,6.00
+2014-03-21,Portland Trail Blazers,Washington Wizards,,116,1.37,2.42
+2014-03-21,Houston Rockets,Minnesota Timberwolves,,129,1.22,3.22
+2014-03-21,Cleveland Cavaliers,Oklahoma City Thunder,95,102,4.05,1.11
+2014-03-20,Los Angeles Lakers,San Antonio Spurs,109,125,7.00,1.02
+2014-03-20,Phoenix Suns,Orlando Magic,,109,1.04,5.67
+2014-03-20,Denver Nuggets,Detroit Pistons,,118,1.26,2.85
+2014-03-20,Dallas Mavericks,Minnesota Timberwolves,122,123,1.35,2.47
+2014-03-20,Memphis Grizzlies,Utah Jazz,,96,1.04,5.50
+2014-03-20,New Orleans Pelicans,Toronto Raptors,100,107,1.90,1.63
+2014-03-20,New York Knicks,Indiana Pacers,,92,1.81,1.68
+2014-03-20,Boston Celtics,Miami Heat,,101,2.37,1.39
+2014-03-20,Brooklyn Nets,Charlotte Hornets,,104,1.30,2.70
+2014-03-20,Philadelphia 76ers,Chicago Bulls,94,102,6.25,1.03
+2014-03-19,Golden State Warriors,Orlando Magic,,103,1.03,5.67
+2014-03-19,Portland Trail Blazers,Milwaukee Bucks,,120,1.03,5.92
+2014-03-19,Sacramento Kings,Washington Wizards,,117,1.88,1.64
+2014-03-19,Atlanta Hawks,Toronto Raptors,,118,2.01,1.54
+2014-03-19,Cleveland Cavaliers,Miami Heat,96,100,4.53,1.08
+2014-03-18,Denver Nuggets,Los Angeles Clippers,,110,2.30,1.40
+2014-03-18,Dallas Mavericks,Boston Celtics,,94,1.05,5.33
+2014-03-18,Chicago Bulls,Oklahoma City Thunder,85,97,1.98,1.57
+2014-03-18,Houston Rockets,Utah Jazz,,124,1.02,6.88
+2014-03-18,Brooklyn Nets,Phoenix Suns,,108,1.46,2.17
+2014-03-18,Charlotte Hornets,Atlanta Hawks,83,97,1.53,2.03
+2014-03-18,Indiana Pacers,Philadelphia 76ers,,99,1.01,9.13
+2014-03-17,Los Angeles Clippers,Cleveland Cavaliers,,102,1.06,5.03
+2014-03-17,Portland Trail Blazers,Golden State Warriors,112,113,1.90,1.61
+2014-03-17,Minnesota Timberwolves,Sacramento Kings,,104,1.13,3.83
+2014-03-17,Oklahoma City Thunder,Dallas Mavericks,86,109,1.23,2.97
+2014-03-17,San Antonio Spurs,Utah Jazz,,122,1.01,9.42
+2014-03-16,New Orleans Pelicans,Boston Celtics,,121,1.29,2.81
+2014-03-16,Miami Heat,Houston Rockets,,113,1.32,2.68
+2014-03-16,Milwaukee Bucks,Charlotte Hornets,92,101,2.83,1.27
+2014-03-16,Toronto Raptors,Phoenix Suns,113,121,1.41,2.36
+2014-03-16,Chicago Bulls,Sacramento Kings,,94,1.18,3.45
+2014-03-16,Atlanta Hawks,Denver Nuggets,,97,1.32,2.58
+2014-03-16,Detroit Pistons,Indiana Pacers,104,112,2.53,1.35
+2014-03-16,Philadelphia 76ers,Memphis Grizzlies,77,103,7.00,1.01
+2014-03-16,Washington Wizards,Brooklyn Nets,,101,2.02,1.53
+2014-03-15,New York Knicks,Milwaukee Bucks,,115,1.08,4.72
+2014-03-15,Golden State Warriors,Cleveland Cavaliers,94,103,1.13,3.83
+2014-03-15,Utah Jazz,Los Angeles Clippers,87,96,3.90,1.12
+2014-03-15,San Antonio Spurs,Los Angeles Lakers,,119,1.01,7.92
+2014-03-15,New Orleans Pelicans,Portland Trail Blazers,103,111,1.96,1.60
+2014-03-15,Boston Celtics,Phoenix Suns,80,87,2.32,1.42
+2014-03-15,Miami Heat,Denver Nuggets,107,111,1.07,5.21
+2014-03-15,Charlotte Hornets,Minnesota Timberwolves,,105,1.95,1.60
+2014-03-15,Orlando Magic,Washington Wizards,101,105,2.51,1.36
+2014-03-15,Philadelphia 76ers,Indiana Pacers,94,101,8.25,1.01
+2014-03-15,Toronto Raptors,Memphis Grizzlies,,99,1.78,1.75
+2014-03-14,Oklahoma City Thunder,Los Angeles Lakers,,131,1.01,9.33
+2014-03-14,Atlanta Hawks,Milwaukee Bucks,,102,1.12,4.05
+2014-03-14,Chicago Bulls,Houston Rockets,,111,2.12,1.50
+2014-03-13,Los Angeles Clippers,Golden State Warriors,,111,1.26,2.95
+2014-03-13,Phoenix Suns,Cleveland Cavaliers,101,110,1.16,3.67
+2014-03-13,San Antonio Spurs,Portland Trail Blazers,,103,1.21,3.15
+2014-03-13,Utah Jazz,Dallas Mavericks,101,108,2.32,1.40
+2014-03-13,New Orleans Pelicans,Memphis Grizzlies,88,90,2.38,1.38
+2014-03-13,Boston Celtics,New York Knicks,92,116,2.28,1.44
+2014-03-13,Miami Heat,Brooklyn Nets,95,96,1.11,4.25
+2014-03-13,Orlando Magic,Denver Nuggets,112,120,1.98,1.56
+2014-03-13,Philadelphia 76ers,Sacramento Kings,98,115,4.10,1.12
+2014-03-13,Toronto Raptors,Detroit Pistons,,101,1.13,3.77
+2014-03-13,Washington Wizards,Charlotte Hornets,85,98,1.31,2.62
+2014-03-12,Golden State Warriors,Dallas Mavericks,,108,1.34,2.50
+2014-03-12,Chicago Bulls,San Antonio Spurs,96,104,2.47,1.36
+2014-03-12,Memphis Grizzlies,Portland Trail Blazers,,109,1.52,2.08
+2014-03-12,Minnesota Timberwolves,Milwaukee Bucks,,112,1.01,7.38
+2014-03-12,Oklahoma City Thunder,Houston Rockets,,106,1.41,2.30
+2014-03-12,Detroit Pistons,Sacramento Kings,,99,1.55,2.04
+2014-03-12,Indiana Pacers,Boston Celtics,,94,1.05,5.42
+2014-03-11,Los Angeles Clippers,Phoenix Suns,,112,1.08,4.64
+2014-03-11,Utah Jazz,Atlanta Hawks,110,112,1.93,1.60
+2014-03-11,Milwaukee Bucks,Orlando Magic,,105,1.81,1.70
+2014-03-11,Brooklyn Nets,Toronto Raptors,,101,1.59,1.96
+2014-03-11,Miami Heat,Washington Wizards,,99,1.20,3.20
+2014-03-11,New York Knicks,Philadelphia 76ers,,123,1.00,7.92
+2014-03-11,Charlotte Hornets,Denver Nuggets,,105,1.35,2.55
+2014-03-10,Golden State Warriors,Phoenix Suns,,113,1.11,4.05
+2014-03-10,Dallas Mavericks,Indiana Pacers,,105,1.83,1.69
+2014-03-10,Houston Rockets,Portland Trail Blazers,,118,1.30,2.77
+2014-03-10,Minnesota Timberwolves,Toronto Raptors,104,111,1.36,2.46
+2014-03-09,Boston Celtics,Detroit Pistons,,118,1.69,1.85
+2014-03-09,Brooklyn Nets,Sacramento Kings,,104,1.25,3.00
+2014-03-09,New Orleans Pelicans,Denver Nuggets,,111,1.59,1.99
+2014-03-09,Los Angeles Lakers,Oklahoma City Thunder,,114,5.83,1.04
+2014-03-09,Chicago Bulls,Miami Heat,,95,2.45,1.38
+2014-03-09,Los Angeles Clippers,Atlanta Hawks,,109,1.00,7.25
+2014-03-09,Milwaukee Bucks,Washington Wizards,107,114,3.23,1.20
+2014-03-09,San Antonio Spurs,Orlando Magic,,121,1.00,8.08
+2014-03-09,Memphis Grizzlies,Charlotte Hornets,,111,1.13,3.77
+2014-03-09,Cleveland Cavaliers,New York Knicks,97,107,1.73,1.77
+2014-03-09,Philadelphia 76ers,Utah Jazz,92,104,2.93,1.26
+2014-03-08,Golden State Warriors,Atlanta Hawks,,111,1.13,3.80
+2014-03-08,Houston Rockets,Indiana Pacers,,112,1.37,2.40
+2014-03-08,Denver Nuggets,Los Angeles Lakers,,134,1.11,4.10
+2014-03-08,Dallas Mavericks,Portland Trail Blazers,,103,1.58,1.96
+2014-03-08,Minnesota Timberwolves,Detroit Pistons,,114,1.12,3.95
+2014-03-08,New Orleans Pelicans,Milwaukee Bucks,,112,1.20,3.23
+2014-03-08,Boston Celtics,Brooklyn Nets,,91,2.40,1.37
+2014-03-08,New York Knicks,Utah Jazz,,108,1.24,2.92
+2014-03-08,Charlotte Hornets,Cleveland Cavaliers,,101,1.37,2.42
+2014-03-08,Chicago Bulls,Memphis Grizzlies,77,85,1.71,1.80
+2014-03-08,Toronto Raptors,Sacramento Kings,,99,1.25,2.97
+2014-03-07,Los Angeles Lakers,Los Angeles Clippers,94,142,4.58,1.08
+2014-03-07,Phoenix Suns,Oklahoma City Thunder,,128,2.65,1.30
+2014-03-07,San Antonio Spurs,Miami Heat,,111,1.50,2.07
+2014-03-06,Portland Trail Blazers,Atlanta Hawks,,102,1.12,3.95
+2014-03-06,Denver Nuggets,Dallas Mavericks,,115,2.35,1.38
+2014-03-06,Milwaukee Bucks,Sacramento Kings,102,116,2.05,1.51
+2014-03-06,Minnesota Timberwolves,New York Knicks,106,118,1.15,3.78
+2014-03-06,Boston Celtics,Golden State Warriors,88,108,2.42,1.36
+2014-03-06,Brooklyn Nets,Memphis Grizzlies,,103,1.76,1.73
+2014-03-06,Detroit Pistons,Chicago Bulls,94,105,2.17,1.46
+2014-03-06,Charlotte Hornets,Indiana Pacers,,109,2.38,1.37
+2014-03-06,Orlando Magic,Houston Rockets,89,101,3.25,1.19
+2014-03-06,Washington Wizards,Utah Jazz,,104,1.20,3.30
+2014-03-05,Los Angeles Lakers,New Orleans Pelicans,125,132,1.54,2.00
+2014-03-05,Phoenix Suns,Los Angeles Clippers,96,104,2.27,1.42
+2014-03-05,Houston Rockets,Miami Heat,,106,1.70,1.80
+2014-03-05,Oklahoma City Thunder,Philadelphia 76ers,,125,1.01,8.13
+2014-03-05,Cleveland Cavaliers,San Antonio Spurs,101,122,3.10,1.21
+2014-03-05,Indiana Pacers,Golden State Warriors,96,98,1.36,2.43
+2014-03-04,Portland Trail Blazers,Los Angeles Lakers,106,107,1.03,6.18
+2014-03-04,Sacramento Kings,New Orleans Pelicans,,96,1.41,2.27
+2014-03-04,Denver Nuggets,Minnesota Timberwolves,128,132,2.55,1.32
+2014-03-04,Milwaukee Bucks,Utah Jazz,,114,1.74,1.75
+2014-03-04,Brooklyn Nets,Chicago Bulls,,96,1.50,2.07
+2014-03-04,Detroit Pistons,New York Knicks,,96,1.42,2.25
+2014-03-04,Miami Heat,Charlotte Hornets,,124,1.03,6.02
+2014-03-04,Washington Wizards,Memphis Grizzlies,104,110,1.90,1.63
+2014-03-03,Phoenix Suns,Atlanta Hawks,,129,1.18,3.33
+2014-03-03,Oklahoma City Thunder,Charlotte Hornets,,116,1.07,4.82
+2014-03-03,San Antonio Spurs,Dallas Mavericks,,112,1.29,2.68
+2014-03-03,Indiana Pacers,Utah Jazz,,94,1.06,5.07
+2014-03-03,Orlando Magic,Philadelphia 76ers,,92,1.08,4.60
+2014-03-02,Toronto Raptors,Golden State Warriors,,104,1.98,1.59
+2014-03-02,Chicago Bulls,New York Knicks,,109,1.23,3.05
+2014-03-02,Los Angeles Clippers,New Orleans Pelicans,,108,1.05,5.33
+2014-03-02,Portland Trail Blazers,Denver Nuggets,,102,1.06,4.98
+2014-03-02,Sacramento Kings,Minnesota Timberwolves,97,108,2.25,1.42
+2014-03-02,Memphis Grizzlies,Cleveland Cavaliers,,110,1.14,3.72
+2014-03-02,Milwaukee Bucks,Brooklyn Nets,98,107,2.70,1.28
+2014-03-02,Boston Celtics,Indiana Pacers,97,102,3.22,1.20
+2014-03-02,Houston Rockets,Detroit Pistons,,118,1.08,4.57
+2014-03-02,Miami Heat,Orlando Magic,,112,1.01,8.33
+2014-03-02,Philadelphia 76ers,Washington Wizards,103,122,4.92,1.06
+2014-03-01,Los Angeles Lakers,Sacramento Kings,,126,1.60,1.93
+2014-03-01,Phoenix Suns,New Orleans Pelicans,,116,1.26,2.80
+2014-03-01,Dallas Mavericks,Chicago Bulls,91,100,1.41,2.28
+2014-03-01,San Antonio Spurs,Charlotte Hornets,,92,1.14,3.68
+2014-03-01,New York Knicks,Golden State Warriors,103,126,2.62,1.31
+2014-03-01,Oklahoma City Thunder,Memphis Grizzlies,,113,1.28,2.78
+2014-03-01,Cleveland Cavaliers,Utah Jazz,,99,1.43,2.26
+2014-02-28,Denver Nuggets,Brooklyn Nets,89,112,1.92,1.60
+2014-02-28,Miami Heat,New York Knicks,,108,1.13,3.77
+2014-02-28,Indiana Pacers,Milwaukee Bucks,,101,1.00,9.00
+2014-02-28,Toronto Raptors,Washington Wizards,129,134,1.39,2.35
+2014-02-27,Los Angeles Clippers,Houston Rockets,,101,1.35,2.45
+2014-02-27,Portland Trail Blazers,Brooklyn Nets,,124,1.64,1.87
+2014-02-27,Utah Jazz,Phoenix Suns,,109,1.60,1.92
+2014-02-27,San Antonio Spurs,Detroit Pistons,,120,1.07,5.08
+2014-02-27,Chicago Bulls,Golden State Warriors,,103,2.08,1.49
+2014-02-27,Dallas Mavericks,New Orleans Pelicans,,108,1.23,3.10
+2014-02-27,Memphis Grizzlies,Los Angeles Lakers,,108,1.06,4.98
+2014-02-27,Oklahoma City Thunder,Cleveland Cavaliers,104,114,1.00,7.25
+2014-02-27,Boston Celtics,Atlanta Hawks,,115,1.53,2.02
+2014-02-27,Philadelphia 76ers,Orlando Magic,90,101,2.18,1.45
+2014-02-26,Sacramento Kings,Houston Rockets,103,129,2.27,1.42
+2014-02-26,Denver Nuggets,Portland Trail Blazers,95,100,1.99,1.56
+2014-02-26,Phoenix Suns,Minnesota Timberwolves,101,110,1.44,2.23
+2014-02-26,Atlanta Hawks,Chicago Bulls,103,107,1.89,1.62
+2014-02-26,Cleveland Cavaliers,Toronto Raptors,93,99,2.17,1.46
+2014-02-26,Indiana Pacers,Los Angeles Lakers,,118,1.01,6.25
+2014-02-26,Washington Wizards,Orlando Magic,,115,1.12,3.98
+2014-02-25,Utah Jazz,Boston Celtics,,110,1.44,2.22
+2014-02-25,New Orleans Pelicans,Los Angeles Clippers,110,123,2.33,1.39
+2014-02-25,Detroit Pistons,Golden State Warriors,96,104,2.15,1.46
+2014-02-25,New York Knicks,Dallas Mavericks,108,110,2.02,1.53
+2014-02-25,Philadelphia 76ers,Milwaukee Bucks,110,130,1.98,1.55
+2014-02-24,Los Angeles Lakers,Brooklyn Nets,102,108,2.03,1.54
+2014-02-24,Phoenix Suns,Houston Rockets,112,115,1.83,1.67
+2014-02-24,Portland Trail Blazers,Minnesota Timberwolves,,108,1.44,2.20
+2014-02-24,Denver Nuggets,Sacramento Kings,95,109,1.34,2.50
+2014-02-24,Cleveland Cavaliers,Washington Wizards,83,96,1.82,1.67
+2014-02-24,Toronto Raptors,Orlando Magic,,105,1.06,4.95
+2014-02-23,Miami Heat,Chicago Bulls,,93,1.34,2.53
+2014-02-23,Oklahoma City Thunder,Los Angeles Clippers,117,125,1.35,2.49
+2014-02-23,Golden State Warriors,Brooklyn Nets,,93,1.34,2.50
+2014-02-23,Sacramento Kings,Boston Celtics,,105,1.18,3.35
+2014-02-23,Utah Jazz,Minnesota Timberwolves,104,121,2.43,1.36
+2014-02-23,Milwaukee Bucks,Indiana Pacers,100,110,5.33,1.05
+2014-02-23,Atlanta Hawks,New York Knicks,,107,1.63,1.89
+2014-02-23,Detroit Pistons,Dallas Mavericks,102,113,2.08,1.49
+2014-02-23,Charlotte Hornets,Memphis Grizzlies,,92,1.99,1.55
+2014-02-23,Washington Wizards,New Orleans Pelicans,,94,1.27,2.78
+2014-02-22,Los Angeles Lakers,Boston Celtics,,101,1.68,1.81
+2014-02-22,Portland Trail Blazers,Utah Jazz,,102,1.16,3.55
+2014-02-22,Phoenix Suns,San Antonio Spurs,,106,1.85,1.66
+2014-02-22,Chicago Bulls,Denver Nuggets,,117,1.22,3.05
+2014-02-22,Memphis Grizzlies,Los Angeles Clippers,,102,1.89,1.62
+2014-02-22,Detroit Pistons,Atlanta Hawks,,115,1.46,2.17
+2014-02-22,Charlotte Hornets,New Orleans Pelicans,,90,1.51,2.05
+2014-02-22,Orlando Magic,New York Knicks,,129,2.10,1.48
+2014-02-22,Philadelphia 76ers,Dallas Mavericks,112,124,6.17,1.02
+2014-02-22,Toronto Raptors,Cleveland Cavaliers,,98,1.18,3.33
+2014-02-21,Golden State Warriors,Houston Rockets,,102,1.83,1.67
+2014-02-21,Milwaukee Bucks,Denver Nuggets,90,101,2.47,1.36
+2014-02-21,Oklahoma City Thunder,Miami Heat,81,103,1.54,2.04
+2014-02-20,Los Angeles Lakers,Houston Rockets,108,134,3.37,1.17
+2014-02-20,Portland Trail Blazers,San Antonio Spurs,109,111,1.56,1.98
+2014-02-20,Sacramento Kings,Golden State Warriors,92,101,2.38,1.38
+2014-02-20,Phoenix Suns,Boston Celtics,,100,1.29,2.67
+2014-02-20,Utah Jazz,Brooklyn Nets,99,105,2.20,1.44
+2014-02-20,Minnesota Timberwolves,Indiana Pacers,,104,2.05,1.52
+2014-02-20,New Orleans Pelicans,New York Knicks,91,98,1.47,2.13
+2014-02-20,Atlanta Hawks,Washington Wizards,97,114,1.67,1.84
+2014-02-20,Charlotte Hornets,Detroit Pistons,,116,1.57,1.97
+2014-02-20,Cleveland Cavaliers,Orlando Magic,,101,1.32,2.57
+2014-02-20,Toronto Raptors,Chicago Bulls,92,94,1.51,2.05
+2014-02-19,Los Angeles Clippers,San Antonio Spurs,103,113,1.28,2.70
+2014-02-19,Denver Nuggets,Phoenix Suns,107,112,1.94,1.59
+2014-02-19,Dallas Mavericks,Miami Heat,106,117,1.96,1.58
+2014-02-19,Memphis Grizzlies,New York Knicks,,98,1.33,2.53
+2014-02-19,Milwaukee Bucks,Orlando Magic,,104,2.02,1.53
+2014-02-19,Detroit Pistons,Charlotte Hornets,96,108,1.39,2.33
+2014-02-19,Indiana Pacers,Atlanta Hawks,,108,1.07,4.83
+2014-02-19,Philadelphia 76ers,Cleveland Cavaliers,85,114,2.25,1.43
+2014-02-19,Washington Wizards,Toronto Raptors,93,103,1.57,1.98
+2014-02-14,Los Angeles Lakers,Oklahoma City Thunder,103,107,4.81,1.07
+2014-02-14,Chicago Bulls,Brooklyn Nets,,92,1.48,2.12
+2014-02-13,Golden State Warriors,Miami Heat,110,111,1.76,1.73
+2014-02-13,Los Angeles Clippers,Portland Trail Blazers,,122,1.13,3.80
+2014-02-13,Utah Jazz,Philadelphia 76ers,,105,1.20,3.23
+2014-02-13,Houston Rockets,Washington Wizards,,113,1.13,3.77
+2014-02-13,Milwaukee Bucks,New Orleans Pelicans,98,102,3.23,1.20
+2014-02-13,Minnesota Timberwolves,Denver Nuggets,,117,1.26,2.83
+2014-02-13,Boston Celtics,San Antonio Spurs,92,104,2.13,1.47
+2014-02-13,Brooklyn Nets,Charlotte Hornets,,105,1.22,3.07
+2014-02-13,Detroit Pistons,Cleveland Cavaliers,89,93,1.19,3.28
+2014-02-13,New York Knicks,Sacramento Kings,101,106,1.28,2.70
+2014-02-13,Indiana Pacers,Dallas Mavericks,73,81,1.12,4.00
+2014-02-13,Orlando Magic,Memphis Grizzlies,81,86,1.85,1.65
+2014-02-13,Toronto Raptors,Atlanta Hawks,,104,1.27,2.90
+2014-02-12,Los Angeles Lakers,Utah Jazz,79,96,1.61,1.90
+2014-02-12,Portland Trail Blazers,Oklahoma City Thunder,95,98,1.72,1.77
+2014-02-12,Phoenix Suns,Miami Heat,97,103,2.03,1.52
+2014-02-12,Chicago Bulls,Atlanta Hawks,,100,1.67,1.83
+2014-02-12,Memphis Grizzlies,Washington Wizards,,92,1.41,2.30
+2014-02-12,Charlotte Hornets,Dallas Mavericks,,114,2.15,1.46
+2014-02-12,Cleveland Cavaliers,Sacramento Kings,,109,1.81,1.69
+2014-02-11,Golden State Warriors,Philadelphia 76ers,,123,1.01,7.17
+2014-02-11,Milwaukee Bucks,Boston Celtics,86,102,1.75,1.74
+2014-02-11,Minnesota Timberwolves,Houston Rockets,89,107,2.33,1.40
+2014-02-11,Detroit Pistons,San Antonio Spurs,,109,2.12,1.48
+2014-02-11,Indiana Pacers,Denver Nuggets,,119,1.08,4.63
+2014-02-11,Toronto Raptors,New Orleans Pelicans,,108,1.23,3.05
+2014-02-10,Los Angeles Clippers,Philadelphia 76ers,,123,1.00,7.58
+2014-02-10,Boston Celtics,Dallas Mavericks,91,102,2.35,1.40
+2014-02-10,Brooklyn Nets,New Orleans Pelicans,,93,1.37,2.37
+2014-02-10,Cleveland Cavaliers,Memphis Grizzlies,,91,2.10,1.50
+2014-02-10,Orlando Magic,Indiana Pacers,,93,3.48,1.16
+2014-02-10,Washington Wizards,Sacramento Kings,,93,1.35,2.59
+2014-02-09,Los Angeles Lakers,Chicago Bulls,86,92,2.04,1.55
+2014-02-09,Oklahoma City Thunder,New York Knicks,,112,1.11,4.22
+2014-02-09,Phoenix Suns,Golden State Warriors,,122,1.41,2.27
+2014-02-09,Utah Jazz,Miami Heat,,94,4.13,1.11
+2014-02-09,Milwaukee Bucks,Houston Rockets,95,101,4.80,1.07
+2014-02-09,Minnesota Timberwolves,Portland Trail Blazers,110,117,1.97,1.59
+2014-02-09,Atlanta Hawks,Memphis Grizzlies,76,79,1.67,1.84
+2014-02-09,Detroit Pistons,Denver Nuggets,,126,1.65,1.89
+2014-02-09,Charlotte Hornets,San Antonio Spurs,100,104,2.40,1.38
+2014-02-08,Los Angeles Clippers,Toronto Raptors,,118,1.33,2.52
+2014-02-08,New Orleans Pelicans,Minnesota Timberwolves,,98,1.77,1.73
+2014-02-08,Dallas Mavericks,Utah Jazz,,103,1.08,4.63
+2014-02-08,Boston Celtics,Sacramento Kings,,99,1.89,1.63
+2014-02-08,Detroit Pistons,Brooklyn Nets,,111,1.65,1.84
+2014-02-08,New York Knicks,Denver Nuggets,,117,1.64,1.86
+2014-02-08,Indiana Pacers,Portland Trail Blazers,,118,1.28,2.70
+2014-02-08,Orlando Magic,Oklahoma City Thunder,,103,4.32,1.10
+2014-02-08,Philadelphia 76ers,Los Angeles Lakers,98,112,1.45,2.23
+2014-02-08,Washington Wizards,Cleveland Cavaliers,113,115,1.13,3.83
+2014-02-07,Golden State Warriors,Chicago Bulls,,102,1.28,2.72
+2014-02-07,Brooklyn Nets,San Antonio Spurs,,103,1.30,2.62
+2014-02-06,Los Angeles Clippers,Miami Heat,112,116,1.71,1.77
+2014-02-06,Sacramento Kings,Toronto Raptors,,109,1.71,1.78
+2014-02-06,Denver Nuggets,Milwaukee Bucks,,110,1.04,5.58
+2014-02-06,Houston Rockets,Phoenix Suns,,122,1.20,3.28
+2014-02-06,Memphis Grizzlies,Dallas Mavericks,96,110,1.55,1.99
+2014-02-06,New Orleans Pelicans,Atlanta Hawks,,105,1.55,2.00
+2014-02-06,New York Knicks,Portland Trail Blazers,90,94,1.99,1.55
+2014-02-06,Oklahoma City Thunder,Minnesota Timberwolves,,106,1.08,4.75
+2014-02-06,Cleveland Cavaliers,Los Angeles Lakers,108,119,1.25,2.97
+2014-02-06,Orlando Magic,Detroit Pistons,,112,2.00,1.56
+2014-02-06,Philadelphia 76ers,Boston Celtics,108,114,2.05,1.52
+2014-02-06,Washington Wizards,San Antonio Spurs,118,125,1.94,1.62
+2014-02-05,Golden State Warriors,Charlotte Hornets,75,91,1.10,4.27
+2014-02-05,Phoenix Suns,Chicago Bulls,92,101,1.19,3.30
+2014-02-05,Minnesota Timberwolves,Los Angeles Lakers,,109,1.09,4.53
+2014-02-05,Atlanta Hawks,Indiana Pacers,85,89,2.03,1.52
+2014-02-04,Sacramento Kings,Chicago Bulls,,99,1.69,1.80
+2014-02-04,Denver Nuggets,Los Angeles Clippers,,116,1.84,1.65
+2014-02-04,Utah Jazz,Toronto Raptors,79,94,2.30,1.41
+2014-02-04,Dallas Mavericks,Cleveland Cavaliers,,124,1.15,3.58
+2014-02-04,Milwaukee Bucks,New York Knicks,,101,3.27,1.19
+2014-02-04,New Orleans Pelicans,San Antonio Spurs,95,102,2.12,1.47
+2014-02-04,Oklahoma City Thunder,Memphis Grizzlies,,86,1.16,3.48
+2014-02-04,Brooklyn Nets,Philadelphia 76ers,,108,1.11,4.23
+2014-02-04,Miami Heat,Detroit Pistons,,102,1.11,4.05
+2014-02-04,Indiana Pacers,Orlando Magic,,98,1.00,7.58
+2014-02-04,Washington Wizards,Portland Trail Blazers,,100,1.74,1.74
+2014-02-02,Boston Celtics,Orlando Magic,,96,1.29,2.82
+2014-02-02,Los Angeles Clippers,Utah Jazz,,102,1.02,6.00
+2014-02-02,Portland Trail Blazers,Toronto Raptors,,106,1.22,3.07
+2014-02-02,Phoenix Suns,Charlotte Hornets,,105,1.15,3.62
+2014-02-02,New York Knicks,Miami Heat,91,106,2.42,1.36
+2014-02-02,San Antonio Spurs,Sacramento Kings,,95,1.09,4.35
+2014-02-02,Houston Rockets,Cleveland Cavaliers,,106,1.06,5.07
+2014-02-02,Memphis Grizzlies,Milwaukee Bucks,,99,1.03,5.83
+2014-02-02,New Orleans Pelicans,Chicago Bulls,,88,1.71,1.78
+2014-02-02,Atlanta Hawks,Minnesota Timberwolves,,120,1.53,2.02
+2014-02-02,Detroit Pistons,Philadelphia 76ers,,113,1.13,3.87
+2014-02-02,Indiana Pacers,Brooklyn Nets,,97,1.06,4.92
+2014-02-02,Washington Wizards,Oklahoma City Thunder,,96,2.38,1.37
+2014-02-01,Los Angeles Lakers,Charlotte Hornets,100,110,1.53,2.02
+2014-02-01,Utah Jazz,Golden State Warriors,90,95,2.58,1.31
+2014-02-01,Denver Nuggets,Toronto Raptors,90,100,1.65,1.85
+2014-02-01,Dallas Mavericks,Sacramento Kings,,107,1.14,3.68
+2014-02-01,Brooklyn Nets,Oklahoma City Thunder,95,120,2.35,1.39
+2014-02-01,Minnesota Timberwolves,Memphis Grizzlies,90,94,1.82,1.68
+2014-02-01,Philadelphia 76ers,Atlanta Hawks,99,125,2.38,1.37
+2014-02-01,Orlando Magic,Milwaukee Bucks,,113,1.31,2.60
+2014-01-31,Golden State Warriors,Los Angeles Clippers,,111,1.33,2.62
+2014-01-31,New York Knicks,Cleveland Cavaliers,,117,1.30,2.73
+2014-01-31,Indiana Pacers,Phoenix Suns,94,102,1.05,5.65
+2014-01-30,Los Angeles Clippers,Washington Wizards,,110,1.16,3.48
+2014-01-30,Sacramento Kings,Memphis Grizzlies,89,99,2.45,1.35
+2014-01-30,San Antonio Spurs,Chicago Bulls,86,96,1.19,3.30
+2014-01-30,Denver Nuggets,Charlotte Hornets,98,101,1.19,3.28
+2014-01-30,Dallas Mavericks,Houston Rockets,115,117,1.41,2.30
+2014-01-30,Milwaukee Bucks,Phoenix Suns,117,126,3.37,1.17
+2014-01-30,Minnesota Timberwolves,New Orleans Pelicans,,88,1.10,4.20
+2014-01-30,Boston Celtics,Philadelphia 76ers,94,95,1.46,2.15
+2014-01-30,Miami Heat,Oklahoma City Thunder,95,112,1.48,2.18
+2014-01-30,Toronto Raptors,Orlando Magic,,98,1.11,4.07
+2014-01-29,Golden State Warriors,Washington Wizards,85,88,1.17,3.45
+2014-01-29,Los Angeles Lakers,Indiana Pacers,92,104,4.32,1.09
+2014-01-29,Portland Trail Blazers,Memphis Grizzlies,81,98,1.36,2.45
+2014-01-29,Houston Rockets,San Antonio Spurs,,97,1.86,1.64
+2014-01-29,Detroit Pistons,Orlando Magic,,103,1.24,2.95
+2014-01-29,New York Knicks,Boston Celtics,,114,1.30,2.65
+2014-01-29,Cleveland Cavaliers,New Orleans Pelicans,89,100,1.58,1.96
+2014-01-28,Utah Jazz,Sacramento Kings,,106,1.27,2.78
+2014-01-28,Chicago Bulls,Minnesota Timberwolves,86,95,2.18,1.45
+2014-01-28,Milwaukee Bucks,Los Angeles Clippers,86,114,4.03,1.11
+2014-01-28,Oklahoma City Thunder,Atlanta Hawks,,111,1.08,4.60
+2014-01-28,Brooklyn Nets,Toronto Raptors,103,104,1.46,2.15
+2014-01-28,Philadelphia 76ers,Phoenix Suns,113,124,2.43,1.36
+2014-01-27,Golden State Warriors,Portland Trail Blazers,,103,1.30,2.65
+2014-01-27,Sacramento Kings,Denver Nuggets,117,125,2.18,1.45
+2014-01-27,Dallas Mavericks,Detroit Pistons,,116,1.27,2.78
+2014-01-27,Boston Celtics,Brooklyn Nets,79,85,2.27,1.42
+2014-01-27,Cleveland Cavaliers,Phoenix Suns,90,99,1.61,1.90
+2014-01-27,New Orleans Pelicans,Orlando Magic,,100,1.27,2.73
+2014-01-26,New York Knicks,Los Angeles Lakers,,110,1.34,2.62
+2014-01-26,Miami Heat,San Antonio Spurs,,113,1.43,2.27
+2014-01-26,Portland Trail Blazers,Minnesota Timberwolves,,115,1.20,3.22
+2014-01-26,Denver Nuggets,Indiana Pacers,,109,1.93,1.60
+2014-01-26,Utah Jazz,Washington Wizards,,104,1.61,1.92
+2014-01-26,Milwaukee Bucks,Atlanta Hawks,87,112,1.93,1.60
+2014-01-26,Memphis Grizzlies,Houston Rockets,,99,1.84,1.65
+2014-01-26,Philadelphia 76ers,Oklahoma City Thunder,91,103,3.55,1.15
+2014-01-26,Charlotte Hornets,Chicago Bulls,87,89,1.84,1.65
+2014-01-26,Toronto Raptors,Los Angeles Clippers,118,126,1.70,1.82
+2014-01-25,Golden State Warriors,Minnesota Timberwolves,120,121,1.47,2.13
+2014-01-25,Sacramento Kings,Indiana Pacers,111,116,4.97,1.06
+2014-01-25,Phoenix Suns,Washington Wizards,95,101,1.46,2.15
+2014-01-25,Chicago Bulls,Los Angeles Clippers,95,112,1.93,1.60
+2014-01-25,Houston Rockets,Memphis Grizzlies,87,88,1.30,2.75
+2014-01-25,Atlanta Hawks,San Antonio Spurs,79,105,2.45,1.35
+2014-01-25,Boston Celtics,Oklahoma City Thunder,83,101,2.08,1.50
+2014-01-25,Brooklyn Nets,Dallas Mavericks,,107,1.62,1.96
+2014-01-25,Cleveland Cavaliers,Milwaukee Bucks,,93,1.18,3.35
+2014-01-25,Detroit Pistons,New Orleans Pelicans,101,103,1.48,2.12
+2014-01-25,New York Knicks,Charlotte Hornets,,125,1.42,2.25
+2014-01-25,Orlando Magic,Los Angeles Lakers,,114,1.60,1.93
+2014-01-25,Philadelphia 76ers,Toronto Raptors,95,104,2.78,1.27
+2014-01-24,Portland Trail Blazers,Denver Nuggets,,110,1.24,2.93
+2014-01-24,Miami Heat,Los Angeles Lakers,,109,1.06,4.92
+2014-01-23,Phoenix Suns,Indiana Pacers,,124,2.67,1.29
+2014-01-23,Houston Rockets,Sacramento Kings,,119,1.10,4.23
+2014-01-23,Milwaukee Bucks,Detroit Pistons,,104,2.37,1.38
+2014-01-23,San Antonio Spurs,Oklahoma City Thunder,105,111,1.29,2.68
+2014-01-23,New York Knicks,Philadelphia 76ers,106,110,1.18,3.35
+2014-01-23,Charlotte Hornets,Los Angeles Clippers,,95,2.75,1.29
+2014-01-23,Cleveland Cavaliers,Chicago Bulls,87,98,1.42,2.28
+2014-01-23,Orlando Magic,Atlanta Hawks,109,112,2.58,1.32
+2014-01-23,Toronto Raptors,Dallas Mavericks,,93,1.63,1.87
+2014-01-23,Washington Wizards,Boston Celtics,111,113,1.12,3.93
+2014-01-22,Utah Jazz,Minnesota Timberwolves,97,112,2.28,1.41
+2014-01-22,New Orleans Pelicans,Sacramento Kings,97,114,1.83,1.67
+2014-01-22,Oklahoma City Thunder,Portland Trail Blazers,,105,1.27,2.75
+2014-01-22,Brooklyn Nets,Orlando Magic,,101,1.13,3.83
+2014-01-22,Miami Heat,Boston Celtics,,93,1.11,4.05
+2014-01-21,Golden State Warriors,Indiana Pacers,94,102,1.69,1.82
+2014-01-21,Chicago Bulls,Los Angeles Lakers,,102,1.11,4.02
+2014-01-21,Houston Rockets,Portland Trail Blazers,,126,1.60,1.96
+2014-01-20,Atlanta Hawks,Miami Heat,,121,2.60,1.32
+2014-01-20,Memphis Grizzlies,New Orleans Pelicans,92,95,1.18,3.42
+2014-01-20,New York Knicks,Brooklyn Nets,80,103,1.87,1.65
+2014-01-20,Charlotte Hornets,Toronto Raptors,,100,2.39,1.39
+2014-01-20,Washington Wizards,Philadelphia 76ers,,107,1.06,4.98
+2014-01-20,Cleveland Cavaliers,Dallas Mavericks,97,102,1.84,1.68
+2014-01-20,Detroit Pistons,Los Angeles Clippers,103,112,2.12,1.48
+2014-01-20,Phoenix Suns,Denver Nuggets,,117,1.67,1.84
+2014-01-20,Oklahoma City Thunder,Sacramento Kings,,108,1.17,3.43
+2014-01-20,San Antonio Spurs,Milwaukee Bucks,,110,1.01,8.43
+2014-01-20,Orlando Magic,Boston Celtics,,93,2.02,1.53
+2014-01-19,Toronto Raptors,Los Angeles Lakers,106,112,1.13,4.05
+2014-01-19,Dallas Mavericks,Portland Trail Blazers,111,127,1.86,1.65
+2014-01-19,Chicago Bulls,Philadelphia 76ers,,103,1.16,3.60
+2014-01-19,Houston Rockets,Milwaukee Bucks,,114,1.01,6.67
+2014-01-19,Minnesota Timberwolves,Utah Jazz,,98,1.10,4.25
+2014-01-19,New Orleans Pelicans,Golden State Warriors,87,97,2.35,1.39
+2014-01-19,Charlotte Hornets,Miami Heat,96,104,2.90,1.25
+2014-01-19,Indiana Pacers,Los Angeles Clippers,,106,1.14,3.73
+2014-01-19,Washington Wizards,Detroit Pistons,98,104,1.30,2.67
+2014-01-18,Oklahoma City Thunder,Golden State Warriors,,127,1.72,1.78
+2014-01-18,Denver Nuggets,Cleveland Cavaliers,109,117,1.25,2.92
+2014-01-18,Phoenix Suns,Dallas Mavericks,107,110,1.85,1.65
+2014-01-18,San Antonio Spurs,Portland Trail Blazers,100,109,1.33,2.53
+2014-01-18,Memphis Grizzlies,Sacramento Kings,,91,1.34,2.50
+2014-01-18,Boston Celtics,Los Angeles Lakers,104,107,1.24,2.95
+2014-01-18,Detroit Pistons,Utah Jazz,89,110,1.25,2.90
+2014-01-18,New York Knicks,Los Angeles Clippers,95,109,2.25,1.43
+2014-01-18,Orlando Magic,Charlotte Hornets,101,111,1.82,1.70
+2014-01-18,Philadelphia 76ers,Miami Heat,86,101,4.67,1.08
+2014-01-18,Toronto Raptors,Minnesota Timberwolves,,94,1.70,1.80
+2014-01-18,Washington Wizards,Chicago Bulls,,96,1.38,2.42
+2014-01-17,Houston Rockets,Oklahoma City Thunder,92,104,1.60,1.94
+2014-01-17,Indiana Pacers,New York Knicks,,117,1.12,4.02
+2014-01-16,Atlanta Hawks,Brooklyn Nets,110,127,1.78,1.74
+2014-01-16,Golden State Warriors,Denver Nuggets,116,123,1.20,3.20
+2014-01-16,Los Angeles Clippers,Dallas Mavericks,,129,1.35,2.50
+2014-01-16,Portland Trail Blazers,Cleveland Cavaliers,,108,1.08,4.68
+2014-01-16,Phoenix Suns,Los Angeles Lakers,,121,1.07,4.86
+2014-01-16,Milwaukee Bucks,Memphis Grizzlies,77,82,2.57,1.32
+2014-01-16,Minnesota Timberwolves,Sacramento Kings,108,111,1.08,4.58
+2014-01-16,New Orleans Pelicans,Houston Rockets,100,103,2.53,1.33
+2014-01-16,San Antonio Spurs,Utah Jazz,,109,1.01,6.67
+2014-01-16,Boston Celtics,Toronto Raptors,,88,2.23,1.44
+2014-01-16,Orlando Magic,Chicago Bulls,125,128,2.65,1.30
+2014-01-16,Philadelphia 76ers,Charlotte Hornets,76,95,1.59,1.94
+2014-01-16,Washington Wizards,Miami Heat,,114,2.67,1.30
+2014-01-15,Los Angeles Lakers,Cleveland Cavaliers,118,120,2.17,1.46
+2014-01-15,Memphis Grizzlies,Oklahoma City Thunder,,90,1.79,1.73
+2014-01-15,Charlotte Hornets,New York Knicks,,108,1.72,1.78
+2014-01-15,Indiana Pacers,Sacramento Kings,,116,1.08,4.53
+2014-01-14,Utah Jazz,Denver Nuggets,,118,2.55,1.33
+2014-01-14,Dallas Mavericks,Orlando Magic,,107,1.03,5.77
+2014-01-14,Chicago Bulls,Washington Wizards,88,102,1.57,2.04
+2014-01-14,New Orleans Pelicans,San Antonio Spurs,95,101,2.90,1.25
+2014-01-14,Boston Celtics,Houston Rockets,92,104,2.70,1.29
+2014-01-14,New York Knicks,Phoenix Suns,,98,1.42,2.27
+2014-01-14,Toronto Raptors,Milwaukee Bucks,,116,1.08,4.63
+2014-01-13,San Antonio Spurs,Minnesota Timberwolves,,104,1.32,2.60
+2014-01-13,Memphis Grizzlies,Atlanta Hawks,,108,1.38,2.38
+2014-01-13,Sacramento Kings,Cleveland Cavaliers,,124,1.49,2.13
+2014-01-12,Portland Trail Blazers,Boston Celtics,,112,1.04,5.50
+2014-01-12,Denver Nuggets,Orlando Magic,,120,1.02,6.27
+2014-01-12,Dallas Mavericks,New Orleans Pelicans,,110,1.17,3.50
+2014-01-12,Chicago Bulls,Charlotte Hornets,,103,1.41,2.28
+2014-01-12,Oklahoma City Thunder,Milwaukee Bucks,,101,1.01,6.92
+2014-01-12,Detroit Pistons,Phoenix Suns,,110,1.67,1.84
+2014-01-12,Philadelphia 76ers,New York Knicks,92,102,2.38,1.38
+2014-01-12,Toronto Raptors,Brooklyn Nets,,96,1.15,3.72
+2014-01-12,Washington Wizards,Houston Rockets,107,114,1.94,1.60
+2014-01-11,Golden State Warriors,Boston Celtics,,99,1.06,4.97
+2014-01-11,Los Angeles Clippers,Los Angeles Lakers,,123,1.09,4.48
+2014-01-11,Sacramento Kings,Orlando Magic,,103,1.22,3.12
+2014-01-11,Utah Jazz,Cleveland Cavaliers,102,113,1.67,1.83
+2014-01-11,Milwaukee Bucks,Chicago Bulls,72,81,2.25,1.43
+2014-01-11,Brooklyn Nets,Miami Heat,,104,2.50,1.34
+2014-01-11,Memphis Grizzlies,Phoenix Suns,,104,1.55,2.01
+2014-01-11,Minnesota Timberwolves,Charlotte Hornets,,119,1.10,4.27
+2014-01-11,New Orleans Pelicans,Dallas Mavericks,90,107,1.85,1.65
+2014-01-11,Atlanta Hawks,Houston Rockets,,83,1.98,1.57
+2014-01-11,Indiana Pacers,Washington Wizards,,93,1.13,3.88
+2014-01-11,Philadelphia 76ers,Detroit Pistons,104,114,1.96,1.61
+2014-01-10,Denver Nuggets,Oklahoma City Thunder,,101,2.05,1.51
+2014-01-10,New York Knicks,Miami Heat,,102,3.38,1.18
+2014-01-09,Los Angeles Clippers,Boston Celtics,,111,1.07,5.03
+2014-01-09,Portland Trail Blazers,Orlando Magic,,110,1.02,6.42
+2014-01-09,Minnesota Timberwolves,Phoenix Suns,103,104,1.20,3.25
+2014-01-09,Houston Rockets,Los Angeles Lakers,,113,1.02,6.25
+2014-01-09,New Orleans Pelicans,Washington Wizards,96,102,1.45,2.20
+2014-01-09,Atlanta Hawks,Indiana Pacers,,97,2.27,1.41
+2014-01-09,Brooklyn Nets,Golden State Warriors,,102,2.83,1.25
+2014-01-09,San Antonio Spurs,Dallas Mavericks,,112,1.35,2.47
+2014-01-09,Toronto Raptors,Detroit Pistons,,112,1.28,2.72
+2014-01-08,Sacramento Kings,Portland Trail Blazers,,123,2.42,1.37
+2014-01-08,Denver Nuggets,Boston Celtics,,129,1.22,3.10
+2014-01-08,Utah Jazz,Oklahoma City Thunder,,112,2.87,1.26
+2014-01-08,Dallas Mavericks,Los Angeles Lakers,,110,1.11,4.17
+2014-01-08,Chicago Bulls,Phoenix Suns,,92,1.88,1.64
+2014-01-08,Memphis Grizzlies,San Antonio Spurs,108,110,2.68,1.31
+2014-01-08,Milwaukee Bucks,Golden State Warriors,80,101,4.27,1.10
+2014-01-08,Miami Heat,New Orleans Pelicans,,107,1.17,3.52
+2014-01-08,New York Knicks,Detroit Pistons,,89,1.50,2.08
+2014-01-08,Charlotte Hornets,Washington Wizards,83,97,1.81,1.69
+2014-01-08,Cleveland Cavaliers,Philadelphia 76ers,,111,1.32,2.58
+2014-01-08,Indiana Pacers,Toronto Raptors,,86,1.15,3.63
+2014-01-07,Los Angeles Clippers,Orlando Magic,,101,1.19,3.30
+2014-01-07,Brooklyn Nets,Atlanta Hawks,,91,1.65,1.86
+2014-01-07,Philadelphia 76ers,Minnesota Timberwolves,95,126,3.00,1.23
+2014-01-06,Los Angeles Lakers,Denver Nuggets,115,137,1.97,1.58
+2014-01-06,Dallas Mavericks,New York Knicks,80,92,1.27,2.87
+2014-01-06,Oklahoma City Thunder,Boston Celtics,,119,1.13,3.85
+2014-01-06,Cleveland Cavaliers,Indiana Pacers,78,82,3.98,1.12
+2014-01-06,Miami Heat,Toronto Raptors,,102,1.27,2.82
+2014-01-06,Washington Wizards,Golden State Warriors,96,112,2.08,1.52
+2014-01-05,Detroit Pistons,Memphis Grizzlies,84,112,1.58,2.00
+2014-01-05,Portland Trail Blazers,Philadelphia 76ers,99,101,1.03,6.10
+2014-01-05,Sacramento Kings,Charlotte Hornets,103,113,1.36,2.45
+2014-01-05,Phoenix Suns,Milwaukee Bucks,,116,1.16,3.60
+2014-01-05,San Antonio Spurs,Los Angeles Clippers,,116,1.14,3.73
+2014-01-05,Chicago Bulls,Atlanta Hawks,,91,1.38,2.37
+2014-01-05,Minnesota Timberwolves,Oklahoma City Thunder,111,115,1.64,1.88
+2014-01-05,Brooklyn Nets,Cleveland Cavaliers,,89,1.27,2.78
+2014-01-05,Indiana Pacers,New Orleans Pelicans,,99,1.06,5.02
+2014-01-05,Orlando Magic,Miami Heat,94,110,4.10,1.11
+2014-01-04,Los Angeles Lakers,Utah Jazz,,110,1.49,2.10
+2014-01-04,Denver Nuggets,Memphis Grizzlies,,111,1.41,2.28
+2014-01-04,Dallas Mavericks,Los Angeles Clippers,112,119,1.94,1.58
+2014-01-04,Houston Rockets,New York Knicks,,102,1.06,4.97
+2014-01-04,Atlanta Hawks,Golden State Warriors,100,101,2.03,1.52
+2014-01-04,Boston Celtics,New Orleans Pelicans,92,95,2.12,1.48
+2014-01-04,Washington Wizards,Toronto Raptors,88,101,1.51,2.07
+2014-01-03,Portland Trail Blazers,Charlotte Hornets,,134,1.06,5.17
+2014-01-03,Sacramento Kings,Philadelphia 76ers,104,113,1.16,3.57
+2014-01-03,Phoenix Suns,Memphis Grizzlies,91,99,1.33,2.52
+2014-01-03,Utah Jazz,Milwaukee Bucks,,96,1.33,2.53
+2014-01-03,San Antonio Spurs,New York Knicks,101,105,1.06,5.12
+2014-01-03,Chicago Bulls,Boston Celtics,,94,1.38,2.38
+2014-01-03,Oklahoma City Thunder,Brooklyn Nets,93,95,1.02,6.27
+2014-01-03,Miami Heat,Golden State Warriors,114,123,1.34,2.48
+2014-01-03,Cleveland Cavaliers,Orlando Magic,,87,1.58,1.94
+2014-01-02,Los Angeles Clippers,Charlotte Hornets,,112,1.07,4.87
+2014-01-02,Denver Nuggets,Philadelphia 76ers,102,114,1.11,4.25
+2014-01-02,Minnesota Timberwolves,New Orleans Pelicans,,124,1.33,2.52
+2014-01-02,Toronto Raptors,Indiana Pacers,,95,2.68,1.30
+2014-01-02,Washington Wizards,Dallas Mavericks,78,87,1.60,1.94
+2014-01-01,Los Angeles Lakers,Milwaukee Bucks,79,94,1.28,2.75
+2014-01-01,Chicago Bulls,Toronto Raptors,79,85,1.72,1.77
+2014-01-01,Oklahoma City Thunder,Portland Trail Blazers,94,98,1.33,2.57
+2014-01-01,Houston Rockets,Sacramento Kings,106,110,1.09,4.58
+2014-01-01,San Antonio Spurs,Brooklyn Nets,,113,1.04,5.65
+2013-12-31,Orlando Magic,Golden State Warriors,81,94,2.72,1.30
+2013-12-31,Indiana Pacers,Cleveland Cavaliers,,91,1.02,6.43
+2013-12-31,Boston Celtics,Atlanta Hawks,91,92,1.52,2.05
+2013-12-31,Los Angeles Clippers,Phoenix Suns,88,107,1.19,3.40
+2013-12-31,Denver Nuggets,Miami Heat,94,97,2.18,1.47
+2013-12-31,Utah Jazz,Charlotte Hornets,,83,1.59,1.96
+2013-12-31,Memphis Grizzlies,Chicago Bulls,91,95,1.38,2.44
+2013-12-31,Minnesota Timberwolves,Dallas Mavericks,98,100,1.41,2.34
+2013-12-31,New Orleans Pelicans,Portland Trail Blazers,,110,2.04,1.56
+2013-12-31,Detroit Pistons,Washington Wizards,99,106,1.54,2.07
+2013-12-30,Los Angeles Lakers,Philadelphia 76ers,104,111,1.28,2.83
+2013-12-30,Oklahoma City Thunder,Houston Rockets,,117,1.40,2.37
+2013-12-30,San Antonio Spurs,Sacramento Kings,,112,1.04,5.75
+2013-12-30,Cleveland Cavaliers,Golden State Warriors,104,108,2.97,1.24
+2013-12-30,Orlando Magic,Atlanta Hawks,,109,1.53,2.03
+2013-12-29,Los Angeles Clippers,Utah Jazz,,98,1.01,7.50
+2013-12-29,Portland Trail Blazers,Miami Heat,107,108,1.30,2.65
+2013-12-29,Phoenix Suns,Philadelphia 76ers,,115,1.09,4.47
+2013-12-29,Milwaukee Bucks,Minnesota Timberwolves,95,117,3.10,1.22
+2013-12-29,Chicago Bulls,Dallas Mavericks,83,105,2.01,1.56
+2013-12-29,Houston Rockets,New Orleans Pelicans,,107,1.15,3.70
+2013-12-29,Memphis Grizzlies,Denver Nuggets,,120,1.53,2.03
+2013-12-29,Atlanta Hawks,Charlotte Hornets,,118,1.30,2.67
+2013-12-29,Indiana Pacers,Brooklyn Nets,,105,1.02,6.15
+2013-12-29,Toronto Raptors,New York Knicks,,115,1.26,2.95
+2013-12-29,Washington Wizards,Detroit Pistons,,106,1.52,2.07
+2013-12-28,Boston Celtics,Cleveland Cavaliers,,103,1.44,2.25
+2013-12-28,Golden State Warriors,Phoenix Suns,,115,1.29,2.83
+2013-12-28,Sacramento Kings,Miami Heat,,108,2.77,1.28
+2013-12-28,Utah Jazz,Los Angeles Lakers,,105,1.48,2.13
+2013-12-28,Minnesota Timberwolves,Washington Wizards,,120,1.30,2.72
+2013-12-28,New Orleans Pelicans,Denver Nuggets,,105,1.52,2.03
+2013-12-28,Brooklyn Nets,Milwaukee Bucks,,104,1.39,2.35
+2013-12-28,New York Knicks,Toronto Raptors,83,95,2.05,1.52
+2013-12-28,Charlotte Hornets,Oklahoma City Thunder,85,89,3.10,1.22
+2013-12-28,Orlando Magic,Detroit Pistons,,109,2.23,1.43
+2013-12-27,Portland Trail Blazers,Los Angeles Clippers,,116,1.40,2.32
+2013-12-27,Dallas Mavericks,San Antonio Spurs,107,116,2.07,1.51
+2013-12-27,Houston Rockets,Memphis Grizzlies,,100,1.19,3.32
+2013-12-27,Cleveland Cavaliers,Atlanta Hawks,125,127,2.04,1.53
+2013-12-26,Golden State Warriors,Los Angeles Clippers,,105,1.57,1.99
+2013-12-26,San Antonio Spurs,Houston Rockets,98,111,1.20,3.28
+2013-12-25,Los Angeles Lakers,Miami Heat,95,101,4.05,1.11
+2013-12-25,New York Knicks,Oklahoma City Thunder,94,123,4.26,1.10
+2013-12-25,Brooklyn Nets,Chicago Bulls,78,95,1.50,2.12
+2013-12-24,Sacramento Kings,New Orleans Pelicans,100,113,1.77,1.73
+2013-12-24,Denver Nuggets,Golden State Warriors,81,89,1.81,1.69
+2013-12-24,Phoenix Suns,Los Angeles Lakers,,117,1.18,3.40
+2013-12-24,San Antonio Spurs,Toronto Raptors,,112,1.05,5.35
+2013-12-24,Houston Rockets,Dallas Mavericks,104,111,1.42,2.25
+2013-12-24,Memphis Grizzlies,Utah Jazz,,104,1.28,2.72
+2013-12-24,Brooklyn Nets,Indiana Pacers,86,103,2.82,1.27
+2013-12-24,Miami Heat,Atlanta Hawks,,121,1.18,3.40
+2013-12-24,Charlotte Hornets,Milwaukee Bucks,,111,1.27,2.82
+2013-12-24,Cleveland Cavaliers,Detroit Pistons,92,115,1.72,1.81
+2013-12-24,Orlando Magic,New York Knicks,98,103,1.81,1.69
+2013-12-23,Los Angeles Clippers,Minnesota Timberwolves,,120,1.32,2.57
+2013-12-23,Oklahoma City Thunder,Toronto Raptors,98,104,1.10,4.33
+2013-12-23,Indiana Pacers,Boston Celtics,,106,1.05,5.40
+2013-12-22,Golden State Warriors,Los Angeles Lakers,,102,1.02,6.23
+2013-12-22,Los Angeles Clippers,Denver Nuggets,,112,1.16,3.53
+2013-12-22,Portland Trail Blazers,New Orleans Pelicans,,110,1.18,3.37
+2013-12-22,Phoenix Suns,Dallas Mavericks,,123,1.54,2.02
+2013-12-22,Milwaukee Bucks,Philadelphia 76ers,,116,1.56,1.99
+2013-12-22,San Antonio Spurs,Oklahoma City Thunder,100,113,1.53,2.02
+2013-12-22,Chicago Bulls,Cleveland Cavaliers,,100,1.51,2.07
+2013-12-22,Charlotte Hornets,Utah Jazz,85,88,1.40,2.32
+2013-12-22,Detroit Pistons,Houston Rockets,97,114,1.78,1.71
+2013-12-22,Orlando Magic,Sacramento Kings,100,105,1.52,2.07
+2013-12-21,Boston Celtics,Washington Wizards,99,106,1.70,1.83
+2013-12-21,New York Knicks,Memphis Grizzlies,87,95,1.52,2.06
+2013-12-21,Los Angeles Lakers,Minnesota Timberwolves,,104,2.62,1.31
+2013-12-21,Denver Nuggets,Phoenix Suns,99,103,1.42,2.27
+2013-12-21,Dallas Mavericks,Toronto Raptors,108,109,1.28,2.72
+2013-12-21,Indiana Pacers,Houston Rockets,,114,1.32,2.57
+2013-12-21,Atlanta Hawks,Utah Jazz,,118,1.20,3.23
+2013-12-21,Cleveland Cavaliers,Milwaukee Bucks,,114,1.20,3.25
+2013-12-21,Detroit Pistons,Charlotte Hornets,106,116,1.28,2.72
+2013-12-21,Miami Heat,Sacramento Kings,,122,1.09,4.38
+2013-12-21,Philadelphia 76ers,Brooklyn Nets,76,121,2.63,1.32
+2013-12-20,Golden State Warriors,San Antonio Spurs,102,104,1.27,2.82
+2013-12-20,Oklahoma City Thunder,Chicago Bulls,,107,1.01,6.75
+2013-12-19,Los Angeles Clippers,New Orleans Pelicans,,108,1.09,4.50
+2013-12-19,Houston Rockets,Chicago Bulls,,109,1.19,3.42
+2013-12-19,Phoenix Suns,San Antonio Spurs,101,108,2.12,1.49
+2013-12-19,Dallas Mavericks,Memphis Grizzlies,,105,1.09,4.43
+2013-12-19,Milwaukee Bucks,New York Knicks,101,107,2.23,1.43
+2013-12-19,Minnesota Timberwolves,Portland Trail Blazers,,120,1.57,1.97
+2013-12-19,Atlanta Hawks,Sacramento Kings,,124,1.27,2.77
+2013-12-19,Boston Celtics,Detroit Pistons,106,107,1.76,1.75
+2013-12-19,Brooklyn Nets,Washington Wizards,107,113,1.41,2.32
+2013-12-19,Miami Heat,Indiana Pacers,,97,1.46,2.18
+2013-12-19,Orlando Magic,Utah Jazz,82,86,1.52,2.03
+2013-12-19,Toronto Raptors,Charlotte Hornets,102,104,1.25,2.90
+2013-12-18,Golden State Warriors,New Orleans Pelicans,,104,1.15,3.60
+2013-12-18,Denver Nuggets,Oklahoma City Thunder,93,105,2.03,1.52
+2013-12-18,Memphis Grizzlies,Los Angeles Lakers,92,96,1.58,1.96
+2013-12-18,Charlotte Hornets,Sacramento Kings,,95,1.68,1.82
+2013-12-18,Cleveland Cavaliers,Portland Trail Blazers,116,119,2.32,1.40
+2013-12-17,Los Angeles Clippers,San Antonio Spurs,,115,2.02,1.54
+2013-12-17,Chicago Bulls,Orlando Magic,82,83,1.23,3.02
+2013-12-17,Atlanta Hawks,Los Angeles Lakers,,114,1.32,2.57
+2013-12-17,Boston Celtics,Minnesota Timberwolves,,101,1.85,1.66
+2013-12-17,Brooklyn Nets,Philadelphia 76ers,,130,1.14,3.68
+2013-12-17,Miami Heat,Utah Jazz,,117,1.04,5.68
+2013-12-17,New York Knicks,Washington Wizards,101,102,1.65,1.85
+2013-12-17,Indiana Pacers,Detroit Pistons,96,101,1.08,4.58
+2013-12-16,Denver Nuggets,New Orleans Pelicans,,102,1.25,2.88
+2013-12-16,Phoenix Suns,Golden State Warriors,,106,1.81,1.69
+2013-12-16,Oklahoma City Thunder,Orlando Magic,,101,1.02,6.50
+2013-12-16,Detroit Pistons,Portland Trail Blazers,109,111,2.25,1.45
+2013-12-16,Memphis Grizzlies,Minnesota Timberwolves,93,101,2.05,1.51
+2013-12-16,Sacramento Kings,Houston Rockets,,106,2.82,1.27
+2013-12-15,Utah Jazz,San Antonio Spurs,84,100,3.10,1.22
+2013-12-15,Dallas Mavericks,Milwaukee Bucks,,106,1.07,5.01
+2013-12-15,Chicago Bulls,Toronto Raptors,77,99,1.52,2.05
+2013-12-15,Philadelphia 76ers,Portland Trail Blazers,105,139,4.53,1.08
+2013-12-15,Miami Heat,Cleveland Cavaliers,,114,1.03,6.03
+2013-12-15,New York Knicks,Atlanta Hawks,,111,1.76,1.74
+2013-12-15,Charlotte Hornets,Los Angeles Lakers,85,88,1.57,2.04
+2013-12-15,Washington Wizards,Los Angeles Clippers,97,113,2.32,1.40
+2013-12-14,Golden State Warriors,Houston Rockets,112,116,1.49,2.14
+2013-12-14,Denver Nuggets,Utah Jazz,93,103,1.08,4.53
+2013-12-14,Phoenix Suns,Sacramento Kings,,116,1.29,2.78
+2013-12-14,Milwaukee Bucks,Chicago Bulls,90,91,2.20,1.45
+2013-12-14,San Antonio Spurs,Minnesota Timberwolves,,117,1.16,3.53
+2013-12-14,New Orleans Pelicans,Memphis Grizzlies,,104,1.57,1.99
+2013-12-14,Oklahoma City Thunder,Los Angeles Lakers,,122,1.03,6.10
+2013-12-14,Atlanta Hawks,Washington Wizards,,101,1.31,2.60
+2013-12-14,Boston Celtics,New York Knicks,,90,1.51,2.07
+2013-12-14,Detroit Pistons,Brooklyn Nets,,103,1.31,2.60
+2013-12-14,Indiana Pacers,Charlotte Hornets,,99,1.03,5.93
+2013-12-14,Orlando Magic,Cleveland Cavaliers,100,109,1.60,1.96
+2013-12-14,Toronto Raptors,Philadelphia 76ers,,108,1.24,2.95
+2013-12-13,Portland Trail Blazers,Houston Rockets,,111,1.57,1.97
+2013-12-13,Brooklyn Nets,Los Angeles Clippers,,102,1.79,1.72
+2013-12-12,Golden State Warriors,Dallas Mavericks,,95,1.34,2.52
+2013-12-12,Sacramento Kings,Utah Jazz,101,122,1.26,2.85
+2013-12-12,Memphis Grizzlies,Oklahoma City Thunder,100,116,2.68,1.30
+2013-12-12,Milwaukee Bucks,San Antonio Spurs,77,109,4.80,1.07
+2013-12-12,Minnesota Timberwolves,Philadelphia 76ers,,106,1.04,5.60
+2013-12-12,New Orleans Pelicans,Detroit Pistons,,111,1.56,1.99
+2013-12-12,New York Knicks,Chicago Bulls,,83,1.46,2.18
+2013-12-12,Boston Celtics,Los Angeles Clippers,88,96,2.48,1.34
+2013-12-12,Charlotte Hornets,Orlando Magic,83,92,1.37,2.42
+2013-12-11,Los Angeles Lakers,Phoenix Suns,108,114,1.52,2.05
+2013-12-11,Chicago Bulls,Milwaukee Bucks,74,78,1.26,2.80
+2013-12-11,Atlanta Hawks,Oklahoma City Thunder,92,101,2.13,1.50
+2013-12-11,Brooklyn Nets,Boston Celtics,,104,1.63,1.94
+2013-12-11,Detroit Pistons,Minnesota Timberwolves,94,121,1.76,1.75
+2013-12-11,Cleveland Cavaliers,New York Knicks,,109,1.58,1.99
+2013-12-11,Indiana Pacers,Miami Heat,,90,1.51,2.08
+2013-12-11,Toronto Raptors,San Antonio Spurs,103,116,3.38,1.18
+2013-12-10,Sacramento Kings,Dallas Mavericks,,112,2.25,1.42
+2013-12-10,Utah Jazz,Portland Trail Blazers,94,105,3.03,1.23
+2013-12-10,Memphis Grizzlies,Orlando Magic,,94,1.14,3.82
+2013-12-10,Charlotte Hornets,Golden State Warriors,,115,2.78,1.30
+2013-12-10,Philadelphia 76ers,Los Angeles Clippers,83,94,4.20,1.11
+2013-12-10,Washington Wizards,Denver Nuggets,74,75,1.81,1.70
+2013-12-09,Los Angeles Lakers,Toronto Raptors,94,106,1.30,2.67
+2013-12-09,Houston Rockets,Orlando Magic,,98,1.03,5.98
+2013-12-09,Oklahoma City Thunder,Indiana Pacers,,118,1.39,2.35
+2013-12-09,Detroit Pistons,Miami Heat,95,110,2.17,1.47
+2013-12-08,New York Knicks,Boston Celtics,73,114,1.32,2.58
+2013-12-08,Portland Trail Blazers,Dallas Mavericks,106,108,1.35,2.47
+2013-12-08,Utah Jazz,Sacramento Kings,102,112,1.50,2.08
+2013-12-08,Milwaukee Bucks,Brooklyn Nets,82,90,2.00,1.55
+2013-12-08,San Antonio Spurs,Indiana Pacers,100,111,1.46,2.17
+2013-12-08,Chicago Bulls,Detroit Pistons,75,92,1.57,1.96
+2013-12-08,Memphis Grizzlies,Golden State Warriors,82,108,1.86,1.66
+2013-12-08,Minnesota Timberwolves,Miami Heat,82,103,2.85,1.26
+2013-12-08,Cleveland Cavaliers,Los Angeles Clippers,,88,2.72,1.28
+2013-12-08,Philadelphia 76ers,Denver Nuggets,92,103,2.93,1.25
+2013-12-07,Portland Trail Blazers,Utah Jazz,,130,1.06,5.15
+2013-12-07,Sacramento Kings,Los Angeles Lakers,100,106,1.47,2.15
+2013-12-07,Phoenix Suns,Toronto Raptors,,106,1.44,2.28
+2013-12-07,Houston Rockets,Golden State Warriors,,105,1.39,2.35
+2013-12-07,New Orleans Pelicans,Oklahoma City Thunder,95,109,2.48,1.34
+2013-12-07,Atlanta Hawks,Cleveland Cavaliers,,108,1.28,2.72
+2013-12-07,Boston Celtics,Denver Nuggets,,106,2.25,1.43
+2013-12-07,New York Knicks,Orlando Magic,,121,1.36,2.43
+2013-12-07,Charlotte Hornets,Philadelphia 76ers,,105,1.25,2.88
+2013-12-07,Washington Wizards,Milwaukee Bucks,105,109,1.09,4.50
+2013-12-06,Chicago Bulls,Miami Heat,,107,2.37,1.39
+2013-12-06,Memphis Grizzlies,Los Angeles Clippers,81,101,1.73,1.77
+2013-12-06,Brooklyn Nets,New York Knicks,83,113,1.79,1.71
+2013-12-05,Portland Trail Blazers,Oklahoma City Thunder,,111,1.60,1.97
+2013-12-05,Utah Jazz,Indiana Pacers,86,95,3.63,1.15
+2013-12-05,Houston Rockets,Phoenix Suns,88,97,1.09,4.38
+2013-12-05,Milwaukee Bucks,Detroit Pistons,98,105,2.38,1.38
+2013-12-05,New Orleans Pelicans,Dallas Mavericks,97,100,1.61,1.92
+2013-12-05,Atlanta Hawks,Los Angeles Clippers,,107,2.02,1.54
+2013-12-05,Cleveland Cavaliers,Denver Nuggets,,98,2.20,1.45
+2013-12-04,Golden State Warriors,Toronto Raptors,,112,1.20,3.25
+2013-12-04,Sacramento Kings,Oklahoma City Thunder,95,97,3.15,1.21
+2013-12-04,Dallas Mavericks,Charlotte Hornets,,89,1.16,3.52
+2013-12-04,Memphis Grizzlies,Phoenix Suns,,110,1.54,2.03
+2013-12-04,Boston Celtics,Milwaukee Bucks,,108,1.22,3.10
+2013-12-04,Brooklyn Nets,Denver Nuggets,87,111,2.35,1.43
+2013-12-04,Miami Heat,Detroit Pistons,97,107,1.12,4.08
+2013-12-04,Philadelphia 76ers,Orlando Magic,76,126,1.46,2.18
+2013-12-03,Portland Trail Blazers,Indiana Pacers,,106,1.83,1.67
+2013-12-03,Utah Jazz,Houston Rockets,,109,3.23,1.20
+2013-12-03,San Antonio Spurs,Atlanta Hawks,,102,1.03,5.83
+2013-12-03,Chicago Bulls,New Orleans Pelicans,128,131,1.22,3.05
+2013-12-03,Washington Wizards,Orlando Magic,,98,1.26,2.88
+2013-12-02,Los Angeles Lakers,Portland Trail Blazers,108,114,2.10,1.49
+2013-12-02,New York Knicks,New Orleans Pelicans,99,103,1.66,1.84
+2013-12-02,Oklahoma City Thunder,Minnesota Timberwolves,,113,1.14,3.78
+2013-12-02,Miami Heat,Charlotte Hornets,,99,1.06,5.08
+2013-12-02,Sacramento Kings,Golden State Warriors,113,115,2.30,1.41
+2013-12-01,Detroit Pistons,Philadelphia 76ers,,115,1.16,3.68
+2013-12-01,Los Angeles Clippers,Indiana Pacers,100,105,1.81,1.69
+2013-12-01,Toronto Raptors,Denver Nuggets,98,112,1.62,1.93
+2013-12-01,Milwaukee Bucks,Boston Celtics,,92,1.95,1.59
+2013-12-01,Phoenix Suns,Utah Jazz,104,112,1.15,3.67
+2013-12-01,Dallas Mavericks,Minnesota Timberwolves,106,112,1.89,1.62
+2013-12-01,San Antonio Spurs,Houston Rockets,106,112,1.27,2.83
+2013-12-01,Memphis Grizzlies,Brooklyn Nets,88,97,1.20,3.28
+2013-12-01,Cleveland Cavaliers,Chicago Bulls,,97,2.40,1.38
+2013-12-01,Washington Wizards,Atlanta Hawks,,108,1.43,2.23
+2013-11-30,Sacramento Kings,Los Angeles Clippers,98,104,2.10,1.50
+2013-11-30,Denver Nuggets,New York Knicks,,97,1.16,3.53
+2013-11-30,Utah Jazz,Phoenix Suns,101,112,1.94,1.60
+2013-11-30,Houston Rockets,Brooklyn Nets,,114,1.09,4.33
+2013-11-30,Indiana Pacers,Washington Wizards,,93,1.08,4.55
+2013-11-30,Oklahoma City Thunder,Golden State Warriors,,113,1.22,3.05
+2013-11-30,Philadelphia 76ers,New Orleans Pelicans,105,121,2.18,1.46
+2013-11-30,Atlanta Hawks,Dallas Mavericks,,88,1.82,1.68
+2013-11-30,Boston Celtics,Cleveland Cavaliers,,103,1.46,2.17
+2013-11-30,Detroit Pistons,Los Angeles Lakers,102,106,1.35,2.52
+2013-11-30,Charlotte Hornets,Milwaukee Bucks,,92,1.39,2.37
+2013-11-30,Orlando Magic,San Antonio Spurs,91,109,3.95,1.13
+2013-11-30,Toronto Raptors,Miami Heat,83,90,2.82,1.29
+2013-11-28,Los Angeles Clippers,New York Knicks,,93,1.09,4.58
+2013-11-28,Phoenix Suns,Portland Trail Blazers,,120,2.17,1.46
+2013-11-28,Dallas Mavericks,Golden State Warriors,,103,1.41,2.30
+2013-11-28,Houston Rockets,Atlanta Hawks,,113,1.17,3.50
+2013-11-28,Milwaukee Bucks,Washington Wizards,92,100,2.04,1.54
+2013-11-28,Minnesota Timberwolves,Denver Nuggets,110,117,1.26,2.83
+2013-11-28,Oklahoma City Thunder,San Antonio Spurs,,94,1.58,1.99
+2013-11-28,Boston Celtics,Memphis Grizzlies,93,100,1.94,1.58
+2013-11-28,Brooklyn Nets,Los Angeles Lakers,94,99,1.61,1.96
+2013-11-28,Cleveland Cavaliers,Miami Heat,84,95,3.85,1.13
+2013-11-28,Detroit Pistons,Chicago Bulls,79,99,1.48,2.13
+2013-11-28,Charlotte Hornets,Indiana Pacers,74,99,3.20,1.20
+2013-11-28,Orlando Magic,Philadelphia 76ers,,105,1.47,2.15
+2013-11-27,New Orleans Pelicans,Golden State Warriors,101,102,1.86,1.67
+2013-11-27,Atlanta Hawks,Orlando Magic,92,109,1.21,3.13
+2013-11-27,Toronto Raptors,Brooklyn Nets,100,102,1.25,2.93
+2013-11-27,Washington Wizards,Los Angeles Lakers,,116,1.39,2.35
+2013-11-26,Portland Trail Blazers,New York Knicks,,102,1.21,3.13
+2013-11-26,Utah Jazz,Chicago Bulls,,89,2.32,1.40
+2013-11-26,Dallas Mavericks,Denver Nuggets,96,110,1.30,2.68
+2013-11-26,San Antonio Spurs,New Orleans Pelicans,,112,1.10,4.33
+2013-11-26,Memphis Grizzlies,Houston Rockets,86,93,1.81,1.69
+2013-11-26,Detroit Pistons,Milwaukee Bucks,,113,1.22,3.10
+2013-11-26,Miami Heat,Phoenix Suns,,107,1.03,6.02
+2013-11-26,Charlotte Hornets,Boston Celtics,86,96,1.49,2.10
+2013-11-26,Indiana Pacers,Minnesota Timberwolves,,98,1.25,2.92
+2013-11-25,Los Angeles Lakers,Sacramento Kings,,100,1.41,2.32
+2013-11-25,Oklahoma City Thunder,Utah Jazz,,95,1.02,6.40
+2013-11-25,Orlando Magic,Phoenix Suns,96,104,1.65,1.87
+2013-11-24,Los Angeles Clippers,Chicago Bulls,,121,1.26,2.90
+2013-11-24,Brooklyn Nets,Detroit Pistons,97,109,1.59,1.96
+2013-11-24,Golden State Warriors,Portland Trail Blazers,101,113,1.43,2.23
+2013-11-24,Denver Nuggets,Dallas Mavericks,,102,1.35,2.45
+2013-11-24,Milwaukee Bucks,Charlotte Hornets,72,96,1.61,1.96
+2013-11-24,San Antonio Spurs,Cleveland Cavaliers,,126,1.03,5.77
+2013-11-24,Houston Rockets,Minnesota Timberwolves,,112,1.28,2.75
+2013-11-24,Atlanta Hawks,Boston Celtics,87,94,1.15,3.70
+2013-11-24,Miami Heat,Orlando Magic,,101,1.01,6.58
+2013-11-24,Indiana Pacers,Philadelphia 76ers,,106,1.01,6.92
+2013-11-24,Washington Wizards,New York Knicks,,98,1.66,1.83
+2013-11-23,Los Angeles Clippers,Sacramento Kings,,103,1.08,4.83
+2013-11-23,Los Angeles Lakers,Golden State Warriors,,102,2.45,1.35
+2013-11-23,Portland Trail Blazers,Chicago Bulls,,98,1.46,2.18
+2013-11-23,Dallas Mavericks,Utah Jazz,,103,1.08,4.70
+2013-11-23,Memphis Grizzlies,San Antonio Spurs,86,102,1.82,1.71
+2013-11-23,Minnesota Timberwolves,Brooklyn Nets,,111,1.14,3.75
+2013-11-23,New Orleans Pelicans,Cleveland Cavaliers,,104,1.27,2.82
+2013-11-23,Boston Celtics,Indiana Pacers,82,97,3.25,1.20
+2013-11-23,Detroit Pistons,Atlanta Hawks,89,96,1.45,2.20
+2013-11-23,Charlotte Hornets,Phoenix Suns,91,98,1.52,2.03
+2013-11-23,Philadelphia 76ers,Milwaukee Bucks,76,115,1.52,2.03
+2013-11-23,Toronto Raptors,Washington Wizards,,96,1.40,2.33
+2013-11-22,Denver Nuggets,Chicago Bulls,,97,1.84,1.66
+2013-11-22,Oklahoma City Thunder,Los Angeles Clippers,,105,1.32,2.60
+2013-11-21,Golden State Warriors,Memphis Grizzlies,81,88,1.39,2.35
+2013-11-21,Dallas Mavericks,Houston Rockets,,123,1.57,1.98
+2013-11-21,Phoenix Suns,Sacramento Kings,106,113,1.31,2.60
+2013-11-21,San Antonio Spurs,Boston Celtics,,104,1.00,7.42
+2013-11-21,Milwaukee Bucks,Portland Trail Blazers,82,91,2.50,1.34
+2013-11-21,Minnesota Timberwolves,Los Angeles Clippers,98,102,1.64,1.87
+2013-11-21,New Orleans Pelicans,Utah Jazz,,105,1.07,4.73
+2013-11-21,Atlanta Hawks,Detroit Pistons,,93,1.35,2.45
+2013-11-21,Charlotte Hornets,Brooklyn Nets,,95,1.99,1.56
+2013-11-21,Cleveland Cavaliers,Washington Wizards,91,98,1.52,2.05
+2013-11-21,New York Knicks,Indiana Pacers,96,103,2.72,1.29
+2013-11-21,Orlando Magic,Miami Heat,92,120,3.10,1.22
+2013-11-21,Philadelphia 76ers,Toronto Raptors,98,108,2.18,1.46
+2013-11-20,Sacramento Kings,Phoenix Suns,,107,1.56,2.00
+2013-11-20,Houston Rockets,Boston Celtics,,109,1.08,4.74
+2013-11-20,Detroit Pistons,New York Knicks,,92,1.43,2.23
+2013-11-20,Miami Heat,Atlanta Hawks,,104,1.14,3.72
+2013-11-20,Washington Wizards,Minnesota Timberwolves,,104,2.17,1.47
+2013-11-19,Los Angeles Clippers,Memphis Grizzlies,102,106,1.16,3.53
+2013-11-19,Utah Jazz,Golden State Warriors,87,98,3.48,1.17
+2013-11-19,Dallas Mavericks,Philadelphia 76ers,,97,1.04,5.57
+2013-11-19,Chicago Bulls,Charlotte Hornets,,86,1.04,5.55
+2013-11-19,Oklahoma City Thunder,Denver Nuggets,,115,1.13,3.85
+2013-11-19,Brooklyn Nets,Portland Trail Blazers,98,108,1.62,1.90
+2013-11-18,Los Angeles Lakers,Detroit Pistons,,114,1.92,1.63
+2013-11-18,Sacramento Kings,Memphis Grizzlies,86,97,1.99,1.57
+2013-11-17,Toronto Raptors,Portland Trail Blazers,110,118,1.65,1.91
+2013-11-17,Golden State Warriors,Utah Jazz,,102,1.00,7.75
+2013-11-17,Los Angeles Clippers,Brooklyn Nets,,110,1.02,5.98
+2013-11-17,Milwaukee Bucks,Oklahoma City Thunder,79,92,4.64,1.08
+2013-11-17,Chicago Bulls,Indiana Pacers,,110,1.72,1.78
+2013-11-17,Houston Rockets,Denver Nuggets,,122,1.17,3.42
+2013-11-17,Minnesota Timberwolves,Boston Celtics,,106,1.11,4.13
+2013-11-17,New Orleans Pelicans,Philadelphia 76ers,,135,1.15,3.67
+2013-11-17,New York Knicks,Atlanta Hawks,90,110,1.43,2.29
+2013-11-17,Charlotte Hornets,Miami Heat,81,97,3.32,1.18
+2013-11-17,Orlando Magic,Dallas Mavericks,100,108,2.02,1.54
+2013-11-17,Washington Wizards,Cleveland Cavaliers,96,103,1.21,3.20
+2013-11-16,Los Angeles Lakers,Memphis Grizzlies,86,89,2.10,1.52
+2013-11-16,Sacramento Kings,Detroit Pistons,90,97,1.63,1.89
+2013-11-16,Phoenix Suns,Brooklyn Nets,98,100,1.73,1.76
+2013-11-16,Utah Jazz,San Antonio Spurs,82,91,4.48,1.09
+2013-11-16,Denver Nuggets,Minnesota Timberwolves,,117,1.86,1.66
+2013-11-16,Atlanta Hawks,Philadelphia 76ers,,113,1.16,3.53
+2013-11-16,Boston Celtics,Portland Trail Blazers,96,109,1.85,1.65
+2013-11-16,Cleveland Cavaliers,Charlotte Hornets,80,86,1.30,2.62
+2013-11-16,Miami Heat,Dallas Mavericks,,110,1.17,3.42
+2013-11-16,Indiana Pacers,Milwaukee Bucks,,104,1.01,7.17
+2013-11-16,Toronto Raptors,Chicago Bulls,80,96,1.69,1.81
+2013-11-15,Golden State Warriors,Oklahoma City Thunder,,116,1.39,2.37
+2013-11-15,New York Knicks,Houston Rockets,106,109,1.83,1.66
+2013-11-14,Los Angeles Clippers,Oklahoma City Thunder,,111,1.43,2.28
+2013-11-14,Portland Trail Blazers,Phoenix Suns,,90,1.22,3.10
+2013-11-14,Sacramento Kings,Brooklyn Nets,,107,2.15,1.47
+2013-11-14,Denver Nuggets,Los Angeles Lakers,,111,1.12,3.98
+2013-11-14,Utah Jazz,New Orleans Pelicans,,111,1.98,1.57
+2013-11-14,San Antonio Spurs,Washington Wizards,,92,1.08,4.47
+2013-11-14,Atlanta Hawks,New York Knicks,91,95,1.42,2.23
+2013-11-14,Memphis Grizzlies,Toronto Raptors,87,103,1.32,2.60
+2013-11-14,Minnesota Timberwolves,Cleveland Cavaliers,,124,1.18,3.40
+2013-11-14,Boston Celtics,Charlotte Hornets,83,89,1.32,2.57
+2013-11-14,Orlando Magic,Milwaukee Bucks,,94,1.23,2.97
+2013-11-14,Philadelphia 76ers,Houston Rockets,76,123,2.60,1.33
+2013-11-13,Golden State Warriors,Detroit Pistons,,113,1.13,3.85
+2013-11-13,Los Angeles Lakers,New Orleans Pelicans,,116,2.08,1.50
+2013-11-13,Dallas Mavericks,Washington Wizards,,105,1.32,2.54
+2013-11-13,Miami Heat,Milwaukee Bucks,,118,1.01,7.02
+2013-11-12,Los Angeles Clippers,Minnesota Timberwolves,,109,1.27,2.82
+2013-11-12,Portland Trail Blazers,Detroit Pistons,,109,1.39,2.37
+2013-11-12,Utah Jazz,Denver Nuggets,81,100,1.94,1.60
+2013-11-12,Chicago Bulls,Cleveland Cavaliers,,96,1.18,3.50
+2013-11-12,Houston Rockets,Toronto Raptors,,110,1.23,3.02
+2013-11-12,Boston Celtics,Orlando Magic,,120,1.65,1.87
+2013-11-12,Charlotte Hornets,Atlanta Hawks,94,103,1.94,1.60
+2013-11-12,Indiana Pacers,Memphis Grizzlies,,95,1.27,2.90
+2013-11-12,Philadelphia 76ers,San Antonio Spurs,85,109,2.82,1.27
+2013-11-11,Los Angeles Lakers,Minnesota Timberwolves,90,113,2.17,1.46
+2013-11-11,Phoenix Suns,New Orleans Pelicans,,101,1.86,1.66
+2013-11-11,Oklahoma City Thunder,Washington Wizards,,106,1.15,3.65
+2013-11-10,New York Knicks,San Antonio Spurs,89,120,2.03,1.52
+2013-11-10,Sacramento Kings,Portland Trail Blazers,85,96,1.65,1.88
+2013-11-10,Milwaukee Bucks,Dallas Mavericks,83,91,2.05,1.51
+2013-11-10,Houston Rockets,Los Angeles Clippers,94,107,1.55,2.02
+2013-11-10,Memphis Grizzlies,Golden State Warriors,,108,1.57,1.96
+2013-11-10,Atlanta Hawks,Orlando Magic,,104,1.27,2.82
+2013-11-10,Brooklyn Nets,Indiana Pacers,91,96,1.76,1.75
+2013-11-10,Cleveland Cavaliers,Philadelphia 76ers,,127,1.19,3.38
+2013-11-10,Miami Heat,Boston Celtics,110,111,1.01,6.50
+2013-11-10,Toronto Raptors,Utah Jazz,,115,1.16,3.57
+2013-11-09,Portland Trail Blazers,Sacramento Kings,,104,1.20,3.30
+2013-11-09,Phoenix Suns,Denver Nuggets,,114,1.63,1.89
+2013-11-09,San Antonio Spurs,Golden State Warriors,,76,1.32,2.57
+2013-11-09,Chicago Bulls,Utah Jazz,,97,1.03,5.85
+2013-11-09,Minnesota Timberwolves,Dallas Mavericks,,116,1.42,2.27
+2013-11-09,New Orleans Pelicans,Los Angeles Lakers,,96,1.13,3.93
+2013-11-09,Detroit Pistons,Oklahoma City Thunder,110,119,2.05,1.51
+2013-11-09,Charlotte Hornets,New York Knicks,91,101,2.02,1.53
+2013-11-09,Indiana Pacers,Toronto Raptors,,91,1.17,3.50
+2013-11-09,Orlando Magic,Boston Celtics,89,91,1.34,2.53
+2013-11-09,Philadelphia 76ers,Cleveland Cavaliers,76,94,2.10,1.49
+2013-11-09,Washington Wizards,Brooklyn Nets,,112,1.87,1.65
+2013-11-08,Houston Rockets,Los Angeles Lakers,98,99,1.04,5.25
+2013-11-08,Denver Nuggets,Atlanta Hawks,,109,1.38,2.38
+2013-11-08,Miami Heat,Los Angeles Clippers,,102,1.26,2.85
+2013-11-07,Oklahoma City Thunder,Dallas Mavericks,,107,1.24,2.97
+2013-11-07,San Antonio Spurs,Phoenix Suns,,99,1.02,6.25
+2013-11-07,Memphis Grizzlies,New Orleans Pelicans,84,99,1.24,2.98
+2013-11-07,Milwaukee Bucks,Cleveland Cavaliers,,109,2.01,1.55
+2013-11-07,Minnesota Timberwolves,Golden State Warriors,93,106,1.73,1.77
+2013-11-07,Boston Celtics,Utah Jazz,,97,1.38,2.38
+2013-11-07,Charlotte Hornets,Toronto Raptors,,92,1.98,1.59
+2013-11-07,Indiana Pacers,Chicago Bulls,,97,1.59,1.96
+2013-11-07,Orlando Magic,Los Angeles Clippers,,98,2.97,1.24
+2013-11-07,Philadelphia 76ers,Washington Wizards,102,116,1.98,1.57
+2013-11-06,Portland Trail Blazers,Houston Rockets,101,116,1.63,1.87
+2013-11-06,Sacramento Kings,Atlanta Hawks,100,105,1.60,1.94
+2013-11-06,Denver Nuggets,San Antonio Spurs,94,102,2.32,1.40
+2013-11-06,Dallas Mavericks,Los Angeles Lakers,,123,1.15,3.70
+2013-11-06,New Orleans Pelicans,Phoenix Suns,98,104,1.12,4.07
+2013-11-06,Brooklyn Nets,Utah Jazz,,104,1.09,4.40
+2013-11-06,Detroit Pistons,Indiana Pacers,91,99,1.76,1.74
+2013-11-06,New York Knicks,Charlotte Hornets,97,102,1.12,3.95
+2013-11-06,Toronto Raptors,Miami Heat,95,104,2.48,1.34
+2013-11-05,Los Angeles Clippers,Houston Rockets,,137,1.36,2.43
+2013-11-05,Memphis Grizzlies,Boston Celtics,,95,1.05,5.18
+2013-11-05,Cleveland Cavaliers,Minnesota Timberwolves,,93,1.65,1.84
+2013-11-05,Philadelphia 76ers,Golden State Warriors,90,110,2.78,1.28
+2013-11-04,Los Angeles Lakers,Atlanta Hawks,,105,1.75,1.74
+2013-11-04,New York Knicks,Minnesota Timberwolves,100,109,1.49,2.12
+2013-11-04,Oklahoma City Thunder,Phoenix Suns,,103,1.02,6.40
+2013-11-04,Detroit Pistons,Boston Celtics,,87,1.12,3.98
+2013-11-04,Miami Heat,Washington Wizards,,103,1.01,6.92
+2013-11-04,Orlando Magic,Brooklyn Nets,,107,2.60,1.31
+2013-11-03,Golden State Warriors,Sacramento Kings,,98,1.07,4.73
+2013-11-03,Portland Trail Blazers,San Antonio Spurs,,115,1.92,1.60
+2013-11-03,Utah Jazz,Houston Rockets,93,104,2.83,1.27
+2013-11-03,Dallas Mavericks,Memphis Grizzlies,,111,1.53,2.03
+2013-11-03,Milwaukee Bucks,Toronto Raptors,90,97,1.79,1.70
+2013-11-03,New Orleans Pelicans,Charlotte Hornets,,105,1.17,3.53
+2013-11-03,Philadelphia 76ers,Chicago Bulls,76,107,3.87,1.15
+2013-11-03,Indiana Pacers,Cleveland Cavaliers,,89,1.16,3.53
+2013-11-02,Los Angeles Lakers,San Antonio Spurs,85,91,3.28,1.19
+2013-11-02,Phoenix Suns,Utah Jazz,,87,1.48,2.13
+2013-11-02,Sacramento Kings,Los Angeles Clippers,101,110,2.13,1.48
+2013-11-02,Denver Nuggets,Portland Trail Blazers,98,113,1.39,2.35
+2013-11-02,Brooklyn Nets,Miami Heat,,101,2.17,1.46
+2013-11-02,Houston Rockets,Dallas Mavericks,,113,1.27,2.92
+2013-11-02,Memphis Grizzlies,Detroit Pistons,,111,1.21,3.13
+2013-11-02,Minnesota Timberwolves,Oklahoma City Thunder,,100,1.60,1.96
+2013-11-02,Atlanta Hawks,Toronto Raptors,,102,1.49,2.12
+2013-11-02,Boston Celtics,Milwaukee Bucks,98,105,1.60,1.96
+2013-11-02,Charlotte Hornets,Cleveland Cavaliers,,90,2.08,1.50
+2013-11-02,Orlando Magic,New Orleans Pelicans,,110,2.29,1.43
+2013-11-02,Washington Wizards,Philadelphia 76ers,102,109,1.12,3.98
+2013-11-01,Los Angeles Clippers,Golden State Warriors,,126,1.28,2.73
+2013-11-01,Chicago Bulls,New York Knicks,,82,1.20,3.23
+2013-10-31,Golden State Warriors,Los Angeles Lakers,,125,1.08,4.50
+2013-10-31,Phoenix Suns,Portland Trail Blazers,,104,2.50,1.34
+2013-10-31,Sacramento Kings,Denver Nuggets,,90,1.57,1.99
+2013-10-31,Utah Jazz,Oklahoma City Thunder,98,101,2.87,1.26
+2013-10-31,Dallas Mavericks,Atlanta Hawks,,118,1.32,2.62
+2013-10-31,San Antonio Spurs,Memphis Grizzlies,,101,1.30,2.63
+2013-10-31,Houston Rockets,Charlotte Hornets,,96,1.01,6.58
+2013-10-31,Minnesota Timberwolves,Orlando Magic,,120,1.08,4.58
+2013-10-31,New Orleans Pelicans,Indiana Pacers,90,95,1.70,1.81
+2013-10-31,Detroit Pistons,Washington Wizards,,113,1.56,2.00
+2013-10-31,New York Knicks,Milwaukee Bucks,,90,1.19,3.32
+2013-10-31,Cleveland Cavaliers,Brooklyn Nets,,98,2.14,1.49
+2013-10-31,Philadelphia 76ers,Miami Heat,76,114,5.17,1.06
+2013-10-31,Toronto Raptors,Boston Celtics,,93,1.18,3.33
+2013-10-30,Los Angeles Lakers,Los Angeles Clippers,,116,4.10,1.11
+2013-10-30,Miami Heat,Chicago Bulls,,107,1.38,2.53
+2013-10-30,Indiana Pacers,Orlando Magic,,97,1.05,5.55

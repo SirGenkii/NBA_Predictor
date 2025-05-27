@@ -27,6 +27,9 @@ DATA_PREDICTION_ROWS_DIR = os.path.join(DATA_DIR, 'predictions_rows')
 
 DATA_MODELS_DIR = os.path.join(DATA_DIR, 'models')
 
+DATA_ODDS_HISTORY_DIR = os.path.join(DATA_DIR, 'odds_history')
+
+
 BATCH_SIZE = 25
 
 ERROR_LOG_FOLDER = 'logs'

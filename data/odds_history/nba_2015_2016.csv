@@ -1,0 +1,1317 @@
+date,home_team,away_team,home_score,away_score,home_odds,away_odds
+2016-06-20,Golden State Warriors,Cleveland Cavaliers,89,93,1.52,2.53
+2016-06-17,Cleveland Cavaliers,Golden State Warriors,,115,1.68,2.02
+2016-06-14,Golden State Warriors,Cleveland Cavaliers,97,112,1.39,2.82
+2016-06-11,Cleveland Cavaliers,Golden State Warriors,97,108,1.67,2.07
+2016-06-09,Cleveland Cavaliers,Golden State Warriors,,120,1.80,1.93
+2016-06-06,Golden State Warriors,Cleveland Cavaliers,,110,1.36,2.95
+2016-06-03,Golden State Warriors,Cleveland Cavaliers,,104,1.37,2.85
+2016-05-31,Golden State Warriors,Oklahoma City Thunder,,96,1.29,3.27
+2016-05-29,Oklahoma City Thunder,Golden State Warriors,101,108,1.62,2.15
+2016-05-28,Toronto Raptors,Cleveland Cavaliers,87,113,3.12,1.31
+2016-05-27,Golden State Warriors,Oklahoma City Thunder,,120,1.25,3.63
+2016-05-26,Cleveland Cavaliers,Toronto Raptors,,116,1.10,6.03
+2016-05-25,Oklahoma City Thunder,Golden State Warriors,,118,1.95,1.75
+2016-05-24,Toronto Raptors,Cleveland Cavaliers,,105,2.98,1.34
+2016-05-23,Oklahoma City Thunder,Golden State Warriors,,133,2.17,1.60
+2016-05-22,Toronto Raptors,Cleveland Cavaliers,,99,2.95,1.35
+2016-05-20,Cleveland Cavaliers,Toronto Raptors,,108,1.06,6.25
+2016-05-19,Golden State Warriors,Oklahoma City Thunder,,118,1.19,4.08
+2016-05-18,Cleveland Cavaliers,Toronto Raptors,,115,1.10,6.08
+2016-05-17,Golden State Warriors,Oklahoma City Thunder,102,108,1.21,3.80
+2016-05-15,Toronto Raptors,Miami Heat,,116,1.45,2.53
+2016-05-14,Miami Heat,Toronto Raptors,,103,1.50,2.42
+2016-05-13,Oklahoma City Thunder,San Antonio Spurs,,113,1.83,1.84
+2016-05-12,Golden State Warriors,Portland Trail Blazers,,125,1.06,7.50
+2016-05-12,Toronto Raptors,Miami Heat,,99,1.46,2.57
+2016-05-11,San Antonio Spurs,Oklahoma City Thunder,91,95,1.25,3.43
+2016-05-10,Portland Trail Blazers,Golden State Warriors,125,132,2.93,1.34
+2016-05-10,Miami Heat,Toronto Raptors,,94,1.41,2.68
+2016-05-09,Oklahoma City Thunder,San Antonio Spurs,,111,1.76,1.97
+2016-05-08,Atlanta Hawks,Cleveland Cavaliers,99,100,2.65,1.42
+2016-05-08,Portland Trail Blazers,Golden State Warriors,,120,2.30,1.54
+2016-05-07,Miami Heat,Toronto Raptors,91,95,1.38,2.92
+2016-05-07,Oklahoma City Thunder,San Antonio Spurs,96,100,2.07,1.67
+2016-05-07,Atlanta Hawks,Cleveland Cavaliers,108,121,2.12,1.62
+2016-05-06,Toronto Raptors,Miami Heat,,96,1.41,2.68
+2016-05-05,Cleveland Cavaliers,Atlanta Hawks,,123,1.24,3.68
+2016-05-04,Golden State Warriors,Portland Trail Blazers,,110,1.14,4.62
+2016-05-04,Toronto Raptors,Miami Heat,96,102,1.50,2.38
+2016-05-03,San Antonio Spurs,Oklahoma City Thunder,97,98,1.24,3.60
+2016-05-03,Cleveland Cavaliers,Atlanta Hawks,,104,1.24,3.58
+2016-05-02,Toronto Raptors,Indiana Pacers,,89,1.34,2.90
+2016-05-01,Golden State Warriors,Portland Trail Blazers,,118,1.17,4.52
+2016-05-01,Miami Heat,Charlotte Hornets,,106,1.30,3.15
+2016-05-01,San Antonio Spurs,Oklahoma City Thunder,,124,1.31,3.07
+2016-04-30,Portland Trail Blazers,Los Angeles Clippers,,106,1.15,4.58
+2016-04-30,Charlotte Hornets,Miami Heat,90,97,1.74,1.97
+2016-04-30,Indiana Pacers,Toronto Raptors,,101,1.75,1.95
+2016-04-29,Boston Celtics,Atlanta Hawks,92,104,2.07,1.67
+2016-04-28,Golden State Warriors,Houston Rockets,,114,1.17,4.30
+2016-04-28,Los Angeles Clippers,Portland Trail Blazers,98,108,2.13,1.60
+2016-04-28,Miami Heat,Charlotte Hornets,88,90,1.35,2.90
+2016-04-27,Atlanta Hawks,Boston Celtics,,110,1.27,3.40
+2016-04-27,Toronto Raptors,Indiana Pacers,,102,1.30,3.18
+2016-04-26,Portland Trail Blazers,Los Angeles Clippers,,98,2.28,1.55
+2016-04-26,Oklahoma City Thunder,Dallas Mavericks,,118,1.04,8.25
+2016-04-26,Charlotte Hornets,Miami Heat,,89,1.68,1.99
+2016-04-25,Detroit Pistons,Cleveland Cavaliers,98,100,2.85,1.35
+2016-04-25,Boston Celtics,Atlanta Hawks,,104,1.81,1.88
+2016-04-24,Houston Rockets,Golden State Warriors,94,121,4.02,1.20
+2016-04-24,Memphis Grizzlies,San Antonio Spurs,95,116,7.17,1.06
+2016-04-24,Portland Trail Blazers,Los Angeles Clippers,,96,1.97,1.73
+2016-04-24,Dallas Mavericks,Oklahoma City Thunder,108,119,4.43,1.16
+2016-04-23,Charlotte Hornets,Miami Heat,,96,1.63,2.12
+2016-04-23,Indiana Pacers,Toronto Raptors,,100,1.91,1.77
+2016-04-23,Memphis Grizzlies,San Antonio Spurs,87,96,6.25,1.09
+2016-04-23,Boston Celtics,Atlanta Hawks,,111,1.58,2.20
+2016-04-23,Detroit Pistons,Cleveland Cavaliers,91,101,2.50,1.45
+2016-04-22,Houston Rockets,Golden State Warriors,,97,2.37,1.51
+2016-04-22,Indiana Pacers,Toronto Raptors,85,101,1.85,1.82
+2016-04-22,Dallas Mavericks,Oklahoma City Thunder,102,131,4.37,1.17
+2016-04-21,Los Angeles Clippers,Portland Trail Blazers,,102,1.21,3.88
+2016-04-21,Cleveland Cavaliers,Detroit Pistons,,107,1.11,5.12
+2016-04-21,Miami Heat,Charlotte Hornets,,115,1.43,2.58
+2016-04-20,San Antonio Spurs,Memphis Grizzlies,,94,1.02,11.50
+2016-04-20,Atlanta Hawks,Boston Celtics,,89,1.33,2.98
+2016-04-19,Golden State Warriors,Houston Rockets,,115,1.12,4.95
+2016-04-19,Oklahoma City Thunder,Dallas Mavericks,84,85,1.05,8.08
+2016-04-19,Toronto Raptors,Indiana Pacers,,98,1.26,3.53
+2016-04-18,Los Angeles Clippers,Portland Trail Blazers,,115,1.20,4.12
+2016-04-18,San Antonio Spurs,Memphis Grizzlies,,106,1.02,11.42
+2016-04-17,Miami Heat,Charlotte Hornets,,123,1.45,2.58
+2016-04-17,Cleveland Cavaliers,Detroit Pistons,,106,1.10,5.92
+2016-04-17,Oklahoma City Thunder,Dallas Mavericks,,108,1.08,6.00
+2016-04-17,Atlanta Hawks,Boston Celtics,,102,1.39,2.65
+2016-04-16,Golden State Warriors,Houston Rockets,,104,1.06,7.83
+2016-04-16,Toronto Raptors,Indiana Pacers,90,100,1.31,3.17
+2016-04-14,Golden State Warriors,Memphis Grizzlies,,125,1.01,10.08
+2016-04-14,Los Angeles Lakers,Utah Jazz,,101,2.23,1.56
+2016-04-14,Phoenix Suns,Los Angeles Clippers,,114,1.45,2.50
+2016-04-14,Portland Trail Blazers,Denver Nuggets,,107,1.13,4.78
+2016-04-14,Boston Celtics,Miami Heat,,98,1.48,2.43
+2016-04-14,Brooklyn Nets,Toronto Raptors,96,103,2.67,1.39
+2016-04-14,Charlotte Hornets,Orlando Magic,,117,1.23,3.57
+2016-04-14,Chicago Bulls,Philadelphia 76ers,,115,1.15,4.42
+2016-04-14,Cleveland Cavaliers,Detroit Pistons,110,112,1.54,2.27
+2016-04-14,Dallas Mavericks,San Antonio Spurs,91,96,1.45,2.48
+2016-04-14,Houston Rockets,Sacramento Kings,,116,1.02,7.25
+2016-04-14,Milwaukee Bucks,Indiana Pacers,92,97,1.46,2.45
+2016-04-14,Minnesota Timberwolves,New Orleans Pelicans,,144,1.14,4.60
+2016-04-14,Washington Wizards,Atlanta Hawks,,109,4.18,1.18
+2016-04-13,Los Angeles Clippers,Memphis Grizzlies,,110,1.18,4.17
+2016-04-13,San Antonio Spurs,Oklahoma City Thunder,,102,1.11,5.75
+2016-04-13,Detroit Pistons,Miami Heat,93,99,1.70,2.02
+2016-04-13,Toronto Raptors,Philadelphia 76ers,,122,1.10,5.50
+2016-04-13,Indiana Pacers,New York Knicks,,102,1.12,5.08
+2016-04-12,Phoenix Suns,Sacramento Kings,101,105,1.36,2.78
+2016-04-12,Utah Jazz,Dallas Mavericks,92,101,1.26,2.95
+2016-04-12,Minnesota Timberwolves,Houston Rockets,105,129,2.23,1.55
+2016-04-12,New Orleans Pelicans,Chicago Bulls,116,121,2.48,1.45
+2016-04-12,Oklahoma City Thunder,Los Angeles Lakers,,112,1.03,8.75
+2016-04-12,Boston Celtics,Charlotte Hornets,100,114,1.29,3.13
+2016-04-12,Brooklyn Nets,Washington Wizards,111,120,3.05,1.31
+2016-04-12,Cleveland Cavaliers,Atlanta Hawks,,109,1.35,2.85
+2016-04-12,Orlando Magic,Milwaukee Bucks,,107,1.57,2.23
+2016-04-11,New York Knicks,Toronto Raptors,89,93,2.82,1.35
+2016-04-11,San Antonio Spurs,Golden State Warriors,86,92,1.54,2.23
+2016-04-11,Indiana Pacers,Brooklyn Nets,,129,1.05,7.67
+2016-04-11,Miami Heat,Orlando Magic,,118,1.17,4.33
+2016-04-10,Denver Nuggets,Utah Jazz,84,100,3.00,1.32
+2016-04-10,Philadelphia 76ers,Milwaukee Bucks,108,109,2.33,1.50
+2016-04-10,Houston Rockets,Los Angeles Lakers,,130,1.04,8.25
+2016-04-10,Los Angeles Clippers,Dallas Mavericks,,98,1.38,2.72
+2016-04-10,Washington Wizards,Charlotte Hornets,,113,2.62,1.42
+2016-04-10,Portland Trail Blazers,Minnesota Timberwolves,105,106,1.19,3.93
+2016-04-10,Sacramento Kings,Oklahoma City Thunder,,114,3.70,1.21
+2016-04-10,Chicago Bulls,Cleveland Cavaliers,,105,3.43,1.25
+2016-04-10,Memphis Grizzlies,Golden State Warriors,99,100,7.33,1.06
+2016-04-10,Atlanta Hawks,Boston Celtics,,118,1.38,2.77
+2016-04-10,New Orleans Pelicans,Phoenix Suns,100,121,2.17,1.59
+2016-04-09,Denver Nuggets,San Antonio Spurs,,102,1.68,2.00
+2016-04-09,Utah Jazz,Los Angeles Clippers,99,102,1.05,6.00
+2016-04-09,Dallas Mavericks,Memphis Grizzlies,,103,1.31,3.02
+2016-04-09,New Orleans Pelicans,Los Angeles Lakers,,110,1.57,2.23
+2016-04-09,Boston Celtics,Milwaukee Bucks,,124,1.12,4.90
+2016-04-09,Detroit Pistons,Washington Wizards,,112,1.37,2.80
+2016-04-09,Toronto Raptors,Indiana Pacers,,111,2.58,1.41
+2016-04-09,Charlotte Hornets,Brooklyn Nets,,113,1.03,8.58
+2016-04-09,Orlando Magic,Miami Heat,,112,1.85,1.82
+2016-04-09,Philadelphia 76ers,New York Knicks,102,109,2.08,1.64
+2016-04-08,Golden State Warriors,San Antonio Spurs,,112,1.35,2.82
+2016-04-08,Sacramento Kings,Minnesota Timberwolves,97,105,1.89,1.76
+2016-04-08,Atlanta Hawks,Toronto Raptors,,95,1.29,3.13
+2016-04-08,Houston Rockets,Phoenix Suns,115,124,1.07,6.75
+2016-04-08,Miami Heat,Chicago Bulls,,106,1.37,2.75
+2016-04-07,Los Angeles Lakers,Los Angeles Clippers,81,91,4.58,1.14
+2016-04-07,Portland Trail Blazers,Oklahoma City Thunder,,120,1.24,3.27
+2016-04-07,Dallas Mavericks,Houston Rockets,,88,1.97,1.70
+2016-04-07,Boston Celtics,New Orleans Pelicans,,104,1.03,8.83
+2016-04-07,New York Knicks,Charlotte Hornets,97,111,2.45,1.45
+2016-04-07,Washington Wizards,Brooklyn Nets,,121,1.06,7.00
+2016-04-07,Indiana Pacers,Cleveland Cavaliers,,123,1.52,2.25
+2016-04-07,Orlando Magic,Detroit Pistons,104,108,1.58,2.15
+2016-04-06,Golden State Warriors,Minnesota Timberwolves,117,124,1.03,8.92
+2016-04-06,Los Angeles Clippers,Los Angeles Lakers,,103,1.05,7.92
+2016-04-06,Sacramento Kings,Portland Trail Blazers,107,115,2.25,1.52
+2016-04-06,Denver Nuggets,Oklahoma City Thunder,102,124,3.85,1.20
+2016-04-06,Utah Jazz,San Antonio Spurs,86,88,2.17,1.57
+2016-04-06,Atlanta Hawks,Phoenix Suns,,103,1.03,8.25
+2016-04-06,Memphis Grizzlies,Chicago Bulls,,108,2.20,1.58
+2016-04-06,Miami Heat,Detroit Pistons,,107,1.46,2.47
+2016-04-06,Milwaukee Bucks,Cleveland Cavaliers,80,109,3.78,1.21
+2016-04-06,Toronto Raptors,Charlotte Hornets,,96,1.44,2.48
+2016-04-06,Philadelphia 76ers,New Orleans Pelicans,76,107,1.67,2.00
+2016-04-04,Los Angeles Lakers,Boston Celtics,100,107,4.03,1.16
+2016-04-04,Golden State Warriors,Portland Trail Blazers,,136,1.08,5.42
+2016-04-04,New York Knicks,Indiana Pacers,87,92,3.10,1.26
+2016-04-04,Milwaukee Bucks,Chicago Bulls,98,102,1.64,2.00
+2016-04-04,Orlando Magic,Memphis Grizzlies,,119,1.46,2.33
+2016-04-04,Phoenix Suns,Utah Jazz,86,101,3.98,1.17
+2016-04-03,Cleveland Cavaliers,Charlotte Hornets,,112,1.27,3.05
+2016-04-03,Houston Rockets,Oklahoma City Thunder,,118,2.13,1.56
+2016-04-03,Los Angeles Clippers,Washington Wizards,,114,1.30,2.92
+2016-04-03,Minnesota Timberwolves,Dallas Mavericks,78,88,2.05,1.60
+2016-04-03,Brooklyn Nets,New Orleans Pelicans,87,106,1.62,2.07
+2016-04-03,Portland Trail Blazers,Miami Heat,,110,1.31,2.85
+2016-04-03,Denver Nuggets,Sacramento Kings,106,115,1.16,4.02
+2016-04-03,San Antonio Spurs,Toronto Raptors,,102,1.07,5.85
+2016-04-03,Chicago Bulls,Detroit Pistons,90,94,1.55,2.10
+2016-04-03,Philadelphia 76ers,Indiana Pacers,102,115,4.82,1.11
+2016-04-02,Golden State Warriors,Boston Celtics,106,109,1.07,5.75
+2016-04-02,Phoenix Suns,Washington Wizards,99,106,3.85,1.17
+2016-04-02,Sacramento Kings,Miami Heat,106,112,3.02,1.28
+2016-04-02,Utah Jazz,Minnesota Timberwolves,,98,1.22,3.47
+2016-04-02,Atlanta Hawks,Cleveland Cavaliers,108,110,1.62,2.02
+2016-04-02,Memphis Grizzlies,Toronto Raptors,95,99,2.63,1.37
+2016-04-02,Milwaukee Bucks,Orlando Magic,,113,1.62,2.05
+2016-04-02,Detroit Pistons,Dallas Mavericks,89,98,1.34,2.75
+2016-04-02,New York Knicks,Brooklyn Nets,,105,1.33,2.75
+2016-04-02,Charlotte Hornets,Philadelphia 76ers,,100,1.02,7.67
+2016-04-01,Portland Trail Blazers,Boston Celtics,,116,1.54,2.15
+2016-04-01,Oklahoma City Thunder,Los Angeles Clippers,,119,1.02,8.38
+2016-04-01,New Orleans Pelicans,Denver Nuggets,,101,3.08,1.26
+2016-04-01,Cleveland Cavaliers,Brooklyn Nets,,107,1.01,8.75
+2016-04-01,Houston Rockets,Chicago Bulls,100,103,1.28,2.98
+2016-04-01,Indiana Pacers,Orlando Magic,94,114,1.28,3.03
+2016-03-31,Los Angeles Lakers,Miami Heat,,102,5.00,1.10
+2016-03-31,Sacramento Kings,Washington Wizards,,120,1.96,1.66
+2016-03-31,Utah Jazz,Golden State Warriors,96,103,2.37,1.45
+2016-03-31,Dallas Mavericks,New York Knicks,,91,1.33,2.78
+2016-03-31,San Antonio Spurs,New Orleans Pelicans,,100,1.01,10.25
+2016-03-31,Memphis Grizzlies,Denver Nuggets,105,109,1.59,2.07
+2016-03-31,Milwaukee Bucks,Phoenix Suns,,105,1.23,3.27
+2016-03-31,Minnesota Timberwolves,Los Angeles Clippers,79,99,2.72,1.35
+2016-03-31,Toronto Raptors,Atlanta Hawks,,105,1.75,1.86
+2016-03-30,Golden State Warriors,Washington Wizards,,102,1.05,6.50
+2016-03-30,Cleveland Cavaliers,Houston Rockets,100,106,1.67,1.94
+2016-03-30,Detroit Pistons,Oklahoma City Thunder,,88,1.70,1.89
+2016-03-30,Indiana Pacers,Chicago Bulls,96,98,1.27,3.05
+2016-03-30,Orlando Magic,Brooklyn Nets,,139,1.21,3.42
+2016-03-30,Philadelphia 76ers,Charlotte Hornets,85,100,5.58,1.08
+2016-03-29,Los Angeles Clippers,Boston Celtics,,114,1.48,2.32
+2016-03-29,Portland Trail Blazers,Sacramento Kings,,105,1.06,6.28
+2016-03-29,Denver Nuggets,Dallas Mavericks,88,97,1.70,1.92
+2016-03-29,Utah Jazz,Los Angeles Lakers,,123,1.04,6.92
+2016-03-29,Chicago Bulls,Atlanta Hawks,100,102,2.10,1.57
+2016-03-29,Memphis Grizzlies,San Antonio Spurs,87,101,2.67,1.36
+2016-03-29,Minnesota Timberwolves,Phoenix Suns,,121,1.31,2.92
+2016-03-29,New Orleans Pelicans,New York Knicks,,99,2.68,1.35
+2016-03-29,Miami Heat,Brooklyn Nets,,110,1.17,3.82
+2016-03-29,Toronto Raptors,Oklahoma City Thunder,100,119,2.07,1.59
+2016-03-28,Los Angeles Lakers,Washington Wizards,88,101,3.83,1.17
+2016-03-28,Golden State Warriors,Philadelphia 76ers,,117,1.01,10.92
+2016-03-28,Indiana Pacers,Houston Rockets,,104,1.70,1.92
+2016-03-28,Sacramento Kings,Dallas Mavericks,,133,1.71,1.89
+2016-03-27,Los Angeles Clippers,Denver Nuggets,,105,1.18,3.88
+2016-03-27,Phoenix Suns,Boston Celtics,99,102,3.87,1.17
+2016-03-27,Portland Trail Blazers,Philadelphia 76ers,,108,1.02,8.25
+2016-03-27,Milwaukee Bucks,Charlotte Hornets,91,115,2.15,1.56
+2016-03-27,Minnesota Timberwolves,Utah Jazz,84,93,3.43,1.22
+2016-03-27,Oklahoma City Thunder,San Antonio Spurs,,111,1.08,5.63
+2016-03-27,Detroit Pistons,Atlanta Hawks,95,112,1.72,1.89
+2016-03-27,New York Knicks,Cleveland Cavaliers,93,107,3.62,1.20
+2016-03-27,New Orleans Pelicans,Toronto Raptors,91,115,4.45,1.13
+2016-03-27,Orlando Magic,Chicago Bulls,,111,2.98,1.28
+2016-03-26,Brooklyn Nets,Indiana Pacers,,120,2.63,1.36
+2016-03-26,Golden State Warriors,Dallas Mavericks,,128,1.01,9.42
+2016-03-26,Los Angeles Lakers,Denver Nuggets,105,116,2.28,1.49
+2016-03-26,Sacramento Kings,Phoenix Suns,,116,1.26,3.12
+2016-03-26,San Antonio Spurs,Memphis Grizzlies,,110,1.04,6.83
+2016-03-26,Atlanta Hawks,Milwaukee Bucks,,101,1.17,3.90
+2016-03-26,Houston Rockets,Toronto Raptors,,112,1.78,1.81
+2016-03-26,Miami Heat,Orlando Magic,,108,1.12,4.50
+2016-03-26,Detroit Pistons,Charlotte Hornets,,112,1.65,1.99
+2016-03-26,Washington Wizards,Minnesota Timberwolves,129,132,1.19,3.65
+2016-03-25,Los Angeles Clippers,Portland Trail Blazers,,96,1.39,2.60
+2016-03-25,Oklahoma City Thunder,Utah Jazz,,113,1.14,4.42
+2016-03-25,Brooklyn Nets,Cleveland Cavaliers,,104,4.50,1.14
+2016-03-25,New York Knicks,Chicago Bulls,,106,2.35,1.46
+2016-03-25,Indiana Pacers,New Orleans Pelicans,,92,1.04,6.83
+2016-03-24,Golden State Warriors,Los Angeles Clippers,,114,1.13,4.47
+2016-03-24,Phoenix Suns,Los Angeles Lakers,,119,1.38,2.57
+2016-03-24,Portland Trail Blazers,Dallas Mavericks,,109,1.30,2.97
+2016-03-24,Denver Nuggets,Philadelphia 76ers,,104,1.19,3.72
+2016-03-24,San Antonio Spurs,Miami Heat,,112,1.11,4.83
+2016-03-24,Chicago Bulls,New York Knicks,107,115,1.17,3.88
+2016-03-24,Houston Rockets,Utah Jazz,87,89,1.68,1.94
+2016-03-24,Minnesota Timberwolves,Sacramento Kings,,113,1.45,2.38
+2016-03-24,Boston Celtics,Toronto Raptors,,91,1.75,1.85
+2016-03-24,Detroit Pistons,Orlando Magic,,118,1.33,2.78
+2016-03-24,Cleveland Cavaliers,Milwaukee Bucks,,113,1.10,5.07
+2016-03-24,Washington Wizards,Atlanta Hawks,101,122,1.78,1.84
+2016-03-23,Los Angeles Lakers,Memphis Grizzlies,,107,2.10,1.58
+2016-03-23,New Orleans Pelicans,Miami Heat,99,113,4.24,1.15
+2016-03-23,Oklahoma City Thunder,Houston Rockets,,111,1.15,4.20
+2016-03-23,Brooklyn Nets,Charlotte Hornets,100,105,2.72,1.35
+2016-03-22,Phoenix Suns,Memphis Grizzlies,97,103,2.03,1.63
+2016-03-22,Atlanta Hawks,Washington Wizards,102,117,1.27,3.17
+2016-03-22,Chicago Bulls,Sacramento Kings,,109,1.21,3.62
+2016-03-22,Minnesota Timberwolves,Golden State Warriors,104,109,5.78,1.06
+2016-03-22,Boston Celtics,Orlando Magic,,107,1.18,3.82
+2016-03-22,Detroit Pistons,Milwaukee Bucks,,92,1.23,3.47
+2016-03-22,Charlotte Hornets,San Antonio Spurs,,91,2.86,1.32
+2016-03-22,Cleveland Cavaliers,Denver Nuggets,,124,1.08,5.62
+2016-03-22,Indiana Pacers,Philadelphia 76ers,,91,1.02,8.17
+2016-03-21,New York Knicks,Sacramento Kings,80,88,2.28,1.49
+2016-03-21,Milwaukee Bucks,Utah Jazz,85,94,1.88,1.73
+2016-03-20,New Orleans Pelicans,Los Angeles Clippers,,109,4.28,1.15
+2016-03-20,Philadelphia 76ers,Boston Celtics,105,120,5.42,1.08
+2016-03-20,Toronto Raptors,Orlando Magic,,105,1.14,4.32
+2016-03-20,Dallas Mavericks,Portland Trail Blazers,,132,1.76,1.86
+2016-03-20,San Antonio Spurs,Golden State Warriors,,87,1.45,2.43
+2016-03-20,Chicago Bulls,Utah Jazz,,92,1.73,1.91
+2016-03-20,Memphis Grizzlies,Los Angeles Clippers,,113,4.42,1.14
+2016-03-20,Atlanta Hawks,Houston Rockets,,109,1.27,3.08
+2016-03-20,Miami Heat,Cleveland Cavaliers,,122,2.24,1.52
+2016-03-20,Detroit Pistons,Brooklyn Nets,,115,1.18,3.95
+2016-03-20,Indiana Pacers,Oklahoma City Thunder,111,115,2.15,1.56
+2016-03-20,Washington Wizards,New York Knicks,,99,1.20,3.62
+2016-03-19,Charlotte Hornets,Denver Nuggets,93,101,1.15,4.17
+2016-03-19,Los Angeles Lakers,Phoenix Suns,90,95,1.55,2.17
+2016-03-19,Dallas Mavericks,Golden State Warriors,112,130,4.13,1.15
+2016-03-19,Houston Rockets,Minnesota Timberwolves,,116,1.16,4.07
+2016-03-19,New Orleans Pelicans,Portland Trail Blazers,112,117,2.00,1.64
+2016-03-19,Detroit Pistons,Sacramento Kings,,115,1.26,3.15
+2016-03-19,Toronto Raptors,Boston Celtics,,105,1.72,1.88
+2016-03-19,Orlando Magic,Cleveland Cavaliers,103,109,4.33,1.14
+2016-03-19,Philadelphia 76ers,Oklahoma City Thunder,97,111,8.33,1.02
+2016-03-18,Utah Jazz,Phoenix Suns,,103,1.17,3.98
+2016-03-18,San Antonio Spurs,Portland Trail Blazers,,118,1.08,5.72
+2016-03-18,Milwaukee Bucks,Memphis Grizzlies,,96,1.12,4.58
+2016-03-18,Atlanta Hawks,Denver Nuggets,,116,1.21,3.62
+2016-03-18,Chicago Bulls,Brooklyn Nets,,118,1.26,3.23
+2016-03-18,Miami Heat,Charlotte Hornets,106,109,1.47,2.37
+2016-03-18,Indiana Pacers,Toronto Raptors,94,101,1.69,1.95
+2016-03-18,Philadelphia 76ers,Washington Wizards,94,99,4.18,1.16
+2016-03-17,Golden State Warriors,New York Knicks,,121,1.02,8.58
+2016-03-17,Sacramento Kings,New Orleans Pelicans,108,123,1.54,2.22
+2016-03-17,Houston Rockets,Los Angeles Clippers,106,122,1.57,2.17
+2016-03-17,Memphis Grizzlies,Minnesota Timberwolves,108,114,2.18,1.55
+2016-03-17,Detroit Pistons,Atlanta Hawks,114,118,1.82,1.80
+2016-03-17,Boston Celtics,Oklahoma City Thunder,109,130,2.57,1.40
+2016-03-17,Charlotte Hornets,Orlando Magic,,107,1.15,4.25
+2016-03-17,Cleveland Cavaliers,Dallas Mavericks,,99,1.33,2.80
+2016-03-17,Washington Wizards,Chicago Bulls,,117,1.40,2.58
+2016-03-16,Los Angeles Lakers,Sacramento Kings,98,106,2.42,1.44
+2016-03-16,San Antonio Spurs,Los Angeles Clippers,,108,1.15,4.13
+2016-03-16,Milwaukee Bucks,Toronto Raptors,89,107,1.97,1.67
+2016-03-16,Brooklyn Nets,Philadelphia 76ers,,131,1.23,3.37
+2016-03-16,Indiana Pacers,Boston Celtics,,103,1.61,2.08
+2016-03-16,Orlando Magic,Denver Nuggets,,116,1.56,2.12
+2016-03-15,Golden State Warriors,New Orleans Pelicans,,125,1.03,8.75
+2016-03-15,Utah Jazz,Cleveland Cavaliers,,94,2.93,1.31
+2016-03-15,Phoenix Suns,Minnesota Timberwolves,,107,1.83,1.82
+2016-03-15,Houston Rockets,Memphis Grizzlies,,130,1.10,5.20
+2016-03-15,Oklahoma City Thunder,Portland Trail Blazers,,128,1.24,3.48
+2016-03-15,Washington Wizards,Detroit Pistons,,124,1.69,1.94
+2016-03-15,Miami Heat,Denver Nuggets,,124,1.25,3.30
+2016-03-15,Toronto Raptors,Chicago Bulls,107,109,1.16,4.18
+2016-03-15,Charlotte Hornets,Dallas Mavericks,96,107,1.38,2.72
+2016-03-14,Los Angeles Lakers,New York Knicks,87,90,1.92,1.71
+2016-03-14,Brooklyn Nets,Milwaukee Bucks,100,109,1.94,1.71
+2016-03-13,Atlanta Hawks,Indiana Pacers,,104,1.39,2.55
+2016-03-13,Sacramento Kings,Utah Jazz,99,108,1.93,1.70
+2016-03-13,Los Angeles Clippers,Cleveland Cavaliers,90,114,1.95,1.67
+2016-03-13,Golden State Warriors,Phoenix Suns,,123,1.01,8.58
+2016-03-13,Portland Trail Blazers,Orlando Magic,,121,1.19,3.73
+2016-03-13,Denver Nuggets,Washington Wizards,,116,1.74,1.87
+2016-03-13,San Antonio Spurs,Oklahoma City Thunder,,93,1.19,3.77
+2016-03-13,Atlanta Hawks,Memphis Grizzlies,,95,1.04,6.67
+2016-03-13,Milwaukee Bucks,New Orleans Pelicans,,103,1.31,2.87
+2016-03-13,Charlotte Hornets,Houston Rockets,,125,1.39,2.57
+2016-03-13,Philadelphia 76ers,Detroit Pistons,111,125,4.80,1.11
+2016-03-13,Toronto Raptors,Miami Heat,,112,1.29,2.98
+2016-03-12,Dallas Mavericks,Indiana Pacers,105,112,1.77,1.84
+2016-03-12,Golden State Warriors,Portland Trail Blazers,,128,1.04,6.50
+2016-03-12,Los Angeles Clippers,New York Knicks,,101,1.12,4.58
+2016-03-12,Sacramento Kings,Orlando Magic,100,107,1.72,1.88
+2016-03-12,Utah Jazz,Washington Wizards,,114,1.50,2.27
+2016-03-12,Memphis Grizzlies,New Orleans Pelicans,,121,2.07,1.60
+2016-03-12,Oklahoma City Thunder,Minnesota Timberwolves,96,99,1.05,6.33
+2016-03-12,Chicago Bulls,Miami Heat,96,118,2.27,1.49
+2016-03-12,Boston Celtics,Houston Rockets,98,102,1.40,2.55
+2016-03-12,Charlotte Hornets,Detroit Pistons,,118,1.48,2.28
+2016-03-12,Philadelphia 76ers,Brooklyn Nets,76,95,2.07,1.60
+2016-03-11,Los Angeles Lakers,Cleveland Cavaliers,108,120,4.43,1.14
+2016-03-11,Denver Nuggets,Phoenix Suns,,116,1.16,3.98
+2016-03-11,San Antonio Spurs,Chicago Bulls,,109,1.03,7.58
+2016-03-11,Toronto Raptors,Atlanta Hawks,,104,1.53,2.20
+2016-03-10,Golden State Warriors,Utah Jazz,,115,1.04,7.33
+2016-03-10,Sacramento Kings,Cleveland Cavaliers,111,120,3.03,1.27
+2016-03-10,Oklahoma City Thunder,Los Angeles Clippers,,120,1.33,2.87
+2016-03-10,Phoenix Suns,New York Knicks,97,128,1.65,2.00
+2016-03-10,Dallas Mavericks,Detroit Pistons,96,102,1.67,2.01
+2016-03-10,Milwaukee Bucks,Miami Heat,,114,2.18,1.57
+2016-03-10,Boston Celtics,Memphis Grizzlies,,116,1.12,4.82
+2016-03-10,Charlotte Hornets,New Orleans Pelicans,,122,1.17,4.17
+2016-03-10,Philadelphia 76ers,Houston Rockets,104,118,4.07,1.16
+2016-03-09,Los Angeles Lakers,Orlando Magic,,107,2.18,1.55
+2016-03-09,Portland Trail Blazers,Washington Wizards,,116,1.37,2.68
+2016-03-09,Denver Nuggets,New York Knicks,,110,1.73,1.90
+2016-03-09,Utah Jazz,Atlanta Hawks,84,91,1.69,1.95
+2016-03-09,Minnesota Timberwolves,San Antonio Spurs,91,116,4.61,1.13
+2016-03-09,Toronto Raptors,Brooklyn Nets,,104,1.07,5.75
+2016-03-08,Golden State Warriors,Orlando Magic,,119,1.04,8.83
+2016-03-08,Dallas Mavericks,Los Angeles Clippers,90,109,2.57,1.41
+2016-03-08,Chicago Bulls,Milwaukee Bucks,,100,1.36,2.73
+2016-03-08,New Orleans Pelicans,Sacramento Kings,,115,1.96,1.68
+2016-03-08,Charlotte Hornets,Minnesota Timberwolves,,108,1.14,4.37
+2016-03-08,Cleveland Cavaliers,Memphis Grizzlies,103,106,1.02,7.75
+2016-03-08,Indiana Pacers,San Antonio Spurs,,99,3.08,1.28
+2016-03-07,Toronto Raptors,Houston Rockets,107,113,1.26,3.33
+2016-03-07,Detroit Pistons,Portland Trail Blazers,,123,1.90,1.77
+2016-03-07,Miami Heat,Philadelphia 76ers,,103,1.03,7.83
+2016-03-06,Denver Nuggets,Dallas Mavericks,,116,2.32,1.50
+2016-03-06,Memphis Grizzlies,Phoenix Suns,100,109,1.14,4.57
+2016-03-06,Los Angeles Lakers,Golden State Warriors,,112,9.50,1.01
+2016-03-06,Milwaukee Bucks,Oklahoma City Thunder,96,104,3.48,1.24
+2016-03-06,Los Angeles Clippers,Atlanta Hawks,97,107,1.36,2.68
+2016-03-06,Chicago Bulls,Houston Rockets,,108,1.71,1.90
+2016-03-06,San Antonio Spurs,Sacramento Kings,,104,1.07,5.97
+2016-03-06,Minnesota Timberwolves,Brooklyn Nets,,132,1.22,3.55
+2016-03-06,Cleveland Cavaliers,Boston Celtics,,120,1.23,3.38
+2016-03-06,New Orleans Pelicans,Utah Jazz,94,106,1.76,1.86
+2016-03-06,New York Knicks,Detroit Pistons,,102,2.95,1.30
+2016-03-06,Washington Wizards,Indiana Pacers,99,100,1.64,2.02
+2016-03-05,Los Angeles Lakers,Atlanta Hawks,77,106,4.62,1.12
+2016-03-05,Denver Nuggets,Brooklyn Nets,120,121,1.37,2.63
+2016-03-05,Cleveland Cavaliers,Washington Wizards,,108,1.20,3.70
+2016-03-05,Memphis Grizzlies,Utah Jazz,,94,1.85,1.75
+2016-03-05,Milwaukee Bucks,Minnesota Timberwolves,,116,1.39,2.55
+2016-03-05,Boston Celtics,New York Knicks,,105,1.12,4.61
+2016-03-05,Toronto Raptors,Portland Trail Blazers,,117,1.34,2.77
+2016-03-05,Charlotte Hornets,Indiana Pacers,,108,1.58,2.12
+2016-03-05,Orlando Magic,Phoenix Suns,84,102,1.06,5.93
+2016-03-05,Philadelphia 76ers,Miami Heat,102,112,4.20,1.15
+2016-03-04,Golden State Warriors,Oklahoma City Thunder,,121,1.21,3.52
+2016-03-04,Dallas Mavericks,Sacramento Kings,101,104,1.27,3.15
+2016-03-04,New Orleans Pelicans,San Antonio Spurs,86,94,4.22,1.15
+2016-03-04,Miami Heat,Phoenix Suns,,108,1.03,7.67
+2016-03-03,Los Angeles Clippers,Oklahoma City Thunder,,103,1.89,1.74
+2016-03-03,Denver Nuggets,Los Angeles Lakers,,117,1.20,3.68
+2016-03-03,Houston Rockets,New Orleans Pelicans,,100,1.35,2.70
+2016-03-03,Memphis Grizzlies,Sacramento Kings,,104,1.54,2.20
+2016-03-03,Milwaukee Bucks,Indiana Pacers,99,104,2.08,1.60
+2016-03-03,Minnesota Timberwolves,Washington Wizards,98,104,2.10,1.59
+2016-03-03,San Antonio Spurs,Detroit Pistons,,97,1.10,4.98
+2016-03-03,Boston Celtics,Portland Trail Blazers,,116,1.33,2.83
+2016-03-03,Toronto Raptors,Utah Jazz,,104,1.35,2.72
+2016-03-03,Orlando Magic,Chicago Bulls,,102,1.48,2.32
+2016-03-03,Philadelphia 76ers,Charlotte Hornets,99,119,4.30,1.15
+2016-03-02,Golden State Warriors,Atlanta Hawks,,109,1.35,2.73
+2016-03-02,Los Angeles Lakers,Brooklyn Nets,,107,1.79,1.83
+2016-03-02,Dallas Mavericks,Orlando Magic,,121,1.42,2.48
+2016-03-02,Miami Heat,Chicago Bulls,,129,1.33,2.83
+2016-03-02,New York Knicks,Portland Trail Blazers,85,104,2.45,1.43
+2016-03-02,Charlotte Hornets,Phoenix Suns,,126,1.05,6.63
+2016-03-01,Los Angeles Clippers,Brooklyn Nets,,105,1.07,5.63
+2016-03-01,Sacramento Kings,Oklahoma City Thunder,116,131,4.38,1.14
+2016-03-01,Denver Nuggets,Memphis Grizzlies,96,103,1.96,1.68
+2016-03-01,Milwaukee Bucks,Houston Rockets,,128,2.13,1.57
+2016-03-01,Boston Celtics,Utah Jazz,,100,1.42,2.47
+2016-03-01,Cleveland Cavaliers,Indiana Pacers,,100,1.21,3.57
+2016-03-01,Washington Wizards,Philadelphia 76ers,,116,1.05,6.17
+2016-02-29,New York Knicks,Miami Heat,81,98,1.97,1.67
+2016-02-29,Dallas Mavericks,Minnesota Timberwolves,,128,1.23,3.38
+2016-02-29,Detroit Pistons,Toronto Raptors,,114,1.73,1.91
+2016-02-29,Indiana Pacers,Portland Trail Blazers,102,111,1.37,2.66
+2016-02-29,Orlando Magic,Philadelphia 76ers,,130,1.14,4.20
+2016-02-28,Atlanta Hawks,Charlotte Hornets,,87,1.46,2.38
+2016-02-28,Washington Wizards,Cleveland Cavaliers,,113,2.05,1.62
+2016-02-28,Phoenix Suns,Memphis Grizzlies,,111,3.07,1.27
+2016-02-28,Utah Jazz,Brooklyn Nets,96,98,1.09,5.35
+2016-02-28,Milwaukee Bucks,Detroit Pistons,91,102,1.76,1.87
+2016-02-28,Oklahoma City Thunder,Golden State Warriors,118,121,2.17,1.55
+2016-02-28,Chicago Bulls,Portland Trail Blazers,95,103,2.40,1.45
+2016-02-28,Houston Rockets,San Antonio Spurs,94,104,2.68,1.38
+2016-02-28,New Orleans Pelicans,Minnesota Timberwolves,110,112,1.49,2.33
+2016-02-27,Boston Celtics,Miami Heat,,101,1.37,2.70
+2016-02-27,Los Angeles Lakers,Memphis Grizzlies,95,112,2.53,1.39
+2016-02-27,Sacramento Kings,Los Angeles Clippers,107,117,2.48,1.42
+2016-02-27,Dallas Mavericks,Denver Nuggets,,122,1.34,2.78
+2016-02-27,Atlanta Hawks,Chicago Bulls,,103,1.23,3.40
+2016-02-27,New York Knicks,Orlando Magic,,108,1.64,2.02
+2016-02-27,Toronto Raptors,Cleveland Cavaliers,,99,2.00,1.64
+2016-02-27,Indiana Pacers,Charlotte Hornets,95,96,1.52,2.23
+2016-02-27,Philadelphia 76ers,Washington Wizards,94,103,3.67,1.20
+2016-02-26,Portland Trail Blazers,Houston Rockets,105,119,1.45,2.38
+2016-02-26,Utah Jazz,San Antonio Spurs,78,96,2.22,1.53
+2016-02-26,Phoenix Suns,Brooklyn Nets,106,116,1.72,1.90
+2016-02-26,New Orleans Pelicans,Oklahoma City Thunder,,123,2.75,1.35
+2016-02-26,Boston Celtics,Milwaukee Bucks,,112,1.21,3.43
+2016-02-26,Orlando Magic,Golden State Warriors,114,130,3.53,1.21
+2016-02-25,Los Angeles Clippers,Denver Nuggets,81,87,1.11,4.80
+2016-02-25,Sacramento Kings,San Antonio Spurs,92,108,3.62,1.22
+2016-02-25,Dallas Mavericks,Oklahoma City Thunder,103,116,2.53,1.40
+2016-02-25,Chicago Bulls,Washington Wizards,,109,1.75,1.86
+2016-02-25,Memphis Grizzlies,Los Angeles Lakers,,128,1.17,3.92
+2016-02-25,Detroit Pistons,Philadelphia 76ers,,111,1.09,5.28
+2016-02-25,Miami Heat,Golden State Warriors,112,118,3.92,1.18
+2016-02-25,Toronto Raptors,Minnesota Timberwolves,,114,1.14,4.23
+2016-02-25,Cleveland Cavaliers,Charlotte Hornets,,114,1.19,3.80
+2016-02-25,Indiana Pacers,New York Knicks,,108,1.28,3.08
+2016-02-24,Portland Trail Blazers,Brooklyn Nets,,112,1.09,5.58
+2016-02-24,Denver Nuggets,Sacramento Kings,110,114,1.63,2.00
+2016-02-24,Utah Jazz,Houston Rockets,,117,1.46,2.40
+2016-02-24,Philadelphia 76ers,Orlando Magic,115,124,2.72,1.35
+2016-02-24,Washington Wizards,New Orleans Pelicans,,109,1.45,2.38
+2016-02-23,Los Angeles Clippers,Phoenix Suns,,124,1.01,11.92
+2016-02-23,Atlanta Hawks,Golden State Warriors,92,102,2.98,1.29
+2016-02-23,Milwaukee Bucks,Los Angeles Lakers,,108,1.16,4.03
+2016-02-23,Minnesota Timberwolves,Boston Celtics,,124,2.45,1.44
+2016-02-23,Miami Heat,Indiana Pacers,,101,1.67,1.95
+2016-02-23,New York Knicks,Toronto Raptors,95,122,2.22,1.57
+2016-02-23,Cleveland Cavaliers,Detroit Pistons,88,96,1.14,4.40
+2016-02-22,Portland Trail Blazers,Utah Jazz,,115,1.57,2.12
+2016-02-22,Chicago Bulls,Los Angeles Lakers,,126,1.26,3.23
+2016-02-22,Dallas Mavericks,Philadelphia 76ers,,129,1.14,4.38
+2016-02-22,Brooklyn Nets,Charlotte Hornets,96,104,3.08,1.28
+2016-02-22,Orlando Magic,Indiana Pacers,102,105,1.90,1.72
+2016-02-22,Toronto Raptors,Memphis Grizzlies,,98,1.22,3.53
+2016-02-21,Denver Nuggets,Boston Celtics,101,121,2.10,1.60
+2016-02-21,Phoenix Suns,San Antonio Spurs,111,118,8.25,1.02
+2016-02-21,Detroit Pistons,New Orleans Pelicans,106,111,1.39,2.58
+2016-02-21,Oklahoma City Thunder,Cleveland Cavaliers,92,115,1.58,2.14
+2016-02-21,Los Angeles Clippers,Golden State Warriors,112,115,2.33,1.47
+2016-02-21,Minnesota Timberwolves,New York Knicks,95,103,1.61,2.05
+2016-02-21,Atlanta Hawks,Milwaukee Bucks,109,117,1.18,3.95
+2016-02-21,Miami Heat,Washington Wizards,,114,1.91,1.72
+2016-02-20,Los Angeles Lakers,San Antonio Spurs,113,119,4.93,1.10
+2016-02-20,Utah Jazz,Boston Celtics,,111,1.81,1.80
+2016-02-20,Portland Trail Blazers,Golden State Warriors,,137,3.77,1.20
+2016-02-20,Sacramento Kings,Denver Nuggets,,116,1.48,2.30
+2016-02-20,Phoenix Suns,Houston Rockets,100,116,3.53,1.21
+2016-02-20,Atlanta Hawks,Miami Heat,111,115,1.14,4.47
+2016-02-20,Chicago Bulls,Toronto Raptors,,116,3.20,1.27
+2016-02-20,Memphis Grizzlies,Minnesota Timberwolves,,109,1.45,2.40
+2016-02-20,Milwaukee Bucks,Charlotte Hornets,95,98,1.88,1.72
+2016-02-20,New Orleans Pelicans,Philadelphia 76ers,,121,1.17,4.02
+2016-02-20,Oklahoma City Thunder,Indiana Pacers,98,101,1.19,3.68
+2016-02-20,Brooklyn Nets,New York Knicks,,109,2.46,1.42
+2016-02-20,Orlando Magic,Dallas Mavericks,,110,1.74,1.86
+2016-02-20,Washington Wizards,Detroit Pistons,,98,1.69,1.93
+2016-02-19,Los Angeles Clippers,San Antonio Spurs,,105,2.10,1.57
+2016-02-19,Cleveland Cavaliers,Chicago Bulls,,106,1.06,6.42
+2016-02-19,Washington Wizards,Utah Jazz,,103,1.97,1.66
+2016-02-12,Milwaukee Bucks,Washington Wizards,,99,1.70,1.91
+2016-02-12,Oklahoma City Thunder,New Orleans Pelicans,,121,1.07,6.03
+2016-02-11,Portland Trail Blazers,Houston Rockets,,116,1.45,2.38
+2016-02-11,Phoenix Suns,Golden State Warriors,104,112,9.42,1.01
+2016-02-11,Chicago Bulls,Atlanta Hawks,90,113,2.28,1.49
+2016-02-11,Cleveland Cavaliers,Los Angeles Lakers,,120,1.01,9.58
+2016-02-11,Minnesota Timberwolves,Toronto Raptors,,117,2.92,1.30
+2016-02-11,New Orleans Pelicans,Utah Jazz,,100,1.67,1.94
+2016-02-11,Boston Celtics,Los Angeles Clippers,,139,1.70,1.92
+2016-02-11,Brooklyn Nets,Memphis Grizzlies,90,109,2.32,1.48
+2016-02-11,Detroit Pistons,Denver Nuggets,92,103,1.37,2.65
+2016-02-11,Indiana Pacers,Charlotte Hornets,95,117,1.50,2.22
+2016-02-11,Orlando Magic,San Antonio Spurs,96,98,3.65,1.19
+2016-02-11,Philadelphia 76ers,Sacramento Kings,110,114,2.45,1.42
+2016-02-10,Golden State Warriors,Houston Rockets,,123,1.04,7.75
+2016-02-10,Dallas Mavericks,Utah Jazz,119,121,1.68,1.92
+2016-02-10,Miami Heat,San Antonio Spurs,101,119,3.08,1.28
+2016-02-10,Milwaukee Bucks,Boston Celtics,,112,2.37,1.47
+2016-02-10,New York Knicks,Washington Wizards,108,111,1.87,1.74
+2016-02-09,Phoenix Suns,Oklahoma City Thunder,106,122,6.28,1.06
+2016-02-09,Atlanta Hawks,Orlando Magic,110,117,1.20,3.72
+2016-02-09,Memphis Grizzlies,Portland Trail Blazers,106,112,1.55,2.15
+2016-02-09,Minnesota Timberwolves,New Orleans Pelicans,102,116,1.66,1.97
+2016-02-09,Brooklyn Nets,Denver Nuggets,,105,2.04,1.62
+2016-02-09,Detroit Pistons,Toronto Raptors,89,103,1.94,1.68
+2016-02-09,Charlotte Hornets,Chicago Bulls,,108,1.25,3.28
+2016-02-09,Cleveland Cavaliers,Sacramento Kings,,120,1.06,6.10
+2016-02-09,Indiana Pacers,Los Angeles Lakers,,89,1.05,6.75
+2016-02-09,Philadelphia 76ers,Los Angeles Clippers,92,98,3.95,1.17
+2016-02-07,Miami Heat,Los Angeles Clippers,93,100,1.84,1.79
+2016-02-07,Boston Celtics,Sacramento Kings,,128,1.22,3.45
+2016-02-07,New York Knicks,Denver Nuggets,96,101,1.48,2.33
+2016-02-07,Orlando Magic,Atlanta Hawks,,96,2.20,1.53
+2016-02-07,Golden State Warriors,Oklahoma City Thunder,,116,1.21,3.43
+2016-02-07,Phoenix Suns,Utah Jazz,89,98,2.92,1.29
+2016-02-07,San Antonio Spurs,Los Angeles Lakers,,106,1.02,8.63
+2016-02-07,Memphis Grizzlies,Dallas Mavericks,110,114,1.36,2.68
+2016-02-07,Minnesota Timberwolves,Chicago Bulls,,112,1.56,2.15
+2016-02-07,Cleveland Cavaliers,New Orleans Pelicans,,99,1.12,4.70
+2016-02-07,Philadelphia 76ers,Brooklyn Nets,76,103,1.78,1.82
+2016-02-07,Charlotte Hornets,Washington Wizards,,108,1.39,2.55
+2016-02-07,Indiana Pacers,Detroit Pistons,,112,1.47,2.31
+2016-02-06,Houston Rockets,Portland Trail Blazers,79,96,1.43,2.42
+2016-02-06,Dallas Mavericks,San Antonio Spurs,90,116,3.02,1.28
+2016-02-06,Denver Nuggets,Chicago Bulls,,115,1.70,1.97
+2016-02-06,Utah Jazz,Milwaukee Bucks,,84,1.25,3.07
+2016-02-06,Brooklyn Nets,Sacramento Kings,,128,2.55,1.38
+2016-02-06,Cleveland Cavaliers,Boston Celtics,103,104,1.29,3.02
+2016-02-06,New York Knicks,Memphis Grizzlies,85,91,2.52,1.41
+2016-02-06,Atlanta Hawks,Indiana Pacers,,102,1.40,2.48
+2016-02-06,Charlotte Hornets,Miami Heat,95,98,1.50,2.25
+2016-02-06,Orlando Magic,Los Angeles Clippers,93,107,2.18,1.55
+2016-02-06,Washington Wizards,Philadelphia 76ers,,106,1.15,4.20
+2016-02-05,Portland Trail Blazers,Toronto Raptors,103,110,1.72,1.89
+2016-02-05,New Orleans Pelicans,Los Angeles Lakers,96,99,1.13,4.44
+2016-02-05,Phoenix Suns,Houston Rockets,105,111,3.53,1.22
+2016-02-05,Detroit Pistons,New York Knicks,,111,1.51,2.24
+2016-02-04,Los Angeles Clippers,Minnesota Timberwolves,102,108,1.08,5.47
+2016-02-04,Sacramento Kings,Chicago Bulls,102,107,1.50,2.27
+2016-02-04,Utah Jazz,Denver Nuggets,,85,1.22,3.48
+2016-02-04,Dallas Mavericks,Miami Heat,90,93,1.56,2.14
+2016-02-04,San Antonio Spurs,New Orleans Pelicans,,110,1.04,6.75
+2016-02-04,Oklahoma City Thunder,Orlando Magic,,117,1.05,6.22
+2016-02-04,Washington Wizards,Golden State Warriors,121,134,4.63,1.12
+2016-02-04,Boston Celtics,Detroit Pistons,,102,1.45,2.39
+2016-02-04,Brooklyn Nets,Indiana Pacers,100,114,2.90,1.31
+2016-02-04,Charlotte Hornets,Cleveland Cavaliers,,106,4.05,1.16
+2016-02-04,Philadelphia 76ers,Atlanta Hawks,86,124,3.57,1.21
+2016-02-03,Los Angeles Lakers,Minnesota Timberwolves,,119,2.40,1.44
+2016-02-03,Portland Trail Blazers,Milwaukee Bucks,,107,1.25,3.10
+2016-02-03,Phoenix Suns,Toronto Raptors,97,104,4.17,1.15
+2016-02-03,Houston Rockets,Miami Heat,,115,1.46,2.33
+2016-02-03,New York Knicks,Boston Celtics,89,97,2.38,1.44
+2016-02-02,Sacramento Kings,Milwaukee Bucks,,111,1.69,1.90
+2016-02-02,Denver Nuggets,Toronto Raptors,,112,2.48,1.41
+2016-02-02,Utah Jazz,Chicago Bulls,,105,1.41,2.43
+2016-02-02,San Antonio Spurs,Orlando Magic,,107,1.01,9.67
+2016-02-02,Atlanta Hawks,Dallas Mavericks,,112,1.32,2.73
+2016-02-02,New Orleans Pelicans,Memphis Grizzlies,95,110,1.62,2.02
+2016-02-02,Oklahoma City Thunder,Washington Wizards,,114,1.13,4.38
+2016-02-02,Brooklyn Nets,Detroit Pistons,100,105,3.02,1.27
+2016-02-02,Indiana Pacers,Cleveland Cavaliers,106,111,2.53,1.39
+2016-02-01,Los Angeles Lakers,Charlotte Hornets,82,101,2.23,1.48
+2016-02-01,Portland Trail Blazers,Minnesota Timberwolves,,96,1.28,2.92
+2016-02-01,New York Knicks,Golden State Warriors,95,116,4.85,1.11
+2016-02-01,Dallas Mavericks,Phoenix Suns,,91,1.12,4.62
+2016-02-01,Miami Heat,Atlanta Hawks,,105,2.03,1.62
+2016-02-01,Orlando Magic,Boston Celtics,,119,2.32,1.47
+2016-01-31,Los Angeles Clippers,Chicago Bulls,,120,1.44,2.40
+2016-01-31,Cleveland Cavaliers,San Antonio Spurs,,117,1.89,1.70
+2016-01-31,Houston Rockets,Washington Wizards,122,123,1.44,2.33
+2016-01-31,Memphis Grizzlies,Sacramento Kings,,121,1.50,2.22
+2016-01-31,Indiana Pacers,Denver Nuggets,,109,1.17,3.72
+2016-01-31,New Orleans Pelicans,Brooklyn Nets,,105,1.18,3.60
+2016-01-31,Toronto Raptors,Detroit Pistons,,111,1.24,3.23
+2016-01-30,Philadelphia 76ers,Golden State Warriors,105,108,11.25,1.01
+2016-01-30,Los Angeles Clippers,Los Angeles Lakers,,105,1.02,7.58
+2016-01-30,Portland Trail Blazers,Charlotte Hornets,,109,1.31,2.78
+2016-01-30,Utah Jazz,Minnesota Timberwolves,,103,1.18,3.75
+2016-01-30,Dallas Mavericks,Brooklyn Nets,,91,1.17,3.87
+2016-01-30,Milwaukee Bucks,Miami Heat,103,107,1.82,1.77
+2016-01-30,Oklahoma City Thunder,Houston Rockets,,116,1.19,3.58
+2016-01-30,Boston Celtics,Orlando Magic,,113,1.21,3.43
+2016-01-30,Detroit Pistons,Cleveland Cavaliers,106,114,2.28,1.47
+2016-01-30,New York Knicks,Phoenix Suns,,102,1.20,3.48
+2016-01-29,Los Angeles Lakers,Chicago Bulls,91,114,3.72,1.18
+2016-01-29,Memphis Grizzlies,Milwaukee Bucks,,103,1.40,2.48
+2016-01-29,New Orleans Pelicans,Sacramento Kings,,114,2.50,1.40
+2016-01-29,Toronto Raptors,New York Knicks,,103,1.10,4.91
+2016-01-29,Indiana Pacers,Atlanta Hawks,,111,1.57,2.08
+2016-01-29,Washington Wizards,Denver Nuggets,113,117,1.26,3.03
+2016-01-28,Golden State Warriors,Dallas Mavericks,,127,1.01,10.33
+2016-01-28,Utah Jazz,Charlotte Hornets,,102,1.29,2.85
+2016-01-28,Atlanta Hawks,Los Angeles Clippers,83,85,1.38,2.55
+2016-01-28,Minnesota Timberwolves,Oklahoma City Thunder,123,126,2.98,1.26
+2016-01-28,San Antonio Spurs,Houston Rockets,,130,1.14,4.40
+2016-01-28,Boston Celtics,Denver Nuggets,,111,1.14,4.17
+2016-01-28,Detroit Pistons,Philadelphia 76ers,,110,1.05,5.83
+2016-01-28,Cleveland Cavaliers,Phoenix Suns,,115,1.01,9.08
+2016-01-27,Los Angeles Lakers,Dallas Mavericks,90,92,3.05,1.27
+2016-01-27,Portland Trail Blazers,Sacramento Kings,,112,1.41,2.47
+2016-01-27,Milwaukee Bucks,Orlando Magic,,107,1.41,2.48
+2016-01-27,Brooklyn Nets,Miami Heat,98,102,2.28,1.50
+2016-01-27,New York Knicks,Oklahoma City Thunder,122,128,3.72,1.19
+2016-01-27,Toronto Raptors,Washington Wizards,,106,1.20,3.57
+2016-01-27,Indiana Pacers,Los Angeles Clippers,89,91,1.82,1.77
+2016-01-27,Philadelphia 76ers,Phoenix Suns,76,113,1.63,2.01
+2016-01-26,Golden State Warriors,San Antonio Spurs,,120,1.43,2.45
+2016-01-26,Sacramento Kings,Charlotte Hornets,128,129,1.21,3.33
+2016-01-26,Denver Nuggets,Atlanta Hawks,105,119,2.33,1.47
+2016-01-26,Utah Jazz,Detroit Pistons,92,95,1.64,2.02
+2016-01-26,Chicago Bulls,Miami Heat,84,89,1.22,3.33
+2016-01-26,Memphis Grizzlies,Orlando Magic,,108,1.37,2.60
+2016-01-26,New Orleans Pelicans,Houston Rockets,111,112,1.47,2.30
+2016-01-26,Washington Wizards,Boston Celtics,91,116,1.59,2.08
+2016-01-26,Cleveland Cavaliers,Minnesota Timberwolves,,114,1.04,6.78
+2016-01-25,Brooklyn Nets,Oklahoma City Thunder,,116,7.50,1.02
+2016-01-25,Philadelphia 76ers,Boston Celtics,92,112,3.52,1.20
+2016-01-25,Toronto Raptors,Los Angeles Clippers,,112,1.61,2.03
+2016-01-24,Houston Rockets,Dallas Mavericks,,115,1.56,2.13
+2016-01-24,Portland Trail Blazers,Los Angeles Lakers,,121,1.08,5.22
+2016-01-24,Sacramento Kings,Indiana Pacers,,108,1.53,2.17
+2016-01-24,Denver Nuggets,Detroit Pistons,,104,2.27,1.49
+2016-01-24,Phoenix Suns,Atlanta Hawks,,98,4.97,1.08
+2016-01-24,Cleveland Cavaliers,Chicago Bulls,83,96,1.10,4.83
+2016-01-24,Minnesota Timberwolves,Memphis Grizzlies,,106,2.13,1.56
+2016-01-24,Charlotte Hornets,New York Knicks,,97,1.90,1.70
+2016-01-24,New Orleans Pelicans,Milwaukee Bucks,,116,1.30,2.78
+2016-01-23,Golden State Warriors,Indiana Pacers,,122,1.05,6.00
+2016-01-23,Los Angeles Lakers,San Antonio Spurs,95,108,8.25,1.01
+2016-01-23,Dallas Mavericks,Oklahoma City Thunder,106,109,2.83,1.29
+2016-01-23,Houston Rockets,Milwaukee Bucks,,102,1.60,2.03
+2016-01-23,Toronto Raptors,Miami Heat,,101,1.10,4.83
+2016-01-23,Boston Celtics,Chicago Bulls,,110,1.52,2.20
+2016-01-23,Brooklyn Nets,Utah Jazz,86,108,2.60,1.36
+2016-01-23,New York Knicks,Los Angeles Clippers,88,116,1.97,1.64
+2016-01-23,Orlando Magic,Charlotte Hornets,116,120,1.40,2.48
+2016-01-22,Phoenix Suns,San Antonio Spurs,89,117,7.83,1.01
+2016-01-22,Sacramento Kings,Atlanta Hawks,,91,1.77,1.82
+2016-01-22,Denver Nuggets,Memphis Grizzlies,101,102,2.03,1.59
+2016-01-22,Cleveland Cavaliers,Los Angeles Clippers,,115,1.29,2.83
+2016-01-22,New Orleans Pelicans,Detroit Pistons,,115,1.62,2.02
+2016-01-21,Los Angeles Lakers,Sacramento Kings,93,112,2.93,1.29
+2016-01-21,Portland Trail Blazers,Atlanta Hawks,98,104,1.87,1.72
+2016-01-21,Dallas Mavericks,Minnesota Timberwolves,,106,1.31,2.80
+2016-01-21,Chicago Bulls,Golden State Warriors,94,125,2.83,1.30
+2016-01-21,Houston Rockets,Detroit Pistons,114,123,1.54,2.13
+2016-01-21,Oklahoma City Thunder,Charlotte Hornets,,109,1.13,4.27
+2016-01-21,Brooklyn Nets,Cleveland Cavaliers,78,91,6.13,1.04
+2016-01-21,New York Knicks,Utah Jazz,,118,1.57,2.07
+2016-01-21,Toronto Raptors,Boston Celtics,,115,1.52,2.17
+2016-01-21,Orlando Magic,Philadelphia 76ers,87,96,1.24,3.17
+2016-01-21,Washington Wizards,Miami Heat,,106,1.42,2.40
+2016-01-20,Denver Nuggets,Oklahoma City Thunder,104,110,3.78,1.18
+2016-01-20,Phoenix Suns,Indiana Pacers,94,97,2.72,1.33
+2016-01-20,New Orleans Pelicans,Minnesota Timberwolves,,114,1.38,2.55
+2016-01-20,Miami Heat,Milwaukee Bucks,79,91,1.43,2.40
+2016-01-19,Los Angeles Clippers,Houston Rockets,,140,1.35,2.65
+2016-01-19,Dallas Mavericks,Boston Celtics,,118,1.95,1.66
+2016-01-19,Cleveland Cavaliers,Golden State Warriors,98,132,1.55,2.15
+2016-01-19,Toronto Raptors,Brooklyn Nets,,112,1.08,5.20
+2016-01-18,Atlanta Hawks,Orlando Magic,,98,1.22,3.37
+2016-01-18,Detroit Pistons,Chicago Bulls,101,111,1.58,2.13
+2016-01-18,Memphis Grizzlies,New Orleans Pelicans,,101,1.46,2.32
+2016-01-18,Washington Wizards,Portland Trail Blazers,98,108,1.45,2.33
+2016-01-18,Charlotte Hornets,Utah Jazz,,124,1.57,2.13
+2016-01-18,New York Knicks,Philadelphia 76ers,,119,1.14,4.07
+2016-01-18,Los Angeles Lakers,Houston Rockets,95,112,4.20,1.14
+2016-01-18,Denver Nuggets,Indiana Pacers,,129,2.02,1.59
+2016-01-18,Oklahoma City Thunder,Miami Heat,,99,1.13,4.33
+2016-01-18,San Antonio Spurs,Dallas Mavericks,,112,1.06,5.88
+2016-01-17,Minnesota Timberwolves,Phoenix Suns,,117,1.42,2.42
+2016-01-17,Los Angeles Clippers,Sacramento Kings,103,110,1.44,2.43
+2016-01-17,Utah Jazz,Los Angeles Lakers,,109,1.20,3.48
+2016-01-17,Memphis Grizzlies,New York Knicks,,103,1.36,2.58
+2016-01-17,Atlanta Hawks,Brooklyn Nets,,114,1.09,4.98
+2016-01-17,Detroit Pistons,Golden State Warriors,,113,3.08,1.25
+2016-01-17,Philadelphia 76ers,Portland Trail Blazers,76,114,2.73,1.33
+2016-01-17,Washington Wizards,Boston Celtics,117,119,1.88,1.71
+2016-01-17,Charlotte Hornets,Milwaukee Bucks,92,105,1.34,2.65
+2016-01-16,Houston Rockets,Cleveland Cavaliers,77,91,1.92,1.68
+2016-01-16,Denver Nuggets,Miami Heat,95,98,1.97,1.64
+2016-01-16,Chicago Bulls,Dallas Mavericks,77,83,1.75,1.85
+2016-01-16,Milwaukee Bucks,Atlanta Hawks,,108,2.33,1.45
+2016-01-16,New Orleans Pelicans,Charlotte Hornets,,109,1.52,2.18
+2016-01-16,Boston Celtics,Phoenix Suns,,117,1.15,4.05
+2016-01-16,Brooklyn Nets,Portland Trail Blazers,104,116,2.23,1.49
+2016-01-16,Indiana Pacers,Washington Wizards,104,118,1.26,3.02
+2016-01-16,Oklahoma City Thunder,Minnesota Timberwolves,,113,1.05,5.87
+2016-01-15,Golden State Warriors,Los Angeles Lakers,,116,1.01,7.67
+2016-01-15,Utah Jazz,Sacramento Kings,101,103,1.59,2.07
+2016-01-15,Memphis Grizzlies,Detroit Pistons,,103,1.84,1.76
+2016-01-15,San Antonio Spurs,Cleveland Cavaliers,,99,1.31,2.77
+2016-01-15,Philadelphia 76ers,Chicago Bulls,111,115,3.53,1.19
+2016-01-14,Orlando Magic,Toronto Raptors,103,106,2.37,1.43
+2016-01-14,Los Angeles Clippers,Miami Heat,,104,1.51,2.17
+2016-01-14,Portland Trail Blazers,Utah Jazz,,99,1.54,2.15
+2016-01-14,Sacramento Kings,New Orleans Pelicans,97,109,1.28,2.88
+2016-01-14,Denver Nuggets,Golden State Warriors,,112,4.33,1.14
+2016-01-14,Boston Celtics,Indiana Pacers,,103,1.51,2.20
+2016-01-14,Houston Rockets,Minnesota Timberwolves,,107,1.20,3.68
+2016-01-14,Oklahoma City Thunder,Dallas Mavericks,,108,1.05,5.87
+2016-01-14,Brooklyn Nets,New York Knicks,,110,2.20,1.51
+2016-01-14,Charlotte Hornets,Atlanta Hawks,,107,2.08,1.58
+2016-01-14,Washington Wizards,Milwaukee Bucks,,106,1.37,2.58
+2016-01-13,Los Angeles Lakers,New Orleans Pelicans,,95,2.04,1.61
+2016-01-13,Dallas Mavericks,Cleveland Cavaliers,107,110,2.65,1.35
+2016-01-13,Memphis Grizzlies,Houston Rockets,91,107,1.91,1.68
+2016-01-13,Milwaukee Bucks,Chicago Bulls,,106,2.15,1.53
+2016-01-13,Minnesota Timberwolves,Oklahoma City Thunder,96,101,4.97,1.10
+2016-01-13,Detroit Pistons,San Antonio Spurs,99,109,3.13,1.25
+2016-01-13,New York Knicks,Boston Celtics,,120,1.84,1.74
+2016-01-13,Indiana Pacers,Phoenix Suns,,116,1.11,4.95
+2016-01-12,Golden State Warriors,Miami Heat,,111,1.03,6.75
+2016-01-12,Chicago Bulls,Washington Wizards,100,114,1.20,3.52
+2016-01-12,Brooklyn Nets,San Antonio Spurs,79,106,7.42,1.03
+2016-01-11,Los Angeles Lakers,Utah Jazz,74,86,2.22,1.50
+2016-01-11,Portland Trail Blazers,Oklahoma City Thunder,,115,3.38,1.21
+2016-01-11,Denver Nuggets,Charlotte Hornets,,95,1.86,1.71
+2016-01-11,New York Knicks,Milwaukee Bucks,,100,1.35,2.67
+2016-01-11,Houston Rockets,Indiana Pacers,,107,1.66,1.94
+2016-01-11,Memphis Grizzlies,Boston Celtics,,101,2.05,1.61
+2016-01-11,Philadelphia 76ers,Cleveland Cavaliers,85,95,7.92,1.01
+2016-01-10,Minnesota Timberwolves,Dallas Mavericks,87,93,2.32,1.47
+2016-01-10,Los Angeles Clippers,New Orleans Pelicans,,114,1.15,4.22
+2016-01-10,Sacramento Kings,Golden State Warriors,116,128,3.58,1.18
+2016-01-10,Utah Jazz,Miami Heat,,98,1.87,1.75
+2016-01-10,Detroit Pistons,Brooklyn Nets,,103,1.10,4.79
+2016-01-10,Philadelphia 76ers,Toronto Raptors,95,108,4.10,1.15
+2016-01-10,Orlando Magic,Washington Wizards,99,105,1.55,2.13
+2016-01-09,Atlanta Hawks,Chicago Bulls,,120,1.63,2.02
+2016-01-09,Los Angeles Clippers,Charlotte Hornets,,97,1.19,3.72
+2016-01-09,Los Angeles Lakers,Oklahoma City Thunder,113,117,7.67,1.02
+2016-01-09,Portland Trail Blazers,Golden State Warriors,108,128,4.23,1.14
+2016-01-09,Phoenix Suns,Miami Heat,95,103,2.53,1.40
+2016-01-09,San Antonio Spurs,New York Knicks,,100,1.03,7.42
+2016-01-09,Memphis Grizzlies,Denver Nuggets,,91,1.36,2.60
+2016-01-09,Milwaukee Bucks,Dallas Mavericks,,96,1.82,1.77
+2016-01-09,Minnesota Timberwolves,Cleveland Cavaliers,99,125,4.41,1.12
+2016-01-09,New Orleans Pelicans,Indiana Pacers,86,91,1.97,1.65
+2016-01-09,Brooklyn Nets,Orlando Magic,77,83,2.20,1.49
+2016-01-09,Washington Wizards,Toronto Raptors,88,97,1.96,1.65
+2016-01-08,Sacramento Kings,Los Angeles Lakers,,118,1.18,3.80
+2016-01-08,Chicago Bulls,Boston Celtics,,101,1.29,2.83
+2016-01-08,Houston Rockets,Utah Jazz,,103,1.25,3.08
+2016-01-08,Philadelphia 76ers,Atlanta Hawks,98,126,4.07,1.15
+2016-01-07,Portland Trail Blazers,Los Angeles Clippers,98,109,2.23,1.50
+2016-01-07,Oklahoma City Thunder,Memphis Grizzlies,,112,1.26,3.07
+2016-01-07,Phoenix Suns,Charlotte Hornets,,111,1.97,1.65
+2016-01-07,San Antonio Spurs,Utah Jazz,,123,1.03,7.42
+2016-01-07,Minnesota Timberwolves,Denver Nuggets,74,78,1.52,2.17
+2016-01-07,New Orleans Pelicans,Dallas Mavericks,91,100,1.22,3.35
+2016-01-07,Boston Celtics,Detroit Pistons,94,99,1.54,2.15
+2016-01-07,Brooklyn Nets,Toronto Raptors,74,91,3.00,1.27
+2016-01-07,Miami Heat,New York Knicks,90,98,1.22,3.30
+2016-01-07,Orlando Magic,Indiana Pacers,86,95,2.12,1.55
+2016-01-07,Washington Wizards,Cleveland Cavaliers,115,121,3.15,1.24
+2016-01-06,Los Angeles Lakers,Golden State Warriors,88,109,6.72,1.03
+2016-01-06,Dallas Mavericks,Sacramento Kings,,117,1.29,2.87
+2016-01-06,Atlanta Hawks,New York Knicks,101,107,1.20,3.53
+2016-01-06,Chicago Bulls,Milwaukee Bucks,,117,1.19,3.58
+2016-01-05,Golden State Warriors,Charlotte Hornets,,111,1.10,5.03
+2016-01-05,Portland Trail Blazers,Memphis Grizzlies,78,91,1.91,1.68
+2016-01-05,Utah Jazz,Houston Rockets,91,93,2.03,1.61
+2016-01-05,Oklahoma City Thunder,Sacramento Kings,104,116,1.19,3.80
+2016-01-05,Milwaukee Bucks,San Antonio Spurs,98,123,4.08,1.15
+2016-01-05,Brooklyn Nets,Boston Celtics,94,103,3.07,1.26
+2016-01-05,Detroit Pistons,Orlando Magic,,115,1.49,2.27
+2016-01-05,Miami Heat,Indiana Pacers,,103,1.62,2.02
+2016-01-05,Cleveland Cavaliers,Toronto Raptors,,122,1.20,3.60
+2016-01-05,Philadelphia 76ers,Minnesota Timberwolves,76,109,2.68,1.34
+2016-01-04,Los Angeles Lakers,Phoenix Suns,,97,1.83,1.75
+2016-01-04,Denver Nuggets,Portland Trail Blazers,106,112,2.08,1.57
+2016-01-04,Washington Wizards,Miami Heat,75,97,1.84,1.75
+2016-01-03,New York Knicks,Atlanta Hawks,,111,2.42,1.42
+2016-01-03,Toronto Raptors,Chicago Bulls,113,115,1.45,2.33
+2016-01-03,Golden State Warriors,Denver Nuggets,,111,1.03,7.08
+2016-01-03,Los Angeles Clippers,Philadelphia 76ers,,130,1.03,6.83
+2016-01-03,Utah Jazz,Memphis Grizzlies,,92,1.89,1.71
+2016-01-03,Dallas Mavericks,New Orleans Pelicans,98,105,1.54,2.17
+2016-01-03,San Antonio Spurs,Houston Rockets,,121,1.09,5.28
+2016-01-03,Minnesota Timberwolves,Milwaukee Bucks,85,95,1.70,1.90
+2016-01-03,Cleveland Cavaliers,Orlando Magic,,104,1.17,3.78
+2016-01-03,Charlotte Hornets,Oklahoma City Thunder,90,109,3.82,1.17
+2016-01-03,Indiana Pacers,Detroit Pistons,,94,1.45,2.36
+2016-01-02,Sacramento Kings,Phoenix Suns,,142,1.30,2.87
+2016-01-02,Boston Celtics,Brooklyn Nets,97,100,1.14,4.22
+2016-01-02,Los Angeles Lakers,Philadelphia 76ers,,93,1.61,2.02
+2016-01-02,Chicago Bulls,New York Knicks,,108,1.26,3.00
+2016-01-02,Miami Heat,Dallas Mavericks,,106,1.60,1.98
+2016-01-02,Toronto Raptors,Charlotte Hornets,,104,1.27,2.97
+2016-01-02,Washington Wizards,Orlando Magic,,103,1.69,1.88
+2016-01-01,Utah Jazz,Portland Trail Blazers,,109,1.52,2.20
+2016-01-01,New Orleans Pelicans,Los Angeles Clippers,89,95,1.66,1.95
+2016-01-01,Oklahoma City Thunder,Phoenix Suns,,110,1.01,8.33
+2016-01-01,Houston Rockets,Golden State Warriors,110,114,1.57,2.12
+2016-01-01,Detroit Pistons,Minnesota Timberwolves,,115,1.21,3.40
+2016-01-01,Indiana Pacers,Milwaukee Bucks,116,120,1.33,2.73
+2015-12-31,Portland Trail Blazers,Denver Nuggets,,110,1.32,2.82
+2015-12-31,Sacramento Kings,Philadelphia 76ers,105,110,1.14,4.23
+2015-12-31,Dallas Mavericks,Golden State Warriors,,114,2.30,1.49
+2015-12-31,San Antonio Spurs,Phoenix Suns,,112,1.02,8.17
+2015-12-31,Chicago Bulls,Indiana Pacers,,102,1.54,2.17
+2015-12-31,Minnesota Timberwolves,Utah Jazz,,94,1.50,2.27
+2015-12-31,Boston Celtics,Los Angeles Lakers,104,112,1.05,6.45
+2015-12-31,Toronto Raptors,Washington Wizards,,94,1.24,3.18
+2015-12-31,Charlotte Hornets,Los Angeles Clippers,117,122,2.00,1.65
+2015-12-31,Orlando Magic,Brooklyn Nets,,100,1.23,3.30
+2015-12-30,Denver Nuggets,Cleveland Cavaliers,87,93,2.75,1.33
+2015-12-30,Houston Rockets,Atlanta Hawks,115,121,1.51,2.22
+2015-12-30,Memphis Grizzlies,Miami Heat,,99,1.42,2.42
+2015-12-30,Oklahoma City Thunder,Milwaukee Bucks,,131,1.05,6.42
+2015-12-30,New York Knicks,Detroit Pistons,,108,1.88,1.70
+2015-12-29,Golden State Warriors,Sacramento Kings,,122,1.03,7.00
+2015-12-29,Utah Jazz,Philadelphia 76ers,,95,1.15,4.15
+2015-12-29,Phoenix Suns,Cleveland Cavaliers,97,101,3.93,1.17
+2015-12-29,Dallas Mavericks,Milwaukee Bucks,,103,1.29,2.92
+2015-12-29,San Antonio Spurs,Minnesota Timberwolves,,101,1.03,7.00
+2015-12-29,Chicago Bulls,Toronto Raptors,,104,1.69,1.89
+2015-12-29,Miami Heat,Brooklyn Nets,105,111,1.20,3.58
+2015-12-29,Charlotte Hornets,Los Angeles Lakers,,108,1.05,5.87
+2015-12-29,Indiana Pacers,Atlanta Hawks,,93,1.74,1.83
+2015-12-29,Orlando Magic,New Orleans Pelicans,,104,1.45,2.38
+2015-12-29,Washington Wizards,Los Angeles Clippers,91,108,1.74,1.85
+2015-12-28,Sacramento Kings,Portland Trail Blazers,94,98,1.17,3.77
+2015-12-28,Boston Celtics,New York Knicks,,100,1.19,3.62
+2015-12-28,Oklahoma City Thunder,Denver Nuggets,,122,1.01,7.75
+2015-12-28,Memphis Grizzlies,Los Angeles Lakers,,112,1.12,4.74
+2015-12-27,Portland Trail Blazers,Cleveland Cavaliers,,105,3.37,1.21
+2015-12-27,Phoenix Suns,Philadelphia 76ers,104,111,1.07,5.47
+2015-12-27,Utah Jazz,Los Angeles Clippers,104,109,1.95,1.66
+2015-12-27,Dallas Mavericks,Chicago Bulls,,118,1.59,2.05
+2015-12-27,San Antonio Spurs,Denver Nuggets,,101,1.02,7.50
+2015-12-27,Minnesota Timberwolves,Indiana Pacers,88,102,2.32,1.47
+2015-12-27,Atlanta Hawks,New York Knicks,,117,1.22,3.27
+2015-12-27,Detroit Pistons,Boston Celtics,93,99,1.86,1.73
+2015-12-27,Charlotte Hornets,Memphis Grizzlies,,98,1.61,2.05
+2015-12-27,New Orleans Pelicans,Houston Rockets,,110,1.85,1.75
+2015-12-27,Orlando Magic,Miami Heat,101,108,1.40,2.47
+2015-12-26,Milwaukee Bucks,Toronto Raptors,90,111,2.12,1.56
+2015-12-26,Brooklyn Nets,Washington Wizards,96,111,2.10,1.57
+2015-12-26,Los Angeles Lakers,Los Angeles Clippers,84,94,6.33,1.05
+2015-12-26,Houston Rockets,San Antonio Spurs,,88,3.07,1.26
+2015-12-25,Golden State Warriors,Cleveland Cavaliers,,89,1.26,3.10
+2015-12-25,Oklahoma City Thunder,Chicago Bulls,96,105,1.15,4.11
+2015-12-25,Miami Heat,New Orleans Pelicans,,94,1.41,2.45
+2015-12-24,Golden State Warriors,Utah Jazz,,103,1.03,7.08
+2015-12-24,Los Angeles Lakers,Oklahoma City Thunder,85,120,6.67,1.03
+2015-12-24,Phoenix Suns,Denver Nuggets,96,104,1.17,3.78
+2015-12-24,Atlanta Hawks,Detroit Pistons,,107,1.33,2.72
+2015-12-24,Milwaukee Bucks,Philadelphia 76ers,,113,1.08,5.27
+2015-12-24,Minnesota Timberwolves,San Antonio Spurs,83,108,4.75,1.11
+2015-12-24,New Orleans Pelicans,Portland Trail Blazers,,115,1.21,3.30
+2015-12-24,Brooklyn Nets,Dallas Mavericks,118,119,2.13,1.54
+2015-12-24,Charlotte Hornets,Boston Celtics,89,102,1.64,1.97
+2015-12-24,Cleveland Cavaliers,New York Knicks,,91,1.05,5.83
+2015-12-24,Indiana Pacers,Sacramento Kings,106,108,1.29,2.88
+2015-12-24,Orlando Magic,Houston Rockets,,104,1.75,1.83
+2015-12-24,Washington Wizards,Memphis Grizzlies,,100,1.87,1.72
+2015-12-23,Denver Nuggets,Los Angeles Lakers,107,111,1.36,2.58
+2015-12-23,Miami Heat,Detroit Pistons,92,93,1.59,2.05
+2015-12-23,Toronto Raptors,Dallas Mavericks,,103,1.44,2.37
+2015-12-23,Philadelphia 76ers,Memphis Grizzlies,90,104,4.50,1.12
+2015-12-22,Los Angeles Clippers,Oklahoma City Thunder,99,100,1.93,1.68
+2015-12-22,Utah Jazz,Phoenix Suns,,110,1.46,2.33
+2015-12-22,San Antonio Spurs,Indiana Pacers,,106,1.16,3.90
+2015-12-22,Atlanta Hawks,Portland Trail Blazers,,106,1.11,4.75
+2015-12-22,Chicago Bulls,Brooklyn Nets,102,105,1.11,4.75
+2015-12-22,Houston Rockets,Charlotte Hornets,,102,1.57,2.08
+2015-12-22,Boston Celtics,Minnesota Timberwolves,,113,1.23,3.25
+2015-12-22,New York Knicks,Orlando Magic,99,107,1.56,2.11
+2015-12-22,Washington Wizards,Sacramento Kings,,113,1.60,2.03
+2015-12-21,Denver Nuggets,New Orleans Pelicans,125,130,1.75,1.83
+2015-12-21,Orlando Magic,Atlanta Hawks,100,103,1.84,1.74
+2015-12-21,Toronto Raptors,Sacramento Kings,94,104,1.36,2.62
+2015-12-20,Phoenix Suns,Milwaukee Bucks,95,101,1.31,2.80
+2015-12-20,Cleveland Cavaliers,Philadelphia 76ers,,108,1.01,7.83
+2015-12-20,Brooklyn Nets,Minnesota Timberwolves,85,100,1.87,1.70
+2015-12-20,Miami Heat,Portland Trail Blazers,,116,1.37,2.50
+2015-12-20,Houston Rockets,Los Angeles Clippers,,107,2.00,1.63
+2015-12-20,Memphis Grizzlies,Indiana Pacers,,96,1.78,1.81
+2015-12-20,New York Knicks,Chicago Bulls,,107,1.65,1.95
+2015-12-20,Washington Wizards,Charlotte Hornets,,109,1.81,1.75
+2015-12-19,Oklahoma City Thunder,Los Angeles Lakers,,118,1.01,7.50
+2015-12-19,Golden State Warriors,Milwaukee Bucks,,121,1.01,8.63
+2015-12-19,Phoenix Suns,New Orleans Pelicans,,104,1.51,2.20
+2015-12-19,Utah Jazz,Denver Nuggets,,97,1.36,2.55
+2015-12-19,Dallas Mavericks,Memphis Grizzlies,,97,1.57,2.05
+2015-12-19,Chicago Bulls,Detroit Pistons,144,147,1.42,2.42
+2015-12-19,Miami Heat,Toronto Raptors,94,108,1.43,2.40
+2015-12-19,Minnesota Timberwolves,Sacramento Kings,,99,1.95,1.65
+2015-12-19,San Antonio Spurs,Los Angeles Clippers,,115,1.21,3.35
+2015-12-19,Boston Celtics,Atlanta Hawks,101,109,1.50,2.25
+2015-12-19,Indiana Pacers,Brooklyn Nets,,104,1.10,4.97
+2015-12-19,Orlando Magic,Portland Trail Blazers,,102,1.42,2.40
+2015-12-19,Philadelphia 76ers,New York Knicks,97,107,3.02,1.26
+2015-12-18,Los Angeles Lakers,Houston Rockets,87,107,2.77,1.32
+2015-12-18,Cleveland Cavaliers,Oklahoma City Thunder,,104,1.59,2.05
+2015-12-18,Charlotte Hornets,Toronto Raptors,,109,2.02,1.62
+2015-12-17,Golden State Warriors,Phoenix Suns,,128,1.07,5.42
+2015-12-17,Los Angeles Clippers,Milwaukee Bucks,,103,1.09,4.90
+2015-12-17,Utah Jazz,New Orleans Pelicans,94,104,1.53,2.15
+2015-12-17,San Antonio Spurs,Washington Wizards,,114,1.06,6.03
+2015-12-17,Atlanta Hawks,Philadelphia 76ers,,127,1.04,6.88
+2015-12-17,Chicago Bulls,Memphis Grizzlies,,98,1.44,2.37
+2015-12-17,Oklahoma City Thunder,Portland Trail Blazers,,106,1.13,4.27
+2015-12-17,Brooklyn Nets,Miami Heat,98,104,2.47,1.41
+2015-12-17,Detroit Pistons,Boston Celtics,,119,1.61,2.03
+2015-12-17,New York Knicks,Minnesota Timberwolves,,107,1.44,2.37
+2015-12-17,Indiana Pacers,Dallas Mavericks,,107,1.46,2.33
+2015-12-17,Orlando Magic,Charlotte Hornets,,113,1.82,1.77
+2015-12-16,Los Angeles Lakers,Milwaukee Bucks,,113,2.27,1.48
+2015-12-16,Sacramento Kings,Houston Rockets,,107,1.63,1.98
+2015-12-16,Minnesota Timberwolves,Denver Nuggets,100,112,1.34,2.65
+2015-12-16,Boston Celtics,Cleveland Cavaliers,77,89,1.87,1.72
+2015-12-15,Portland Trail Blazers,New Orleans Pelicans,,105,1.55,2.10
+2015-12-15,Denver Nuggets,Houston Rockets,,114,2.37,1.44
+2015-12-15,Dallas Mavericks,Phoenix Suns,,104,1.46,2.32
+2015-12-15,San Antonio Spurs,Utah Jazz,,118,1.05,6.08
+2015-12-15,Atlanta Hawks,Miami Heat,88,100,1.32,2.77
+2015-12-15,Chicago Bulls,Philadelphia 76ers,,115,1.04,6.58
+2015-12-15,Memphis Grizzlies,Washington Wizards,,112,1.47,2.28
+2015-12-15,Brooklyn Nets,Orlando Magic,82,105,2.18,1.53
+2015-12-15,Detroit Pistons,Los Angeles Clippers,103,105,1.93,1.66
+2015-12-15,Indiana Pacers,Toronto Raptors,,106,1.42,2.43
+2015-12-14,Oklahoma City Thunder,Utah Jazz,,104,1.14,4.37
+2015-12-14,Miami Heat,Memphis Grizzlies,,100,1.56,2.12
+2015-12-14,Toronto Raptors,Philadelphia 76ers,,96,1.05,6.28
+2015-12-13,Phoenix Suns,Minnesota Timberwolves,,108,1.35,2.62
+2015-12-13,Portland Trail Blazers,New York Knicks,110,112,1.52,2.17
+2015-12-13,Dallas Mavericks,Washington Wizards,111,114,1.30,2.88
+2015-12-13,Milwaukee Bucks,Golden State Warriors,,108,3.88,1.17
+2015-12-13,Atlanta Hawks,San Antonio Spurs,78,103,2.12,1.56
+2015-12-13,Chicago Bulls,New Orleans Pelicans,,98,1.27,3.07
+2015-12-13,Houston Rockets,Los Angeles Lakers,,126,1.08,5.33
+2015-12-13,Detroit Pistons,Indiana Pacers,,118,1.73,1.85
+2015-12-13,Charlotte Hornets,Boston Celtics,93,98,1.58,2.05
+2015-12-12,Brooklyn Nets,Los Angeles Clippers,100,105,3.00,1.29
+2015-12-12,Phoenix Suns,Portland Trail Blazers,96,106,1.46,2.28
+2015-12-12,San Antonio Spurs,Los Angeles Lakers,,109,1.02,7.50
+2015-12-12,Denver Nuggets,Minnesota Timberwolves,,111,1.76,1.83
+2015-12-12,Utah Jazz,Oklahoma City Thunder,90,94,2.17,1.52
+2015-12-12,Memphis Grizzlies,Charlotte Hornets,99,123,1.54,2.13
+2015-12-12,New Orleans Pelicans,Washington Wizards,,107,1.55,2.10
+2015-12-12,Boston Celtics,Golden State Warriors,119,124,2.63,1.36
+2015-12-12,Toronto Raptors,Milwaukee Bucks,,90,1.22,3.30
+2015-12-12,Indiana Pacers,Miami Heat,,96,1.42,2.43
+2015-12-12,Orlando Magic,Cleveland Cavaliers,76,111,2.12,1.54
+2015-12-12,Philadelphia 76ers,Detroit Pistons,95,107,3.87,1.16
+2015-12-11,Sacramento Kings,New York Knicks,,99,1.34,2.65
+2015-12-11,Chicago Bulls,Los Angeles Clippers,,83,1.89,1.71
+2015-12-11,Oklahoma City Thunder,Atlanta Hawks,,107,1.22,3.28
+2015-12-11,Brooklyn Nets,Philadelphia 76ers,,100,1.25,3.10
+2015-12-10,Dallas Mavericks,Atlanta Hawks,95,98,1.86,1.73
+2015-12-10,Phoenix Suns,Orlando Magic,,107,1.43,2.40
+2015-12-10,Utah Jazz,New York Knicks,,106,1.55,2.12
+2015-12-10,Milwaukee Bucks,Los Angeles Clippers,95,109,2.58,1.37
+2015-12-10,Minnesota Timberwolves,Los Angeles Lakers,,123,1.24,3.13
+2015-12-10,Detroit Pistons,Memphis Grizzlies,92,93,1.47,2.28
+2015-12-10,Toronto Raptors,San Antonio Spurs,,97,2.72,1.33
+2015-12-10,Boston Celtics,Chicago Bulls,,105,1.52,2.20
+2015-12-10,Charlotte Hornets,Miami Heat,,99,1.82,1.76
+2015-12-10,Washington Wizards,Houston Rockets,103,109,1.46,2.30
+2015-12-09,Sacramento Kings,Utah Jazz,,114,1.63,2.00
+2015-12-09,Denver Nuggets,Orlando Magic,74,85,2.18,1.52
+2015-12-09,Memphis Grizzlies,Oklahoma City Thunder,88,125,1.97,1.64
+2015-12-09,Brooklyn Nets,Houston Rockets,,110,2.45,1.41
+2015-12-09,Cleveland Cavaliers,Portland Trail Blazers,,105,1.17,3.95
+2015-12-09,Indiana Pacers,Golden State Warriors,123,131,2.63,1.35
+2015-12-08,Chicago Bulls,Phoenix Suns,101,103,1.29,2.90
+2015-12-08,Milwaukee Bucks,Portland Trail Blazers,,90,1.83,1.75
+2015-12-08,Minnesota Timberwolves,Los Angeles Clippers,106,110,2.30,1.46
+2015-12-08,New Orleans Pelicans,Boston Celtics,93,111,1.81,1.77
+2015-12-08,Miami Heat,Washington Wizards,103,114,1.17,3.80
+2015-12-08,New York Knicks,Dallas Mavericks,97,104,1.83,1.76
+2015-12-08,Toronto Raptors,Los Angeles Lakers,,102,1.07,5.67
+2015-12-08,Charlotte Hornets,Detroit Pistons,,104,1.58,2.05
+2015-12-08,Philadelphia 76ers,San Antonio Spurs,68,119,5.25,1.09
+2015-12-07,Oklahoma City Thunder,Sacramento Kings,,98,1.09,5.05
+2015-12-07,Brooklyn Nets,Golden State Warriors,98,114,4.29,1.12
+2015-12-07,Detroit Pistons,Los Angeles Lakers,,111,1.14,4.07
+2015-12-07,Washington Wizards,Dallas Mavericks,104,116,1.91,1.69
+2015-12-06,Memphis Grizzlies,Phoenix Suns,,95,1.36,2.60
+2015-12-06,Los Angeles Clippers,Orlando Magic,,103,1.64,1.97
+2015-12-06,Utah Jazz,Indiana Pacers,,122,1.91,1.70
+2015-12-06,Milwaukee Bucks,New York Knicks,,106,1.97,1.65
+2015-12-06,San Antonio Spurs,Boston Celtics,,108,1.16,3.85
+2015-12-06,Chicago Bulls,Charlotte Hornets,96,102,1.35,2.68
+2015-12-06,Houston Rockets,Sacramento Kings,,120,1.51,2.20
+2015-12-06,Miami Heat,Cleveland Cavaliers,,99,1.40,2.50
+2015-12-06,Minnesota Timberwolves,Portland Trail Blazers,103,109,1.68,1.92
+2015-12-05,Toronto Raptors,Golden State Warriors,109,112,3.17,1.25
+2015-12-05,Philadelphia 76ers,Denver Nuggets,105,108,2.11,1.56
+2015-12-05,New Orleans Pelicans,Cleveland Cavaliers,,114,2.47,1.42
+2015-12-05,Dallas Mavericks,Houston Rockets,96,100,1.37,2.57
+2015-12-05,Atlanta Hawks,Los Angeles Lakers,,100,1.09,5.23
+2015-12-05,Detroit Pistons,Milwaukee Bucks,,102,1.30,2.90
+2015-12-05,New York Knicks,Brooklyn Nets,,108,1.52,2.20
+2015-12-05,Washington Wizards,Phoenix Suns,,109,2.05,1.60
+2015-12-04,Portland Trail Blazers,Indiana Pacers,,123,2.05,1.61
+2015-12-04,Sacramento Kings,Boston Celtics,97,114,1.97,1.66
+2015-12-04,Memphis Grizzlies,San Antonio Spurs,83,103,2.13,1.55
+2015-12-04,Utah Jazz,Orlando Magic,94,103,1.47,2.30
+2015-12-04,Toronto Raptors,Denver Nuggets,105,106,1.11,4.63
+2015-12-04,Miami Heat,Oklahoma City Thunder,,97,2.37,1.45
+2015-12-03,Los Angeles Clippers,Indiana Pacers,91,103,1.92,1.67
+2015-12-03,San Antonio Spurs,Milwaukee Bucks,,95,1.06,5.83
+2015-12-03,Atlanta Hawks,Toronto Raptors,86,96,1.49,2.25
+2015-12-03,Chicago Bulls,Denver Nuggets,,99,1.13,4.35
+2015-12-03,Houston Rockets,New Orleans Pelicans,,108,1.50,2.20
+2015-12-03,Detroit Pistons,Phoenix Suns,,127,1.48,2.28
+2015-12-03,New York Knicks,Philadelphia 76ers,,99,1.17,3.88
+2015-12-03,Charlotte Hornets,Golden State Warriors,99,116,4.07,1.15
+2015-12-03,Washington Wizards,Los Angeles Lakers,104,108,1.12,4.61
+2015-12-02,Portland Trail Blazers,Dallas Mavericks,112,115,1.76,1.83
+2015-12-02,Minnesota Timberwolves,Orlando Magic,93,96,1.67,1.92
+2015-12-02,New Orleans Pelicans,Memphis Grizzlies,104,113,1.74,1.84
+2015-12-02,Brooklyn Nets,Phoenix Suns,,94,2.15,1.53
+2015-12-02,Cleveland Cavaliers,Washington Wizards,85,97,1.15,4.25
+2015-12-02,Philadelphia 76ers,Los Angeles Lakers,76,103,1.73,1.88
+2015-12-01,Los Angeles Clippers,Portland Trail Blazers,,102,1.24,3.15
+2015-12-01,Sacramento Kings,Dallas Mavericks,,112,1.64,1.97
+2015-12-01,Utah Jazz,Golden State Warriors,103,106,3.37,1.22
+2015-12-01,Atlanta Hawks,Oklahoma City Thunder,,106,2.10,1.56
+2015-12-01,Chicago Bulls,San Antonio Spurs,,92,2.35,1.46
+2015-12-01,Milwaukee Bucks,Denver Nuggets,,92,1.47,2.30
+2015-12-01,Detroit Pistons,Houston Rockets,,116,1.46,2.32
+2015-12-01,Miami Heat,Boston Celtics,95,105,1.45,2.33
+2015-11-30,Los Angeles Lakers,Indiana Pacers,103,107,4.20,1.14
+2015-11-30,New York Knicks,Houston Rockets,111,116,1.97,1.66
+2015-11-30,Brooklyn Nets,Detroit Pistons,,87,2.40,1.42
+2015-11-30,Memphis Grizzlies,Philadelphia 76ers,,92,1.07,6.25
+2015-11-30,Orlando Magic,Boston Celtics,,110,1.97,1.64
+2015-11-30,Toronto Raptors,Phoenix Suns,102,107,1.50,2.23
+2015-11-29,Los Angeles Clippers,Minnesota Timberwolves,,107,1.16,3.97
+2015-11-29,Charlotte Hornets,Milwaukee Bucks,,87,1.30,2.88
+2015-11-29,Golden State Warriors,Sacramento Kings,,120,1.01,7.88
+2015-11-29,Portland Trail Blazers,Los Angeles Lakers,,108,1.18,3.60
+2015-11-29,Utah Jazz,New Orleans Pelicans,,101,1.30,2.90
+2015-11-29,Dallas Mavericks,Denver Nuggets,,92,1.17,3.80
+2015-11-29,San Antonio Spurs,Atlanta Hawks,,108,1.24,3.15
+2015-11-29,Cleveland Cavaliers,Brooklyn Nets,,90,1.13,4.67
+2015-11-29,Washington Wizards,Toronto Raptors,82,84,2.18,1.52
+2015-11-28,Los Angeles Clippers,New Orleans Pelicans,,111,1.30,2.85
+2015-11-28,Sacramento Kings,Minnesota Timberwolves,91,101,1.55,2.10
+2015-11-28,Phoenix Suns,Golden State Warriors,116,135,3.62,1.18
+2015-11-28,Denver Nuggets,San Antonio Spurs,80,91,3.50,1.20
+2015-11-28,Houston Rockets,Philadelphia 76ers,,116,1.10,4.62
+2015-11-28,Indiana Pacers,Chicago Bulls,,104,1.53,2.13
+2015-11-28,Memphis Grizzlies,Atlanta Hawks,101,116,1.56,2.10
+2015-11-28,Oklahoma City Thunder,Detroit Pistons,,103,1.23,3.27
+2015-11-28,Boston Celtics,Washington Wizards,,111,1.54,2.12
+2015-11-28,New York Knicks,Miami Heat,78,97,1.97,1.64
+2015-11-28,Charlotte Hornets,Cleveland Cavaliers,90,95,2.28,1.46
+2015-11-28,Orlando Magic,Milwaukee Bucks,,114,1.49,2.23
+2015-11-26,Los Angeles Clippers,Utah Jazz,91,102,1.41,2.48
+2015-11-26,Phoenix Suns,New Orleans Pelicans,114,120,1.51,2.20
+2015-11-26,San Antonio Spurs,Dallas Mavericks,,88,1.12,4.40
+2015-11-26,Houston Rockets,Memphis Grizzlies,93,102,1.53,2.18
+2015-11-26,Milwaukee Bucks,Sacramento Kings,118,129,1.45,2.35
+2015-11-26,Minnesota Timberwolves,Atlanta Hawks,,99,2.12,1.56
+2015-11-26,Oklahoma City Thunder,Brooklyn Nets,,110,1.05,6.22
+2015-11-26,Boston Celtics,Philadelphia 76ers,,84,1.07,5.42
+2015-11-26,Detroit Pistons,Miami Heat,,104,1.71,1.88
+2015-11-26,Toronto Raptors,Cleveland Cavaliers,,103,2.12,1.55
+2015-11-26,Charlotte Hornets,Washington Wizards,,101,1.51,2.22
+2015-11-26,Orlando Magic,New York Knicks,,100,1.71,1.90
+2015-11-25,Golden State Warriors,Los Angeles Lakers,,111,1.01,8.08
+2015-11-25,Portland Trail Blazers,Chicago Bulls,88,93,2.08,1.58
+2015-11-25,Denver Nuggets,Los Angeles Clippers,94,111,3.02,1.27
+2015-11-25,Atlanta Hawks,Boston Celtics,,121,1.59,2.07
+2015-11-25,Memphis Grizzlies,Dallas Mavericks,,110,1.54,2.15
+2015-11-25,Washington Wizards,Indiana Pacers,106,123,1.59,2.07
+2015-11-24,Utah Jazz,Oklahoma City Thunder,89,111,1.67,1.94
+2015-11-24,San Antonio Spurs,Phoenix Suns,,98,1.15,4.05
+2015-11-24,Milwaukee Bucks,Detroit Pistons,,109,2.05,1.60
+2015-11-24,Minnesota Timberwolves,Philadelphia 76ers,,100,1.25,3.27
+2015-11-24,Miami Heat,New York Knicks,,95,1.39,2.55
+2015-11-24,Charlotte Hornets,Sacramento Kings,,127,1.49,2.25
+2015-11-24,Cleveland Cavaliers,Orlando Magic,,117,1.19,3.87
+2015-11-23,Los Angeles Lakers,Portland Trail Blazers,93,107,2.07,1.58
+2015-11-23,Denver Nuggets,Golden State Warriors,105,118,5.45,1.07
+2015-11-23,Oklahoma City Thunder,Dallas Mavericks,,117,1.51,2.20
+2015-11-23,Brooklyn Nets,Boston Celtics,,111,2.58,1.37
+2015-11-23,New Orleans Pelicans,Phoenix Suns,,122,1.75,1.83
+2015-11-22,Los Angeles Clippers,Toronto Raptors,80,91,1.30,2.88
+2015-11-22,San Antonio Spurs,Memphis Grizzlies,,92,1.21,3.37
+2015-11-22,Houston Rockets,New York Knicks,102,107,1.47,2.32
+2015-11-22,Miami Heat,Philadelphia 76ers,,96,1.04,6.75
+2015-11-22,Cleveland Cavaliers,Atlanta Hawks,,109,1.35,2.63
+2015-11-22,Detroit Pistons,Washington Wizards,95,97,1.68,1.92
+2015-11-22,Indiana Pacers,Milwaukee Bucks,,123,1.39,2.50
+2015-11-21,Orlando Magic,Sacramento Kings,91,97,1.51,2.18
+2015-11-21,Golden State Warriors,Chicago Bulls,,106,1.18,3.67
+2015-11-21,Los Angeles Lakers,Toronto Raptors,91,102,3.02,1.27
+2015-11-21,Portland Trail Blazers,Los Angeles Clippers,,102,2.18,1.51
+2015-11-21,Denver Nuggets,Phoenix Suns,107,114,2.05,1.59
+2015-11-21,Dallas Mavericks,Utah Jazz,,102,1.67,1.92
+2015-11-21,Memphis Grizzlies,Houston Rockets,,96,1.52,2.17
+2015-11-21,Minnesota Timberwolves,Detroit Pistons,86,96,2.00,1.63
+2015-11-21,New Orleans Pelicans,San Antonio Spurs,,104,3.25,1.24
+2015-11-21,Oklahoma City Thunder,New York Knicks,90,93,1.30,2.87
+2015-11-21,Boston Celtics,Brooklyn Nets,,120,1.17,3.83
+2015-11-21,Charlotte Hornets,Philadelphia 76ers,,113,1.10,4.62
+2015-11-20,Los Angeles Clippers,Golden State Warriors,117,124,2.73,1.33
+2015-11-20,Cleveland Cavaliers,Milwaukee Bucks,,115,1.11,4.60
+2015-11-20,Miami Heat,Sacramento Kings,,116,1.13,4.49
+2015-11-19,Phoenix Suns,Chicago Bulls,97,103,1.54,2.13
+2015-11-19,Utah Jazz,Toronto Raptors,,93,1.47,2.32
+2015-11-19,San Antonio Spurs,Denver Nuggets,,109,1.05,6.08
+2015-11-19,Atlanta Hawks,Sacramento Kings,,103,1.59,2.07
+2015-11-19,Houston Rockets,Portland Trail Blazers,,108,1.30,2.87
+2015-11-19,Oklahoma City Thunder,New Orleans Pelicans,,110,1.10,4.85
+2015-11-19,Boston Celtics,Dallas Mavericks,102,106,1.42,2.43
+2015-11-19,Philadelphia 76ers,Indiana Pacers,85,112,3.00,1.28
+2015-11-19,Charlotte Hornets,Brooklyn Nets,,116,1.30,2.88
+2015-11-19,Orlando Magic,Minnesota Timberwolves,,104,1.40,2.50
+2015-11-18,Golden State Warriors,Toronto Raptors,,115,1.15,4.10
+2015-11-18,New Orleans Pelicans,Denver Nuggets,98,115,1.34,2.67
+2015-11-18,Brooklyn Nets,Atlanta Hawks,,90,2.37,1.45
+2015-11-18,Detroit Pistons,Cleveland Cavaliers,,104,2.39,1.44
+2015-11-18,Miami Heat,Minnesota Timberwolves,91,103,1.17,3.83
+2015-11-18,New York Knicks,Charlotte Hornets,,102,1.82,1.76
+2015-11-18,Washington Wizards,Milwaukee Bucks,,115,1.52,2.18
+2015-11-17,Phoenix Suns,Los Angeles Lakers,,120,1.09,5.08
+2015-11-17,San Antonio Spurs,Portland Trail Blazers,,93,1.06,5.50
+2015-11-17,Chicago Bulls,Indiana Pacers,,96,1.30,2.90
+2015-11-17,Houston Rockets,Boston Celtics,95,111,1.44,2.40
+2015-11-17,Memphis Grizzlies,Oklahoma City Thunder,,122,1.60,2.07
+2015-11-17,Philadelphia 76ers,Dallas Mavericks,86,92,3.48,1.20
+2015-11-16,Los Angeles Lakers,Detroit Pistons,,97,2.45,1.42
+2015-11-16,Sacramento Kings,Toronto Raptors,,107,1.98,1.63
+2015-11-16,Oklahoma City Thunder,Boston Celtics,85,100,1.36,2.60
+2015-11-16,Atlanta Hawks,Utah Jazz,96,97,1.47,2.30
+2015-11-15,Charlotte Hornets,Portland Trail Blazers,,106,1.43,2.40
+2015-11-15,Minnesota Timberwolves,Memphis Grizzlies,106,114,2.25,1.50
+2015-11-15,New York Knicks,New Orleans Pelicans,,95,1.66,1.95
+2015-11-15,Golden State Warriors,Brooklyn Nets,,107,1.02,8.83
+2015-11-15,Phoenix Suns,Denver Nuggets,,105,1.24,3.17
+2015-11-15,Milwaukee Bucks,Cleveland Cavaliers,,108,2.67,1.34
+2015-11-15,San Antonio Spurs,Philadelphia 76ers,,92,1.01,9.42
+2015-11-15,Houston Rockets,Dallas Mavericks,98,110,1.28,2.95
+2015-11-15,Washington Wizards,Orlando Magic,,108,1.35,2.65
+2015-11-14,Los Angeles Clippers,Detroit Pistons,,101,1.55,2.13
+2015-11-14,Sacramento Kings,Brooklyn Nets,,111,1.29,2.93
+2015-11-14,Denver Nuggets,Houston Rockets,,107,2.68,1.33
+2015-11-14,Dallas Mavericks,Los Angeles Lakers,,90,1.21,3.47
+2015-11-14,Chicago Bulls,Charlotte Hornets,,102,1.30,2.88
+2015-11-14,Memphis Grizzlies,Portland Trail Blazers,,101,1.29,2.85
+2015-11-14,Oklahoma City Thunder,Philadelphia 76ers,,102,1.04,6.17
+2015-11-14,Boston Celtics,Atlanta Hawks,,106,1.86,1.72
+2015-11-14,New York Knicks,Cleveland Cavaliers,84,90,2.80,1.30
+2015-11-14,Toronto Raptors,New Orleans Pelicans,,100,1.15,3.85
+2015-11-14,Indiana Pacers,Minnesota Timberwolves,,107,1.23,3.27
+2015-11-14,Orlando Magic,Utah Jazz,,102,1.85,1.71
+2015-11-13,Phoenix Suns,Los Angeles Clippers,,118,1.88,1.70
+2015-11-13,Minnesota Timberwolves,Golden State Warriors,116,129,4.11,1.14
+2015-11-13,Miami Heat,Utah Jazz,,92,1.44,2.35
+2015-11-12,Portland Trail Blazers,San Antonio Spurs,101,113,2.98,1.29
+2015-11-12,Sacramento Kings,Detroit Pistons,,101,1.91,1.66
+2015-11-12,Denver Nuggets,Milwaukee Bucks,,103,1.52,2.20
+2015-11-12,Atlanta Hawks,New Orleans Pelicans,,106,1.07,5.58
+2015-11-12,Dallas Mavericks,Los Angeles Clippers,,118,2.88,1.28
+2015-11-12,Houston Rockets,Brooklyn Nets,98,106,1.06,5.52
+2015-11-12,Memphis Grizzlies,Golden State Warriors,84,100,3.13,1.25
+2015-11-12,Boston Celtics,Indiana Pacers,91,102,1.53,2.15
+2015-11-12,Charlotte Hornets,New York Knicks,,95,1.31,2.88
+2015-11-12,Orlando Magic,Los Angeles Lakers,,101,1.21,3.55
+2015-11-12,Philadelphia 76ers,Toronto Raptors,103,119,4.31,1.14
+2015-11-11,Milwaukee Bucks,Boston Celtics,83,99,1.91,1.65
+2015-11-11,Minnesota Timberwolves,Charlotte Hornets,95,104,1.95,1.63
+2015-11-11,New Orleans Pelicans,Dallas Mavericks,,120,1.65,1.92
+2015-11-11,Miami Heat,Los Angeles Lakers,,101,1.07,5.05
+2015-11-11,Toronto Raptors,New York Knicks,109,111,1.20,3.30
+2015-11-11,Cleveland Cavaliers,Utah Jazz,,118,1.30,2.73
+2015-11-11,Washington Wizards,Oklahoma City Thunder,101,125,2.67,1.32
+2015-11-10,Golden State Warriors,Detroit Pistons,,109,1.05,5.80
+2015-11-10,Los Angeles Clippers,Memphis Grizzlies,,94,1.25,2.98
+2015-11-10,Sacramento Kings,San Antonio Spurs,88,106,3.28,1.21
+2015-11-10,Denver Nuggets,Portland Trail Blazers,,108,1.82,1.75
+2015-11-10,Atlanta Hawks,Minnesota Timberwolves,107,117,1.17,3.70
+2015-11-10,Indiana Pacers,Orlando Magic,,97,1.43,2.33
+2015-11-10,Philadelphia 76ers,Chicago Bulls,88,111,4.06,1.13
+2015-11-09,Portland Trail Blazers,Detroit Pistons,103,120,1.67,1.89
+2015-11-09,Oklahoma City Thunder,Phoenix Suns,,124,1.18,3.53
+2015-11-09,Miami Heat,Toronto Raptors,,96,1.56,2.04
+2015-11-08,Cleveland Cavaliers,Indiana Pacers,,101,1.20,3.47
+2015-11-08,New York Knicks,Los Angeles Lakers,,99,1.36,2.55
+2015-11-08,Los Angeles Clippers,Houston Rockets,105,109,1.34,2.58
+2015-11-08,Sacramento Kings,Golden State Warriors,94,103,7.08,1.02
+2015-11-08,Utah Jazz,Memphis Grizzlies,,89,1.61,1.97
+2015-11-08,Dallas Mavericks,New Orleans Pelicans,,107,1.37,2.53
+2015-11-08,Milwaukee Bucks,Brooklyn Nets,,94,1.30,2.75
+2015-11-08,San Antonio Spurs,Charlotte Hornets,,114,1.12,4.34
+2015-11-08,Atlanta Hawks,Washington Wizards,,114,1.39,2.42
+2015-11-08,Philadelphia 76ers,Orlando Magic,97,105,2.17,1.50
+2015-11-08,Chicago Bulls,Minnesota Timberwolves,93,102,1.15,3.87
+2015-11-07,Golden State Warriors,Denver Nuggets,,119,1.01,8.33
+2015-11-07,Sacramento Kings,Houston Rockets,110,116,2.47,1.41
+2015-11-07,Phoenix Suns,Detroit Pistons,92,100,1.40,2.42
+2015-11-07,Indiana Pacers,Miami Heat,,90,1.83,1.73
+2015-11-07,New Orleans Pelicans,Atlanta Hawks,115,121,2.04,1.57
+2015-11-07,Boston Celtics,Washington Wizards,,118,1.70,1.86
+2015-11-07,Brooklyn Nets,Los Angeles Lakers,98,104,1.50,2.14
+2015-11-07,Cleveland Cavaliers,Philadelphia 76ers,,108,1.02,7.45
+2015-11-07,New York Knicks,Milwaukee Bucks,92,99,1.65,1.92
+2015-11-07,Orlando Magic,Toronto Raptors,,92,2.62,1.34
+2015-11-06,Portland Trail Blazers,Memphis Grizzlies,,115,2.25,1.47
+2015-11-06,Denver Nuggets,Utah Jazz,84,96,2.01,1.58
+2015-11-06,Dallas Mavericks,Charlotte Hornets,94,108,1.43,2.33
+2015-11-06,Chicago Bulls,Oklahoma City Thunder,,104,1.75,1.81
+2015-11-06,Minnesota Timberwolves,Miami Heat,84,96,2.30,1.44
+2015-11-05,Golden State Warriors,Los Angeles Clippers,,112,1.22,3.20
+2015-11-05,Phoenix Suns,Sacramento Kings,,118,1.15,3.85
+2015-11-05,Utah Jazz,Portland Trail Blazers,92,108,1.31,2.73
+2015-11-05,Atlanta Hawks,Brooklyn Nets,,101,1.23,3.18
+2015-11-05,Cleveland Cavaliers,New York Knicks,,96,1.11,4.52
+2015-11-05,Houston Rockets,Orlando Magic,,119,1.17,3.72
+2015-11-05,Milwaukee Bucks,Philadelphia 76ers,,91,1.17,3.67
+2015-11-05,Oklahoma City Thunder,Toronto Raptors,98,103,1.18,3.52
+2015-11-05,Indiana Pacers,Boston Celtics,,100,1.92,1.65
+2015-11-05,Washington Wizards,San Antonio Spurs,,102,2.28,1.46
+2015-11-04,Los Angeles Lakers,Denver Nuggets,109,120,1.62,2.02
+2015-11-04,Sacramento Kings,Memphis Grizzlies,89,103,2.37,1.44
+2015-11-04,Dallas Mavericks,Toronto Raptors,91,102,1.91,1.68
+2015-11-04,New Orleans Pelicans,Orlando Magic,94,103,1.41,2.45
+2015-11-04,Detroit Pistons,Indiana Pacers,82,94,1.43,2.38
+2015-11-04,Miami Heat,Atlanta Hawks,92,98,1.46,2.32
+2015-11-04,Charlotte Hornets,Chicago Bulls,,130,2.33,1.46
+2015-11-03,Golden State Warriors,Memphis Grizzlies,,119,1.15,4.07
+2015-11-03,Los Angeles Clippers,Phoenix Suns,,102,1.17,3.93
+2015-11-03,Houston Rockets,Oklahoma City Thunder,,110,2.42,1.42
+2015-11-03,Minnesota Timberwolves,Portland Trail Blazers,101,106,1.44,2.38
+2015-11-03,Brooklyn Nets,Milwaukee Bucks,96,103,1.84,1.73
+2015-11-03,New York Knicks,San Antonio Spurs,84,94,3.30,1.22
+2015-11-03,Philadelphia 76ers,Cleveland Cavaliers,100,107,6.83,1.03
+2015-11-02,Los Angeles Lakers,Dallas Mavericks,93,103,2.32,1.46
+2015-11-02,Chicago Bulls,Orlando Magic,,92,1.22,3.37
+2015-11-02,Oklahoma City Thunder,Denver Nuggets,,117,1.06,5.60
+2015-11-02,Miami Heat,Houston Rockets,,109,1.46,2.33
+2015-11-02,Toronto Raptors,Milwaukee Bucks,,106,1.32,2.78
+2015-11-01,Boston Celtics,San Antonio Spurs,87,95,2.67,1.34
+2015-11-01,Charlotte Hornets,Atlanta Hawks,92,94,1.93,1.67
+2015-11-01,Los Angeles Clippers,Sacramento Kings,,114,1.11,4.55
+2015-11-01,Portland Trail Blazers,Phoenix Suns,90,101,1.63,1.98
+2015-11-01,Memphis Grizzlies,Brooklyn Nets,,101,1.05,6.25
+2015-11-01,New Orleans Pelicans,Golden State Warriors,120,134,2.68,1.34
+2015-11-01,Indiana Pacers,Utah Jazz,76,97,1.52,2.20
+2015-11-01,Washington Wizards,New York Knicks,110,117,1.23,3.22
+2015-10-31,Phoenix Suns,Portland Trail Blazers,,110,1.44,2.38
+2015-10-31,Sacramento Kings,Los Angeles Lakers,,132,1.27,3.00
+2015-10-31,Houston Rockets,Golden State Warriors,92,112,1.86,1.74
+2015-10-31,Denver Nuggets,Minnesota Timberwolves,78,95,1.50,2.22
+2015-10-31,San Antonio Spurs,Brooklyn Nets,,102,1.04,6.55
+2015-10-31,Atlanta Hawks,Charlotte Hornets,,97,1.43,2.42
+2015-10-31,Milwaukee Bucks,Washington Wizards,113,118,1.93,1.67
+2015-10-31,Boston Celtics,Toronto Raptors,103,113,1.64,1.98
+2015-10-31,Detroit Pistons,Chicago Bulls,,98,2.07,1.59
+2015-10-31,Cleveland Cavaliers,Miami Heat,,102,1.34,2.70
+2015-10-31,Orlando Magic,Oklahoma City Thunder,136,139,3.37,1.21
+2015-10-31,Philadelphia 76ers,Utah Jazz,71,99,3.13,1.24
+2015-10-30,Los Angeles Clippers,Dallas Mavericks,,104,1.09,4.97
+2015-10-30,New York Knicks,Atlanta Hawks,101,112,2.30,1.47
+2015-10-30,Indiana Pacers,Memphis Grizzlies,103,112,2.10,1.57
+2015-10-29,Los Angeles Lakers,Minnesota Timberwolves,111,112,1.56,2.13
+2015-10-29,Phoenix Suns,Dallas Mavericks,95,111,1.34,2.70
+2015-10-29,Portland Trail Blazers,New Orleans Pelicans,,112,1.59,2.05
+2015-10-29,Sacramento Kings,Los Angeles Clippers,104,111,2.65,1.35
+2015-10-29,Houston Rockets,Denver Nuggets,85,105,1.11,4.58
+2015-10-29,Memphis Grizzlies,Cleveland Cavaliers,76,106,1.39,2.53
+2015-10-29,Milwaukee Bucks,New York Knicks,97,122,1.42,2.47
+2015-10-29,Oklahoma City Thunder,San Antonio Spurs,,112,1.44,2.38
+2015-10-29,Boston Celtics,Philadelphia 76ers,,112,1.07,5.83
+2015-10-29,Brooklyn Nets,Chicago Bulls,100,115,2.60,1.37
+2015-10-29,Detroit Pistons,Utah Jazz,,92,1.83,1.77
+2015-10-29,Miami Heat,Charlotte Hornets,,104,1.31,2.85
+2015-10-29,Toronto Raptors,Indiana Pacers,,106,1.39,2.50
+2015-10-29,Orlando Magic,Washington Wizards,87,88,2.25,1.49
+2015-10-28,Golden State Warriors,New Orleans Pelicans,,111,1.13,4.21
+2015-10-28,Atlanta Hawks,Detroit Pistons,94,106,1.28,3.02
+2015-10-28,Chicago Bulls,Cleveland Cavaliers,,97,1.49,2.30
