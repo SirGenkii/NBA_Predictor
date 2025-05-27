@@ -85,42 +85,43 @@ def kelly_criterion(prob, odds):
     kelly = (b * prob - q) / b if b != 0 else 0
     return max(kelly, 0)
 
-def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, bankroll=1000, max_risk=0.05):
+def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, bankroll=1000, max_risk=0.05, skip_first_n=0):
     bets = []
     current_bankroll = bankroll
     feature_cols = model_pipeline.feature_names_in_
 
     merged_df = merged_df.sort_values("GAME_DATE")
-    #group by GAME_ID
-    merged_df = merged_df.groupby("GAME_ID").first().reset_index()
-    
-    for i in range(0, len(merged_df), 2):
-        if i+1 >= len(merged_df):
-            break
+    game_groups = merged_df.groupby("GAME_ID")
+    valid_games = [g for _, g in game_groups if len(g) == 2]
+    valid_games = valid_games[skip_first_n:]
 
-        rows = merged_df.iloc[i:i+2].copy().reset_index(drop=True)
-        if rows.shape[0] != 2:
-            continue
-
+    for i, game in enumerate(valid_games, 1):
+        rows = game.sort_values("IS_HOME", ascending=False).reset_index(drop=True)
         display_info = rows[["TEAM_NAME", "OPPONENT_NAME", "ODDS", "IS_HOME", "IS_WIN"]]
         try:
             pred_rows = rows.drop(columns=["ODDS", "OPP_ODDS", "TEAM_NAME", "OPPONENT_NAME", "date", "match_key"], errors='ignore')
-            pred_input = pred_rows[feature_cols]
+            pred_input = pred_rows[feature_cols].dropna(axis=1, how='any')
+
+            if pred_input.shape[1] != len(feature_cols):
+                print(f"  Match {i} ignoré : features incomplètes.")
+                continue
+
             probs = model_pipeline.predict_proba(pred_input)
 
-            team_0_prob = probs[0][1] if rows.loc[0, "IS_HOME"] == 1 else probs[0][0]
-            team_1_prob = probs[1][1] if rows.loc[1, "IS_HOME"] == 1 else probs[1][0]
+            team_0_prob = probs[0][1]
+            team_1_prob = probs[1][1]
             ev_0 = calculate_ev(team_0_prob, rows.loc[0, "ODDS"])
             ev_1 = calculate_ev(team_1_prob, rows.loc[1, "ODDS"])
 
-            print(f"\nMatch {i//2 + 1}: {display_info.loc[0, 'TEAM_NAME']} vs {display_info.loc[0, 'OPPONENT_NAME']} ({rows.loc[0, 'GAME_DATE']})")
+            print(f"\nMatch {i}: {display_info.loc[0, 'TEAM_NAME']} vs {display_info.loc[0, 'OPPONENT_NAME']} ({rows.loc[0, 'GAME_DATE']})")
             print(f"  {display_info.loc[0, 'TEAM_NAME']} - Prob: {team_0_prob:.2f}, EV: {ev_0:.2f}, Odds: {rows.loc[0, 'ODDS']}")
             print(f"  {display_info.loc[1, 'TEAM_NAME']} - Prob: {team_1_prob:.2f}, EV: {ev_1:.2f}, Odds: {rows.loc[1, 'ODDS']}")
 
-            if ev_0 > min_ev and ev_1 > min_ev:
-                if max(ev_0, ev_1) < max_ev_for_both:
-                    print("  Match trop serré, pas de pari.")
-                    continue
+            # Détection de match trop serré
+            prob_diff = abs(team_0_prob - team_1_prob)
+            if prob_diff < 0.05 and max(ev_0, ev_1) < max_ev_for_both:
+                print("  Match trop serré, pas de pari.")
+                continue
 
             best_idx = 0 if ev_0 > ev_1 else 1
             row = rows.loc[best_idx]
@@ -148,11 +149,10 @@ def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, 
             })
 
         except Exception as e:
-            print(f"  Erreur sur match {i//2 + 1} : {e}")
+            print(f"  Erreur sur match {i} : {e}")
             continue
 
     return pd.DataFrame(bets)
-
 
 def evaluate_simulation(bets_df):
     total_bets = len(bets_df)
