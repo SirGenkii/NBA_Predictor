@@ -108,14 +108,14 @@ def compute_winrates(df: pd.DataFrame, group_col: str, win_col: str, home_col: s
               .groupby(group_col)
               .apply(lambda d: d[win_col].where(d[home_col] == 1).shift(1).rolling(n, min_periods=1).mean())
               .reset_index(level=0, drop=True)
-               .fillna(0.5)
+               .fillna(-1.0)
         )
         df[f"ROLL_AWAY_WINRATE_{n}"] = (
             df.sort_values([group_col, "GAME_DATE"])
               .groupby(group_col)
               .apply(lambda d: d[win_col].where(d[home_col] == 0).shift(1).rolling(n, min_periods=1).mean())
               .reset_index(level=0, drop=True)
-               .fillna(0.5)
+               .fillna(-1.0)
         )
     return df
 
@@ -147,6 +147,11 @@ def compute_h2h(df: pd.DataFrame, windows: list) -> pd.DataFrame:
         df[f"H2H_LAST_{n}_WINRATE"] = winrates
         df[f"H2H_LAST_{n}_COUNT"] = counts
 
+        #fill NaN values with 0
+        df[f"H2H_LAST_{n}_DIFF"] = df[f"H2H_LAST_{n}_DIFF"].fillna(0)
+        df[f"H2H_LAST_{n}_WINRATE"] = df[f"H2H_LAST_{n}_WINRATE"].fillna(0.5)
+        df[f"H2H_LAST_{n}_COUNT"] = df[f"H2H_LAST_{n}_COUNT"].fillna(0)
+
     return df
 
 
@@ -173,6 +178,14 @@ def compute_home_away_pts(df: pd.DataFrame, group_col: str, is_home_col: str, pt
               .apply(lambda d: d[opp_pts_col].where(d[is_home_col] == 0).shift(1).rolling(n, min_periods=1).mean())
               .reset_index(level=0, drop=True)
         )
+        
+        #fill NaN values with -1
+        df[f"ROLL_HOME_{pts_col}_FOR_{n}"] = df[f"ROLL_HOME_{pts_col}_FOR_{n}"].fillna(-1)
+        df[f"ROLL_HOME_{opp_pts_col}_AGAINST_{n}"] = df[f"ROLL_HOME_{opp_pts_col}_AGAINST_{n}"].fillna(-1)
+        df[f"ROLL_AWAY_{pts_col}_FOR_{n}"] = df[f"ROLL_AWAY_{pts_col}_FOR_{n}"].fillna(-1)
+        df[f"ROLL_AWAY_{opp_pts_col}_AGAINST_{n}"] = df[f"ROLL_AWAY_{opp_pts_col}_AGAINST_{n}"].fillna(-1)
+        
+        
     return df
 
 
@@ -235,6 +248,12 @@ def compute_h2h_pts_margin(df: pd.DataFrame, windows: list) -> pd.DataFrame:
         df[f"H2H_LAST_{n}_PTS_FOR"] = pts_for
         df[f"H2H_LAST_{n}_PTS_AGAINST"] = pts_against
         df[f"H2H_LAST_{n}_MARGIN"] = margins
+        
+        #fill NaN values with 0
+        df[f"H2H_LAST_{n}_PTS_FOR"] = df[f"H2H_LAST_{n}_PTS_FOR"].fillna(0)
+        df[f"H2H_LAST_{n}_PTS_AGAINST"] = df[f"H2H_LAST_{n}_PTS_AGAINST"].fillna(0)
+        df[f"H2H_LAST_{n}_MARGIN"] = df[f"H2H_LAST_{n}_MARGIN"].fillna(0)
+        
 
     return df
 
@@ -285,10 +304,12 @@ def compute_rolling_rest_advantage(df: pd.DataFrame, group_col: str, is_home_col
             df.groupby(group_col)
               .apply(lambda d: d[rest_col].where(d[is_home_col] == 1).shift(1).rolling(n, min_periods=1).mean())
               .reset_index(level=0, drop=True)
+              .fillna(0)
         )
         df[f"ROLL_AWAY_REST_ADV_{n}"] = (
             df.groupby(group_col)
               .apply(lambda d: d[rest_col].where(d[is_home_col] == 0).shift(1).rolling(n, min_periods=1).mean())
               .reset_index(level=0, drop=True)
+              .fillna(0)
         )
     return df

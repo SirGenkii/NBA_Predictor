@@ -71,11 +71,8 @@ def clean_merged_matches(df):
     df = df[df['TEAM_ID'].notna() & df['OPP_TEAM_ID'].notna()]
     df = df.drop_duplicates(subset=["match_key", "TEAM_ID"])
     
-    
-    
     # Suppression des colonnes originales de odds
     df.drop(columns=["date","match_key","home_team", "away_team", "home_odds", "away_odds", "home_score", "away_score"], inplace=True, errors='ignore')
-
     
     return df.reset_index(drop=True)
 
@@ -88,47 +85,74 @@ def kelly_criterion(prob, odds):
     kelly = (b * prob - q) / b if b != 0 else 0
     return max(kelly, 0)
 
-def simulate_bets(merged_df, model_pipeline, min_ev=0.05, bankroll=1000, max_risk=0.05):
+def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, bankroll=1000, max_risk=0.05):
     bets = []
     current_bankroll = bankroll
+    feature_cols = model_pipeline.feature_names_in_
 
-    for idx, row in merged_df.iterrows():
-        for team_type in ["home", "away"]:
-            team_col = f"{team_type}_team"
-            odds_col = f"{team_type}_odds"
+    merged_df = merged_df.sort_values("GAME_DATE")
+    #group by GAME_ID
+    merged_df = merged_df.groupby("GAME_ID").first().reset_index()
+    
+    for i in range(0, len(merged_df), 2):
+        if i+1 >= len(merged_df):
+            break
 
-            is_home = 1 if team_type == "home" else 0
-            pred_row = row.copy()
-            pred_row = pred_row.drop(["TEAM_ID", "OPP_TEAM_ID", "SEASON", "GAME_DATE", "IS_WIN"], errors='ignore')
-            pred_row = pred_row.dropna()
+        rows = merged_df.iloc[i:i+2].copy().reset_index(drop=True)
+        if rows.shape[0] != 2:
+            continue
 
-            if pred_row.empty:
-                continue
+        display_info = rows[["TEAM_NAME", "OPPONENT_NAME", "ODDS", "IS_HOME", "IS_WIN"]]
+        try:
+            pred_rows = rows.drop(columns=["ODDS", "OPP_ODDS", "TEAM_NAME", "OPPONENT_NAME", "date", "match_key"], errors='ignore')
+            pred_input = pred_rows[feature_cols]
+            probs = model_pipeline.predict_proba(pred_input)
 
-            pred_input = pred_row[model_pipeline.named_steps['scaler'].get_feature_names_out()].to_frame().T
-            prob = model_pipeline.predict_proba(pred_input)[0][1] if is_home == 1 else model_pipeline.predict_proba(pred_input)[0][0]
-            ev = calculate_ev(prob, row[odds_col])
+            team_0_prob = probs[0][1] if rows.loc[0, "IS_HOME"] == 1 else probs[0][0]
+            team_1_prob = probs[1][1] if rows.loc[1, "IS_HOME"] == 1 else probs[1][0]
+            ev_0 = calculate_ev(team_0_prob, rows.loc[0, "ODDS"])
+            ev_1 = calculate_ev(team_1_prob, rows.loc[1, "ODDS"])
 
-            if ev > min_ev:
-                f = kelly_criterion(prob, row[odds_col])
-                stake = min(f * current_bankroll, current_bankroll * max_risk)
-                won = int(row['IS_HOME'] == is_home and row['IS_WIN'] == 1)
-                gain = stake * (row[odds_col] - 1) if won else -stake
-                current_bankroll += gain
+            print(f"\nMatch {i//2 + 1}: {display_info.loc[0, 'TEAM_NAME']} vs {display_info.loc[0, 'OPPONENT_NAME']} ({rows.loc[0, 'GAME_DATE']})")
+            print(f"  {display_info.loc[0, 'TEAM_NAME']} - Prob: {team_0_prob:.2f}, EV: {ev_0:.2f}, Odds: {rows.loc[0, 'ODDS']}")
+            print(f"  {display_info.loc[1, 'TEAM_NAME']} - Prob: {team_1_prob:.2f}, EV: {ev_1:.2f}, Odds: {rows.loc[1, 'ODDS']}")
 
-                bets.append({
-                    "date": row["date"],
-                    "team": row[team_col],
-                    "odds": row[odds_col],
-                    "prob": prob,
-                    "ev": ev,
-                    "stake": stake,
-                    "won": won,
-                    "gain": gain,
-                    "bankroll": current_bankroll
-                })
+            if ev_0 > min_ev and ev_1 > min_ev:
+                if max(ev_0, ev_1) < max_ev_for_both:
+                    print("  Match trop serré, pas de pari.")
+                    continue
+
+            best_idx = 0 if ev_0 > ev_1 else 1
+            row = rows.loc[best_idx]
+            prob = team_0_prob if best_idx == 0 else team_1_prob
+            ev = ev_0 if best_idx == 0 else ev_1
+
+            f = kelly_criterion(prob, row["ODDS"])
+            stake = min(f * current_bankroll, current_bankroll * max_risk)
+            won = int(row["IS_WIN"] == 1)
+            gain = stake * (row["ODDS"] - 1) if won else -stake
+            current_bankroll += gain
+
+            print(f"  Pari sur {row['TEAM_NAME']} ! Mise: {stake:.2f}, {'GAGNÉ' if won else 'PERDU'}, Bankroll: {current_bankroll:.2f}")
+
+            bets.append({
+                "date": row.get("date", None),
+                "team": row["TEAM_NAME"],
+                "odds": row["ODDS"],
+                "prob": prob,
+                "ev": ev,
+                "stake": stake,
+                "won": won,
+                "gain": gain,
+                "bankroll": current_bankroll
+            })
+
+        except Exception as e:
+            print(f"  Erreur sur match {i//2 + 1} : {e}")
+            continue
 
     return pd.DataFrame(bets)
+
 
 def evaluate_simulation(bets_df):
     total_bets = len(bets_df)
