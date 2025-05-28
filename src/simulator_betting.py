@@ -24,6 +24,9 @@ from src.feature_builder import *
 from src.config import *
 from src.utils import get_latest_file, json_serial
 
+from pathlib import Path
+
+
 def clean_team_name(name):
     return name.strip().lower() if isinstance(name, str) else name
 
@@ -117,7 +120,7 @@ def kelly_criterion(prob, odds):
     return max(kelly, 0)
 
 
-def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, bankroll=1000, max_risk=0.05, skip_first_n=0, log_file_path="betting_simulation_log.json"):
+def simulate_bets(merged_df, model_pipeline, min_ev=0.05, bankroll=1000, max_risk=0.05, skip_first_n=0, log_file_path="betting_simulation_log.json"):
     bets = []
     current_bankroll = bankroll
     feature_cols = model_pipeline.feature_names_in_
@@ -150,8 +153,11 @@ def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, 
             print(f"  {display_info.loc[1, 'TEAM_NAME']} - Prob: {team_1_prob:.2f}, EV: {ev_1:.2f}, Odds: {rows.loc[1, 'ODDS']}")
 
             prob_diff = abs(team_0_prob - team_1_prob)
-            if prob_diff < 0.05 and max(ev_0, ev_1) < max_ev_for_both:
-                print("  Match trop serré, pas de pari.")
+            if prob_diff < 0.05:
+                print("Match trop serré, pas de pari.")
+
+            if max(ev_0, ev_1) < min_ev:
+                print(f"Pas d'EV interessante au dessus de {min_ev}.")
                 continue
 
             best_idx = 0 if ev_0 > ev_1 else 1
@@ -189,7 +195,6 @@ def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, 
         "timestamp": datetime.now().isoformat(),
         "parameters": {
             "min_ev": float(min_ev),
-            "max_ev_for_both": float(max_ev_for_both),
             "bankroll": float(bankroll),
             "max_risk": float(max_risk),
             "skip_first_n": int(skip_first_n)
@@ -215,7 +220,14 @@ def evaluate_simulation(bets_df):
     }
 
 
-def train_model_excluding_seasons(df, exclude_seasons):
+def train_or_load_model(df, exclude_seasons, model_identifier, season_key):
+    os.makedirs(DATA_MODELS_SIMULATIONS_DIR, exist_ok=True)
+    model_path = os.path.join(DATA_MODELS_SIMULATIONS_DIR, f"model_{season_key}_{model_identifier}.joblib")
+
+    if Path(model_path).exists():
+        print(f"Chargement du modèle existant pour {season_key} ({model_identifier})")
+        return joblib.load(model_path)
+
     target = 'IS_WIN'
     drop_cols = ['GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'SEASON', 'GAME_DATE'] + COLS_MATCH_REAL
     features = [col for col in df.columns if col not in drop_cols + [target]]
@@ -253,11 +265,13 @@ def train_model_excluding_seasons(df, exclude_seasons):
     auc = roc_auc_score(y, y_pred_proba)
     print(f"ROC AUC sur données d'entraînement: {auc:.4f}")
 
+    joblib.dump(model, model_path)
+    print(f"Modèle sauvegardé dans {model_path}")
+
     return model
 
+def run_season_simulation(seasons_to_test, exclude_future_seasons=True, min_ev=0.05, bankroll=1000, max_risk=0.05, skip_first_n=0, model_identifier="default"):
 
-def run_season_simulation(seasons_to_test, exclude_future_seasons=True, min_ev=0.05, max_ev_for_both=0.15, bankroll=1000, max_risk=0.05, skip_first_n=30):
- 
     # Load the full dataset
     dataset_path = get_latest_file(DATA_FINAL_CLEANED_DATASET_DIR)
     df = pd.read_csv(dataset_path)
@@ -273,7 +287,7 @@ def run_season_simulation(seasons_to_test, exclude_future_seasons=True, min_ev=0
         else:
             future_seasons = [season]
 
-        model = train_model_excluding_seasons(df, exclude_seasons=future_seasons)
+        model = train_or_load_model(df, exclude_seasons=future_seasons, model_identifier=model_identifier, season_key=season)
 
         # Load odds
         odds_file = os.path.join(DATA_ODDS_HISTORY_DIR, f"nba_{season.replace('-', '_')}.csv")
@@ -291,14 +305,13 @@ def run_season_simulation(seasons_to_test, exclude_future_seasons=True, min_ev=0
             merged_df=cleaned,
             model_pipeline=model,
             min_ev=min_ev,
-            max_ev_for_both=max_ev_for_both,
             bankroll=bankroll,
             max_risk=max_risk,
             skip_first_n=skip_first_n
         )
+
         all_bets.append(bets_df)
 
     full_bets_df = pd.concat(all_bets, ignore_index=True)
     summary = evaluate_simulation(full_bets_df)
     return full_bets_df, summary
-
