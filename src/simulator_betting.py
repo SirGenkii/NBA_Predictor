@@ -4,6 +4,26 @@ from datetime import timedelta
 import json
 from datetime import datetime
 
+import joblib
+import os
+from sklearn.ensemble import RandomForestClassifier,StackingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from lightgbm import LGBMClassifier
+from sklearn.metrics import roc_auc_score
+
+from xgboost import XGBClassifier
+from catboost import CatBoostClassifier
+
+from sklearn.ensemble import ExtraTreesClassifier, HistGradientBoostingClassifier
+from sklearn.neural_network import MLPClassifier
+
+
+from src.feature_builder import *
+from src.config import *
+from src.utils import get_latest_file, json_serial
+
 def clean_team_name(name):
     return name.strip().lower() if isinstance(name, str) else name
 
@@ -76,6 +96,15 @@ def clean_merged_matches(df):
     # Suppression des colonnes originales de odds
     df.drop(columns=["date","match_key","home_team", "away_team", "home_odds", "away_odds", "home_score", "away_score"], inplace=True, errors='ignore')
     
+    #df = df.dropna(subset=["home_odds", "away_odds"])
+    
+    #drop nan for "home_odds", "away_odds" and print the number of rows removed
+    initial_rows = len(df)
+    df = df.dropna(subset=["ODDS", "OPP_ODDS"])
+    removed_rows = initial_rows - len(df)
+    if removed_rows > 0:
+        print(f"------------------ Nombre de lignes supprimées pour cotes manquantes: {removed_rows} ------------------")
+    
     return df.reset_index(drop=True)
 
 def calculate_ev(prob, odds):
@@ -139,7 +168,8 @@ def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, 
             print(f"  Pari sur {row['TEAM_NAME']} ! Mise: {stake:.2f}, {'GAGNÉ' if won else 'PERDU'}, Bankroll: {current_bankroll:.2f}")
 
             bets.append({
-                "date": row.get("date", None),
+                "date": row["GAME_DATE"],
+                "game_id": row["GAME_ID"],
                 "team": row["TEAM_NAME"],
                 "odds": row["ODDS"],
                 "prob": prob,
@@ -167,7 +197,7 @@ def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, 
         "results": evaluate_simulation(pd.DataFrame(bets))
     }
     with open(log_file_path, 'a') as f:
-        f.write(json.dumps(log_data) + "\n")
+        f.write(json.dumps(log_data, default=json_serial) + "\n")
 
     return pd.DataFrame(bets)
 
@@ -183,3 +213,92 @@ def evaluate_simulation(bets_df):
         "roi": roi,
         "final_bankroll": final_bankroll
     }
+
+
+def train_model_excluding_seasons(df, exclude_seasons):
+    target = 'IS_WIN'
+    drop_cols = ['GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'SEASON', 'GAME_DATE'] + COLS_MATCH_REAL
+    features = [col for col in df.columns if col not in drop_cols + [target]]
+    df = df.dropna(subset=features)
+
+    filtered_df = df[~df['SEASON'].isin(exclude_seasons)].copy()
+    X = filtered_df[features].select_dtypes(include=['number'])
+    y = filtered_df[target]
+
+    estimators = [
+        ('rf', RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=-1)),
+        ('lgbm', LGBMClassifier(n_estimators=200, random_state=42, n_jobs=-1, verbose=-1)),
+        ('xgb', XGBClassifier(n_estimators=200, learning_rate=0.05, max_depth=6,
+                              subsample=0.7, colsample_bytree=0.7,
+                              random_state=42, eval_metric='logloss',
+                              n_jobs=-1, use_label_encoder=False, verbosity=0)),
+        ('cat', CatBoostClassifier(n_estimators=200, learning_rate=0.05,
+                                   depth=6, verbose=0, random_state=42)),
+        ('hgb', HistGradientBoostingClassifier(max_iter=200, random_state=42))
+    ]
+
+    model = Pipeline([
+        ('scaler', StandardScaler()),
+        ('model', StackingClassifier(
+            estimators=estimators,
+            cv=5,
+            final_estimator=LogisticRegression(),
+            passthrough=True,
+            n_jobs=-1
+        ))
+    ])
+    model.fit(X, y)
+
+    y_pred_proba = model.predict_proba(X)[:, 1]
+    auc = roc_auc_score(y, y_pred_proba)
+    print(f"ROC AUC sur données d'entraînement: {auc:.4f}")
+
+    return model
+
+
+def run_season_simulation(seasons_to_test, exclude_future_seasons=True, min_ev=0.05, max_ev_for_both=0.15, bankroll=1000, max_risk=0.05, skip_first_n=30):
+ 
+    # Load the full dataset
+    dataset_path = get_latest_file(DATA_FINAL_CLEANED_DATASET_DIR)
+    df = pd.read_csv(dataset_path)
+
+    all_bets = []
+
+    for season in seasons_to_test:
+        print(f"\n=== Simulation pour la saison {season} ===")
+
+        # Exclude future seasons
+        if exclude_future_seasons:
+            future_seasons = [s for s in df['SEASON'].unique() if s >= season]
+        else:
+            future_seasons = [season]
+
+        model = train_model_excluding_seasons(df, exclude_seasons=future_seasons)
+
+        # Load odds
+        odds_file = os.path.join(DATA_ODDS_HISTORY_DIR, f"nba_{season.replace('-', '_')}.csv")
+        odds_df = pd.read_csv(odds_file)
+
+        season_df = df[df['SEASON'] == season].copy()
+        team_map_file = get_latest_file(DATA_TEAMS_DIR)
+        team_map = pd.read_csv(team_map_file)
+        team_id_map = dict(zip(team_map["id"], team_map["full_name"]))
+
+        merged = match_odds_with_dataset(odds_df, season_df, team_id_map)
+        cleaned = clean_merged_matches(merged)
+
+        bets_df = simulate_bets(
+            merged_df=cleaned,
+            model_pipeline=model,
+            min_ev=min_ev,
+            max_ev_for_both=max_ev_for_both,
+            bankroll=bankroll,
+            max_risk=max_risk,
+            skip_first_n=skip_first_n
+        )
+        all_bets.append(bets_df)
+
+    full_bets_df = pd.concat(all_bets, ignore_index=True)
+    summary = evaluate_simulation(full_bets_df)
+    return full_bets_df, summary
+

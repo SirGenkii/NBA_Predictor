@@ -1,6 +1,25 @@
 import os
 import sys
 
+
+# Liste des colonnes à dropper (toutes les stats brutes et colonnes de match, identifiants inutiles, etc.)
+COLS_MATCH_REAL = [
+    # Identifiants et logs
+     "OPP_GAME_DATE", "MATCHUP", #"OPP_TEAM_ID", "GAME_DATE","GAME_ID",
+
+    "IS_WIN_SHIFTED", 
+
+    # Stats brutes de match (pour les deux équipes)
+    "FGM", "FGA", "FG_PCT", "FG3M", "FG3A", "FG3_PCT", "FTM", "FTA", "FT_PCT",
+    "OREB", "DREB", "REB", "AST", "STL", "BLK", "TO", "PF", "PTS", "PLUS_MINUS", "MINUTES_PLAYED",
+
+    "OPP_FGM", "OPP_FGA", "OPP_FG_PCT", "OPP_FG3M", "OPP_FG3A", "OPP_FG3_PCT", "OPP_FTM", "OPP_FTA", "OPP_FT_PCT",
+    "OPP_OREB", "OPP_DREB", "OPP_REB", "OPP_AST", "OPP_STL", "OPP_BLK", "OPP_TO", "OPP_PF", "OPP_PTS",
+    "OPP_PLUS_MINUS", "OPP_MINUTES_PLAYED",
+    "POINT_DIFF"
+]
+
+
 DATA_DIR = 'data'
 DATA_RAW_DIR = os.path.join(DATA_DIR, 'raw')
 
@@ -26,9 +45,10 @@ DATA_TEAMS_DIR = os.path.join(DATA_RAW_DIR, 'teams')
 DATA_PREDICTION_ROWS_DIR = os.path.join(DATA_DIR, 'predictions_rows')
 
 DATA_MODELS_DIR = os.path.join(DATA_DIR, 'models')
+DATA_MODELS_SIMULATIONS_DIR = os.path.join(DATA_MODELS_DIR, 'simulations')
 
 DATA_ODDS_HISTORY_DIR = os.path.join(DATA_DIR, 'odds_history')
-
+DATA_SIMULATIONS_DIR = os.path.join(DATA_DIR, 'simulations')
 
 BATCH_SIZE = 25
 
