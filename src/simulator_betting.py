@@ -206,6 +206,186 @@ def simulate_bets(merged_df, model_pipeline, min_ev=0.05, bankroll=1000, max_ris
 
     return pd.DataFrame(bets)
 
+
+# Fonction modifiée avec les paramètres optimisés
+def simulate_bets_optimized(merged_df, model_pipeline, 
+                           min_ev=0.15,          
+                           bankroll=1000, 
+                           max_risk=0.02,         
+                           prob_diff=0.10,        
+                           odds_max=2.5,          
+                           odds_min=1.2,           
+                           ev_diff_min=0.10,      
+                           streak_limit=5,        
+                           bankroll_stop=0.5,     
+                           skip_first_n=0, 
+                           log_file_path="betting_simulation_log_optimized.json"):
+    """
+    Fonction de simulation de paris optimisée avec paramètres additionnels
+    
+    Nouveaux paramètres:
+    - prob_diff: Différence minimale de probabilité entre les équipes
+    - odds_max: Cote maximale acceptée
+    - odds_min: Cote minimale acceptée  
+    - ev_diff_min: Différence minimale d'EV entre les équipes
+    - streak_limit: Nombre maximal de pertes consécutives avant pause
+    - bankroll_stop: Seuil de bankroll en dessous duquel arrêter (en proportion)
+    """
+    import json
+    from datetime import datetime
+    
+    bets = []
+    current_bankroll = bankroll
+    initial_bankroll = bankroll
+    feature_cols = model_pipeline.feature_names_in_
+    consecutive_losses = 0
+
+    merged_df = merged_df.sort_values("GAME_DATE")
+    game_groups = merged_df.groupby("GAME_ID")
+    valid_games = [g for _, g in game_groups if len(g) == 2]
+    valid_games = valid_games[skip_first_n:]
+
+    for i, game in enumerate(valid_games, 1):
+        # Vérifier le seuil de bankroll
+        if current_bankroll < initial_bankroll * bankroll_stop:
+            print(f"Arrêt de la simulation: bankroll trop faible ({current_bankroll:.2f})")
+            break
+            
+        # Vérifier la limite de pertes consécutives
+        if consecutive_losses >= streak_limit:
+            print(f"Pause après {consecutive_losses} pertes consécutives au match {i}")
+            consecutive_losses = 0  # Reset après pause
+            continue
+
+        rows = game.sort_values("IS_HOME", ascending=False).reset_index(drop=True)
+        display_info = rows[["TEAM_NAME", "OPPONENT_NAME", "ODDS", "IS_HOME", "IS_WIN"]]
+        
+        try:
+            pred_rows = rows.drop(columns=["ODDS", "OPP_ODDS", "TEAM_NAME", "OPPONENT_NAME", "date", "match_key"], errors='ignore')
+            pred_input = pred_rows[feature_cols].dropna(axis=1, how='any')
+
+            if pred_input.shape[1] != len(feature_cols):
+                print(f"  Match {i} ignoré : features incomplètes.")
+                continue
+
+            probs = model_pipeline.predict_proba(pred_input)
+            team_0_prob = probs[0][1]
+            team_1_prob = probs[1][1]
+
+            # Vérifier la différence de probabilité minimale
+            if abs(team_0_prob - team_1_prob) < prob_diff:
+                print(f"  Match {i} ignoré : différence de probabilité trop faible ({abs(team_0_prob - team_1_prob):.3f})")
+                continue
+
+            for j, row in rows.iterrows():
+                prob = team_0_prob if j == rows.index[0] else team_1_prob
+                odds = row["ODDS"]
+                
+                # Filtres sur les cotes
+                if odds > odds_max:
+                    print(f" Match {i} ignoré : sur {row['TEAM_NAME']}: cote trop élevée ({odds:.2f})")
+                    continue
+                    
+                if odds < odds_min:
+                    print(f"   Match {i} ignoré : sur {row['TEAM_NAME']}: cote trop faible ({odds:.2f})")
+                    continue
+
+                ev = (prob * odds) - 1
+                
+                # Filtre EV minimum
+                if ev < min_ev:
+                    continue
+
+                # Calculer l'EV de l'équipe adverse pour vérifier la différence
+                other_j = rows.index[1] if j == rows.index[0] else rows.index[0]
+                other_row = rows.loc[other_j]
+                other_prob = team_1_prob if j == rows.index[0] else team_0_prob
+                other_ev = (other_prob * other_row["ODDS"]) - 1
+                
+                # Vérifier la différence d'EV minimale
+                if abs(ev - other_ev) < ev_diff_min:
+                    print(f" Match {i} ignoré : sur {row['TEAM_NAME']}: différence d'EV trop faible ({abs(ev - other_ev):.3f})")
+                    continue
+
+                # Calcul de la mise avec Kelly
+                kelly_fraction = ev / (odds - 1)
+                kelly_stake = current_bankroll * kelly_fraction
+                stake = min(kelly_stake, current_bankroll * max_risk)
+                stake = max(stake, 0)
+
+                if stake == 0:
+                    continue
+
+                won = int(row["IS_WIN"])
+                gain = stake * (odds - 1) if won else -stake
+                current_bankroll += gain
+
+                # Gestion des pertes consécutives
+                if won:
+                    consecutive_losses = 0
+                else:
+                    consecutive_losses += 1
+
+                print(f" Match {i} placed : Pari sur {row['TEAM_NAME']} ! Mise: {stake:.2f}, {'GAGNÉ' if won else 'PERDU'}, Bankroll: {current_bankroll:.2f}")
+
+                bets.append({
+                    "date": row["GAME_DATE"],
+                    "game_id": row["GAME_ID"],
+                    "team": row["TEAM_NAME"],
+                    "odds": row["ODDS"],
+                    "prob": prob,
+                    "ev": ev,
+                    "stake": stake,
+                    "won": won,
+                    "gain": gain,
+                    "bankroll": current_bankroll
+                })
+
+        except Exception as e:
+            print(f"  Erreur sur match {i} : {e}")
+            continue
+
+    # Logging avec nouveaux paramètres
+    def json_serial(obj):
+        if isinstance(obj, (datetime)):
+            return obj.isoformat()
+        raise TypeError(f"Type {type(obj)} not serializable")
+    
+    def evaluate_simulation(df):
+        if len(df) == 0:
+            return {"total_bets": 0, "total_gain": 0, "win_rate": 0}
+        return {
+            "total_bets": len(df),
+            "total_gain": df["gain"].sum(),
+            "win_rate": df["won"].mean(),
+            "final_bankroll": df["bankroll"].iloc[-1] if len(df) > 0 else bankroll
+        }
+    
+    log_data = {
+        "timestamp": datetime.now().isoformat(),
+        "parameters": {
+            "min_ev": float(min_ev),
+            "bankroll": float(bankroll),
+            "max_risk": float(max_risk),
+            "prob_diff": float(prob_diff),
+            "odds_max": float(odds_max),
+            "odds_min": float(odds_min),
+            "ev_diff_min": float(ev_diff_min),
+            "streak_limit": int(streak_limit),
+            "bankroll_stop": float(bankroll_stop),
+            "skip_first_n": int(skip_first_n)
+        },
+        "results": evaluate_simulation(pd.DataFrame(bets))
+    }
+    
+    with open(log_file_path, 'a') as f:
+        f.write(json.dumps(log_data, default=json_serial) + "\
+        ")
+
+    return pd.DataFrame(bets)
+
+
+
 def evaluate_simulation(bets_df):
     total_bets = len(bets_df)
     wins = bets_df["won"].sum()
@@ -226,7 +406,10 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key):
 
     if Path(model_path).exists():
         print(f"Chargement du modèle existant pour {season_key} ({model_identifier})")
-        return joblib.load(model_path)
+        model = joblib.load(model_path)
+        print(f"Modèle chargé depuis {model_path}")
+        
+        return model
 
     target = 'IS_WIN'
     drop_cols = ['GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'SEASON', 'GAME_DATE'] + COLS_MATCH_REAL
@@ -270,7 +453,19 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key):
 
     return model
 
-def run_season_simulation(seasons_to_test, exclude_future_seasons=True, min_ev=0.05, bankroll=1000, max_risk=0.05, skip_first_n=0, model_identifier="default"):
+def run_season_simulation(seasons_to_test, exclude_future_seasons=True, 
+                            min_ev=0.15,          
+                            bankroll=1000, 
+                            max_risk=0.02,         
+                            prob_diff=0.10,        
+                            odds_max=2.5,          
+                            odds_min=1.2,           
+                            ev_diff_min=0.10,      
+                            streak_limit=5,        
+                            bankroll_stop=0.5,     
+                            skip_first_n=0, 
+                            model_identifier="default"
+                            ):
 
     # Load the full dataset
     dataset_path = get_latest_file(DATA_FINAL_CLEANED_DATASET_DIR)
@@ -301,13 +496,29 @@ def run_season_simulation(seasons_to_test, exclude_future_seasons=True, min_ev=0
         merged = match_odds_with_dataset(odds_df, season_df, team_id_map)
         cleaned = clean_merged_matches(merged)
 
-        bets_df = simulate_bets(
+        # bets_df = simulate_bets(
+        #     merged_df=cleaned,
+        #     model_pipeline=model,
+        #     min_ev=min_ev,
+        #     bankroll=bankroll,
+        #     max_risk=max_risk,
+        #     skip_first_n=skip_first_n
+        # )
+        
+        bets_df = simulate_bets_optimized(
             merged_df=cleaned,
             model_pipeline=model,
-            min_ev=min_ev,
-            bankroll=bankroll,
-            max_risk=max_risk,
-            skip_first_n=skip_first_n
+            min_ev=0.15,          
+            bankroll=1000, 
+            max_risk=0.02,         
+            prob_diff=0.10,        
+            odds_max=2.5,          
+            odds_min=1.2,           
+            ev_diff_min=0.10,      
+            streak_limit=5,        
+            bankroll_stop=0.5,     
+            skip_first_n=0, 
+            log_file_path=os.path.join(DATA_SIMULATIONS_DIR, f"betting_simulation_log_{season}_{model_identifier}.json")
         )
 
         all_bets.append(bets_df)
