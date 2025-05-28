@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 from datetime import timedelta
+import json
+from datetime import datetime
 
 def clean_team_name(name):
     return name.strip().lower() if isinstance(name, str) else name
@@ -85,7 +87,8 @@ def kelly_criterion(prob, odds):
     kelly = (b * prob - q) / b if b != 0 else 0
     return max(kelly, 0)
 
-def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, bankroll=1000, max_risk=0.05, skip_first_n=0):
+
+def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, bankroll=1000, max_risk=0.05, skip_first_n=0, log_file_path="betting_simulation_log.json"):
     bets = []
     current_bankroll = bankroll
     feature_cols = model_pipeline.feature_names_in_
@@ -117,7 +120,6 @@ def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, 
             print(f"  {display_info.loc[0, 'TEAM_NAME']} - Prob: {team_0_prob:.2f}, EV: {ev_0:.2f}, Odds: {rows.loc[0, 'ODDS']}")
             print(f"  {display_info.loc[1, 'TEAM_NAME']} - Prob: {team_1_prob:.2f}, EV: {ev_1:.2f}, Odds: {rows.loc[1, 'ODDS']}")
 
-            # Détection de match trop serré
             prob_diff = abs(team_0_prob - team_1_prob)
             if prob_diff < 0.05 and max(ev_0, ev_1) < max_ev_for_both:
                 print("  Match trop serré, pas de pari.")
@@ -151,6 +153,21 @@ def simulate_bets(merged_df, model_pipeline, min_ev=0.05, max_ev_for_both=0.15, 
         except Exception as e:
             print(f"  Erreur sur match {i} : {e}")
             continue
+
+    # Logging
+    log_data = {
+        "timestamp": datetime.now().isoformat(),
+        "parameters": {
+            "min_ev": float(min_ev),
+            "max_ev_for_both": float(max_ev_for_both),
+            "bankroll": float(bankroll),
+            "max_risk": float(max_risk),
+            "skip_first_n": int(skip_first_n)
+        },
+        "results": evaluate_simulation(pd.DataFrame(bets))
+    }
+    with open(log_file_path, 'a') as f:
+        f.write(json.dumps(log_data) + "\n")
 
     return pd.DataFrame(bets)
 
