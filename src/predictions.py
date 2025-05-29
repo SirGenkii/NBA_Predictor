@@ -1,8 +1,7 @@
 import pandas as pd
+import numpy as np
 from datetime import datetime
 from src.feature_builder import *
-
-
 
 def build_prediction_rows(home_team_id: int, away_team_id: int, dataset: pd.DataFrame, match_date: datetime = None) -> pd.DataFrame:
     N_LIST = [3, 5, 10, 25, 50, 100, 200]
@@ -43,8 +42,13 @@ def build_prediction_rows(home_team_id: int, away_team_id: int, dataset: pd.Data
     temp_df["REST_ADVANTAGE"] = temp_df["DAYS_SINCE_LAST_GAME"] - temp_df["OPP_DAYS_SINCE_LAST_GAME"]
     temp_df = compute_rolling_rest_advantage(temp_df, "TEAM_ID", "IS_HOME", "REST_ADVANTAGE", N_LIST)
 
+    # Ajouter features avancées avant rolling
+    temp_df = add_advanced_boxscore_features(temp_df)
+
     temp_df = compute_rolling_features(temp_df, "TEAM_ID", ["TEAM_ID", "GAME_DATE"],
-                                       ['PTS', 'REB', 'AST', 'FGM', 'FGA', 'FG_PCT', 'PLUS_MINUS'], N_LIST)
+                                       ['PTS', 'REB', 'AST', 'FGM', 'FGA', 'FG_PCT', 'PLUS_MINUS',
+                                        'TS_PCT', 'EFG_PCT', 'AST_TO_RATIO', 'REB_RATE'], N_LIST)
+
     temp_df = compute_home_away_pts(temp_df, "TEAM_ID", "IS_HOME", "PTS", "OPP_PTS", N_LIST)
 
     temp_df = compute_winrates(temp_df, "TEAM_ID", "IS_WIN", "IS_HOME", N_LIST)
@@ -63,4 +67,3 @@ def build_prediction_rows(home_team_id: int, away_team_id: int, dataset: pd.Data
     temp_df = compute_elo_season(temp_df)
 
     return temp_df.tail(2)
-

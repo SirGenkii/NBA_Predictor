@@ -25,6 +25,7 @@ from src.config import *
 from src.utils import get_latest_file, json_serial
 
 from pathlib import Path
+from typing import List, Tuple
 
 
 def clean_team_name(name):
@@ -82,12 +83,12 @@ def match_odds_with_dataset(odds_df, nba_df, team_id_map):
         lambda row: row["away_odds"] if row["IS_HOME"] == 1 else row["home_odds"], axis=1
     )
     
-    print(f"\nNombre de lignes fusionnées: {len(merged)}")
-    print(f"Nombre de correspondances réussies: {merged['TEAM_ID'].notna().sum()}")
-    print(f"Nombre de correspondances échouées: {merged['TEAM_ID'].isna().sum()}")
+    # print(f"\nNombre de lignes fusionnées: {len(merged)}")
+    # print(f"Nombre de correspondances réussies: {merged['TEAM_ID'].notna().sum()}")
+    # print(f"Nombre de correspondances échouées: {merged['TEAM_ID'].isna().sum()}")
 
-    print("\nIDs manquants TEAM_ID:", nba_df[~nba_df["TEAM_ID"].isin(team_id_map.keys())]["TEAM_ID"].unique())
-    print("IDs manquants OPP_TEAM_ID:", nba_df[~nba_df["OPP_TEAM_ID"].isin(team_id_map.keys())]["OPP_TEAM_ID"].unique())
+    # print("\nIDs manquants TEAM_ID:", nba_df[~nba_df["TEAM_ID"].isin(team_id_map.keys())]["TEAM_ID"].unique())
+    # print("IDs manquants OPP_TEAM_ID:", nba_df[~nba_df["OPP_TEAM_ID"].isin(team_id_map.keys())]["OPP_TEAM_ID"].unique())
 
     return merged
 
@@ -350,14 +351,45 @@ def evaluate_simulation(bets_df):
     }
 
 
-def train_or_load_model(df, exclude_seasons, model_identifier, season_key):
+def set_model_n_jobs(model, n_jobs):
+    try:
+        if hasattr(model, "named_steps") and "model" in model.named_steps:
+            stack = model.named_steps["model"]
+
+            # Fix sur les estimateurs de base
+            for name, estimator in stack.estimators:
+                if hasattr(estimator, "n_jobs"):
+                    estimator.n_jobs = n_jobs
+
+            # Fix sur le final estimator
+            if hasattr(stack.final_estimator, "n_jobs"):
+                stack.final_estimator.n_jobs = n_jobs
+
+            # Fix sur le StackingClassifier lui-même
+            if hasattr(stack, "n_jobs"):
+                stack.n_jobs = n_jobs
+
+    except Exception as e:
+        print(f"[WARN] set_model_n_jobs failed: {e}")
+
+
+def train_or_load_model(df, exclude_seasons, model_identifier, season_key, parallel=True):
     os.makedirs(DATA_MODELS_SIMULATIONS_DIR, exist_ok=True)
     model_path = os.path.join(DATA_MODELS_SIMULATIONS_DIR, f"model_{season_key}_{model_identifier}.joblib")
+
+    if parallel:
+        n_jobs = -1  # Utiliser tous les cœurs disponibles
+    else:
+        n_jobs = 1
+        
+    print(f"Model in parallel mode: {parallel}. n_jobs set to {n_jobs}" )
 
     if Path(model_path).exists():
         print(f"Chargement du modèle existant pour {season_key} ({model_identifier})")
         model = joblib.load(model_path)
         print(f"Modèle chargé depuis {model_path}")
+  
+        #set_model_n_jobs(model, n_jobs)
         
         return model
 
@@ -371,14 +403,14 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key):
     y = filtered_df[target]
 
     estimators = [
-        ('rf', RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=-1)),
-        ('lgbm', LGBMClassifier(n_estimators=200, random_state=42, n_jobs=-1, verbose=-1)),
+        ('rf', RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=n_jobs)),
+        ('lgbm', LGBMClassifier(n_estimators=200, random_state=42, n_jobs=n_jobs, verbose=-1)),
         ('xgb', XGBClassifier(n_estimators=200, learning_rate=0.05, max_depth=6,
                               subsample=0.7, colsample_bytree=0.7,
                               random_state=42, eval_metric='logloss',
-                              n_jobs=-1, use_label_encoder=False, verbosity=0)),
+                              n_jobs=n_jobs, use_label_encoder=False, verbosity=0)),
         ('cat', CatBoostClassifier(n_estimators=200, learning_rate=0.05,
-                                   depth=6, verbose=0, random_state=42)),
+                                   depth=6, verbose=0, random_state=42, thread_count=n_jobs)),
         ('hgb', HistGradientBoostingClassifier(max_iter=200, random_state=42))
     ]
 
@@ -389,7 +421,7 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key):
             cv=5,
             final_estimator=LogisticRegression(),
             passthrough=True,
-            n_jobs=-1
+            n_jobs=n_jobs
         ))
     ])
     model.fit(X, y)
@@ -402,77 +434,79 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key):
     print(f"Modèle sauvegardé dans {model_path}")
 
     return model
+# Affichage du code modifié de run_season_simulation incluant le paramètre reset_bankroll_each_season
 
-def run_season_simulation(seasons_to_test, exclude_future_seasons=True, 
-                            min_ev=0.15,          
-                            bankroll=1000, 
-                            max_risk=0.02,         
-                            prob_diff=0.10,        
-                            odds_max=2.5,          
-                            odds_min=1.2,           
-                            ev_diff_min=0.10,      
-                            streak_limit=5,        
-                            bankroll_stop=0.5,     
-                            skip_first_n=0, 
-                            model_identifier="default"
-                            ):
 
-    # Load the full dataset
+def run_season_simulation(seasons_to_test: List[str],
+                           exclude_future_seasons=True,
+                           min_ev=0.1,
+                           odds_max=2.8,
+                           odds_min=1.15,
+                           prob_diff=0.05,
+                           ev_diff_min=0.1,
+                           bankroll=1000,
+                           max_risk=0.02,
+                           streak_limit=5,
+                           bankroll_stop=0.5,
+                           skip_first_n=0,
+                           model_identifier="default",
+                           reset_bankroll_each_season=False,
+                           parallel=True
+                           ) -> Tuple[pd.DataFrame, dict]:
+
+    bets_all = []
+    current_bankroll = bankroll
+
     dataset_path = get_latest_file(DATA_FINAL_CLEANED_DATASET_DIR)
-    df = pd.read_csv(dataset_path)
-
-    all_bets = []
+    full_df = pd.read_csv(dataset_path)
+    team_mapping_file = get_latest_file(DATA_TEAMS_DIR)
+    team_mapping = pd.read_csv(team_mapping_file)
+    team_id_map = dict(zip(team_mapping["id"].astype(str), team_mapping["full_name"]))
 
     for season in seasons_to_test:
-        print(f"\n=== Simulation pour la saison {season} ===")
+        print(f"\n--- Saison: {season} ---")
+        season_df = full_df[full_df["SEASON"] == season].copy()
+        # if exclude_future_seasons:
+        #     training_df = full_df[full_df["SEASON"] < season].copy()
+        # else:
+        #     training_df = full_df[~full_df["SEASON"].isin(seasons_to_test)].copy()
 
-        # Exclude future seasons
-        if exclude_future_seasons:
-            future_seasons = [s for s in df['SEASON'].unique() if s >= season]
-        else:
-            future_seasons = [season]
 
-        model = train_or_load_model(df, exclude_seasons=future_seasons, model_identifier=model_identifier, season_key=season)
+        model = train_or_load_model(
+                full_df,
+                exclude_seasons=[season],
+                model_identifier=model_identifier,
+                season_key=season,
+                parallel=parallel
+            )
 
-        # Load odds
-        odds_file = os.path.join(DATA_ODDS_HISTORY_DIR, f"nba_{season.replace('-', '_')}.csv")
-        odds_df = pd.read_csv(odds_file)
-
-        season_df = df[df['SEASON'] == season].copy()
-        team_map_file = get_latest_file(DATA_TEAMS_DIR)
-        team_map = pd.read_csv(team_map_file)
-        team_id_map = dict(zip(team_map["id"], team_map["full_name"]))
-
+        
+        odds_path = os.path.join(DATA_ODDS_HISTORY_DIR, f"nba_{season.replace('-', '_')}.csv")
+        odds_df = pd.read_csv(odds_path)
         merged = match_odds_with_dataset(odds_df, season_df, team_id_map)
         cleaned = clean_merged_matches(merged)
 
-        # bets_df = simulate_bets(
-        #     merged_df=cleaned,
-        #     model_pipeline=model,
-        #     min_ev=min_ev,
-        #     bankroll=bankroll,
-        #     max_risk=max_risk,
-        #     skip_first_n=skip_first_n
-        # )
-        
         bets_df = simulate_bets_optimized(
             merged_df=cleaned,
             model_pipeline=model,
-            min_ev=min_ev,          
-            bankroll=bankroll, 
-            max_risk=max_risk,       
-            prob_diff=prob_diff,     
-            odds_max=odds_max,   
-            odds_min=odds_min,      
-            ev_diff_min=ev_diff_min,      
+            min_ev=min_ev,
+            odds_max=odds_max,
+            odds_min=odds_min,
+            prob_diff=prob_diff,
+            ev_diff_min=ev_diff_min,
+            bankroll=current_bankroll,
+            max_risk=max_risk,
             streak_limit=streak_limit,
             bankroll_stop=bankroll_stop,
-            skip_first_n=skip_first_n,
-            log_file_path=os.path.join(DATA_SIMULATIONS_DIR, f"betting_simulation_log_{season}_{model_identifier}.json")
+            skip_first_n=skip_first_n
         )
 
-        all_bets.append(bets_df)
+        if not reset_bankroll_each_season and not bets_df.empty:
+            current_bankroll = bets_df["bankroll"].iloc[-1]
 
-    full_bets_df = pd.concat(all_bets, ignore_index=True)
+        bets_all.append(bets_df)
+
+    full_bets_df = pd.concat(bets_all, ignore_index=True)
     summary = evaluate_simulation(full_bets_df)
+
     return full_bets_df, summary

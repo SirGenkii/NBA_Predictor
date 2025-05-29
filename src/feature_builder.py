@@ -1,6 +1,8 @@
 import pandas as pd
 from typing import Tuple
 from collections import defaultdict, deque
+import numpy as np
+from datetime import datetime
 
 def compute_rolling_features(df: pd.DataFrame, group_col: str, sort_cols: list, value_cols: list, windows: list) -> pd.DataFrame:
     df = df.sort_values(sort_cols).copy()
@@ -312,4 +314,29 @@ def compute_rolling_rest_advantage(df: pd.DataFrame, group_col: str, is_home_col
               .reset_index(level=0, drop=True)
               .fillna(0)
         )
+    return df
+
+
+def add_advanced_boxscore_features(df):
+    """
+    Ajoute des features avancées dérivées des boxscores classiques.
+    Nécessite les colonnes suivantes : FGA, FGM, FG3M, FTA, PTS, AST, TO, REB, OPP_REB
+    """
+
+    # True Shooting Percentage (TS%)
+    df['TS_PCT'] = df['PTS'] / (2 * (df['FGA'] + 0.44 * df['FTA']).replace(0, np.nan))
+
+    # Effective Field Goal Percentage (eFG%)
+    df['EFG_PCT'] = (df['FGM'] + 0.5 * df['FG3M']) / df['FGA'].replace(0, np.nan)
+
+    # Assist to Turnover Ratio (AST/TO)
+    df['AST_TO_RATIO'] = df['AST'] / df['TO'].replace(0, np.nan)
+
+    # Rebound Rate (approx.)
+    df['REB_RATE'] = df['REB'] / (df['REB'] + df['OPP_REB']).replace(0, np.nan)
+
+    # Sanitize NaNs and Infs
+    # df.replace([np.inf, -np.inf], np.nan, inplace=True)
+    # df.fillna(0, inplace=True)
+
     return df
