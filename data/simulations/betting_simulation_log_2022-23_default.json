@@ -1,1 +1,103 @@
-{"timestamp": "2025-05-28T23:06:04.888057", "parameters": {"min_ev": 0.15, "bankroll": 1000.0, "max_risk": 0.02, "prob_diff": 0.1, "odds_max": 2.5, "odds_min": 1.2, "ev_diff_min": 0.1, "streak_limit": 5, "bankroll_stop": 0.5, "skip_first_n": 0}, "results": {"total_bets": 124, "total_gain": -113.05716928475992, "win_rate": 0.49193548387096775, "final_bankroll": 886.94283071524}}        
+{
+    "timestamp": "2025-05-29T00:18:41.767237",
+    "parameters": {
+        "min_ev": 0.15,
+        "bankroll": 1000.0,
+        "max_risk": 0.02,
+        "prob_diff": 0.1,
+        "odds_max": 2.5,
+        "odds_min": 1.2,
+        "ev_diff_min": 0.1,
+        "streak_limit": 5,
+        "bankroll_stop": 0.5,
+        "skip_first_n": 0
+    },
+    "results": {
+        "total_bets": 1317,
+        "wins": 61.0,
+        "roi": -0.04356949592349329,
+        "final_bankroll": 886.94283071524
+    }
+}
+{
+    "timestamp": "2025-05-29T00:27:26.546047",
+    "parameters": {
+        "min_ev": 0.15,
+        "bankroll": 1000.0,
+        "max_risk": 0.02,
+        "prob_diff": 0.1,
+        "odds_max": 2.5,
+        "odds_min": 1.2,
+        "ev_diff_min": 0.1,
+        "streak_limit": 5,
+        "bankroll_stop": 0.5,
+        "skip_first_n": 0
+    },
+    "results": {
+        "total_bets": 1317,
+        "wins": 61.0,
+        "roi": -0.04356949592349329,
+        "final_bankroll": 886.94283071524
+    }
+}
+{
+    "timestamp": "2025-05-29T00:34:43.338904",
+    "parameters": {
+        "min_ev": 0.15,
+        "bankroll": 1000.0,
+        "max_risk": 0.02,
+        "prob_diff": 0.1,
+        "odds_max": 2.5,
+        "odds_min": 1.2,
+        "ev_diff_min": 0.1,
+        "streak_limit": 10,
+        "bankroll_stop": 0.2,
+        "skip_first_n": 0
+    },
+    "results": {
+        "total_bets": 1318,
+        "wins": 61,
+        "roi": -0.04356949592349327,
+        "final_bankroll": 886.94283071524
+    }
+}{
+    "timestamp": "2025-05-29T00:54:07.894010",
+    "parameters": {
+        "min_ev": 0.12,
+        "bankroll": 1000.0,
+        "max_risk": 0.02,
+        "prob_diff": 0.04,
+        "odds_max": 2.8,
+        "odds_min": 1.15,
+        "ev_diff_min": 0.1,
+        "streak_limit": 10,
+        "bankroll_stop": 0.2,
+        "skip_first_n": 0
+    },
+    "results": {
+        "total_bets": 1318,
+        "wins": 106,
+        "roi": -0.05998117106591899,
+        "final_bankroll": 756.7939818693505
+    }
+}{
+    "timestamp": "2025-05-29T01:05:16.587714",
+    "parameters": {
+        "min_ev": 0.11,
+        "bankroll": 1000.0,
+        "max_risk": 0.02,
+        "prob_diff": 0.05,
+        "odds_max": 3.0,
+        "odds_min": 1.15,
+        "ev_diff_min": 0.1,
+        "streak_limit": 10,
+        "bankroll_stop": 0.2,
+        "skip_first_n": 0
+    },
+    "results": {
+        "total_bets": 1318,
+        "wins": 114,
+        "roi": -0.07466723262162134,
+        "final_bankroll": 691.7962894834259
+    }
+}
