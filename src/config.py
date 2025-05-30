@@ -19,6 +19,19 @@ COLS_MATCH_REAL = [
 
     # Nouvelles features brutes ajoutées
     "TS_PCT", "EFG_PCT", "AST_TO_RATIO", "REB_RATE",
+    "POSSESSIONS","OPP_POSSESSIONS","OFF_RATING","DEF_RATING",
+    
+    #ajoutée avec les odds
+    "TEAM_NAME","OPPONENT_NAME"
+    
+]
+
+
+FEATURES_TO_ROLL = [
+    'PTS', 'REB', 'AST', 'FGM', 'FGA', 'FG_PCT', 'PLUS_MINUS',
+    'TS_PCT', 'EFG_PCT', 'AST_TO_RATIO', 'REB_RATE',
+    "POSSESSIONS","OPP_POSSESSIONS",
+    "OFF_RATING","DEF_RATING" 
 ]
 
 

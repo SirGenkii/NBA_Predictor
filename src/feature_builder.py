@@ -3,16 +3,25 @@ from typing import Tuple
 from collections import defaultdict, deque
 import numpy as np
 from datetime import datetime
+from src.utils import get_team_mapping_id
+from datetime import timedelta
 
-def compute_rolling_features(df: pd.DataFrame, group_col: str, sort_cols: list, value_cols: list, windows: list) -> pd.DataFrame:
+def compute_rolling_features(df, group_col, sort_cols, value_cols, windows, method="mean"):
     df = df.sort_values(sort_cols).copy()
     for col in value_cols:
         for window in windows:
-            df[f"ROLL_{col}_{window}"] = (
-                df.groupby(group_col)[col]
-                .transform(lambda x: x.shift(1).rolling(window, min_periods=1).mean())
-            )
+            if method == "ewm":
+                df[f"ROLL_{col}_{window}"] = (
+                    df.groupby(group_col)[col]
+                      .transform(lambda x: x.shift(1).ewm(span=window, min_periods=1).mean())
+                )
+            else:
+                df[f"ROLL_{col}_{window}"] = (
+                    df.groupby(group_col)[col]
+                      .transform(lambda x: x.shift(1).rolling(window, min_periods=1).mean())
+                )
     return df
+
 
 
 def compute_win_streak(df: pd.DataFrame, group_col: str, win_col: str) -> pd.Series:
@@ -335,8 +344,107 @@ def add_advanced_boxscore_features(df):
     # Rebound Rate (approx.)
     df['REB_RATE'] = df['REB'] / (df['REB'] + df['OPP_REB']).replace(0, np.nan)
 
+    # Estimation des possessions (offensives) : FGA + 0.44*FTA + TO - OREB
+    df["POSSESSIONS"] = df["FGA"] + 0.44 * df["FTA"] + df["TO"] - df["OREB"]
+    df["OPP_POSSESSIONS"] = df["OPP_FGA"] + 0.44 * df["OPP_FTA"] + df["OPP_TO"] - df["OPP_OREB"]
+
+    # Offensive et Defensive Rating (pts pour ou contre pour 100 possessions)
+    df["OFF_RATING"] = 100 * df["PTS"] / df["POSSESSIONS"].replace(0, np.nan)
+    df["DEF_RATING"] = 100 * df["OPP_PTS"] / df["OPP_POSSESSIONS"].replace(0, np.nan)
+
+
     # Sanitize NaNs and Infs
     # df.replace([np.inf, -np.inf], np.nan, inplace=True)
     # df.fillna(0, inplace=True)
 
     return df
+
+
+def clean_team_name(name):
+    return name.strip().lower() if isinstance(name, str) else name
+
+def clean_merged_matches(df):
+    df = df.copy()
+    df = df[df['TEAM_ID'].notna() & df['OPP_TEAM_ID'].notna()]
+    df = df.drop_duplicates(subset=["match_key", "TEAM_ID"])
+    
+    # Suppression des colonnes originales de odds
+    df.drop(columns=["date","match_key","home_team", "away_team", "home_odds", "away_odds", "home_score", "away_score"], inplace=True, errors='ignore')
+    
+    #df = df.dropna(subset=["home_odds", "away_odds"])
+    
+    #drop nan for "home_odds", "away_odds" and print the number of rows removed
+    initial_rows = len(df)
+    df = df.dropna(subset=["ODDS", "OPP_ODDS"])
+    removed_rows = initial_rows - len(df)
+    if removed_rows > 0:
+        print(f"------------------ Nombre de lignes supprimées pour cotes manquantes: {removed_rows} ------------------")
+    
+    return df.reset_index(drop=True)
+
+def match_odds_with_dataset(odds_df, nba_df):
+    
+    team_id_map = get_team_mapping_id()
+    
+    nba_df = nba_df.copy()
+    odds_df = odds_df.copy()
+
+    # Conversion explicite des ID en str
+    nba_df["TEAM_ID"] = nba_df["TEAM_ID"].astype(str)
+    nba_df["OPP_TEAM_ID"] = nba_df["OPP_TEAM_ID"].astype(str)
+    team_id_map = {str(k): v for k, v in team_id_map.items()}
+
+    nba_df["TEAM_NAME"] = nba_df["TEAM_ID"].map(team_id_map).apply(clean_team_name)
+    nba_df["OPPONENT_NAME"] = nba_df["OPP_TEAM_ID"].map(team_id_map).apply(clean_team_name)
+    nba_df["GAME_DATE"] = pd.to_datetime(nba_df["GAME_DATE"]).dt.date
+
+    odds_df["home_team"] = odds_df["home_team"].apply(clean_team_name)
+    odds_df["away_team"] = odds_df["away_team"].apply(clean_team_name)
+    odds_df["date"] = pd.to_datetime(odds_df["date"]).dt.date
+
+    nba_df["match_key"] = nba_df.apply(
+        lambda row: (row["GAME_DATE"], row["TEAM_NAME"], row["OPPONENT_NAME"])
+        if row["IS_HOME"] == 1
+        else (row["GAME_DATE"], row["OPPONENT_NAME"], row["TEAM_NAME"]),
+        axis=1,
+    )
+
+    keys_full = []
+    for shift in [-1, 0, 1]:
+        shifted = odds_df.copy()
+        shifted["match_key"] = shifted.apply(
+            lambda row: (row["date"] + timedelta(days=shift), row["home_team"], row["away_team"]),
+            axis=1
+        )
+        keys_full.append(shifted)
+
+    odds_full = pd.concat(keys_full, ignore_index=True)
+    odds_full = odds_full.drop_duplicates(subset=["match_key"])
+
+    # print("\nExemples de clés de match dans odds_df (tolérance date):")
+    # print(odds_full["match_key"].drop_duplicates().head())
+    # print("\nExemples de clés de match dans nba_df:")
+    # print(nba_df["match_key"].drop_duplicates().head())
+
+
+    merged = pd.merge(odds_full, nba_df, on="match_key", how="left")
+    
+    # Attribution claire des cotes à chaque ligne équipe
+    merged["ODDS"] = merged.apply(
+        lambda row: row["home_odds"] if row["IS_HOME"] == 1 else row["away_odds"], axis=1
+    )
+    merged["OPP_ODDS"] = merged.apply(
+        lambda row: row["away_odds"] if row["IS_HOME"] == 1 else row["home_odds"], axis=1
+    )
+    
+    # print(f"\nNombre de lignes fusionnées: {len(merged)}")
+    # print(f"Nombre de correspondances réussies: {merged['TEAM_ID'].notna().sum()}")
+    # print(f"Nombre de correspondances échouées: {merged['TEAM_ID'].isna().sum()}")
+
+    # print("\nIDs manquants TEAM_ID:", nba_df[~nba_df["TEAM_ID"].isin(team_id_map.keys())]["TEAM_ID"].unique())
+    # print("IDs manquants OPP_TEAM_ID:", nba_df[~nba_df["OPP_TEAM_ID"].isin(team_id_map.keys())]["OPP_TEAM_ID"].unique())
+
+    # Nettoyage des données fusionnées
+    merged = clean_merged_matches(merged)
+
+    return merged

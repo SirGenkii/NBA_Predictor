@@ -3,6 +3,7 @@
 import os
 import pandas as pd
 import numpy as np
+from src.config import DATA_TEAMS_DIR
 
 def save_dataframe_to_csv(df, output_dir, prefix, suffix=None):
     """
@@ -79,3 +80,39 @@ def json_serial(obj):
     if isinstance(obj, (np.int64, np.float64)):
         return obj.item()
     raise TypeError(f"Type {type(obj)} not serializable")
+
+
+def get_team_mapping_id():
+    team_mapping_file = get_latest_file(DATA_TEAMS_DIR)
+    team_mapping = pd.read_csv(team_mapping_file)
+    team_id_map = dict(zip(team_mapping["id"].astype(str), team_mapping["full_name"]))
+    
+    return team_id_map
+
+def merge_odds_csv_files(odds_files_path):
+    """
+    Merge multiple odds CSV files into a single DataFrame.
+
+    Parameters:
+    odds_files (list): List of paths to the odds CSV files.
+
+    Returns:
+    pd.DataFrame: Merged DataFrame containing all odds data.
+    """
+    
+    import glob
+    import pandas as pd
+    
+    # Get all CSV files in the specified directory
+    odds_files = glob.glob(os.path.join(odds_files_path, "*.csv"))
+    if not odds_files:
+        raise ValueError("No CSV files found in the specified directory.")
+    
+    dfs = []
+    for file in odds_files:
+        df = pd.read_csv(file)
+        dfs.append(df)
+    
+    merged_df = pd.concat(dfs, ignore_index=True)
+    
+    return merged_df

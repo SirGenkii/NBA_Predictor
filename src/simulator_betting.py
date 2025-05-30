@@ -28,88 +28,9 @@ from pathlib import Path
 from typing import List, Tuple
 
 
-def clean_team_name(name):
-    return name.strip().lower() if isinstance(name, str) else name
-
-def match_odds_with_dataset(odds_df, nba_df, team_id_map):
-    nba_df = nba_df.copy()
-    odds_df = odds_df.copy()
-
-    # Conversion explicite des ID en str
-    nba_df["TEAM_ID"] = nba_df["TEAM_ID"].astype(str)
-    nba_df["OPP_TEAM_ID"] = nba_df["OPP_TEAM_ID"].astype(str)
-    team_id_map = {str(k): v for k, v in team_id_map.items()}
-
-    nba_df["TEAM_NAME"] = nba_df["TEAM_ID"].map(team_id_map).apply(clean_team_name)
-    nba_df["OPPONENT_NAME"] = nba_df["OPP_TEAM_ID"].map(team_id_map).apply(clean_team_name)
-    nba_df["GAME_DATE"] = pd.to_datetime(nba_df["GAME_DATE"]).dt.date
-
-    odds_df["home_team"] = odds_df["home_team"].apply(clean_team_name)
-    odds_df["away_team"] = odds_df["away_team"].apply(clean_team_name)
-    odds_df["date"] = pd.to_datetime(odds_df["date"]).dt.date
-
-    nba_df["match_key"] = nba_df.apply(
-        lambda row: (row["GAME_DATE"], row["TEAM_NAME"], row["OPPONENT_NAME"])
-        if row["IS_HOME"] == 1
-        else (row["GAME_DATE"], row["OPPONENT_NAME"], row["TEAM_NAME"]),
-        axis=1,
-    )
-
-    keys_full = []
-    for shift in [-1, 0, 1]:
-        shifted = odds_df.copy()
-        shifted["match_key"] = shifted.apply(
-            lambda row: (row["date"] + timedelta(days=shift), row["home_team"], row["away_team"]),
-            axis=1
-        )
-        keys_full.append(shifted)
-
-    odds_full = pd.concat(keys_full, ignore_index=True)
-    odds_full = odds_full.drop_duplicates(subset=["match_key"])
-
-    # print("\nExemples de clés de match dans odds_df (tolérance date):")
-    # print(odds_full["match_key"].drop_duplicates().head())
-    # print("\nExemples de clés de match dans nba_df:")
-    # print(nba_df["match_key"].drop_duplicates().head())
 
 
-    merged = pd.merge(odds_full, nba_df, on="match_key", how="left")
-    
-    # Attribution claire des cotes à chaque ligne équipe
-    merged["ODDS"] = merged.apply(
-        lambda row: row["home_odds"] if row["IS_HOME"] == 1 else row["away_odds"], axis=1
-    )
-    merged["OPP_ODDS"] = merged.apply(
-        lambda row: row["away_odds"] if row["IS_HOME"] == 1 else row["home_odds"], axis=1
-    )
-    
-    # print(f"\nNombre de lignes fusionnées: {len(merged)}")
-    # print(f"Nombre de correspondances réussies: {merged['TEAM_ID'].notna().sum()}")
-    # print(f"Nombre de correspondances échouées: {merged['TEAM_ID'].isna().sum()}")
 
-    # print("\nIDs manquants TEAM_ID:", nba_df[~nba_df["TEAM_ID"].isin(team_id_map.keys())]["TEAM_ID"].unique())
-    # print("IDs manquants OPP_TEAM_ID:", nba_df[~nba_df["OPP_TEAM_ID"].isin(team_id_map.keys())]["OPP_TEAM_ID"].unique())
-
-    return merged
-
-def clean_merged_matches(df):
-    df = df.copy()
-    df = df[df['TEAM_ID'].notna() & df['OPP_TEAM_ID'].notna()]
-    df = df.drop_duplicates(subset=["match_key", "TEAM_ID"])
-    
-    # Suppression des colonnes originales de odds
-    df.drop(columns=["date","match_key","home_team", "away_team", "home_odds", "away_odds", "home_score", "away_score"], inplace=True, errors='ignore')
-    
-    #df = df.dropna(subset=["home_odds", "away_odds"])
-    
-    #drop nan for "home_odds", "away_odds" and print the number of rows removed
-    initial_rows = len(df)
-    df = df.dropna(subset=["ODDS", "OPP_ODDS"])
-    removed_rows = initial_rows - len(df)
-    if removed_rows > 0:
-        print(f"------------------ Nombre de lignes supprimées pour cotes manquantes: {removed_rows} ------------------")
-    
-    return df.reset_index(drop=True)
 
 def calculate_ev(prob, odds):
     return prob * (odds - 1) - (1 - prob)
@@ -459,9 +380,10 @@ def run_season_simulation(seasons_to_test: List[str],
 
     dataset_path = get_latest_file(DATA_FINAL_CLEANED_DATASET_DIR)
     full_df = pd.read_csv(dataset_path)
-    team_mapping_file = get_latest_file(DATA_TEAMS_DIR)
-    team_mapping = pd.read_csv(team_mapping_file)
-    team_id_map = dict(zip(team_mapping["id"].astype(str), team_mapping["full_name"]))
+    
+    # team_mapping_file = get_latest_file(DATA_TEAMS_DIR)
+    # team_mapping = pd.read_csv(team_mapping_file)
+    # team_id_map = dict(zip(team_mapping["id"].astype(str), team_mapping["full_name"]))
 
     for season in seasons_to_test:
         print(f"\n--- Saison: {season} ---")
@@ -481,13 +403,14 @@ def run_season_simulation(seasons_to_test: List[str],
             )
 
         
-        odds_path = os.path.join(DATA_ODDS_HISTORY_DIR, f"nba_{season.replace('-', '_')}.csv")
-        odds_df = pd.read_csv(odds_path)
-        merged = match_odds_with_dataset(odds_df, season_df, team_id_map)
-        cleaned = clean_merged_matches(merged)
+        # odds_path = os.path.join(DATA_ODDS_HISTORY_DIR, f"nba_{season.replace('-', '_')}.csv")
+        # odds_df = pd.read_csv(odds_path)
+        # merged = match_odds_with_dataset(odds_df, season_df, team_id_map)
+        # cleaned = clean_merged_matches(merged)
 
         bets_df = simulate_bets_optimized(
-            merged_df=cleaned,
+            #merged_df=cleaned,
+            merged_df=season_df,
             model_pipeline=model,
             min_ev=min_ev,
             odds_max=odds_max,
