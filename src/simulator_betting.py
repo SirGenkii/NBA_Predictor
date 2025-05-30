@@ -6,19 +6,21 @@ from datetime import datetime
 
 import joblib
 import os
-from sklearn.ensemble import RandomForestClassifier,StackingClassifier
+from sklearn.ensemble import RandomForestClassifier, StackingClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
 from lightgbm import LGBMClassifier
-from sklearn.metrics import roc_auc_score
-
 from xgboost import XGBClassifier
 from catboost import CatBoostClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import roc_auc_score
 
 from sklearn.ensemble import ExtraTreesClassifier, HistGradientBoostingClassifier
 from sklearn.neural_network import MLPClassifier
-
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import cross_val_score
+from sklearn.pipeline import make_pipeline
 
 from src.feature_builder import *
 from src.config import *
@@ -128,120 +130,113 @@ def simulate_bets(merged_df, model_pipeline, min_ev=0.05, bankroll=1000, max_ris
 
     return pd.DataFrame(bets)
 
-def simulate_bets_optimized(merged_df, model_pipeline, 
-                            min_ev=0.15, 
-                            bankroll=1000,
-                            max_risk=0.02,
-                            prob_diff=0.10,
-                            odds_max=2.5, 
-                            odds_min=1.2, 
-                            ev_diff_min=0.10,
-                            streak_limit=5,
-                            bankroll_stop=0.5, 
-                            skip_first_n=0, 
-                            log_file_path="betting_simulation_log_optimized.json"):
+def simulate_bets_optimized(
+    merged_df, model_pipeline, 
+    min_ev=0.15, bankroll=1000, max_risk=0.02, 
+    prob_diff=0.10, odds_max=2.5, odds_min=1.2, 
+    ev_diff_min=0.10, streak_limit=5, bankroll_stop=0.5, 
+    skip_first_n=0, log_file_path="betting_simulation_log_optimized.json"
+):
     bets = []
     current_bankroll = bankroll
     initial_bankroll = bankroll
-    feature_cols = model_pipeline.feature_names_in_
     consecutive_losses = 0
+    feature_cols = model_pipeline.feature_names_in_
 
     merged_df = merged_df.sort_values("GAME_DATE")
-    game_groups = merged_df.groupby("GAME_ID")
-    valid_games = [g for _, g in game_groups if len(g) == 2]
-    valid_games = valid_games[skip_first_n:]
+    valid_games = [
+        g for _, g in merged_df.groupby("GAME_ID") 
+        if len(g) == 2
+    ][skip_first_n:]
 
     for i, game in enumerate(valid_games, 1):
         if current_bankroll < initial_bankroll * bankroll_stop:
-            print(f"Arrêt de la simulation: bankroll trop faible ({current_bankroll:.2f})")
+            print(f"Arrêt simulation : bankroll trop faible ({current_bankroll:.2f})")
             break
         if consecutive_losses >= streak_limit:
-            print(f"Pause après {consecutive_losses} pertes consécutives au match {i}")
+            print(f"Pause après {consecutive_losses} pertes consécutives (match {i})")
             consecutive_losses = 0
             continue
 
-        rows = game.sort_values("IS_HOME", ascending=False).reset_index(drop=True)
         try:
-            pred_rows = rows.drop(columns=["ODDS", "OPP_ODDS", "TEAM_NAME", "OPPONENT_NAME", "date", "match_key"], errors='ignore')
-            pred_input = pred_rows[feature_cols].dropna(axis=1, how='any')
+            game = game.sort_values("IS_HOME", ascending=False).reset_index(drop=True)
+            display_info = game[["TEAM_NAME", "OPPONENT_NAME", "ODDS", "IS_HOME", "IS_WIN", "GAME_DATE"]]
+
+            pred_rows = game.drop(columns=["TEAM_NAME", "OPPONENT_NAME", "date", "match_key"], errors="ignore")
+            pred_input = pred_rows[feature_cols].dropna(axis=1)
 
             if pred_input.shape[1] != len(feature_cols):
-                print(f"  Match {i} ignoré : features incomplètes.")
+                print(f"Match {i} ignoré : features incomplètes.")
                 continue
 
             probs = model_pipeline.predict_proba(pred_input)
-            team_0_prob = probs[0][1]
-            team_1_prob = probs[1][1]
-            ev_0 = (team_0_prob * rows.loc[0, "ODDS"]) - 1
-            ev_1 = (team_1_prob * rows.loc[1, "ODDS"]) - 1
-            odds_0 = rows.loc[0, "ODDS"]
-            odds_1 = rows.loc[1, "ODDS"]
+            team_probs = [probs[0][1], probs[1][1]]
+            evs = [(p * game.loc[j, "ODDS"]) - 1 for j, p in enumerate(team_probs)]
 
-            best_idx = 0 if ev_0 > ev_1 else 1
-            row = rows.loc[best_idx]
+            best_idx = int(evs[1] > evs[0])
+            row = game.loc[best_idx]
+            prob = team_probs[best_idx]
+            ev = evs[best_idx]
             odds = row["ODDS"]
-            prob = team_0_prob if best_idx == 0 else team_1_prob
-            ev = ev_0 if best_idx == 0 else ev_1
             won = int(row["IS_WIN"])
             comment = ""
 
-            if abs(team_0_prob - team_1_prob) < prob_diff:
-                comment = f"prob diff too low ({abs(team_0_prob - team_1_prob):.3f})"
+            # Filtres de prudence
+            if abs(team_probs[0] - team_probs[1]) < prob_diff:
+                comment = f"diff proba trop faible ({abs(team_probs[0] - team_probs[1]):.3f})"
             elif odds > odds_max or odds < odds_min:
-                comment = "odds too high" if odds > odds_max else "odds too low"
+                comment = "odds hors limites"
             elif ev < min_ev:
-                comment = f"ev below min ({ev:.3f})"
-            elif abs(ev_0 - ev_1) < ev_diff_min:
-                comment = f"ev diff too low ({abs(ev_0 - ev_1):.3f})"
+                comment = f"ev trop bas ({ev:.3f})"
+            elif abs(evs[0] - evs[1]) < ev_diff_min:
+                comment = f"diff ev trop faible ({abs(evs[0] - evs[1]):.3f})"
 
             if comment:
-                print(f"  Match {i} ignoré : {comment}")
+                print(f"Match {i} ignoré : {comment}")
                 bets.append({
                     "date": row["GAME_DATE"], "game_id": row["GAME_ID"],
-                    "team": row["TEAM_NAME"], "odds": odds,
-                    "prob": prob, "ev": ev, "stake": 0,
-                    "won": won, "gain": 0, "bankroll": current_bankroll,
-                    "comment": comment
+                    "team": row["TEAM_NAME"], "odds": odds, "prob": prob,
+                    "ev": ev, "stake": 0, "won": won, "gain": 0,
+                    "bankroll": current_bankroll, "comment": comment
                 })
                 continue
 
-            kelly_fraction = ev / (odds - 1)
-            stake = min(kelly_fraction * current_bankroll, current_bankroll * max_risk)
-            stake = max(stake, 0)
+            # Calcul pari via Kelly
+            kelly = ev / (odds - 1)
+            stake = min(max(kelly * current_bankroll, 0), current_bankroll * max_risk)
             gain = stake * (odds - 1) if won else -stake
             current_bankroll += gain
             consecutive_losses = 0 if won else consecutive_losses + 1
 
-            print(f"  Match {i} placed : Pari sur {row['TEAM_NAME']} ! Mise: {stake:.2f}, {'GAGNÉ' if won else 'PERDU'}, Bankroll: {current_bankroll:.2f}")
+            print(f"Match {i} placé : {row['TEAM_NAME']} - Mise: {stake:.2f} - {'GAGNÉ' if won else 'PERDU'} - Bankroll: {current_bankroll:.2f}")
             bets.append({
                 "date": row["GAME_DATE"], "game_id": row["GAME_ID"],
-                "team": row["TEAM_NAME"], "odds": odds,
-                "prob": prob, "ev": ev, "stake": stake,
-                "won": won, "gain": gain, "bankroll": current_bankroll,
-                "comment": "bet placed"
+                "team": row["TEAM_NAME"], "odds": odds, "prob": prob,
+                "ev": ev, "stake": stake, "won": won, "gain": gain,
+                "bankroll": current_bankroll, "comment": "bet placed"
             })
 
         except Exception as e:
-            print(f"!!! Erreur lors du traitement du match {i}: {e} !!!")
+            print(f"!!! Erreur sur match {i} : {e} !!!")
             bets.append({
-                "game_id": rows.iloc[0]["GAME_ID"], "stake": 0, "gain": 0,
+                "game_id": game.iloc[0]["GAME_ID"], "stake": 0, "gain": 0,
                 "bankroll": current_bankroll, "comment": f"error: {str(e)}"
             })
+
+    # Logging des résultats
+    # total_stake = sum(b["stake"] for b in bets if b["stake"] > 0)
+    # total_gain = sum(b["gain"] for b in bets)
+    # roi = total_gain / total_stake if total_stake > 0 else 0
 
     log_data = {
         "timestamp": datetime.now().isoformat(),
         "parameters": {
-            "min_ev": float(min_ev), "bankroll": float(bankroll), "max_risk": float(max_risk),
-            "prob_diff": float(prob_diff), "odds_max": float(odds_max), "odds_min": float(odds_min),
-            "ev_diff_min": float(ev_diff_min), "streak_limit": int(streak_limit),
-            "bankroll_stop": float(bankroll_stop), "skip_first_n": int(skip_first_n)
+            "min_ev": min_ev, "bankroll": bankroll, "max_risk": max_risk,
+            "prob_diff": prob_diff, "odds_max": odds_max, "odds_min": odds_min,
+            "ev_diff_min": ev_diff_min, "streak_limit": streak_limit,
+            "bankroll_stop": bankroll_stop, "skip_first_n": skip_first_n
         },
-        "results": {
-            "total_bets": len(bets),
-            "wins": sum(b.get("won", 0) for b in bets if b.get("stake", 0) > 0),
-            "roi": sum(b["gain"] for b in bets) / sum(b["stake"] for b in bets if b["stake"] > 0) if any(b["stake"] > 0 for b in bets) else 0,
-            "final_bankroll": current_bankroll
-        }
+        "results": evaluate_simulation(pd.DataFrame(bets)),
     }
 
     with open(log_file_path, 'a') as f:
@@ -259,7 +254,7 @@ def json_serial(obj):
 def evaluate_simulation(bets_df):
     total_analysed = len(bets_df)
     total_bet_placed = bets_df[bets_df["stake"] > 0]
-    wins = bets_df["won"].sum()
+    wins = total_bet_placed["won"].sum()
     roi = bets_df["gain"].sum() / bets_df["stake"].sum() if bets_df["stake"].sum() > 0 else 0
     final_bankroll = bets_df["bankroll"].iloc[-1] if not bets_df.empty else None
 
@@ -325,31 +320,37 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key, paral
 
     estimators = [
         ('rf', RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=n_jobs)),
-        ('lgbm', LGBMClassifier(n_estimators=200, random_state=42, n_jobs=n_jobs, verbose=-1)),
-        ('xgb', XGBClassifier(n_estimators=200, learning_rate=0.05, max_depth=6,
-                              subsample=0.7, colsample_bytree=0.7,
-                              random_state=42, eval_metric='logloss',
-                              n_jobs=n_jobs, use_label_encoder=False, verbosity=0)),
-        ('cat', CatBoostClassifier(n_estimators=200, learning_rate=0.05,
-                                   depth=6, verbose=0, random_state=42, thread_count=n_jobs)),
-        ('hgb', HistGradientBoostingClassifier(max_iter=200, random_state=42))
+        ('lgbm', LGBMClassifier(n_estimators=150, num_leaves=64, random_state=42, n_jobs=n_jobs)),
+        ('xgb', XGBClassifier(n_estimators=200, learning_rate=0.05, max_depth=6, subsample=0.7, colsample_bytree=0.7, random_state=42, eval_metric='logloss', n_jobs=n_jobs, use_label_encoder=False)),
+        ('cat', CatBoostClassifier(n_estimators=200, learning_rate=0.05, depth=6, rsm=0.8, verbose=0, random_state=42, thread_count=n_jobs)),
+        ('hgb', HistGradientBoostingClassifier(max_iter=200, random_state=42)),
+        ('lr', make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000, solver='liblinear', penalty='l2', n_jobs=n_jobs))),
+        ('mlp', make_pipeline(StandardScaler(), MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=300, random_state=42))),
+        ('et', ExtraTreesClassifier(n_estimators=200, random_state=42, n_jobs=n_jobs)),
+        ('knn', make_pipeline(StandardScaler(), KNeighborsClassifier(n_neighbors=15, n_jobs=n_jobs)))
     ]
+    
+    # Meta-model (peut être LogisticRegression, simple et efficace)
+    meta_model = LogisticRegression(solver='lbfgs', max_iter=5000)
 
     model = Pipeline([
         ('scaler', StandardScaler()),
         ('model', StackingClassifier(
             estimators=estimators,
             cv=5,
-            final_estimator=LogisticRegression(),
-            passthrough=True,
+            final_estimator=meta_model,
+            passthrough=False,
             n_jobs=n_jobs
         ))
     ])
     model.fit(X, y)
 
-    y_pred_proba = model.predict_proba(X)[:, 1]
-    auc = roc_auc_score(y, y_pred_proba)
-    print(f"ROC AUC sur données d'entraînement: {auc:.4f}")
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    model.fit(X_train, y_train)
+    y_pred_proba = model.predict_proba(X_test)[:, 1]
+    auc = roc_auc_score(y_test, y_pred_proba)
+    print(f"ROC AUC sur validation: {auc:.4f}")
 
     joblib.dump(model, model_path)
     print(f"Modèle sauvegardé dans {model_path}")
@@ -378,7 +379,7 @@ def run_season_simulation(seasons_to_test: List[str],
     bets_all = []
     current_bankroll = bankroll
 
-    dataset_path = get_latest_file(DATA_FINAL_CLEANED_DATASET_DIR)
+    dataset_path = get_latest_file(DATA_FINAL_DATASET_DIR)
     full_df = pd.read_csv(dataset_path)
     
     # team_mapping_file = get_latest_file(DATA_TEAMS_DIR)
@@ -388,14 +389,14 @@ def run_season_simulation(seasons_to_test: List[str],
     for season in seasons_to_test:
         print(f"\n--- Saison: {season} ---")
         season_df = full_df[full_df["SEASON"] == season].copy()
-        # if exclude_future_seasons:
-        #     training_df = full_df[full_df["SEASON"] < season].copy()
-        # else:
-        #     training_df = full_df[~full_df["SEASON"].isin(seasons_to_test)].copy()
+        if exclude_future_seasons:
+            training_df = full_df[full_df["SEASON"] < season].copy()
+        else:
+            training_df = full_df[~full_df["SEASON"].isin(seasons_to_test)].copy()
 
 
         model = train_or_load_model(
-                full_df,
+                training_df,
                 exclude_seasons=[season],
                 model_identifier=model_identifier,
                 season_key=season,
@@ -405,11 +406,11 @@ def run_season_simulation(seasons_to_test: List[str],
         
         # odds_path = os.path.join(DATA_ODDS_HISTORY_DIR, f"nba_{season.replace('-', '_')}.csv")
         # odds_df = pd.read_csv(odds_path)
-        # merged = match_odds_with_dataset(odds_df, season_df, team_id_map)
-        # cleaned = clean_merged_matches(merged)
+        # merged = match_odds_with_dataset(odds_df, season_dfdf 
+        print("dataset cols before SIM :", season_df.columns.tolist())
+               
 
         bets_df = simulate_bets_optimized(
-            #merged_df=cleaned,
             merged_df=season_df,
             model_pipeline=model,
             min_ev=min_ev,
@@ -423,6 +424,8 @@ def run_season_simulation(seasons_to_test: List[str],
             bankroll_stop=bankroll_stop,
             skip_first_n=skip_first_n
         )
+        
+        
 
         if not reset_bankroll_each_season and not bets_df.empty:
             current_bankroll = bets_df["bankroll"].iloc[-1]

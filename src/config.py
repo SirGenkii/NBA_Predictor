@@ -34,6 +34,8 @@ FEATURES_TO_ROLL = [
     "OFF_RATING","DEF_RATING" 
 ]
 
+N_LIST = [3, 5, 10, 25, 50, 100, 200]
+
 
 
 DATA_DIR = 'data'

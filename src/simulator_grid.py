@@ -9,17 +9,28 @@ from src.utils import get_latest_file
 import pandas as pd
 
 def generate_hyperparam_combinations():
-    min_ev_vals = [0.12, 0.15]
-    odds_max_vals = [2.8, 3.0, 3.5]
-    odds_min_vals = [1.15, 1.20, 1.25]
-    prob_diff_vals = [0.07]
-    max_risk_vals = [0.02, 0.03]
-    
-    # min_ev_vals = [0.10, 0.12, 0.15]
+    # min_ev_vals = [0.12, 0.15]
     # odds_max_vals = [2.8, 3.0, 3.5]
     # odds_min_vals = [1.15, 1.20, 1.25]
+    # prob_diff_vals = [0.07]
+    # max_risk_vals = [0.02, 0.03]
+    
+    
+    ## 1024 combinations
+    
+    # min_ev_vals = [0.05,0.10, 0.12, 0.15]
+    # odds_max_vals = [2.8, 3.0, 3.5, 4]
+    # odds_min_vals = [1.10,1.15, 1.20, 1.25]
     # prob_diff_vals = [0.025, 0.05, 0.075, 0.10]
-    # max_risk_vals = [0.01, 0.02, 0.03, 0.05]
+    # max_risk_vals = [0.01, 0.02, 0.03, 0.05]   
+    
+    
+    
+    min_ev_vals = [0.10, 0.15]
+    odds_max_vals = [3.0, 3.8]
+    odds_min_vals = [1.10,1.25]
+    prob_diff_vals = [ 0.05]
+    max_risk_vals = [0.02]
 
     combinations = list(product(min_ev_vals, odds_max_vals, odds_min_vals, prob_diff_vals, max_risk_vals))
     return combinations
