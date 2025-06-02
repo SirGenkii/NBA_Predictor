@@ -28,6 +28,8 @@ from src.utils import get_latest_file, json_serial
 
 from pathlib import Path
 from typing import List, Tuple
+import matplotlib.pyplot as plt
+
 
 import warnings
 from sklearn.exceptions import DataConversionWarning
@@ -46,14 +48,13 @@ def kelly_criterion(prob, odds):
     kelly = (b * prob - q) / b if b != 0 else 0
     return max(kelly, 0)
 
-
 def simulate_bets_optimized(
     merged_df, model_pipeline, 
     min_ev=0.15, bankroll=1000, max_risk=0.02, 
     prob_diff=0.10, odds_max=2.5, odds_min=1.2, 
     ev_diff_min=0.10, streak_limit=5, bankroll_stop=0.5, 
     skip_first_n=0, log_file_path="betting_simulation_log_optimized.json",
-    stake_method="kelly"
+    stake_method="kelly", prob_diff_vs_book_range=None
 ):
     bets = []
     current_bankroll = bankroll
@@ -93,21 +94,33 @@ def simulate_bets_optimized(
 
             best_idx = int(evs[1] > evs[0])
             row = game.loc[best_idx]
+            opp_row = game.loc[1 - best_idx]
+
             prob = team_probs[best_idx]
             ev = evs[best_idx]
             odds = row["ODDS"]
             won = int(row["IS_WIN"])
             comment = ""
 
-            # Filtres de prudence
-            if abs(team_probs[0] - team_probs[1]) < prob_diff:
-                comment = f"diff proba trop faible ({abs(team_probs[0] - team_probs[1]):.3f})"
-            elif odds > odds_max or odds < odds_min:
-                comment = "odds hors limites"
-            elif ev < min_ev:
-                comment = f"ev trop bas ({ev:.3f})"
-            elif abs(evs[0] - evs[1]) < ev_diff_min:
-                comment = f"diff ev trop faible ({abs(evs[0] - evs[1]):.3f})"
+            prob_book = 1 / odds
+            opp_prob_book = 1 / opp_row["ODDS"]
+            prob_book_norm = prob_book / (prob_book + opp_prob_book)
+            prob_diff_vs_book = prob - prob_book_norm
+
+            if prob_diff_vs_book_range is not None:
+                min_diff, max_diff = prob_diff_vs_book_range
+                if not (min_diff <= prob_diff_vs_book <= max_diff):
+                    comment = f"prob_diff_vs_book hors range ({prob_diff_vs_book:.3f})"
+
+            if not comment:
+                if abs(team_probs[0] - team_probs[1]) < prob_diff:
+                    comment = f"diff proba trop faible ({abs(team_probs[0] - team_probs[1]):.3f})"
+                elif odds > odds_max or odds < odds_min:
+                    comment = f"odds hors limites ({odds:.3f})"
+                elif ev < min_ev:
+                    comment = f"ev trop bas ({ev:.3f})"
+                elif abs(evs[0] - evs[1]) < ev_diff_min:
+                    comment = f"diff ev trop faible ({abs(evs[0] - evs[1]):.3f})"
 
             if comment:
                 print(f"Match {i} ignoré : {comment}")
@@ -115,22 +128,18 @@ def simulate_bets_optimized(
                     "date": row["GAME_DATE"], "game_id": row["GAME_ID"],
                     "team": row["TEAM_NAME"], "odds": odds, "prob": prob,
                     "ev": ev, "stake": 0, "won": won, "gain": 0,
-                    "bankroll": current_bankroll, "comment": comment
+                    "bankroll": current_bankroll, "comment": comment,
+                    "prob_book": prob_book, "opp_prob_book": opp_prob_book,
+                    "prob_book_norm": prob_book_norm, "prob_diff_vs_book": prob_diff_vs_book,"season": row["SEASON"]
                 })
                 continue
 
-            # Calcul pari via Kelly
-        
             if stake_method == "kelly":
-                # Calcul du stake via Kelly Criterion
                 f = kelly_criterion(prob, row["ODDS"])
                 stake = min(f * current_bankroll, current_bankroll * max_risk)
             elif stake_method == "fixed":
-                # Stake fixe
                 stake = current_bankroll * max_risk
-                
-        
-    
+
             gain = stake * (odds - 1) if won else -stake
             current_bankroll += gain
             consecutive_losses = 0 if won else consecutive_losses + 1
@@ -140,7 +149,9 @@ def simulate_bets_optimized(
                 "date": row["GAME_DATE"], "game_id": row["GAME_ID"],
                 "team": row["TEAM_NAME"], "odds": odds, "prob": prob,
                 "ev": ev, "stake": stake, "won": won, "gain": gain,
-                "bankroll": current_bankroll, "comment": "bet placed"
+                "bankroll": current_bankroll, "comment": "bet placed",
+                "prob_book": prob_book, "opp_prob_book": opp_prob_book,
+                "prob_book_norm": prob_book_norm, "prob_diff_vs_book": prob_diff_vs_book, "season": row["SEASON"]
             })
 
         except Exception as e:
@@ -149,11 +160,6 @@ def simulate_bets_optimized(
                 "game_id": game.iloc[0]["GAME_ID"], "stake": 0, "gain": 0,
                 "bankroll": current_bankroll, "comment": f"error: {str(e)}"
             })
-
-    # Logging des résultats
-    # total_stake = sum(b["stake"] for b in bets if b["stake"] > 0)
-    # total_gain = sum(b["gain"] for b in bets)
-    # roi = total_gain / total_stake if total_stake > 0 else 0
 
     log_data = {
         "timestamp": datetime.now().isoformat(),
@@ -170,6 +176,7 @@ def simulate_bets_optimized(
         f.write(json.dumps(log_data, default=str) + "\n")
 
     return pd.DataFrame(bets)
+
 
 # Logging avec nouveaux paramètres
 def json_serial(obj):
@@ -287,21 +294,22 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key, paral
 
 
 def run_season_simulation(seasons_to_test: List[str],
-                           exclude_future_seasons=True,
-                           min_ev=0.1,
-                           odds_max=2.8,
-                           odds_min=1.15,
-                           prob_diff=0.05,
-                           ev_diff_min=0.1,
-                           bankroll=1000,
-                           max_risk=0.02,
-                           stake_method="kelly",
-                           streak_limit=5,
-                           bankroll_stop=0.5,
-                           skip_first_n=0,
-                           model_identifier="default",
-                           reset_bankroll_each_season=False,
-                           parallel=True
+                            exclude_future_seasons=True,
+                            min_ev=0.1,
+                            odds_max=2.8,
+                            odds_min=1.15,
+                            prob_diff=0.05,
+                            ev_diff_min=0.1,
+                            bankroll=1000,
+                            max_risk=0.02,
+                            stake_method="kelly",
+                            streak_limit=5,
+                            bankroll_stop=0.5,
+                            skip_first_n=0,
+                            model_identifier="default",
+                            reset_bankroll_each_season=False,
+                            parallel=True,
+                            prob_diff_vs_book_range=None
                            ) -> Tuple[pd.DataFrame, dict]:
 
     bets_all = []
@@ -352,6 +360,7 @@ def run_season_simulation(seasons_to_test: List[str],
             bankroll_stop=bankroll_stop,
             skip_first_n=skip_first_n,
             stake_method=stake_method,
+            prob_diff_vs_book_range=prob_diff_vs_book_range
         )
         
         
@@ -368,32 +377,63 @@ def run_season_simulation(seasons_to_test: List[str],
 
 
 
-
-def analyze_model_vs_bookmaker(bets_df: pd.DataFrame, bins=None):
+def analyze_bets_diagnostics(bets_df: pd.DataFrame, bins=None):
     if bins is None:
-        bins = [-1.0, -0.25, -0.15, -0.05, 0.05, 0.15, 0.25, 1.0]
+        #default bins for prob_diff_vs_book eache 0.0125 from -1 to 1
+        bins = np.arange(-1, 1, 0.0125).tolist()
+        
 
-    df = bets_df.copy()
+    df = bets_df[bets_df["stake"] > 0].copy()  # Ne garder que les paris placés
 
-    # Proba implicite des bookmakers normalisée
-    df["opp_odds"] = df.groupby("game_id")["odds"].transform(lambda x: x[::-1].values)
-    df["prob_book"] = 1 / df["odds"]
-    df["opp_prob_book"] = 1 / df["opp_odds"]
-    df["prob_book_norm"] = df["prob_book"] / (df["prob_book"] + df["opp_prob_book"])
-
-    # Écart entre proba modèle et bookmaker
-    df["prob_diff_vs_book"] = df["prob"] - df["prob_book_norm"]
-
-    # Binning de l'écart
     df["diff_bin"] = pd.cut(df["prob_diff_vs_book"], bins=bins)
 
-    # Analyse groupée
-    analysis = df.groupby("diff_bin").agg(
-        gain_mean=("gain", "mean"),
-        gain_total=("gain", "sum"),
-        won_mean=("won", "mean"),
-        stake_mean=("stake", "mean"),
-        count=("stake", lambda x: (x > 0).sum())
+    diagnostics = df.groupby("diff_bin").agg(
+        count=("stake", "count"),
+        win_rate=("won", "mean"),
+        avg_gain=("gain", "mean"),
+        total_gain=("gain", "sum"),
+        avg_prob_diff_vs_book=("prob_diff_vs_book", "mean")
+    ).reset_index()
+
+    return diagnostics
+
+
+def analyze_performance_by_odds(bets_df: pd.DataFrame, odds_bins=None):
+    if odds_bins is None:
+        # Par défaut, tranches de 0.1 entre 1.0 et 3.0
+        odds_bins = np.arange(1.0, 3.05, 0.1)
+
+    df = bets_df[bets_df["stake"] > 0].copy()  # uniquement les paris réellement placés
+    df["odds_bin"] = pd.cut(df["odds"], bins=odds_bins)
+
+    analysis = df.groupby("odds_bin").agg(
+        count=("gain", "count"),
+        win_rate=("won", "mean"),
+        avg_gain=("gain", "mean"),
+        total_gain=("gain", "sum"),
+        avg_stake=("stake", "mean")
     ).reset_index()
 
     return analysis
+
+
+
+
+def plot_bankroll(bets_df: pd.DataFrame):
+    plt.figure(figsize=(14, 7))
+    plt.plot(bets_df.index, bets_df["bankroll"])
+    plt.title("Bankroll Over Time")
+    plt.xlabel("Date")
+    plt.ylabel("Bankroll")
+
+    # Marqueurs de changement de saison
+    last_season = None
+    for i, season in enumerate(bets_df["season"]):
+        if season != last_season:
+            plt.axvline(x=i, color='red', linestyle='--', alpha=0.5)
+            plt.text(i, bets_df["bankroll"].max(), season, rotation=90, verticalalignment='bottom', color='red')
+            last_season = season
+
+    plt.tight_layout()
+    plt.show()
+
