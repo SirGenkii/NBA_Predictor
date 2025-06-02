@@ -1,0 +1,26 @@
+# Base Python scientific stack
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+plotly
+
+# Jupyter & kernel support
+notebook
+ipykernel
+jupyterlab
+
+# Machine learning
+scikit-learn
+xgboost
+lightgbm
+catboost
+scikit-optimize
+
+# Deep Learning (PyTorch GPU - CUDA 11.8) - pour CPU only: remplace par juste `torch`
+torch==2.2.2+cu118
+torchvision==0.17.2+cu118
+torchaudio==2.2.2+cu118
+# URL spécifique pour les versions CUDA
+--extra-index-url https://download.pytorch.org/whl/cu118

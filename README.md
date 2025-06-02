@@ -53,7 +53,10 @@ NBA_Predictor-main/
 - `scikit-learn`, `xgboost`, `lightgbm`, `catboost`
 
 ```bash
-pip install -r requirements.txt
+python -m venv .venv
+source .venv/Scripts/activate
+python -m pip install -r requirements.txt
+
 ```
 
 ---

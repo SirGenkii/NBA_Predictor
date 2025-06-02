@@ -29,8 +29,11 @@ from src.utils import get_latest_file, json_serial
 from pathlib import Path
 from typing import List, Tuple
 
+import warnings
+from sklearn.exceptions import DataConversionWarning
 
-
+# Désactive uniquement ce warning lié aux noms de features manquants
+warnings.filterwarnings("ignore", message="X does not have valid feature names.*")
 
 
 
@@ -44,98 +47,13 @@ def kelly_criterion(prob, odds):
     return max(kelly, 0)
 
 
-def simulate_bets(merged_df, model_pipeline, min_ev=0.05, bankroll=1000, max_risk=0.05, skip_first_n=0, log_file_path="betting_simulation_log.json"):
-    bets = []
-    current_bankroll = bankroll
-    feature_cols = model_pipeline.feature_names_in_
-
-    merged_df = merged_df.sort_values("GAME_DATE")
-    game_groups = merged_df.groupby("GAME_ID")
-    valid_games = [g for _, g in game_groups if len(g) == 2]
-    valid_games = valid_games[skip_first_n:]
-
-    for i, game in enumerate(valid_games, 1):
-        rows = game.sort_values("IS_HOME", ascending=False).reset_index(drop=True)
-        display_info = rows[["TEAM_NAME", "OPPONENT_NAME", "ODDS", "IS_HOME", "IS_WIN"]]
-        try:
-            pred_rows = rows.drop(columns=["ODDS", "OPP_ODDS", "TEAM_NAME", "OPPONENT_NAME", "date", "match_key"], errors='ignore')
-            pred_input = pred_rows[feature_cols].dropna(axis=1, how='any')
-
-            if pred_input.shape[1] != len(feature_cols):
-                print(f"  Match {i} ignoré : features incomplètes.")
-                continue
-
-            probs = model_pipeline.predict_proba(pred_input)
-
-            team_0_prob = probs[0][1]
-            team_1_prob = probs[1][1]
-            ev_0 = calculate_ev(team_0_prob, rows.loc[0, "ODDS"])
-            ev_1 = calculate_ev(team_1_prob, rows.loc[1, "ODDS"])
-
-            print(f"\nMatch {i}: {display_info.loc[0, 'TEAM_NAME']} vs {display_info.loc[0, 'OPPONENT_NAME']} ({rows.loc[0, 'GAME_DATE']})")
-            print(f"  {display_info.loc[0, 'TEAM_NAME']} - Prob: {team_0_prob:.2f}, EV: {ev_0:.2f}, Odds: {rows.loc[0, 'ODDS']}")
-            print(f"  {display_info.loc[1, 'TEAM_NAME']} - Prob: {team_1_prob:.2f}, EV: {ev_1:.2f}, Odds: {rows.loc[1, 'ODDS']}")
-
-            prob_diff = abs(team_0_prob - team_1_prob)
-            if prob_diff < 0.05:
-                print("Match trop serré, pas de pari.")
-
-            if max(ev_0, ev_1) < min_ev:
-                print(f"Pas d'EV interessante au dessus de {min_ev}.")
-                continue
-
-            best_idx = 0 if ev_0 > ev_1 else 1
-            row = rows.loc[best_idx]
-            prob = team_0_prob if best_idx == 0 else team_1_prob
-            ev = ev_0 if best_idx == 0 else ev_1
-
-            f = kelly_criterion(prob, row["ODDS"])
-            stake = min(f * current_bankroll, current_bankroll * max_risk)
-            won = int(row["IS_WIN"] == 1)
-            gain = stake * (row["ODDS"] - 1) if won else -stake
-            current_bankroll += gain
-
-            print(f"  Pari sur {row['TEAM_NAME']} ! Mise: {stake:.2f}, {'GAGNÉ' if won else 'PERDU'}, Bankroll: {current_bankroll:.2f}")
-
-            bets.append({
-                "date": row["GAME_DATE"],
-                "game_id": row["GAME_ID"],
-                "team": row["TEAM_NAME"],
-                "odds": row["ODDS"],
-                "prob": prob,
-                "ev": ev,
-                "stake": stake,
-                "won": won,
-                "gain": gain,
-                "bankroll": current_bankroll
-            })
-
-        except Exception as e:
-            print(f"  Erreur sur match {i} : {e}")
-            continue
-
-    # Logging
-    log_data = {
-        "timestamp": datetime.now().isoformat(),
-        "parameters": {
-            "min_ev": float(min_ev),
-            "bankroll": float(bankroll),
-            "max_risk": float(max_risk),
-            "skip_first_n": int(skip_first_n)
-        },
-        "results": evaluate_simulation(pd.DataFrame(bets))
-    }
-    with open(log_file_path, 'a') as f:
-        f.write(json.dumps(log_data, default=json_serial) + "\n")
-
-    return pd.DataFrame(bets)
-
 def simulate_bets_optimized(
     merged_df, model_pipeline, 
     min_ev=0.15, bankroll=1000, max_risk=0.02, 
     prob_diff=0.10, odds_max=2.5, odds_min=1.2, 
     ev_diff_min=0.10, streak_limit=5, bankroll_stop=0.5, 
-    skip_first_n=0, log_file_path="betting_simulation_log_optimized.json"
+    skip_first_n=0, log_file_path="betting_simulation_log_optimized.json",
+    stake_method="kelly"
 ):
     bets = []
     current_bankroll = bankroll
@@ -163,7 +81,7 @@ def simulate_bets_optimized(
             display_info = game[["TEAM_NAME", "OPPONENT_NAME", "ODDS", "IS_HOME", "IS_WIN", "GAME_DATE"]]
 
             pred_rows = game.drop(columns=["TEAM_NAME", "OPPONENT_NAME", "date", "match_key"], errors="ignore")
-            pred_input = pred_rows[feature_cols].dropna(axis=1)
+            pred_input = pred_rows.loc[:, feature_cols]
 
             if pred_input.shape[1] != len(feature_cols):
                 print(f"Match {i} ignoré : features incomplètes.")
@@ -202,8 +120,17 @@ def simulate_bets_optimized(
                 continue
 
             # Calcul pari via Kelly
-            kelly = ev / (odds - 1)
-            stake = min(max(kelly * current_bankroll, 0), current_bankroll * max_risk)
+        
+            if stake_method == "kelly":
+                # Calcul du stake via Kelly Criterion
+                f = kelly_criterion(prob, row["ODDS"])
+                stake = min(f * current_bankroll, current_bankroll * max_risk)
+            elif stake_method == "fixed":
+                # Stake fixe
+                stake = current_bankroll * max_risk
+                
+        
+    
             gain = stake * (odds - 1) if won else -stake
             current_bankroll += gain
             consecutive_losses = 0 if won else consecutive_losses + 1
@@ -368,6 +295,7 @@ def run_season_simulation(seasons_to_test: List[str],
                            ev_diff_min=0.1,
                            bankroll=1000,
                            max_risk=0.02,
+                           stake_method="kelly",
                            streak_limit=5,
                            bankroll_stop=0.5,
                            skip_first_n=0,
@@ -422,7 +350,8 @@ def run_season_simulation(seasons_to_test: List[str],
             max_risk=max_risk,
             streak_limit=streak_limit,
             bankroll_stop=bankroll_stop,
-            skip_first_n=skip_first_n
+            skip_first_n=skip_first_n,
+            stake_method=stake_method,
         )
         
         
@@ -436,3 +365,35 @@ def run_season_simulation(seasons_to_test: List[str],
     summary = evaluate_simulation(full_bets_df)
 
     return full_bets_df, summary
+
+
+
+
+def analyze_model_vs_bookmaker(bets_df: pd.DataFrame, bins=None):
+    if bins is None:
+        bins = [-1.0, -0.25, -0.15, -0.05, 0.05, 0.15, 0.25, 1.0]
+
+    df = bets_df.copy()
+
+    # Proba implicite des bookmakers normalisée
+    df["opp_odds"] = df.groupby("game_id")["odds"].transform(lambda x: x[::-1].values)
+    df["prob_book"] = 1 / df["odds"]
+    df["opp_prob_book"] = 1 / df["opp_odds"]
+    df["prob_book_norm"] = df["prob_book"] / (df["prob_book"] + df["opp_prob_book"])
+
+    # Écart entre proba modèle et bookmaker
+    df["prob_diff_vs_book"] = df["prob"] - df["prob_book_norm"]
+
+    # Binning de l'écart
+    df["diff_bin"] = pd.cut(df["prob_diff_vs_book"], bins=bins)
+
+    # Analyse groupée
+    analysis = df.groupby("diff_bin").agg(
+        gain_mean=("gain", "mean"),
+        gain_total=("gain", "sum"),
+        won_mean=("won", "mean"),
+        stake_mean=("stake", "mean"),
+        count=("stake", lambda x: (x > 0).sum())
+    ).reset_index()
+
+    return analysis
