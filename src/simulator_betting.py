@@ -416,7 +416,24 @@ def analyze_performance_by_odds(bets_df: pd.DataFrame, odds_bins=None):
 
     return analysis
 
+def analyse_performance_by_model(bets_df: pd.DataFrame, bins=None):
+    if bins is None:
+        # Par défaut, tranches de 0.1 entre 0 et 1
+        bins = np.arange(0, 1.05, 0.025)
 
+    df = bets_df[bets_df["stake"] > 0].copy()  # uniquement les paris réellement placés
+    df["prob_bin"] = pd.cut(df["prob"], bins=bins)
+
+    analysis = df.groupby("prob_bin").agg(
+        count=("gain", "count"),
+        win_rate=("won", "mean"),
+        avg_gain=("gain", "mean"),
+        total_gain=("gain", "sum"),
+        avg_odds=("odds", "mean")
+    ).reset_index()
+
+    return analysis
+    
 
 
 def plot_bankroll(bets_df: pd.DataFrame):
