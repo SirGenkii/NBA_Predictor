@@ -2,7 +2,7 @@
 
 
 ```
-python script.py --start_year 2015 --end_year 2020 
+python scripts/01_scrapping_boxscores.py --start_year 2015 --end_year 2020 
 
 or
 
