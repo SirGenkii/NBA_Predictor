@@ -8,9 +8,6 @@ from nba_api.stats.endpoints import leaguegamefinder, boxscoretraditionalv3, box
 from src.config import *
 from src.utils import save_dataframe_to_csv, get_latest_file, log_boxscores_scrapping
 
-from nba_api.library.http import NBAStatsHTTP
-NBAStatsHTTP._nba_headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-
 
 # -- 1. Download all games for a season (or several)
 def download_games_for_seasons(seasons, output_dir, run_timestamp):

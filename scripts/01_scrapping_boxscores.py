@@ -10,6 +10,23 @@ from src.utils import get_latest_file
 from src.config import *
 from src.nba_scrapping import download_games_for_seasons, scrape_boxscores_v3_for_games
 
+import requests
+from nba_api.stats.library.parameters import SeasonAll
+
+# Monkey patch for user-agent
+original_get = requests.Session.get
+
+def patched_get(self, url, **kwargs):
+    headers = kwargs.pop('headers', {})
+    headers['User-Agent'] = (
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+        'AppleWebKit/537.36 (KHTML, like Gecko) '
+        'Chrome/58.0.3029.110 Safari/537.3'
+    )
+    return original_get(self, url, headers=headers, **kwargs)
+
+requests.Session.get = patched_get
+
 
 
 
