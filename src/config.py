@@ -48,6 +48,7 @@ DATA_BOXSCORES_BATCHES_DIR = os.path.join(DATA_BOXSCORES_DIR, 'batches')
 DATA_BOXSCORES_BATCHES_MERGED_DIR = os.path.join(DATA_BOXSCORES_DIR, 'batches_merged')
 
 
+
 DATA_RAW_LAST_DIR = os.path.join(DATA_DIR, 'raw_last')
 DATA_LAST_GAMES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games')
 DATA_LAST_GAMES_MERGED_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games_merged')
@@ -72,5 +73,6 @@ DATA_GRID_SIMULATIONS_BETS_DIR = os.path.join(DATA_DIR, 'grid_simulations')
 BATCH_SIZE = 25
 
 ERROR_LOG_FOLDER = 'logs'
+BOXSCORES_SCRAPPING_LOG_FILE = os.path.join(ERROR_LOG_FOLDER, 'boxscores_scrapping.log')
 
 FULL_CSV = 'nba_player_boxscores_full.csv'
