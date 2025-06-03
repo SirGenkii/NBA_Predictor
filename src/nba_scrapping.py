@@ -92,18 +92,18 @@ def scrape_boxscores_v3_for_games(games_df, output_dir, run_timestamp, batch_siz
             error_log.append((gid, str(e)))
             timeout_streak += 1
             if timeout_streak >= 3:
-                log_msg_timeout_streak = "         - 3 consecutive timeouts, stopping scraping for 30 minutes"
+                log_msg_timeout_streak = "         - 3 consecutive timeouts, stopping scraping for 15 minutes"
                
                 print(log_msg_timeout_streak)
                 log_boxscores_scrapping(log_msg_timeout_streak)  
                
-                time.sleep(1800)
+                time.sleep(900)
                 timeout_streak = 0
             else:
                 time.sleep(30)
             continue
 
-        time.sleep(random.uniform(3.5, 5.5))
+        time.sleep(random.uniform(8, 15.5))
 
         if (idx + 1) % batch_size == 0 or (idx + 1) == len(filtered_game_ids):
             batch_num += 1
