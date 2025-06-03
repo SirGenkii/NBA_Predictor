@@ -2,7 +2,6 @@
 .local/
 .jupyter/
 .config/
-.devcontainer/
 .ipython/
 
 /data/raw/
