@@ -12,6 +12,7 @@ from src.nba_scrapping import download_games_for_seasons, scrape_boxscores_v3_fo
 
 
 
+
 def main(start_year: int, end_year: int, run_timestamp: str = None):
     start_time = datetime.now()
     print("Start time: ", start_time)
