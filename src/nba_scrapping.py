@@ -49,8 +49,7 @@ def get_new_games(hist_games_path, new_games_path):
     print(f"{len(to_add)} nouveaux matchs à traiter")
     return to_add
 
-# -- 3. Scraper les boxscores enrichis V3 des nouveaux GAME_ID avec gestion de reprise
-def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25):
+def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25, max_retries=3):
     import glob
     all_data = {
         'traditional': [], 'advanced': [], 'fourfactors': [],
@@ -64,36 +63,44 @@ def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25):
     for season in seasons:
         season_df = games_df[games_df['SEASON'] == season]
         season_game_ids = season_df['GAME_ID'].unique().tolist()
-        filtered_game_ids = set(season_game_ids)
 
         endpoint_dirs = {}
-        last_game_ids = {}
+        start_game_id = None
 
         for endpoint in all_data.keys():
-            #endpoint_dir = os.path.join(output_dir, season, endpoint)
             endpoint_dir = os.path.join(output_dir, endpoint)
             os.makedirs(endpoint_dir, exist_ok=True)
             endpoint_dirs[endpoint] = endpoint_dir
             batch_files = sorted(glob.glob(os.path.join(endpoint_dir, '*.csv')))
-
-            existing_game_ids = set()
-            for file in batch_files:
+            
+            print(f"[DEBUG] Found {len(batch_files)} batch files for endpoint '{endpoint}' in season {season}")
+            
+            if endpoint == 'advanced' and batch_files:
+                last_file = batch_files[-1]
+                print(f"[DEBUG] Checking last batch file for endpoint '{endpoint}': {last_file}")
                 try:
-                    df = pd.read_csv(file, usecols=['GAME_ID'], dtype={'GAME_ID': str})
-                    existing_game_ids.update(df['GAME_ID'].unique().tolist())
-                except Exception:
+                    df = pd.read_csv(last_file, usecols=['gameId'], dtype={'gameId': str})
+                    if not df.empty:
+                        last_game_id = df.iloc[-1]['gameId']
+                        if start_game_id is None or season_game_ids.index(last_game_id) > season_game_ids.index(start_game_id):
+                            start_game_id = last_game_id
+                            print(f"[INFO] Resuming from gameId {start_game_id} in season {season}")
+                except Exception as e:
+                    print(f"[ERROR] Failed to read last gameId from {last_file}: {e}")
                     continue
 
-            filtered_game_ids = filtered_game_ids.intersection(set(season_game_ids) - existing_game_ids)
-            last_game_ids[endpoint] = max(existing_game_ids) if existing_game_ids else None
+        if start_game_id:
+            start_index = season_game_ids.index(start_game_id) + 1
+        else:
+            start_index = 0
 
-        filtered_game_ids = sorted(list(filtered_game_ids))
+        filtered_game_ids = season_game_ids[start_index:]
 
         log_msg_nb_games = f"--------- {len(filtered_game_ids)} GAME_ID to scrap for season {season} ---------"
         print(log_msg_nb_games)
         log_boxscores_scrapping(log_msg_nb_games)
 
-        batch_num = 0
+        batch_num = len(glob.glob(os.path.join(list(endpoint_dirs.values())[0], 'boxscores_*_v3_batch_*.csv')))
         timeout_streak = 0
 
         for idx, gid in enumerate(filtered_game_ids):
@@ -103,12 +110,23 @@ def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25):
             log_boxscores_scrapping(log_msg_treatment)
 
             try:
-                all_data['traditional'].append(boxscoretraditionalv3.BoxScoreTraditionalV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-                all_data['advanced'].append(boxscoreadvancedv3.BoxScoreAdvancedV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-                all_data['fourfactors'].append(boxscorefourfactorsv3.BoxScoreFourFactorsV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-                all_data['misc'].append(boxscoremiscv3.BoxScoreMiscV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-                all_data['scoring'].append(boxscorescoringv3.BoxScoreScoringV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-                all_data['usage'].append(boxscoreusagev3.BoxScoreUsageV3(game_id=gid, timeout=30).player_stats.get_data_frame())
+                for endpoint, func in {
+                    'traditional': boxscoretraditionalv3.BoxScoreTraditionalV3,
+                    'advanced': boxscoreadvancedv3.BoxScoreAdvancedV3,
+                    'fourfactors': boxscorefourfactorsv3.BoxScoreFourFactorsV3,
+                    'misc': boxscoremiscv3.BoxScoreMiscV3,
+                    'scoring': boxscorescoringv3.BoxScoreScoringV3,
+                    'usage': boxscoreusagev3.BoxScoreUsageV3
+                }.items():
+                    for attempt in range(max_retries):
+                        try:
+                            df = func(game_id=gid, timeout=30).player_stats.get_data_frame()
+                            all_data[endpoint].append(df)
+                            break
+                        except Exception as e:
+                            if attempt == max_retries - 1:
+                                raise Exception(f"{endpoint} endpoint failed after {max_retries} attempts: {e}")
+                            time.sleep(3)
                 timeout_streak = 0
             except Exception as e:
                 log_msg_error = f"   - Error for GAME_ID {gid}: {e}"
@@ -128,7 +146,6 @@ def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25):
 
             time.sleep(random.uniform(3.5, 5.5))
 
-            
             if (idx + 1) % int(batch_size) == 0 or (idx + 1) == len(filtered_game_ids):
                 batch_num += 1
                 for key, df_list in all_data.items():
@@ -150,6 +167,9 @@ def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25):
                                 f.write(f"{err[0]}\t{err[1]}\n")
                     error_log.clear()
     return True
+
+
+
 
 # -- 4. Retry scraping for GAME_IDs that failed previously
 def retry_failed_boxscores(run_dir):
