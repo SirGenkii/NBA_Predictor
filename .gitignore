@@ -1,12 +1,19 @@
 .history/
 .local/
 .jupyter/
+.config/
+.devcontainer/
+.ipython/
+
 /data/raw/
 /data/final_cleaned_dataset/
 /data/final_dataset/
 /data/raw_last/
 /data/models/
 /logs/
+
+/backup/*.zip
+
 
 /catboost_info/
 
