@@ -103,7 +103,7 @@ def scrape_boxscores_v3_for_games(games_df, output_dir, run_timestamp, batch_siz
                 time.sleep(30)
             continue
 
-        time.sleep(random.uniform(8, 15.5))
+        time.sleep(random.uniform(14.5, 22.5))
 
         if (idx + 1) % batch_size == 0 or (idx + 1) == len(filtered_game_ids):
             batch_num += 1
