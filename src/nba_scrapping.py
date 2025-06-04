@@ -4,6 +4,8 @@ import time
 import random
 import glob
 from datetime import datetime
+import shutil
+
 from nba_api.stats.endpoints import leaguegamefinder, boxscoretraditionalv3, boxscoreadvancedv3, boxscorefourfactorsv3, boxscoremiscv3, boxscorescoringv3, boxscoreusagev3
 from src.config import *
 from src.utils import save_dataframe_to_csv, get_latest_file, log_boxscores_scrapping
@@ -49,7 +51,7 @@ def get_new_games(hist_games_path, new_games_path):
     print(f"{len(to_add)} nouveaux matchs à traiter")
     return to_add
 
-def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25, max_retries=3):
+def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25, max_retries=5):
     import glob
     all_data = {
         'traditional': [], 'advanced': [], 'fourfactors': [],
@@ -144,7 +146,7 @@ def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25, max_retri
                     time.sleep(30)
                 continue
 
-            time.sleep(random.uniform(3.5, 5.5))
+            time.sleep(random.uniform(1.5, 3.5))
 
             if (idx + 1) % int(batch_size) == 0 or (idx + 1) == len(filtered_game_ids):
                 batch_num += 1
@@ -172,51 +174,92 @@ def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25, max_retri
 
 
 # -- 4. Retry scraping for GAME_IDs that failed previously
-def retry_failed_boxscores(run_dir):
-    error_folder = os.path.join(run_dir, "errors")
-    failed_game_ids = set()
-    for file in glob.glob(os.path.join(error_folder, "errors_batch_*.txt")):
-        with open(file, 'r') as f:
-            for line in f:
-                gid = line.strip().split('\t')[0]
-                failed_game_ids.add(gid)
+def retry_failed_boxscores_for_season(season_folder_path, batch_size=25, max_retries=5):
 
-    print(f"Found {len(failed_game_ids)} failed GAME_IDs to retry.")
+    endpoints = ['traditional', 'advanced', 'fourfactors', 'misc', 'scoring', 'usage']
+    season_failed_game_ids = {}
 
-    all_data = {k: [] for k in ['traditional', 'advanced', 'fourfactors', 'misc', 'scoring', 'usage']}
+    # 1. Collect GAME_IDs from error files for each endpoint
+    for endpoint in endpoints:
+        error_dir = os.path.join(season_folder_path, endpoint)
+        error_txts = glob.glob(os.path.join(error_dir, "errors_batch_*.txt"))
+        failed_game_ids = set()
+        for error_file in error_txts:
+            with open(error_file, 'r') as f:
+                for line in f:
+                    gid = line.strip().split('\t')[0]
+                    if gid:
+                        failed_game_ids.add(gid)
+        season_failed_game_ids[endpoint] = failed_game_ids
+
+    # 2. Check consistency
+    all_game_id_sets = list(season_failed_game_ids.values())
+    if not all(len(all_game_id_sets[0].intersection(s)) == len(all_game_id_sets[0]) for s in all_game_id_sets[1:]):
+        raise ValueError("❌ Inconsistent GAME_IDs across endpoints. Retry aborted.")
+
+    game_ids_to_retry = sorted(list(season_failed_game_ids[endpoints[0]]))
+    print(f"[INFO] Retrying {len(game_ids_to_retry)} GAME_IDs for season folder {season_folder_path}")
+
+    # 3. Prepare
+    all_data = {k: [] for k in endpoints}
     error_log = []
     retry_batch_num = 1
 
-    for idx, gid in enumerate(sorted(failed_game_ids)):
-        try:
-            print(f"Retrying GAME_ID: {gid} ({idx+1}/{len(failed_game_ids)})")
-            all_data['traditional'].append(boxscoretraditionalv3.BoxScoreTraditionalV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-            all_data['advanced'].append(boxscoreadvancedv3.BoxScoreAdvancedV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-            all_data['fourfactors'].append(boxscorefourfactorsv3.BoxScoreFourFactorsV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-            all_data['misc'].append(boxscoremiscv3.BoxScoreMiscV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-            all_data['scoring'].append(boxscorescoringv3.BoxScoreScoringV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-            all_data['usage'].append(boxscoreusagev3.BoxScoreUsageV3(game_id=gid, timeout=30).player_stats.get_data_frame())
-        except Exception as e:
-            print(f"Error retrying GAME_ID {gid}: {e}")
-            error_log.append((gid, str(e)))
-            time.sleep(8)
-            continue
-        time.sleep(random.uniform(3, 5))
+    # 4. Retry logic
+    for idx, gid in enumerate(game_ids_to_retry):
+        print(f"[RETRY] GAME_ID {gid} ({idx+1}/{len(game_ids_to_retry)})")
+        for endpoint, func in {
+            'traditional': boxscoretraditionalv3.BoxScoreTraditionalV3,
+            'advanced': boxscoreadvancedv3.BoxScoreAdvancedV3,
+            'fourfactors': boxscorefourfactorsv3.BoxScoreFourFactorsV3,
+            'misc': boxscoremiscv3.BoxScoreMiscV3,
+            'scoring': boxscorescoringv3.BoxScoreScoringV3,
+            'usage': boxscoreusagev3.BoxScoreUsageV3
+        }.items():
+            for attempt in range(max_retries):
+                try:
+                    df = func(game_id=gid, timeout=30).player_stats.get_data_frame()
+                    all_data[endpoint].append(df)
+                    break
+                except Exception as e:
+                    if attempt == max_retries - 1:
+                        print(f"   - Error on {endpoint} for GAME_ID {gid}: {e}")
+                        error_log.append((gid, f"{endpoint}: {e}"))
+                    time.sleep(5)
 
-        if (idx + 1) % 25 == 0 or (idx + 1) == len(failed_game_ids):
+        time.sleep(random.uniform(1.5, 3.5))
+
+        if (idx + 1) % batch_size == 0 or (idx + 1) == len(game_ids_to_retry):
             for key, df_list in all_data.items():
                 if df_list:
                     df = pd.concat(df_list, ignore_index=True)
-                    filename = f"boxscores_{key}_v3_retry_batch_{retry_batch_num}"
-                    save_dataframe_to_csv(df, run_dir, prefix=filename)
-                    print(f" Retry {key} V3 batch {retry_batch_num} saved")
+                    filename = f"boxscores_{key}_v3_retry_batch_{retry_batch_num}.csv"
+                    path = os.path.join(season_folder_path, key, filename)
+                    df.to_csv(path, index=False)
+                    print(f"[SAVED] {key} retry batch {retry_batch_num} ({len(df)} rows)")
                     df_list.clear()
+
             if error_log:
-                with open(os.path.join(error_folder, f"errors_retry_batch_{retry_batch_num}.txt"), "a") as f:
-                    for err in error_log:
-                        f.write(f"{err[0]}\t{err[1]}\n")
+                for key in endpoints:
+                    error_dir = os.path.join(season_folder_path, key, 'errors_processed')
+                    os.makedirs(error_dir, exist_ok=True)
+                    for err_file in glob.glob(os.path.join(season_folder_path, key, 'errors_batch_*.txt')):
+                        shutil.move(err_file, os.path.join(error_dir, os.path.basename(err_file)))
+                new_errors = {}
+                for gid, message in error_log:
+                    ep = message.split(':')[0]
+                    if ep not in new_errors:
+                        new_errors[ep] = []
+                    new_errors[ep].append((gid, message))
+                for ep, lines in new_errors.items():
+                    error_file = os.path.join(season_folder_path, ep, f"errors_retry_batch_{retry_batch_num}.txt")
+                    with open(error_file, 'a') as f:
+                        for gid, msg in lines:
+                            f.write(f"{gid}\t{msg}\n")
                 error_log.clear()
             retry_batch_num += 1
+
+    print("✅ Retry process completed.")
 
 # -- 5. Merge boxscores historiques et nouveaux
 def load_all_csvs(folder):
