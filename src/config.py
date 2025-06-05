@@ -6,11 +6,16 @@ import sys
 # Currently keeping ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'POINT_DIFF','SEASON'] to drop them before modeling.
 COLS_MATCH_REAL = [
     # Identifiants et logs
-    "OPP_GAME_DATE", "MATCHUP","IS_WIN_SHIFTED", #"SEASON"
+    "OPP_GAME_DATE", "MATCHUP","IS_WIN_SHIFTED",
+    
+    #ajoutés par les odds 
+    "TEAM_NAME","OPPONENT_NAME"
 ]
 
 COLS_TO_DROP_TARGET_IS_WIN = ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'POINT_DIFF','SEASON']
 COLS_TO_DROP_TARGET_POINT_DIFF = ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'IS_WIN','SEASON']
+
+COLS_ODDS = ["ODDS","OPP_ODDS"]
 
 # FEATURES_TO_ROLL = [
 #     'PTS', 'REB', 'AST', 'FGM', 'FGA', 'FG_PCT', 'PLUS_MINUS',

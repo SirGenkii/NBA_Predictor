@@ -150,24 +150,27 @@ def scrape_boxscores_v3_for_games(games_df, output_dir, batch_size=25, max_retri
                     time.sleep(30)
                 continue
 
-            time.sleep(random.uniform(1.5, 3.5))
+            time.sleep(random.uniform(1.0, 2.5))
 
             if (idx + 1) % int(batch_size) == 0 or (idx + 1) == len(filtered_game_ids):
                 batch_num += 1
                 for key, df_list in all_data.items():
                     if df_list:
                         df = pd.concat(df_list, ignore_index=True)
-                        filename = f"boxscores_{key}_v3_batch_{batch_num}.csv"
+                        
+                        batch_num_formatted = f"{batch_num:03d}"
+                        
+                        filename = f"boxscores_{key}_v3_batch_{batch_num_formatted}.csv"
                         filepath = os.path.join(endpoint_dirs[key], filename)
                         df.to_csv(filepath, index=False)
-                        log_msg_save_batch = f" {key} V3 batch {batch_num} saved ({len(df)} rows)"
+                        log_msg_save_batch = f" {key} V3 batch {batch_num_formatted} saved ({len(df)} rows)"
                         print(log_msg_save_batch)
                         log_boxscores_scrapping(log_msg_save_batch)
                         df_list.clear()
 
                 if error_log:
                     for key in all_data.keys():
-                        error_path = os.path.join(endpoint_dirs[key], f"errors_batch_{batch_num}.txt")
+                        error_path = os.path.join(endpoint_dirs[key], f"errors_batch_{batch_num_formatted}.txt")
                         with open(error_path, "a") as f:
                             for err in error_log:
                                 f.write(f"{err[0]}\t{err[1]}\n")
