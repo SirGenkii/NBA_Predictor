@@ -2,37 +2,22 @@ import os
 import sys
 
 
-# Liste des colonnes à dropper (toutes les stats brutes et colonnes de match, identifiants inutiles, etc.)
+# Liste des colonnes à dropper pour clean dataset final. 
+# Currently keeping ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'POINT_DIFF','SEASON'] to drop them before modeling.
 COLS_MATCH_REAL = [
     # Identifiants et logs
-    "OPP_GAME_DATE", "MATCHUP",
-
-    "IS_WIN_SHIFTED", 
-
-    # Stats brutes de match (pour les deux équipes)
-    "FGM", "FGA", "FG_PCT", "FG3M", "FG3A", "FG3_PCT", "FTM", "FTA", "FT_PCT",
-    "OREB", "DREB", "REB", "AST", "STL", "BLK", "TO", "PF", "PTS", "PLUS_MINUS", "MINUTES_PLAYED",
-    "OPP_FGM", "OPP_FGA", "OPP_FG_PCT", "OPP_FG3M", "OPP_FG3A", "OPP_FG3_PCT", "OPP_FTM", "OPP_FTA", "OPP_FT_PCT",
-    "OPP_OREB", "OPP_DREB", "OPP_REB", "OPP_AST", "OPP_STL", "OPP_BLK", "OPP_TO", "OPP_PF", "OPP_PTS",
-    "OPP_PLUS_MINUS", "OPP_MINUTES_PLAYED",
-    "POINT_DIFF",
-
-    # Nouvelles features brutes ajoutées
-    "TS_PCT", "EFG_PCT", "AST_TO_RATIO", "REB_RATE",
-    "POSSESSIONS","OPP_POSSESSIONS","OFF_RATING","DEF_RATING",
-    
-    #ajoutée avec les odds
-    "TEAM_NAME","OPPONENT_NAME"
-    
+    "OPP_GAME_DATE", "MATCHUP","IS_WIN_SHIFTED", #"SEASON"
 ]
 
+COLS_TO_DROP_TARGET_IS_WIN = ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'POINT_DIFF','SEASON']
+COLS_TO_DROP_TARGET_POINTS_DIFF = ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'IS_WIN','SEASON']
 
-FEATURES_TO_ROLL = [
-    'PTS', 'REB', 'AST', 'FGM', 'FGA', 'FG_PCT', 'PLUS_MINUS',
-    'TS_PCT', 'EFG_PCT', 'AST_TO_RATIO', 'REB_RATE',
-    "POSSESSIONS","OPP_POSSESSIONS",
-    "OFF_RATING","DEF_RATING" 
-]
+# FEATURES_TO_ROLL = [
+#     'PTS', 'REB', 'AST', 'FGM', 'FGA', 'FG_PCT', 'PLUS_MINUS',
+#     'TS_PCT', 'EFG_PCT', 'AST_TO_RATIO', 'REB_RATE',
+#     "POSSESSIONS","OPP_POSSESSIONS",
+#     "OFF_RATING","DEF_RATING" 
+# ]
 
 N_LIST = [3, 5, 10, 25, 50, 100, 200]
 

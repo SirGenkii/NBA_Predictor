@@ -58,14 +58,22 @@ def streak_grouped_shifted(group, is_home):
     return pd.Series(streaks, index=group.index)
 
 
-def compute_side_win_streak(df: pd.DataFrame) -> pd.DataFrame:
+def compute_side_win_streak(df: pd.DataFrame, win_shifted_col: str = "IS_WIN_SHIFTED") -> pd.DataFrame:
+    """
+    Calcule les streaks de victoire à domicile et à l'extérieur en utilisant une colonne de victoire shiftée.
+    """
     df = df.sort_values(["TEAM_ID", "GAME_DATE"]).copy()
-    df["IS_WIN_SHIFTED"] = df.groupby("TEAM_ID")["IS_WIN"].shift(1).fillna(0).astype(int)
 
-    df["HOME_WIN_STREAK"] = df.groupby("TEAM_ID").apply(lambda g: streak_grouped_shifted(g, is_home=1)).reset_index(level=0, drop=True)
-    df["AWAY_WIN_STREAK"] = df.groupby("TEAM_ID").apply(lambda g: streak_grouped_shifted(g, is_home=0)).reset_index(level=0, drop=True)
+    df["HOME_WIN_STREAK"] = df.groupby("TEAM_ID").apply(
+        lambda g: streak_grouped_shifted(g, is_home=1)
+    ).reset_index(level=0, drop=True)
 
-    return df.drop(columns=["IS_WIN_SHIFTED"])
+    df["AWAY_WIN_STREAK"] = df.groupby("TEAM_ID").apply(
+        lambda g: streak_grouped_shifted(g, is_home=0)
+    ).reset_index(level=0, drop=True)
+
+    return df
+
 
 
 def rename_pts_against_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -253,8 +261,8 @@ def compute_h2h_pts_margin(df: pd.DataFrame, windows: list) -> pd.DataFrame:
             pts_for.append(avg_for)
             pts_against.append(avg_against)
             margins.append(avg_margin)
-            pts_for_hist[key].append(row["PTS"])
-            pts_against_hist[key].append(row["OPP_PTS"])
+            pts_for_hist[key].append(row["points_traditional"])
+            pts_against_hist[key].append(row["OPP_points_traditional"])
 
         df[f"H2H_LAST_{n}_PTS_FOR"] = pts_for
         df[f"H2H_LAST_{n}_PTS_AGAINST"] = pts_against
