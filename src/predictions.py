@@ -6,7 +6,8 @@ from src.config import *
 from src.utils import merge_odds_csv_files
 from src.feature_aggregation import compute_weighted_mean_features  # assure que l'import est au bon endroit
 
-def build_prediction_rows(home_team_id: int, away_team_id: int, home_odds: float, away_odds: float ,dataset: pd.DataFrame, match_date: datetime = None) -> pd.DataFrame:
+def build_prediction_rows(home_team_id: int, away_team_id: int, home_odds: float, away_odds: float, dataset: pd.DataFrame, match_date: datetime = None) -> pd.DataFrame:
+    from src.utils import prepare_model_input
 
     dataset['GAME_DATE'] = pd.to_datetime(dataset['GAME_DATE'])
     temp_df = dataset.copy()
@@ -44,10 +45,6 @@ def build_prediction_rows(home_team_id: int, away_team_id: int, home_odds: float
     prediction_df = pd.DataFrame(base_rows)
     temp_df = pd.concat([temp_df, prediction_df], ignore_index=True)
 
-    # Recalcul des features selon le pipeline actuel complet MOVED TO CONFIG
-    # features_to_roll = cols_to_sum + cols_to_weighted_avg
-    # features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg]
-
     temp_df = compute_rolling_features(temp_df, "TEAM_ID", ["TEAM_ID", "GAME_DATE"], features_to_roll, N_LIST, method="ewm")
     temp_df = compute_winrates(temp_df, "TEAM_ID", "IS_WIN", "IS_HOME", N_LIST)
     temp_df = compute_win_ratio(temp_df, "TEAM_ID", "IS_WIN", N_LIST)
@@ -69,8 +66,15 @@ def build_prediction_rows(home_team_id: int, away_team_id: int, home_odds: float
     temp_df = compute_h2h_season(temp_df)
     temp_df = compute_h2h_streak(temp_df)
 
+    temp_df = temp_df.drop(columns=[
+        'ELO_PRE', 'OPP_ELO_PRE', 'ELO_PRE_SEASON', 'OPP_ELO_PRE_SEASON',
+        'ELO_PRE_x', 'OPP_ELO_PRE_x', 'ELO_PRE_SEASON_x', 'OPP_ELO_PRE_SEASON_x',
+        'ELO_PRE_y', 'OPP_ELO_PRE_y', 'ELO_PRE_SEASON_y', 'OPP_ELO_PRE_SEASON_y'
+    ], errors='ignore')
+
     temp_df = compute_elo(temp_df)
     temp_df = compute_elo_season(temp_df)
 
-    return temp_df.tail(2)
+    final_rows = temp_df.tail(2).copy()
+    return prepare_model_input(final_rows, target="IS_WIN")
 

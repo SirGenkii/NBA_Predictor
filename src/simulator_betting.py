@@ -10,6 +10,8 @@ from sklearn.ensemble import RandomForestClassifier, StackingClassifier
 from sklearn.linear_model import LogisticRegression
 from lightgbm import LGBMClassifier
 from xgboost import XGBClassifier
+import xgboost as xgb
+
 from catboost import CatBoostClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -24,7 +26,7 @@ from sklearn.pipeline import make_pipeline
 
 from src.feature_builder import *
 from src.config import *
-from src.utils import get_latest_file, json_serial
+from src.utils import *
 
 from pathlib import Path
 from typing import List, Tuple
@@ -54,7 +56,8 @@ def simulate_bets_optimized(
     prob_diff=0.10, odds_max=2.5, odds_min=1.2, 
     ev_diff_min=0.10, streak_limit=5, bankroll_stop=0.5, 
     skip_first_n=0, log_file_path="betting_simulation_log_optimized.json",
-    stake_method="kelly", prob_diff_vs_book_range=None
+    stake_method="kelly", prob_diff_vs_book_range=None,
+    best_bet_method="ev_diff"  # Option pour choisir la méthode de sélection du meilleur pari
 ):
     bets = []
     current_bankroll = bankroll
@@ -92,7 +95,15 @@ def simulate_bets_optimized(
             team_probs = [probs[0][1], probs[1][1]]
             evs = [(p * game.loc[j, "ODDS"]) - 1 for j, p in enumerate(team_probs)]
 
-            best_idx = int(evs[1] > evs[0])
+
+            if(best_bet_method == "ev_diff"):
+                best_idx = int(evs[1] > evs[0])
+            elif(best_bet_method == "ev_prob_score_diff"):
+                scores = [ev * team_probs[i] for i, ev in enumerate(evs)]
+                best_idx = int(scores[1] > scores[0])
+            else:
+                raise ValueError(f"Méthode de sélection de pari inconnue : {best_bet_method}")
+                
             row = game.loc[best_idx]
             opp_row = game.loc[1 - best_idx]
 
@@ -201,36 +212,29 @@ def evaluate_simulation(bets_df):
     }
 
 
-def set_model_n_jobs(model, n_jobs):
+def is_gpu_available():
     try:
-        if hasattr(model, "named_steps") and "model" in model.named_steps:
-            stack = model.named_steps["model"]
-
-            # Fix sur les estimateurs de base
-            for name, estimator in stack.estimators:
-                if hasattr(estimator, "n_jobs"):
-                    estimator.n_jobs = n_jobs
-
-            # Fix sur le final estimator
-            if hasattr(stack.final_estimator, "n_jobs"):
-                stack.final_estimator.n_jobs = n_jobs
-
-            # Fix sur le StackingClassifier lui-même
-            if hasattr(stack, "n_jobs"):
-                stack.n_jobs = n_jobs
-
-    except Exception as e:
-        print(f"[WARN] set_model_n_jobs failed: {e}")
+        params = {
+            "tree_method": "gpu_hist",
+            "predictor": "gpu_predictor",
+            "nthread": 1,
+        }
+        dmatrix = xgb.DMatrix(data=[[1], [2]], label=[0, 1])
+        xgb.train(params, dmatrix, num_boost_round=1)
+        return True
+    except xgb.core.XGBoostError:
+        return False
 
 
-def train_or_load_model(df, exclude_seasons, model_identifier, season_key, parallel=True):
+def train_or_load_model(df, exclude_seasons, model_identifier, season_key, parallel=False):
     os.makedirs(DATA_MODELS_SIMULATIONS_DIR, exist_ok=True)
     model_path = os.path.join(DATA_MODELS_SIMULATIONS_DIR, f"model_{season_key}_{model_identifier}.joblib")
 
     if parallel:
-        n_jobs = -1  # Utiliser tous les cœurs disponibles
+        n_jobs = -1  # Utiliser tous les cœurs disponibles (à éviter pour pas faire crasher le système)
     else:
-        n_jobs = 1
+       n_jobs = min(os.cpu_count() - 2, 4)
+
         
     print(f"Model in parallel mode: {parallel}. n_jobs set to {n_jobs}" )
 
@@ -243,25 +247,35 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key, paral
         
         return model
 
+    # target = 'IS_WIN'
+    # drop_cols = COLS_TO_DROP_TARGET_IS_WIN + COLS_MATCH_REAL + COLS_ODDS
+    # features = [col for col in df.columns if col not in drop_cols + [target]]
+    # df = df.dropna(subset=features)
+
     target = 'IS_WIN'
-    drop_cols = ['GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'SEASON', 'GAME_DATE'] + COLS_MATCH_REAL
-    features = [col for col in df.columns if col not in drop_cols + [target]]
-    df = df.dropna(subset=features)
 
     filtered_df = df[~df['SEASON'].isin(exclude_seasons)].copy()
-    X = filtered_df[features].select_dtypes(include=['number'])
-    y = filtered_df[target]
+    #X = filtered_df[features].select_dtypes(include=['number'])
+    X = prepare_model_input(filtered_df, target=target)
+    y = filtered_df.loc[X.index, target]
+
+    #y = filtered_df[target]
+
+
+    USE_GPU = is_gpu_available()
+
 
     estimators = [
-        ('rf', RandomForestClassifier(n_estimators=200, random_state=42, n_jobs=n_jobs)),
-        ('lgbm', LGBMClassifier(n_estimators=150, num_leaves=64, random_state=42, n_jobs=n_jobs)),
-        ('xgb', XGBClassifier(n_estimators=200, learning_rate=0.05, max_depth=6, subsample=0.7, colsample_bytree=0.7, random_state=42, eval_metric='logloss', n_jobs=n_jobs, use_label_encoder=False)),
-        ('cat', CatBoostClassifier(n_estimators=200, learning_rate=0.05, depth=6, rsm=0.8, verbose=0, random_state=42, thread_count=n_jobs)),
-        ('hgb', HistGradientBoostingClassifier(max_iter=200, random_state=42)),
-        ('lr', make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000, solver='liblinear', penalty='l2', n_jobs=n_jobs))),
-        ('mlp', make_pipeline(StandardScaler(), MLPClassifier(hidden_layer_sizes=(64, 32), max_iter=300, random_state=42))),
-        ('et', ExtraTreesClassifier(n_estimators=200, random_state=42, n_jobs=n_jobs)),
-        ('knn', make_pipeline(StandardScaler(), KNeighborsClassifier(n_neighbors=15, n_jobs=n_jobs)))
+        ('rf', RandomForestClassifier(**get_optimal_model_params('rf', use_gpu=USE_GPU, max_cpu_jobs=n_jobs))),
+        ('lgbm', LGBMClassifier(**get_optimal_model_params('lgbm', use_gpu=USE_GPU, max_cpu_jobs=n_jobs))),
+        ('xgb', XGBClassifier(**get_optimal_model_params('xgb', use_gpu=False, max_cpu_jobs=n_jobs))),
+        ('cat', CatBoostClassifier(**get_optimal_model_params('cat', use_gpu=USE_GPU, max_cpu_jobs=n_jobs))),
+        ('hgb', HistGradientBoostingClassifier(max_iter=200, random_state=42)),  # Gère déjà les NaN
+        ('lr', make_pipeline(
+            StandardScaler(),
+            LogisticRegression(max_iter=1000, solver='liblinear', penalty='l2', n_jobs=n_jobs)
+        )),
+        # Ajoute d'autres modèles si besoin
     ]
     
     # Meta-model (peut être LogisticRegression, simple et efficace)
@@ -274,10 +288,9 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key, paral
             cv=5,
             final_estimator=meta_model,
             passthrough=False,
-            n_jobs=n_jobs
+            n_jobs=1
         ))
     ])
-    model.fit(X, y)
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
@@ -292,6 +305,15 @@ def train_or_load_model(df, exclude_seasons, model_identifier, season_key, paral
     return model
 # Affichage du code modifié de run_season_simulation incluant le paramètre reset_bankroll_each_season
 
+
+def get_training_df_excluding_future(df: pd.DataFrame, target_season: str) -> pd.DataFrame:
+    # On récupère l'index de la première ligne avec la saison cible
+    target_idx = df.index[df["SEASON"] == target_season]
+    if target_idx.empty:
+        raise ValueError(f"Saison cible {target_season} introuvable dans le dataset.")
+    
+    cutoff_index = target_idx.min()
+    return df.iloc[:cutoff_index].copy()
 
 def run_season_simulation(seasons_to_test: List[str],
                             exclude_future_seasons=True,
@@ -309,7 +331,8 @@ def run_season_simulation(seasons_to_test: List[str],
                             model_identifier="default",
                             reset_bankroll_each_season=False,
                             parallel=True,
-                            prob_diff_vs_book_range=None
+                            prob_diff_vs_book_range=None,
+                            best_bet_method="ev_diff"  # Option pour choisir la méthode de sélection du meilleur pari
                            ) -> Tuple[pd.DataFrame, dict]:
 
     bets_all = []
@@ -326,7 +349,7 @@ def run_season_simulation(seasons_to_test: List[str],
         print(f"\n--- Saison: {season} ---")
         season_df = full_df[full_df["SEASON"] == season].copy()
         if exclude_future_seasons:
-            training_df = full_df[full_df["SEASON"] < season].copy()
+            training_df = get_training_df_excluding_future(full_df, season)
         else:
             training_df = full_df[~full_df["SEASON"].isin(seasons_to_test)].copy()
 
@@ -360,7 +383,8 @@ def run_season_simulation(seasons_to_test: List[str],
             bankroll_stop=bankroll_stop,
             skip_first_n=skip_first_n,
             stake_method=stake_method,
-            prob_diff_vs_book_range=prob_diff_vs_book_range
+            prob_diff_vs_book_range=prob_diff_vs_book_range,
+            best_bet_method=best_bet_method
         )
         
         
