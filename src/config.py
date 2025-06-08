@@ -85,6 +85,7 @@ DATA_LAST_GAMES_MERGED_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games_merged')
 DATA_LAST_BOXSCORES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'boxscores')
 DATA_LAST_BOXSCORES_BATCHES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'batches')
 DATA_LAST_BOXSCORES_BATCHES_MERGED_DIR = os.path.join(DATA_RAW_LAST_DIR, 'batches_merged')
+DATA_LAST_PLAYERS_STATS_DIR = os.path.join(DATA_RAW_LAST_DIR, 'player_stats')
 
 DATA_FINAL_DATASET_DIR = os.path.join(DATA_DIR, 'final_dataset')
 DATA_FINAL_CLEANED_DATASET_DIR = os.path.join(DATA_DIR, 'final_cleaned_dataset')

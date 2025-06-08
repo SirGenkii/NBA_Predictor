@@ -456,3 +456,76 @@ def match_odds_with_dataset(odds_df, nba_df):
     merged = clean_merged_matches(merged)
 
     return merged
+
+
+
+def build_player_status_features(df_boxscore: pd.DataFrame) -> pd.DataFrame:
+    """
+    Génère des indicateurs de présence, absence, blessure et performance simple pour chaque joueur.
+    Attend une colonne MINUTES_PLAYED en décimal.
+    """
+    df = df_boxscore.copy()
+
+    df["is_present"] = df["MINUTES_PLAYED"] > 0
+
+    comment = df["comment"].fillna("").str.lower()
+
+    # Tags pour blessures
+    injury_keywords = [
+        "injury", "illness", "sore", "sprain", "fracture", "strain", "pain", "contusion", "concussion", 
+        "discomfort", "tendon", "inflammation", "rehab", "recover", "migraine", "toe", "back", "knee", "ligament", "finger","stomach",
+        "ankle", "hamstring", "groin", "shoulder", "wrist", "gastric", "conditioning", "reconditioning", "migraine","bruise","foot","leg",
+        "foot", "turf", "flu", "health", "headache", "stomacjh", "virus", "covid", "gastro", "gastroenteritis", "poisoning", "fasciitis",
+        "ankle","bruised","infection", "torn", "rupture", "tendinitis", "tendinopathy", "tendinosis", "tendonitis", "tendinopathy",
+        "bronchitis","respiratory", "respiratory illness", "respiratory infection", "respiratory distress", "respiratory condition", "respiratory issue","strained",
+        
+    ]
+    rest_keywords = ["rest", "load management", "reconditioning"]
+    suspension_keywords = ["suspension", "suspended", "suspend","league suspension"]
+
+    personal_keywords = ["personal", "paternity", "birth", "family", "not with team", "excused"]
+    
+    df["is_present"] = df["MINUTES_PLAYED"] > 0
+    comment = df["comment"].fillna("").str.lower()
+    df["comment"] = comment
+
+    df["is_suspended"] = (~df["is_present"]) & comment.apply(lambda x: any(k in x for k in suspension_keywords))
+    df["is_injured"] = (~df["is_present"]) & ~df["is_suspended"] & comment.apply(lambda x: any(k in x for k in injury_keywords))
+    df["is_resting"] = (~df["is_present"]) & ~df["is_suspended"] & ~df["is_injured"] & comment.apply(lambda x: any(k in x for k in rest_keywords))
+    df["is_personal"] = (~df["is_present"]) & ~df["is_suspended"] & ~df["is_injured"] & ~df["is_resting"] & comment.apply(lambda x: any(k in x for k in personal_keywords))
+    df["is_absent"] = (~df["is_present"]) & ~(df["is_injured"] | df["is_resting"] | df["is_suspended"] | df["is_personal"])
+
+
+
+    #convert all booleans in df to int 
+    bool_cols = df.select_dtypes(include=['bool']).columns
+    df[bool_cols] = df[bool_cols].astype(int)
+    
+
+    # Score simple de performance avec pondération (à ajuster ou améliorer avec SHAP )
+    df['player_perf_score'] = (
+        1.0 * df['points_traditional'].fillna(0) +
+        1.5 * df['assists_traditional'].fillna(0) +
+        1.2 * df['reboundsTotal_traditional'].fillna(0) +
+        1.0 * df['steals_traditional'].fillna(0) +
+        1.0 * df['blocks_traditional'].fillna(0) -
+        1.0 * df['turnovers_traditional'].fillna(0)
+    )
+    
+    df['player_defense_score'] = (
+        1.5 * df['steals_traditional'].fillna(0) +
+        1.5 * df['blocks_traditional'].fillna(0) -
+        1.0 * df['foulsPersonal_traditional'].fillna(0)
+    )
+
+    df['player_offense_score'] = (
+        1.2 * df['points_traditional'].fillna(0) +
+        1.5 * df['assists_traditional'].fillna(0) -
+        1.0 * df['turnovers_traditional'].fillna(0)
+    )
+    
+    df['player_impact_score'] = df['PIE_advanced'].fillna(0)
+
+
+
+    return df[['GAME_ID', 'TEAM_ID', 'personId', 'is_present', 'is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal', 'player_perf_score', 'player_defense_score', 'player_offense_score', 'player_impact_score','comment']].copy()
