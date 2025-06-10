@@ -47,7 +47,7 @@ def aggregate_actual_team_features(df_matches: pd.DataFrame) -> pd.DataFrame:
     Sauvegarde dans un CSV.
     """
     os.makedirs(DATA_LAST_PLAYERS_STATS_DIR, exist_ok=True)
-    agg = df_matches.groupby(['GAME_ID', 'TEAM_ID']).agg(
+    agg = df_matches.groupby(['GAME_ID', 'TEAM_ID', 'GAME_DATE']).agg(
         player_perf_score_mean=('player_perf_score', 'mean'),
         player_perf_score_sum=('player_perf_score', 'sum'),
         num_present=('is_present', 'sum'),
@@ -115,4 +115,9 @@ def flag_top_players_absences(df_boxscores: pd.DataFrame,
     ).reset_index()
 
     agg['top_player_absence_rate'] = agg['top_player_absent_count'] / agg['top_player_count']
+    agg['top_player_injury_rate'] = agg['top_player_injured'] / agg['top_player_count']
+    agg['top_player_resting_rate'] = agg['top_player_resting'] / agg['top_player_count']
+    agg['top_player_suspension_rate'] = agg['top_player_suspended'] / agg['top_player_count']
+    agg['top_player_personal_rate'] = agg['top_player_personal'] / agg['top_player_count']
+    
     return agg

@@ -528,4 +528,4 @@ def build_player_status_features(df_boxscore: pd.DataFrame) -> pd.DataFrame:
 
 
 
-    return df[['GAME_ID', 'TEAM_ID', 'personId', 'is_present', 'is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal', 'player_perf_score', 'player_defense_score', 'player_offense_score', 'player_impact_score','comment']].copy()
+    return df[['GAME_ID', 'TEAM_ID', 'GAME_DATE', 'personId', 'is_present', 'is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal', 'player_perf_score', 'player_defense_score', 'player_offense_score', 'player_impact_score','comment']].copy()
