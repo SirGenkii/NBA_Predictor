@@ -59,10 +59,33 @@ cols_to_weighted_avg = [
     'percentagePersonalFoulsDrawn_usage', 'percentagePoints_usage','plusMinusPoints_traditional'
 ]
 
+cols_player_stats = [
+    'num_absent',
+    'num_injured',
+    'num_personal',
+    'num_present',
+    'num_resting',
+    'num_suspended',
+    'player_perf_score_mean',
+    'player_perf_score_sum',
+    'top_player_absence_rate',
+    'top_player_absent_count',
+    'top_player_count',
+    'top_player_injured',
+    'top_player_injury_rate',
+    'top_player_personal',
+    'top_player_personal_rate',
+    'top_player_resting',
+    'top_player_resting_rate',
+    'top_player_suspended',
+    'top_player_suspension_rate'
+]
+    
 
 
-features_to_roll = cols_to_sum + cols_to_weighted_avg
-features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg]
+
+features_to_roll = cols_to_sum + cols_to_weighted_avg + cols_player_stats
+features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg + cols_player_stats]
 
 N_LIST = [3, 5, 10, 25, 50, 100, 200]
 
