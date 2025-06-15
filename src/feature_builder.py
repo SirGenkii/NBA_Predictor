@@ -6,20 +6,46 @@ from datetime import datetime
 from src.utils import get_team_mapping_id
 from datetime import timedelta
 
-def compute_rolling_features(df, group_col, sort_cols, value_cols, windows, method="mean"):
+import numpy as np
+import pandas as pd
+
+def compute_rolling_features(df, group_col, sort_cols, value_cols, windows, method="mean", apply_log=False):
+    """
+    Calcule des features de rolling moyenne ou ewm pour une liste de colonnes.
+    Si apply_log est True, applique log1p directement sur les colonnes générées, sans les dupliquer.
+    
+    Args:
+        df (pd.DataFrame): Données d'entrée.
+        group_col (str): Colonne de groupby (ex: TEAM_ID).
+        sort_cols (list): Colonnes de tri (ex: ['TEAM_ID', 'GAME_DATE']).
+        value_cols (list): Colonnes à transformer.
+        windows (list): Fenêtres de rolling.
+        method (str): "mean" ou "ewm".
+        apply_log (bool): Si True, applique log1p directement à la colonne générée.
+        
+    Returns:
+        pd.DataFrame enrichi.
+    """
     df = df.sort_values(sort_cols).copy()
+
     for col in value_cols:
         for window in windows:
+            roll_col = f"ROLL_{col}_{window}"
             if method == "ewm":
-                df[f"ROLL_{col}_{window}"] = (
+                df[roll_col] = (
                     df.groupby(group_col)[col]
-                      .transform(lambda x: x.shift(1).ewm(span=window, min_periods=1).mean())
+                    .transform(lambda x: x.shift(1).ewm(span=window, min_periods=1).mean())
                 )
             else:
-                df[f"ROLL_{col}_{window}"] = (
+                df[roll_col] = (
                     df.groupby(group_col)[col]
-                      .transform(lambda x: x.shift(1).rolling(window, min_periods=1).mean())
+                    .transform(lambda x: x.shift(1).rolling(window, min_periods=1).mean())
                 )
+
+            if apply_log:
+                # On remplace directement la colonne par sa version log1p
+                df[roll_col] = np.log1p(df[roll_col].clip(lower=0))
+
     return df
 
 
@@ -120,6 +146,56 @@ def compute_elo(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.DataFram
     return df
 
 
+
+def compute_elo_season(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.DataFrame:
+
+    df = df.sort_values(["SEASON", "GAME_DATE", "GAME_ID", "TEAM_ID"]).copy()
+    elo_history = defaultdict(lambda: start)
+    elos = []
+
+    for _, row in df.iterrows():
+        season = row["SEASON"]
+        team = row["TEAM_ID"]
+        opp = row["OPP_TEAM_ID"]
+        game_id = row["GAME_ID"]
+
+        team_elo = elo_history[(season, team)]
+        opp_elo = elo_history[(season, opp)]
+
+        expected = 1 / (1 + 10 ** ((opp_elo - team_elo) / 400))
+        outcome = 1 if row["IS_WIN"] else 0
+
+        new_elo = team_elo + k * (outcome - expected)
+        elo_history[(season, team)] = new_elo
+
+        elos.append({"GAME_ID": game_id, "TEAM_ID": team, "ELO_PRE_SEASON": team_elo})
+
+    elo_df = pd.DataFrame(elos)
+    df = df.merge(elo_df, on=["GAME_ID", "TEAM_ID"], how="left")
+
+    # Ajout propre de OPP_ELO_PRE_SEASON
+    opp_elo_df = elo_df.rename(columns={"TEAM_ID": "OPP_TEAM_ID", "ELO_PRE_SEASON": "OPP_ELO_PRE_SEASON"})
+    df = df.merge(opp_elo_df, on=["GAME_ID", "OPP_TEAM_ID"], how="left")
+
+    return df
+
+
+def convert_elos_to_elo_diff(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Convertit les colonnes ELO_PRE et OPP_ELO_PRE en une seule colonne ELO_DIFF.
+    """
+    
+    df = df.copy()
+    
+    df["ELO_DIFF"] = df["ELO_PRE"] - df["OPP_ELO_PRE"]
+    df["ELO_DIFF_SEASON"] = df["ELO_PRE_SEASON"] - df["OPP_ELO_PRE_SEASON"]
+    
+    # Supprimer les colonnes originales
+    df.drop(columns=["ELO_PRE", "OPP_ELO_PRE", "ELO_PRE_SEASON", "OPP_ELO_PRE_SEASON"], inplace=True, errors='ignore')
+    
+    return df
+
+
 def compute_winrates(df: pd.DataFrame, group_col: str, win_col: str, home_col: str, windows: list) -> pd.DataFrame:
     for n in windows:
         df[f"ROLL_HOME_WINRATE_{n}"] = (
@@ -207,39 +283,6 @@ def compute_home_away_pts(df: pd.DataFrame, group_col: str, is_home_col: str, pt
         
     return df
 
-
-
-def compute_elo_season(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.DataFrame:
-
-    df = df.sort_values(["SEASON", "GAME_DATE", "GAME_ID", "TEAM_ID"]).copy()
-    elo_history = defaultdict(lambda: start)
-    elos = []
-
-    for _, row in df.iterrows():
-        season = row["SEASON"]
-        team = row["TEAM_ID"]
-        opp = row["OPP_TEAM_ID"]
-        game_id = row["GAME_ID"]
-
-        team_elo = elo_history[(season, team)]
-        opp_elo = elo_history[(season, opp)]
-
-        expected = 1 / (1 + 10 ** ((opp_elo - team_elo) / 400))
-        outcome = 1 if row["IS_WIN"] else 0
-
-        new_elo = team_elo + k * (outcome - expected)
-        elo_history[(season, team)] = new_elo
-
-        elos.append({"GAME_ID": game_id, "TEAM_ID": team, "ELO_PRE_SEASON": team_elo})
-
-    elo_df = pd.DataFrame(elos)
-    df = df.merge(elo_df, on=["GAME_ID", "TEAM_ID"], how="left")
-
-    # Ajout propre de OPP_ELO_PRE_SEASON
-    opp_elo_df = elo_df.rename(columns={"TEAM_ID": "OPP_TEAM_ID", "ELO_PRE_SEASON": "OPP_ELO_PRE_SEASON"})
-    df = df.merge(opp_elo_df, on=["GAME_ID", "OPP_TEAM_ID"], how="left")
-
-    return df
 
     
 
@@ -435,7 +478,7 @@ def match_odds_with_dataset(odds_df, nba_df):
     # print(nba_df["match_key"].drop_duplicates().head())
 
 
-    merged = pd.merge(odds_full, nba_df, on="match_key", how="left")
+    merged = pd.merge(odds_full, nba_df, on="match_key", how="right")
     
     # Attribution claire des cotes à chaque ligne équipe
     merged["ODDS"] = merged.apply(
@@ -489,11 +532,13 @@ def build_player_status_features(df_boxscore: pd.DataFrame) -> pd.DataFrame:
     comment = df["comment"].fillna("").str.lower()
     df["comment"] = comment
 
+    df["is_absent"] = ~df["is_present"]
+
     df["is_suspended"] = (~df["is_present"]) & comment.apply(lambda x: any(k in x for k in suspension_keywords))
     df["is_injured"] = (~df["is_present"]) & ~df["is_suspended"] & comment.apply(lambda x: any(k in x for k in injury_keywords))
     df["is_resting"] = (~df["is_present"]) & ~df["is_suspended"] & ~df["is_injured"] & comment.apply(lambda x: any(k in x for k in rest_keywords))
     df["is_personal"] = (~df["is_present"]) & ~df["is_suspended"] & ~df["is_injured"] & ~df["is_resting"] & comment.apply(lambda x: any(k in x for k in personal_keywords))
-    df["is_absent"] = (~df["is_present"]) & ~(df["is_injured"] | df["is_resting"] | df["is_suspended"] | df["is_personal"])
+    df["is_absent_other"] = (~df["is_present"]) & ~(df["is_injured"] | df["is_resting"] | df["is_suspended"] | df["is_personal"])
 
 
 
@@ -528,4 +573,10 @@ def build_player_status_features(df_boxscore: pd.DataFrame) -> pd.DataFrame:
 
 
 
-    return df[['GAME_ID', 'TEAM_ID', 'GAME_DATE', 'personId', 'is_present', 'is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal', 'player_perf_score', 'player_defense_score', 'player_offense_score', 'player_impact_score','comment']].copy()
+    return df[[
+        'GAME_ID', 'TEAM_ID', 'GAME_DATE', 'personId', 
+        'is_present', 'is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal', 'is_absent_other', 
+        'player_perf_score', 'player_defense_score', 'player_offense_score', 
+        'player_impact_score',
+        'comment'
+        ]].copy()

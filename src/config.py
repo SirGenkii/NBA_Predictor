@@ -66,10 +66,11 @@ cols_player_stats = [
     'num_present',
     'num_resting',
     'num_suspended',
+    'num_absent_other',
     'player_perf_score_mean',
     'player_perf_score_sum',
-    'top_player_absence_rate',
-    'top_player_absent_count',
+    'top_player_absent',
+    'top_player_absent_rate',
     'top_player_count',
     'top_player_injured',
     'top_player_injury_rate',
@@ -78,18 +79,24 @@ cols_player_stats = [
     'top_player_resting',
     'top_player_resting_rate',
     'top_player_suspended',
-    'top_player_suspension_rate'
+    'top_player_suspension_rate',
+    'top_player_absent_other',
+    'top_player_absent_other_rate',
+    
 ]
     
 
 
 
-features_to_roll = cols_to_sum + cols_to_weighted_avg + cols_player_stats
-features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg + cols_player_stats]
+features_to_roll = cols_to_sum + cols_to_weighted_avg #+ cols_player_stats
+features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg] #+ cols_player_stats]
+
+top_player_features_to_roll = cols_player_stats.copy()
+top_player_features_to_roll += [f"OPP_{col}" for col in cols_player_stats] 
 
 N_LIST = [3, 5, 10, 25, 50, 100, 200]
 
-
+N_LIST_TOP = [1, 2, 3, 5, 10]
 
 DATA_DIR = 'data'
 DATA_RAW_DIR = os.path.join(DATA_DIR, 'raw')

@@ -1,6 +1,8 @@
 import pandas as pd
 from typing import List
 import os
+import numpy as np
+
 from src.config import DATA_LAST_PLAYERS_STATS_DIR
 
 def compute_weighted_mean_features(df, group_keys, feature_cols, weight_col):
@@ -56,6 +58,7 @@ def aggregate_actual_team_features(df_matches: pd.DataFrame) -> pd.DataFrame:
         num_suspended=('is_suspended', 'sum'),
         num_resting=('is_resting', 'sum'),
         num_personal=('is_personal', 'sum'),
+        num_absent_other=('is_absent_other', 'sum'),
     ).reset_index()
     agg.to_csv(os.path.join(
         DATA_LAST_PLAYERS_STATS_DIR, 'aggregate_actual_team_features.csv'
@@ -98,26 +101,31 @@ def flag_top_players_absences(df_boxscores: pd.DataFrame,
     """
     Marque les absences des top joueurs historiques, en détaillant les causes (blessure, repos, etc.).
     """
-    cols = ['GAME_ID', 'TEAM_ID', 'personId', 'is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal']
+    cols = ['GAME_ID', 'TEAM_ID', 'personId', 'is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal','is_absent_other']
     df = df_boxscores[cols].copy()
     
     merged = hist_tops.merge(df, on=['GAME_ID', 'TEAM_ID', 'personId'], how='left')
-    for col in ['is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal']:
+    for col in ['is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal','is_absent_other']:
         merged[col] = merged[col].fillna(0).astype(int)
 
     agg = merged.groupby(['GAME_ID', 'TEAM_ID']).agg(
         top_player_count=('personId', 'nunique'),
-        top_player_absent_count=('is_absent', 'sum'),
+        top_player_absent=('is_absent', 'sum'),
         top_player_injured=('is_injured', 'sum'),
         top_player_resting=('is_resting', 'sum'),
         top_player_suspended=('is_suspended', 'sum'),
         top_player_personal=('is_personal', 'sum'),
+        top_player_absent_other=('is_absent_other', 'sum'),
     ).reset_index()
 
-    agg['top_player_absence_rate'] = agg['top_player_absent_count'] / agg['top_player_count']
+
+    agg['top_player_count'] = agg['top_player_count'].replace(0, np.nan)
+
+    agg['top_player_absent_rate'] = agg['top_player_absent'] / agg['top_player_count']
     agg['top_player_injury_rate'] = agg['top_player_injured'] / agg['top_player_count']
     agg['top_player_resting_rate'] = agg['top_player_resting'] / agg['top_player_count']
     agg['top_player_suspension_rate'] = agg['top_player_suspended'] / agg['top_player_count']
     agg['top_player_personal_rate'] = agg['top_player_personal'] / agg['top_player_count']
+    agg['top_player_absent_other_rate'] = agg['top_player_absent_other'] / agg['top_player_count']
     
     return agg

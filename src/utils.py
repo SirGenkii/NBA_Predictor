@@ -173,7 +173,7 @@ def prepare_model_input(df: pd.DataFrame, target: str = "IS_WIN", model=None, dr
     if drop_odds:
         drop_cols += COLS_ODDS
 
-    drop_cols += COLS_MATCH_REAL + features_to_roll
+    drop_cols += COLS_MATCH_REAL + features_to_roll + top_player_features_to_roll
     features = [col for col in df.columns if col not in drop_cols + [target]]
     
     #drop nan
