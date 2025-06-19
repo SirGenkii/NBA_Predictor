@@ -81,16 +81,18 @@ cols_player_stats = [
     'top_player_suspended',
     'top_player_suspension_rate',
     'top_player_absent_other',
-    'top_player_absent_other_rate',
-    
+    'top_player_absent_other_rate',   
 ]
     
+player_absent_input_cols = [
+    'has_top_absent',
+    'has_absent',
+    'top_player_absent',
+    'num_absent',
+]
 
-
-
-features_to_roll = cols_to_sum + cols_to_weighted_avg #+ cols_player_stats
-features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg] #+ cols_player_stats]
-
+features_to_roll = cols_to_sum + cols_to_weighted_avg 
+features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg]
 top_player_features_to_roll = cols_player_stats.copy()
 top_player_features_to_roll += [f"OPP_{col}" for col in cols_player_stats] 
 
