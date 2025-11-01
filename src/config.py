@@ -2,41 +2,103 @@ import os
 import sys
 
 
-# Liste des colonnes à dropper (toutes les stats brutes et colonnes de match, identifiants inutiles, etc.)
+# Liste des colonnes à dropper pour clean dataset final. 
+# Currently keeping ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'POINT_DIFF','SEASON'] to drop them before modeling.
 COLS_MATCH_REAL = [
     # Identifiants et logs
-    "OPP_GAME_DATE", "MATCHUP",
-
-    "IS_WIN_SHIFTED", 
-
-    # Stats brutes de match (pour les deux équipes)
-    "FGM", "FGA", "FG_PCT", "FG3M", "FG3A", "FG3_PCT", "FTM", "FTA", "FT_PCT",
-    "OREB", "DREB", "REB", "AST", "STL", "BLK", "TO", "PF", "PTS", "PLUS_MINUS", "MINUTES_PLAYED",
-    "OPP_FGM", "OPP_FGA", "OPP_FG_PCT", "OPP_FG3M", "OPP_FG3A", "OPP_FG3_PCT", "OPP_FTM", "OPP_FTA", "OPP_FT_PCT",
-    "OPP_OREB", "OPP_DREB", "OPP_REB", "OPP_AST", "OPP_STL", "OPP_BLK", "OPP_TO", "OPP_PF", "OPP_PTS",
-    "OPP_PLUS_MINUS", "OPP_MINUTES_PLAYED",
-    "POINT_DIFF",
-
-    # Nouvelles features brutes ajoutées
-    "TS_PCT", "EFG_PCT", "AST_TO_RATIO", "REB_RATE",
-    "POSSESSIONS","OPP_POSSESSIONS","OFF_RATING","DEF_RATING",
+    "OPP_GAME_DATE", "MATCHUP","IS_WIN_SHIFTED",
     
-    #ajoutée avec les odds
+    #ajoutés par les odds 
     "TEAM_NAME","OPPONENT_NAME"
+]
+
+COLS_TO_DROP_TARGET_IS_WIN = ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'POINT_DIFF','SEASON']
+COLS_TO_DROP_TARGET_POINT_DIFF = ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'IS_WIN','SEASON']
+
+COLS_ODDS = ["ODDS","OPP_ODDS"]
+
+
+cols_to_sum = [
+    'fieldGoalsMade_traditional', 'fieldGoalsAttempted_traditional',
+    'threePointersMade_traditional', 'threePointersAttempted_traditional',
+    'freeThrowsMade_traditional', 'freeThrowsAttempted_traditional',
+    'reboundsOffensive_traditional', 'reboundsDefensive_traditional',
+    'reboundsTotal_traditional', 'assists_traditional', 'steals_traditional',
+    'blocks_traditional', 'turnovers_traditional', 'foulsPersonal_traditional',
+    'points_traditional', 'MINUTES_PLAYED',
+    'pointsOffTurnovers_misc', 'pointsSecondChance_misc', 'pointsFastBreak_misc',
+    'pointsPaint_misc', 'blocksAgainst_misc'
+]
+
+cols_to_weighted_avg = [
+    'offensiveRating_advanced', 'defensiveRating_advanced', 'netRating_advanced',
+    'assistPercentage_advanced', 'assistToTurnover_advanced', 'assistRatio_advanced',
+    'offensiveReboundPercentage_advanced', 'defensiveReboundPercentage_advanced',
+    'reboundPercentage_advanced', 'turnoverRatio_advanced', 'effectiveFieldGoalPercentage_advanced',
+    'trueShootingPercentage_advanced', 'usagePercentage_advanced', 'estimatedPace_advanced',
+    'pace_advanced', 'possessions_advanced', 'PIE_advanced',
+    'effectiveFieldGoalPercentage_fourfactors', 'freeThrowAttemptRate_fourfactors',
+    'teamTurnoverPercentage_fourfactors', 'oppEffectiveFieldGoalPercentage_fourfactors',
+    'oppFreeThrowAttemptRate_fourfactors', 'oppTeamTurnoverPercentage_fourfactors',
+    'oppOffensiveReboundPercentage_fourfactors', 'foulsDrawn_misc',
+    'percentageFieldGoalsAttempted2pt_scoring', 'percentageFieldGoalsAttempted3pt_scoring',
+    'percentagePoints2pt_scoring', 'percentagePointsMidrange2pt_scoring',
+    'percentagePoints3pt_scoring', 'percentagePointsFastBreak_scoring',
+    'percentagePointsFreeThrow_scoring', 'percentagePointsOffTurnovers_scoring',
+    'percentagePointsPaint_scoring', 'percentageAssisted2pt_scoring',
+    'percentageUnassisted2pt_scoring', 'percentageAssisted3pt_scoring',
+    'percentageUnassisted3pt_scoring', 'percentageAssistedFGM_scoring',
+    'percentageUnassistedFGM_scoring', 'threePointersPercentage_traditional',
+    'freeThrowsPercentage_traditional', 'percentageFieldGoalsMade_usage',
+    'percentageFieldGoalsAttempted_usage', 'percentageThreePointersMade_usage',
+    'percentageThreePointersAttempted_usage', 'percentageFreeThrowsMade_usage',
+    'percentageFreeThrowsAttempted_usage', 'percentageReboundsOffensive_usage',
+    'percentageReboundsDefensive_usage', 'percentageReboundsTotal_usage',
+    'percentageAssists_usage', 'percentageTurnovers_usage', 'percentageSteals_usage',
+    'percentageBlocks_usage', 'percentageBlocksAllowed_usage', 'percentagePersonalFouls_usage',
+    'percentagePersonalFoulsDrawn_usage', 'percentagePoints_usage','plusMinusPoints_traditional'
+]
+
+cols_player_stats = [
+    'num_absent',
+    'num_injured',
+    'num_personal',
+    'num_present',
+    'num_resting',
+    'num_suspended',
+    'num_absent_other',
+    'player_perf_score_mean',
+    'player_perf_score_sum',
+    'top_player_absent',
+    'top_player_absent_rate',
+    'top_player_count',
+    'top_player_injured',
+    'top_player_injury_rate',
+    'top_player_personal',
+    'top_player_personal_rate',
+    'top_player_resting',
+    'top_player_resting_rate',
+    'top_player_suspended',
+    'top_player_suspension_rate',
+    'top_player_absent_other',
+    'top_player_absent_other_rate',   
+]
     
+player_absent_input_cols = [
+    'has_top_absent',
+    'has_absent',
+    'top_player_absent',
+    'num_absent',
 ]
 
-
-FEATURES_TO_ROLL = [
-    'PTS', 'REB', 'AST', 'FGM', 'FGA', 'FG_PCT', 'PLUS_MINUS',
-    'TS_PCT', 'EFG_PCT', 'AST_TO_RATIO', 'REB_RATE',
-    "POSSESSIONS","OPP_POSSESSIONS",
-    "OFF_RATING","DEF_RATING" 
-]
+features_to_roll = cols_to_sum + cols_to_weighted_avg 
+features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg]
+top_player_features_to_roll = cols_player_stats.copy()
+top_player_features_to_roll += [f"OPP_{col}" for col in cols_player_stats] 
 
 N_LIST = [3, 5, 10, 25, 50, 100, 200]
 
-
+N_LIST_TOP = [1, 2, 3, 5, 10]
 
 DATA_DIR = 'data'
 DATA_RAW_DIR = os.path.join(DATA_DIR, 'raw')
@@ -48,12 +110,14 @@ DATA_BOXSCORES_BATCHES_DIR = os.path.join(DATA_BOXSCORES_DIR, 'batches')
 DATA_BOXSCORES_BATCHES_MERGED_DIR = os.path.join(DATA_BOXSCORES_DIR, 'batches_merged')
 
 
+
 DATA_RAW_LAST_DIR = os.path.join(DATA_DIR, 'raw_last')
 DATA_LAST_GAMES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games')
 DATA_LAST_GAMES_MERGED_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games_merged')
 DATA_LAST_BOXSCORES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'boxscores')
 DATA_LAST_BOXSCORES_BATCHES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'batches')
 DATA_LAST_BOXSCORES_BATCHES_MERGED_DIR = os.path.join(DATA_RAW_LAST_DIR, 'batches_merged')
+DATA_LAST_PLAYERS_STATS_DIR = os.path.join(DATA_RAW_LAST_DIR, 'player_stats')
 
 DATA_FINAL_DATASET_DIR = os.path.join(DATA_DIR, 'final_dataset')
 DATA_FINAL_CLEANED_DATASET_DIR = os.path.join(DATA_DIR, 'final_cleaned_dataset')
@@ -72,5 +136,6 @@ DATA_GRID_SIMULATIONS_BETS_DIR = os.path.join(DATA_DIR, 'grid_simulations')
 BATCH_SIZE = 25
 
 ERROR_LOG_FOLDER = 'logs'
+BOXSCORES_SCRAPPING_LOG_FILE = os.path.join(ERROR_LOG_FOLDER, 'boxscores_scrapping.log')
 
 FULL_CSV = 'nba_player_boxscores_full.csv'

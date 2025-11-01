@@ -6,20 +6,46 @@ from datetime import datetime
 from src.utils import get_team_mapping_id
 from datetime import timedelta
 
-def compute_rolling_features(df, group_col, sort_cols, value_cols, windows, method="mean"):
+import numpy as np
+import pandas as pd
+
+def compute_rolling_features(df, group_col, sort_cols, value_cols, windows, method="mean", apply_log=False):
+    """
+    Calcule des features de rolling moyenne ou ewm pour une liste de colonnes.
+    Si apply_log est True, applique log1p directement sur les colonnes générées, sans les dupliquer.
+    
+    Args:
+        df (pd.DataFrame): Données d'entrée.
+        group_col (str): Colonne de groupby (ex: TEAM_ID).
+        sort_cols (list): Colonnes de tri (ex: ['TEAM_ID', 'GAME_DATE']).
+        value_cols (list): Colonnes à transformer.
+        windows (list): Fenêtres de rolling.
+        method (str): "mean" ou "ewm".
+        apply_log (bool): Si True, applique log1p directement à la colonne générée.
+        
+    Returns:
+        pd.DataFrame enrichi.
+    """
     df = df.sort_values(sort_cols).copy()
+
     for col in value_cols:
         for window in windows:
+            roll_col = f"ROLL_{col}_{window}"
             if method == "ewm":
-                df[f"ROLL_{col}_{window}"] = (
+                df[roll_col] = (
                     df.groupby(group_col)[col]
-                      .transform(lambda x: x.shift(1).ewm(span=window, min_periods=1).mean())
+                    .transform(lambda x: x.shift(1).ewm(span=window, min_periods=1).mean())
                 )
             else:
-                df[f"ROLL_{col}_{window}"] = (
+                df[roll_col] = (
                     df.groupby(group_col)[col]
-                      .transform(lambda x: x.shift(1).rolling(window, min_periods=1).mean())
+                    .transform(lambda x: x.shift(1).rolling(window, min_periods=1).mean())
                 )
+
+            if apply_log:
+                # On remplace directement la colonne par sa version log1p
+                df[roll_col] = np.log1p(df[roll_col].clip(lower=0))
+
     return df
 
 
@@ -58,14 +84,22 @@ def streak_grouped_shifted(group, is_home):
     return pd.Series(streaks, index=group.index)
 
 
-def compute_side_win_streak(df: pd.DataFrame) -> pd.DataFrame:
+def compute_side_win_streak(df: pd.DataFrame, win_shifted_col: str = "IS_WIN_SHIFTED") -> pd.DataFrame:
+    """
+    Calcule les streaks de victoire à domicile et à l'extérieur en utilisant une colonne de victoire shiftée.
+    """
     df = df.sort_values(["TEAM_ID", "GAME_DATE"]).copy()
-    df["IS_WIN_SHIFTED"] = df.groupby("TEAM_ID")["IS_WIN"].shift(1).fillna(0).astype(int)
 
-    df["HOME_WIN_STREAK"] = df.groupby("TEAM_ID").apply(lambda g: streak_grouped_shifted(g, is_home=1)).reset_index(level=0, drop=True)
-    df["AWAY_WIN_STREAK"] = df.groupby("TEAM_ID").apply(lambda g: streak_grouped_shifted(g, is_home=0)).reset_index(level=0, drop=True)
+    df["HOME_WIN_STREAK"] = df.groupby("TEAM_ID").apply(
+        lambda g: streak_grouped_shifted(g, is_home=1)
+    ).reset_index(level=0, drop=True)
 
-    return df.drop(columns=["IS_WIN_SHIFTED"])
+    df["AWAY_WIN_STREAK"] = df.groupby("TEAM_ID").apply(
+        lambda g: streak_grouped_shifted(g, is_home=0)
+    ).reset_index(level=0, drop=True)
+
+    return df
+
 
 
 def rename_pts_against_columns(df: pd.DataFrame) -> pd.DataFrame:
@@ -109,6 +143,56 @@ def compute_elo(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.DataFram
     opp_elo_df = elo_df.rename(columns={"TEAM_ID": "OPP_TEAM_ID", "ELO_PRE": "OPP_ELO_PRE"})
     df = df.merge(opp_elo_df, on=["GAME_ID", "OPP_TEAM_ID"], how="left")
 
+    return df
+
+
+
+def compute_elo_season(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.DataFrame:
+
+    df = df.sort_values(["SEASON", "GAME_DATE", "GAME_ID", "TEAM_ID"]).copy()
+    elo_history = defaultdict(lambda: start)
+    elos = []
+
+    for _, row in df.iterrows():
+        season = row["SEASON"]
+        team = row["TEAM_ID"]
+        opp = row["OPP_TEAM_ID"]
+        game_id = row["GAME_ID"]
+
+        team_elo = elo_history[(season, team)]
+        opp_elo = elo_history[(season, opp)]
+
+        expected = 1 / (1 + 10 ** ((opp_elo - team_elo) / 400))
+        outcome = 1 if row["IS_WIN"] else 0
+
+        new_elo = team_elo + k * (outcome - expected)
+        elo_history[(season, team)] = new_elo
+
+        elos.append({"GAME_ID": game_id, "TEAM_ID": team, "ELO_PRE_SEASON": team_elo})
+
+    elo_df = pd.DataFrame(elos)
+    df = df.merge(elo_df, on=["GAME_ID", "TEAM_ID"], how="left")
+
+    # Ajout propre de OPP_ELO_PRE_SEASON
+    opp_elo_df = elo_df.rename(columns={"TEAM_ID": "OPP_TEAM_ID", "ELO_PRE_SEASON": "OPP_ELO_PRE_SEASON"})
+    df = df.merge(opp_elo_df, on=["GAME_ID", "OPP_TEAM_ID"], how="left")
+
+    return df
+
+
+def convert_elos_to_elo_diff(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Convertit les colonnes ELO_PRE et OPP_ELO_PRE en une seule colonne ELO_DIFF.
+    """
+    
+    df = df.copy()
+    
+    df["ELO_DIFF"] = df["ELO_PRE"] - df["OPP_ELO_PRE"]
+    df["ELO_DIFF_SEASON"] = df["ELO_PRE_SEASON"] - df["OPP_ELO_PRE_SEASON"]
+    
+    # Supprimer les colonnes originales
+    df.drop(columns=["ELO_PRE", "OPP_ELO_PRE", "ELO_PRE_SEASON", "OPP_ELO_PRE_SEASON"], inplace=True, errors='ignore')
+    
     return df
 
 
@@ -200,39 +284,6 @@ def compute_home_away_pts(df: pd.DataFrame, group_col: str, is_home_col: str, pt
     return df
 
 
-
-def compute_elo_season(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.DataFrame:
-
-    df = df.sort_values(["SEASON", "GAME_DATE", "GAME_ID", "TEAM_ID"]).copy()
-    elo_history = defaultdict(lambda: start)
-    elos = []
-
-    for _, row in df.iterrows():
-        season = row["SEASON"]
-        team = row["TEAM_ID"]
-        opp = row["OPP_TEAM_ID"]
-        game_id = row["GAME_ID"]
-
-        team_elo = elo_history[(season, team)]
-        opp_elo = elo_history[(season, opp)]
-
-        expected = 1 / (1 + 10 ** ((opp_elo - team_elo) / 400))
-        outcome = 1 if row["IS_WIN"] else 0
-
-        new_elo = team_elo + k * (outcome - expected)
-        elo_history[(season, team)] = new_elo
-
-        elos.append({"GAME_ID": game_id, "TEAM_ID": team, "ELO_PRE_SEASON": team_elo})
-
-    elo_df = pd.DataFrame(elos)
-    df = df.merge(elo_df, on=["GAME_ID", "TEAM_ID"], how="left")
-
-    # Ajout propre de OPP_ELO_PRE_SEASON
-    opp_elo_df = elo_df.rename(columns={"TEAM_ID": "OPP_TEAM_ID", "ELO_PRE_SEASON": "OPP_ELO_PRE_SEASON"})
-    df = df.merge(opp_elo_df, on=["GAME_ID", "OPP_TEAM_ID"], how="left")
-
-    return df
-
     
 
 def compute_h2h_pts_margin(df: pd.DataFrame, windows: list) -> pd.DataFrame:
@@ -253,8 +304,8 @@ def compute_h2h_pts_margin(df: pd.DataFrame, windows: list) -> pd.DataFrame:
             pts_for.append(avg_for)
             pts_against.append(avg_against)
             margins.append(avg_margin)
-            pts_for_hist[key].append(row["PTS"])
-            pts_against_hist[key].append(row["OPP_PTS"])
+            pts_for_hist[key].append(row["points_traditional"])
+            pts_against_hist[key].append(row["OPP_points_traditional"])
 
         df[f"H2H_LAST_{n}_PTS_FOR"] = pts_for
         df[f"H2H_LAST_{n}_PTS_AGAINST"] = pts_against
@@ -363,23 +414,87 @@ def add_advanced_boxscore_features(df):
 def clean_team_name(name):
     return name.strip().lower() if isinstance(name, str) else name
 
+
+def match_odds_with_dataset_test(odds_df, nba_df):
+    
+    team_id_map = get_team_mapping_id()
+    
+    nba_df = nba_df.copy()
+    odds_df = odds_df.copy()
+
+    # Conversion explicite des ID en str
+    nba_df["TEAM_ID"] = nba_df["TEAM_ID"].astype(str)
+    nba_df["OPP_TEAM_ID"] = nba_df["OPP_TEAM_ID"].astype(str)
+    team_id_map = {str(k): v for k, v in team_id_map.items()}
+
+    nba_df["TEAM_NAME"] = nba_df["TEAM_ID"].map(team_id_map).apply(clean_team_name)
+    nba_df["OPPONENT_NAME"] = nba_df["OPP_TEAM_ID"].map(team_id_map).apply(clean_team_name)
+    nba_df["GAME_DATE"] = pd.to_datetime(nba_df["GAME_DATE"]).dt.date
+
+    odds_df["home_team"] = odds_df["home_team"].apply(clean_team_name)
+    odds_df["away_team"] = odds_df["away_team"].apply(clean_team_name)
+    odds_df["date"] = pd.to_datetime(odds_df["date"]).dt.date
+
+    nba_df["match_key"] = nba_df.apply(
+        lambda row: (row["GAME_DATE"], row["TEAM_NAME"], row["OPPONENT_NAME"])
+        if row["IS_HOME"] == 1
+        else (row["GAME_DATE"], row["OPPONENT_NAME"], row["TEAM_NAME"]),
+        axis=1,
+    )
+
+    keys_full = []
+    for shift in [-1, 0, 1]:
+        shifted = odds_df.copy()
+        shifted["match_key"] = shifted.apply(
+            lambda row: (row["date"] + timedelta(days=shift), row["home_team"], row["away_team"]),
+            axis=1
+        )
+        keys_full.append(shifted)
+
+    odds_full = pd.concat(keys_full, ignore_index=True)
+    odds_full = odds_full.drop_duplicates(subset=["match_key"])
+
+    # print("\nExemples de clés de match dans odds_df (tolérance date):")
+    # print(odds_full["match_key"].drop_duplicates().head())
+    # print("\nExemples de clés de match dans nba_df:")
+    # print(nba_df["match_key"].drop_duplicates().head())
+
+
+    merged = pd.merge(odds_full, nba_df, on="match_key", how="right")
+    
+    # Attribution claire des cotes à chaque ligne équipe
+    merged["ODDS"] = merged.apply(
+        lambda row: row["home_odds"] if row["IS_HOME"] == 1 else row["away_odds"], axis=1
+    )
+    merged["OPP_ODDS"] = merged.apply(
+        lambda row: row["away_odds"] if row["IS_HOME"] == 1 else row["home_odds"], axis=1
+    )
+    
+    # Nettoyage des données fusionnées
+    merged = clean_merged_matches(merged)
+
+    return merged
+
+
+
 def clean_merged_matches(df):
     df = df.copy()
     df = df[df['TEAM_ID'].notna() & df['OPP_TEAM_ID'].notna()]
     df = df.drop_duplicates(subset=["match_key", "TEAM_ID"])
     
+    # Compter les lignes sans odds AVANT de supprimer les colonnes
+    if 'home_odds' in df.columns and 'away_odds' in df.columns:
+        odds_na_count = df[df['home_odds'].isna() | df['away_odds'].isna()].shape[0]
+        print(f"------------------ Nombre de lignes sans cotes (home/away): {odds_na_count} ------------------")
+    else:
+        # Sinon, compter sur les colonnes ODDS/OPP_ODDS
+        odds_na_count = df[df['ODDS'].isna() | df['OPP_ODDS'].isna()].shape[0]
+        print(f"------------------ Nombre de lignes sans cotes (ODDS/OPP_ODDS): {odds_na_count} ------------------")
+
     # Suppression des colonnes originales de odds
     df.drop(columns=["date","match_key","home_team", "away_team", "home_odds", "away_odds", "home_score", "away_score"], inplace=True, errors='ignore')
-    
-    #df = df.dropna(subset=["home_odds", "away_odds"])
-    
-    #drop nan for "home_odds", "away_odds" and print the number of rows removed
-    initial_rows = len(df)
-    df = df.dropna(subset=["ODDS", "OPP_ODDS"])
-    removed_rows = initial_rows - len(df)
-    if removed_rows > 0:
-        print(f"------------------ Nombre de lignes supprimées pour cotes manquantes: {removed_rows} ------------------")
-    
+
+
     return df.reset_index(drop=True)
 
 def match_odds_with_dataset(odds_df, nba_df):
@@ -427,7 +542,7 @@ def match_odds_with_dataset(odds_df, nba_df):
     # print(nba_df["match_key"].drop_duplicates().head())
 
 
-    merged = pd.merge(odds_full, nba_df, on="match_key", how="left")
+    merged = pd.merge(odds_full, nba_df, on="match_key", how="right")
     
     # Attribution claire des cotes à chaque ligne équipe
     merged["ODDS"] = merged.apply(
@@ -448,3 +563,84 @@ def match_odds_with_dataset(odds_df, nba_df):
     merged = clean_merged_matches(merged)
 
     return merged
+
+
+
+def build_player_status_features(df_boxscore: pd.DataFrame) -> pd.DataFrame:
+    """
+    Génère des indicateurs de présence, absence, blessure et performance simple pour chaque joueur.
+    Attend une colonne MINUTES_PLAYED en décimal.
+    """
+    df = df_boxscore.copy()
+
+    df["is_present"] = df["MINUTES_PLAYED"] > 0
+
+    comment = df["comment"].fillna("").str.lower()
+
+    # Tags pour blessures
+    injury_keywords = [
+        "injury", "illness", "sore", "sprain", "fracture", "strain", "pain", "contusion", "concussion", 
+        "discomfort", "tendon", "inflammation", "rehab", "recover", "migraine", "toe", "back", "knee", "ligament", "finger","stomach",
+        "ankle", "hamstring", "groin", "shoulder", "wrist", "gastric", "conditioning", "reconditioning", "migraine","bruise","foot","leg",
+        "foot", "turf", "flu", "health", "headache", "stomacjh", "virus", "covid", "gastro", "gastroenteritis", "poisoning", "fasciitis",
+        "ankle","bruised","infection", "torn", "rupture", "tendinitis", "tendinopathy", "tendinosis", "tendonitis", "tendinopathy",
+        "bronchitis","respiratory", "respiratory illness", "respiratory infection", "respiratory distress", "respiratory condition", "respiratory issue","strained",
+        
+    ]
+    rest_keywords = ["rest", "load management", "reconditioning"]
+    suspension_keywords = ["suspension", "suspended", "suspend","league suspension"]
+
+    personal_keywords = ["personal", "paternity", "birth", "family", "not with team", "excused"]
+    
+    df["is_present"] = df["MINUTES_PLAYED"] > 0
+    comment = df["comment"].fillna("").str.lower()
+    df["comment"] = comment
+
+    df["is_absent"] = ~df["is_present"]
+
+    df["is_suspended"] = (~df["is_present"]) & comment.apply(lambda x: any(k in x for k in suspension_keywords))
+    df["is_injured"] = (~df["is_present"]) & ~df["is_suspended"] & comment.apply(lambda x: any(k in x for k in injury_keywords))
+    df["is_resting"] = (~df["is_present"]) & ~df["is_suspended"] & ~df["is_injured"] & comment.apply(lambda x: any(k in x for k in rest_keywords))
+    df["is_personal"] = (~df["is_present"]) & ~df["is_suspended"] & ~df["is_injured"] & ~df["is_resting"] & comment.apply(lambda x: any(k in x for k in personal_keywords))
+    df["is_absent_other"] = (~df["is_present"]) & ~(df["is_injured"] | df["is_resting"] | df["is_suspended"] | df["is_personal"])
+
+
+
+    #convert all booleans in df to int 
+    bool_cols = df.select_dtypes(include=['bool']).columns
+    df[bool_cols] = df[bool_cols].astype(int)
+    
+
+    # Score simple de performance avec pondération (à ajuster ou améliorer avec SHAP )
+    df['player_perf_score'] = (
+        1.0 * df['points_traditional'].fillna(0) +
+        1.5 * df['assists_traditional'].fillna(0) +
+        1.2 * df['reboundsTotal_traditional'].fillna(0) +
+        1.0 * df['steals_traditional'].fillna(0) +
+        1.0 * df['blocks_traditional'].fillna(0) -
+        1.0 * df['turnovers_traditional'].fillna(0)
+    )
+    
+    df['player_defense_score'] = (
+        1.5 * df['steals_traditional'].fillna(0) +
+        1.5 * df['blocks_traditional'].fillna(0) -
+        1.0 * df['foulsPersonal_traditional'].fillna(0)
+    )
+
+    df['player_offense_score'] = (
+        1.2 * df['points_traditional'].fillna(0) +
+        1.5 * df['assists_traditional'].fillna(0) -
+        1.0 * df['turnovers_traditional'].fillna(0)
+    )
+    
+    df['player_impact_score'] = df['PIE_advanced'].fillna(0)
+
+
+
+    return df[[
+        'GAME_ID', 'TEAM_ID', 'GAME_DATE', 'personId', 
+        'is_present', 'is_absent', 'is_injured', 'is_resting', 'is_suspended', 'is_personal', 'is_absent_other', 
+        'player_perf_score', 'player_defense_score', 'player_offense_score', 
+        'player_impact_score',
+        'comment'
+        ]].copy()
