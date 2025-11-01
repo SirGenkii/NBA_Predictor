@@ -54,8 +54,16 @@ NBA_Predictor-main/
 
 ```bash
 python -m venv .venv
-source .venv/Scripts/activate
+
+ou 
+
+python3.11 -m venv .venv
+
+windows: source .venv/Scripts/activate 
+linux: source .venv/bin/activate 
+
 python -m pip install -r requirements.txt
+python3.11 -m pip install -r requirements.txt
 
 ```
 

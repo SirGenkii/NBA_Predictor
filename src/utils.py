@@ -3,7 +3,7 @@
 import os
 import pandas as pd
 import numpy as np
-from src.config import DATA_TEAMS_DIR
+from src.config import *
 
 def save_dataframe_to_csv(df, output_dir, prefix, suffix=None):
     """
@@ -116,3 +116,16 @@ def merge_odds_csv_files(odds_files_path):
     merged_df = pd.concat(dfs, ignore_index=True)
     
     return merged_df
+
+
+def log_boxscores_scrapping(message):
+    boxscores_log_file = BOXSCORES_SCRAPPING_LOG_FILE
+    
+    current_time = pd.Timestamp.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    # Ensure the error log folder exists
+    os.makedirs(os.path.dirname(boxscores_log_file), exist_ok=True)
+    with open(boxscores_log_file, 'a') as f:
+        f.write(f"{current_time} - {message}\n")
+        
+        
