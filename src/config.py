@@ -1,5 +1,9 @@
 import os
-import sys
+
+from nba_predictor.config import settings as _settings
+
+settings = _settings
+DATA_PATHS = settings.data_paths
 
 
 # Liste des colonnes à dropper pour clean dataset final. 
@@ -96,12 +100,12 @@ features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg]
 top_player_features_to_roll = cols_player_stats.copy()
 top_player_features_to_roll += [f"OPP_{col}" for col in cols_player_stats] 
 
-N_LIST = [3, 5, 10, 25, 50, 100, 200]
+N_LIST = list(settings.feature_windows)
 
-N_LIST_TOP = [1, 2, 3, 5, 10]
+N_LIST_TOP = list(settings.feature_windows_top_players)
 
-DATA_DIR = 'data'
-DATA_RAW_DIR = os.path.join(DATA_DIR, 'raw')
+DATA_DIR = str(DATA_PATHS.root)
+DATA_RAW_DIR = str(DATA_PATHS.legacy_raw)
 
 DATA_GAMES_DIR = os.path.join(DATA_RAW_DIR, 'games')
 DATA_PLAYERS_DIR = os.path.join(DATA_RAW_DIR, 'players')
@@ -111,7 +115,7 @@ DATA_BOXSCORES_BATCHES_MERGED_DIR = os.path.join(DATA_BOXSCORES_DIR, 'batches_me
 
 
 
-DATA_RAW_LAST_DIR = os.path.join(DATA_DIR, 'raw_last')
+DATA_RAW_LAST_DIR = str(DATA_PATHS.legacy_raw_last)
 DATA_LAST_GAMES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games')
 DATA_LAST_GAMES_MERGED_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games_merged')
 DATA_LAST_BOXSCORES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'boxscores')
@@ -133,9 +137,9 @@ DATA_ODDS_HISTORY_DIR = os.path.join(DATA_DIR, 'odds_history')
 DATA_SIMULATIONS_DIR = os.path.join(DATA_DIR, 'simulations')
 DATA_GRID_SIMULATIONS_BETS_DIR = os.path.join(DATA_DIR, 'grid_simulations')
 
-BATCH_SIZE = 25
+BATCH_SIZE = settings.boxscore_batch_size
 
-ERROR_LOG_FOLDER = 'logs'
+ERROR_LOG_FOLDER = str(DATA_PATHS.logs_root)
 BOXSCORES_SCRAPPING_LOG_FILE = os.path.join(ERROR_LOG_FOLDER, 'boxscores_scrapping.log')
 
 FULL_CSV = 'nba_player_boxscores_full.csv'

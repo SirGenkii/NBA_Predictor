@@ -18,6 +18,9 @@ lightgbm
 catboost
 scikit-optimize
 
+# Data processing
+polars
+
 # Deep Learning (PyTorch GPU - CUDA 11.8) - pour CPU only: remplace par juste `torch`
 torch==2.2.2+cu118
 torchvision==0.17.2+cu118
@@ -27,3 +30,15 @@ torchaudio==2.2.2+cu118
 
 #nba api for scrapping
 nba_api
+
+# Configuration & CLI
+pydantic>=2.5
+pydantic-settings
+structlog
+typer
+tomli; python_version < "3.11"
+
+# MLOps & orchestration
+prefect
+feast
+mlflow

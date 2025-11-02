@@ -1,0 +1,692 @@
+gameId,teamId,teamCity,teamName,teamTricode,teamSlug,personId,firstName,familyName,nameI,playerSlug,position,comment,jerseyNum,minutes,pointsOffTurnovers,pointsSecondChance,pointsFastBreak,pointsPaint,oppPointsOffTurnovers,oppPointsSecondChance,oppPointsFastBreak,oppPointsPaint,blocks,blocksAgainst,foulsPersonal,foulsDrawn
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1628969,Mikal,Bridges,M. Bridges,mikal-bridges,F,,25,26:49,5,0,2,6,5,15,5,28,3,0,2,1
+0022000030,1610612756,Phoenix,Suns,PHX,suns,203109,Jae,Crowder,J. Crowder,jae-crowder,F,,99,32:44,2,3,0,8,7,19,9,36,0,0,1,2
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1629028,Deandre,Ayton,D. Ayton,deandre-ayton,C,,22,29:56,4,3,0,6,7,17,9,36,1,1,5,5
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1626164,Devin,Booker,D. Booker,devin-booker,G,,1,38:15,2,2,0,10,7,21,9,46,0,2,5,7
+0022000030,1610612756,Phoenix,Suns,PHX,suns,101108,Chris,Paul,C. Paul,chris-paul,G,,3,32:47,4,4,0,8,7,19,9,40,1,3,4,4
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1629661,Cameron,Johnson,C. Johnson,cameron-johnson,,,23,25:03,0,0,0,2,2,10,4,40,0,1,1,1
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1627745,Damian,Jones,D. Jones,damian-jones,,,30,15:27,0,0,0,2,0,6,0,24,0,1,2,0
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1626166,Cameron,Payne,C. Payne,cameron-payne,,,15,15:13,0,2,0,4,0,6,0,22,0,1,2,1
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1630188,Jalen,Smith,J. Smith,jalen-smith,,,10,4:05,0,0,0,0,0,0,0,8,0,0,0,1
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1628975,Jevon,Carter,J. Carter,jevon-carter,,,4,7:18,0,2,0,0,0,2,0,12,0,0,0,0
+0022000030,1610612756,Phoenix,Suns,PHX,suns,204038,Langston,Galloway,L. Galloway,langston-galloway,,,2,9:46,0,0,0,0,0,8,0,16,0,0,0,0
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1626163,Frank,Kaminsky,F. Kaminsky,frank-kaminsky,,,8,2:37,0,0,0,0,0,2,0,2,0,0,1,0
+0022000030,1610612756,Phoenix,Suns,PHX,suns,1630234,Ty-Shon,Alexander,T. Alexander,ty-shon-alexander,,DNP - Coach's Decision,0,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000030,1610612756,Phoenix,Suns,PHX,suns,202734,E'Twaun,Moore,E. Moore,etwaun-moore,,DNP - Coach's Decision,55,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000030,1610612756,Phoenix,Suns,PHX,suns,203967,Dario,Šarić,D. Šarić,dario-šarić,,DNP - Injury/Illness,20,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000030,1610612758,Sacramento,Kings,SAC,kings,203084,Harrison,Barnes,H. Barnes,harrison-barnes,F,,40,34:08,2,0,2,10,15,12,2,30,1,3,0,2
+0022000030,1610612758,Sacramento,Kings,SAC,kings,1628963,Marvin,Bagley III,M. Bagley III,marvin-bagley-iii,F,,35,20:42,1,7,3,10,11,9,2,20,0,0,3,6
+0022000030,1610612758,Sacramento,Kings,SAC,kings,1626158,Richaun,Holmes,R. Holmes,richaun-holmes,C,,22,24:02,2,6,0,6,11,2,2,18,0,0,4,3
+0022000030,1610612758,Sacramento,Kings,SAC,kings,1627741,Buddy,Hield,B. Hield,buddy-hield,G,,24,34:41,2,3,2,4,15,12,2,30,0,0,3,4
+0022000030,1610612758,Sacramento,Kings,SAC,kings,1628368,De'Aaron,Fox,D. Fox,deaaron-fox,G,,5,34:54,0,3,2,6,13,14,2,34,2,0,2,4
+0022000030,1610612758,Sacramento,Kings,SAC,kings,202709,Cory,Joseph,C. Joseph,cory-joseph,,,9,19:08,0,0,0,0,4,6,0,24,1,0,2,1
+0022000030,1610612758,Sacramento,Kings,SAC,kings,202355,Hassan,Whiteside,H. Whiteside,hassan-whiteside,,,20,15:16,0,2,0,8,2,7,0,18,2,0,2,1
+0022000030,1610612758,Sacramento,Kings,SAC,kings,202357,Nemanja,Bjelica,N. Bjelica,nemanja-bjelica,,,8,15:39,0,2,0,10,2,4,0,16,1,1,3,1
+0022000030,1610612758,Sacramento,Kings,SAC,kings,1630169,Tyrese,Haliburton,T. Haliburton,tyrese-haliburton,,,0,26:09,0,0,0,0,6,9,0,28,1,0,2,0
+0022000030,1610612758,Sacramento,Kings,SAC,kings,203922,Glenn,Robinson III,G. Robinson III,glenn-robinson-iii,,,30,15:21,0,2,0,8,6,5,0,12,1,1,1,1
+0022000030,1610612758,Sacramento,Kings,SAC,kings,1629657,Kyle,Guy,K. Guy,kyle-guy,,DNP - Coach's Decision,7,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000030,1610612758,Sacramento,Kings,SAC,kings,1629713,Justin,James,J. James,justin-james,,DNP - Coach's Decision,10,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000030,1610612758,Sacramento,Kings,SAC,kings,1629002,Chimezie,Metu,C. Metu,chimezie-metu,,DNP - Coach's Decision,25,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000030,1610612758,Sacramento,Kings,SAC,kings,203953,Jabari,Parker,J. Parker,jabari-parker,,DNP - Coach's Decision,33,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000030,1610612758,Sacramento,Kings,SAC,kings,1630218,Robert,Woodard II,R. Woodard II,robert-woodard-ii,,DNP - Coach's Decision,13,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629006,Josh,Okogie,J. Okogie,josh-okogie,F,,20,31:33,2,6,0,8,9,10,5,36,1,0,3,1
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1627774,Jake,Layman,J. Layman,jake-layman,F,,10,13:36,0,0,0,0,0,1,2,16,0,0,2,0
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1626157,Karl-Anthony,Towns,K. Towns,karl-anthony-towns,C,,32,29:54,0,2,0,10,4,9,8,32,4,2,3,5
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1627736,Malik,Beasley,M. Beasley,malik-beasley,G,,5,38:42,7,4,4,10,7,12,8,38,0,1,3,1
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1626156,D'Angelo,Russell,D. Russell,dangelo-russell,G,,0,34:11,4,0,5,4,11,17,5,36,0,0,4,7
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629633,Jarrett,Culver,J. Culver,jarrett-culver,,,23,19:45,3,6,3,4,2,12,6,18,0,0,3,1
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1630162,Anthony,Edwards,A. Edwards,anthony-edwards,,,1,22:20,5,0,4,12,6,14,9,22,0,0,4,0
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,201937,Ricky,Rubio,R. Rubio,ricky-rubio,,,9,26:42,0,0,0,4,7,17,9,30,0,0,4,4
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629675,Naz,Reid,N. Reid,naz-reid,,,11,17:35,5,0,0,2,7,13,3,18,0,1,1,1
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1627823,Juancho,Hernangomez,J. Hernangomez,juancho-hernangomez,,,41,5:15,0,0,0,0,2,5,0,4,0,0,1,0
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,202334,Ed,Davis,E. Davis,ed-davis,,,17,0:28,0,0,0,0,0,0,0,0,0,0,0,0
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1630183,Jaden,McDaniels,J. McDaniels,jaden-mcdaniels,,DNP - Coach's Decision,3,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000028,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629020,Jarred,Vanderbilt,J. Vanderbilt,jarred-vanderbilt,,DNP - Coach's Decision,8,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000028,1610612762,Utah,Jazz,UTA,jazz,202711,Bojan,Bogdanovic,B. Bogdanovic,bojan-bogdanovic,F,,44,34:03,0,5,0,4,19,12,12,48,1,2,0,3
+0022000028,1610612762,Utah,Jazz,UTA,jazz,1626220,Royce,O'Neale,R. O'Neale,royce-oneale,F,,23,34:08,0,0,0,2,17,18,12,46,0,0,1,1
+0022000028,1610612762,Utah,Jazz,UTA,jazz,203497,Rudy,Gobert,R. Gobert,rudy-gobert,C,,27,29:03,2,10,2,14,16,7,11,22,1,0,4,3
+0022000028,1610612762,Utah,Jazz,UTA,jazz,1628378,Donovan,Mitchell,D. Mitchell,donovan-mitchell,G,,45,37:16,3,5,0,6,20,14,12,38,2,1,2,6
+0022000028,1610612762,Utah,Jazz,UTA,jazz,201144,Mike,Conley,M. Conley,mike-conley,G,,10,33:33,0,0,0,8,14,11,11,32,0,0,5,5
+0022000028,1610612762,Utah,Jazz,UTA,jazz,204060,Joe,Ingles,J. Ingles,joe-ingles,,,2,25:53,2,0,6,2,19,10,9,24,0,0,3,2
+0022000028,1610612762,Utah,Jazz,UTA,jazz,202324,Derrick,Favors,D. Favors,derrick-favors,,,15,17:57,0,2,0,2,10,11,5,32,0,1,4,3
+0022000028,1610612762,Utah,Jazz,UTA,jazz,203903,Jordan,Clarkson,J. Clarkson,jordan-clarkson,,,00,23:05,4,0,3,12,12,7,8,28,0,1,0,5
+0022000028,1610612762,Utah,Jazz,UTA,jazz,1627777,Georges,Niang,G. Niang,georges-niang,,,31,4:02,0,0,0,0,3,0,0,0,0,0,1,0
+0022000028,1610612762,Utah,Jazz,UTA,jazz,1629752,Juwan,Morgan,J. Morgan,juwan-morgan,,,16,1:01,0,0,0,0,0,0,0,0,0,0,0,0
+0022000028,1610612762,Utah,Jazz,UTA,jazz,1628962,Udoka,Azubuike,U. Azubuike,udoka-azubuike,,DNP - Coach's Decision,20,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000028,1610612762,Utah,Jazz,UTA,jazz,1627885,Shaquille,Harrison,S. Harrison,shaquille-harrison,,DNP - Coach's Decision,8,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000028,1610612762,Utah,Jazz,UTA,jazz,1630190,Elijah,Hughes,E. Hughes,elijah-hughes,,DNP - Coach's Decision,33,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000028,1610612762,Utah,Jazz,UTA,jazz,1629671,Miye,Oni,M. Oni,miye-oni,,DNP - Coach's Decision,81,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000029,1610612745,Houston,Rockets,HOU,rockets,200782,P.J.,Tucker,P. Tucker,pj-tucker,F,,17,42:31,0,0,2,2,16,11,16,38,1,1,3,1
+0022000029,1610612745,Houston,Rockets,HOU,rockets,1627863,Danuel,House Jr.,D. House Jr.,danuel-house-jr,F,,4,38:07,5,0,4,4,16,6,16,32,0,0,1,3
+0022000029,1610612745,Houston,Rockets,HOU,rockets,1626174,Christian,Wood,C. Wood,christian-wood,C,,35,43:36,2,8,2,24,15,12,10,40,1,2,4,3
+0022000029,1610612745,Houston,Rockets,HOU,rockets,1628021,David,Nwaba,D. Nwaba,david-nwaba,G,,2,26:47,2,0,4,8,14,3,10,22,2,1,2,2
+0022000029,1610612745,Houston,Rockets,HOU,rockets,201935,James,Harden,J. Harden,james-harden,G,,13,43:16,5,2,0,12,16,11,16,38,0,0,1,9
+0022000029,1610612745,Houston,Rockets,HOU,rockets,1628425,Sterling,Brown,S. Brown,sterling-brown,,,0,20:12,5,0,3,2,12,11,12,16,0,0,3,0
+0022000029,1610612745,Houston,Rockets,HOU,rockets,1630256,Jae'Sean,Tate,J. Tate,jaesean-tate,,,8,37:14,0,4,0,8,15,12,16,34,0,1,4,2
+0022000029,1610612745,Houston,Rockets,HOU,rockets,1630271,Brodric,Thomas,B. Thomas,brodric-thomas,,,33,9:44,0,0,0,0,6,3,4,8,0,0,3,0
+0022000029,1610612745,Houston,Rockets,HOU,rockets,203998,Bruno,Caboclo,B. Caboclo,bruno-caboclo,,,5,3:33,0,0,0,0,0,1,0,2,1,0,1,0
+0022000029,1610612745,Houston,Rockets,HOU,rockets,202326,DeMarcus,Cousins,D. Cousins,demarcus-cousins,,NWT - Not With Team,15,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000029,1610612745,Houston,Rockets,HOU,rockets,201569,Eric,Gordon,E. Gordon,eric-gordon,,NWT - Not With Team,10,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000029,1610612745,Houston,Rockets,HOU,rockets,1630222,Mason,Jones,M. Jones,mason-jones,,NWT - Not With Team,9,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000029,1610612745,Houston,Rockets,HOU,rockets,202322,John,Wall,J. Wall,john-wall,,NWT - Not With Team,1,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,1627884,Derrick,Jones Jr.,D. Jones Jr.,derrick-jones-jr,F,,5,36:23,5,1,1,4,6,8,12,40,1,1,5,4
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,203496,Robert,Covington,R. Covington,robert-covington,F,,23,38:28,2,0,2,4,9,8,10,42,0,0,3,1
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,203994,Jusuf,Nurkić,J. Nurkić,jusuf-nurkić,C,,27,34:45,0,2,0,10,12,6,15,40,1,0,3,3
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,203468,CJ,McCollum,C. McCollum,cj-mccollum,G,,3,43:50,0,2,7,8,14,10,15,52,0,1,1,2
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,203081,Damian,Lillard,D. Lillard,damian-lillard,G,,0,41:21,8,3,5,12,15,6,15,44,0,2,1,7
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,2546,Carmelo,Anthony,C. Anthony,carmelo-anthony,,,00,20:26,3,0,3,0,12,8,5,26,0,1,2,1
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,203918,Rodney,Hood,R. Hood,rodney-hood,,,5,15:46,0,0,0,0,13,6,3,18,0,0,2,1
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,202683,Enes,Freedom,E. Freedom,enes-freedom,,,11,18:15,4,6,2,8,7,8,0,20,1,0,2,2
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,1629018,Gary,Trent Jr.,G. Trent Jr.,gary-trent-jr,,,2,5:55,0,0,0,0,5,4,0,6,0,0,1,0
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,1629014,Anfernee,Simons,A. Simons,anfernee-simons,,,1,9:51,0,0,0,0,2,6,0,12,2,0,0,1
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,1629833,Keljin,Blevins,K. Blevins,keljin-blevins,,DNP - Coach's Decision,21,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,1629604,CJ,Elleby,C. Elleby,cj-elleby,,DNP - Coach's Decision,16,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000029,1610612757,Portland,Trail Blazers,POR,blazers,1628385,Harry,Giles III,H. Giles III,harry-giles-iii,,DNP - Coach's Decision,4,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1630171,Isaac,Okoro,I. Okoro,isaac-okoro,F,,35,41:39,0,0,0,0,13,10,2,30,0,0,4,1
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,201567,Kevin,Love,K. Love,kevin-love,F,,0,37:33,6,0,0,2,10,13,8,36,0,1,1,2
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203083,Andre,Drummond,A. Drummond,andre-drummond,C,,3,43:40,1,3,0,14,13,13,8,38,3,0,2,10
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1629012,Collin,Sexton,C. Sexton,collin-sexton,G,,2,45:14,2,0,8,24,13,12,8,38,0,0,5,2
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1629636,Darius,Garland,D. Garland,darius-garland,G,,10,43:59,10,2,4,8,13,11,2,34,1,1,3,0
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1626224,Cedi,Osman,C. Osman,cedi-osman,,,16,25:56,7,4,0,6,16,5,6,18,0,2,1,3
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1626204,Larry,Nance Jr.,L. Nance Jr.,larry-nance-jr,,,22,24:31,0,0,0,0,11,5,0,10,0,1,1,0
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,201580,JaVale,McGee,J. McGee,javale-mcgee,,,6,14:20,3,0,2,6,8,2,0,6,0,0,6,2
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203957,Danté,Exum,D. Exum,danté-exum,,,1,13:09,2,0,2,4,8,4,6,10,0,0,1,0
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1629716,Marques,Bolden,M. Bolden,marques-bolden,,DNP - Coach's Decision,24,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1628422,Damyean,Dotson,D. Dotson,damyean-dotson,,DNP - Coach's Decision,21,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1627748,Thon,Maker,T. Maker,thon-maker,,DNP - Coach's Decision,14,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1630205,Lamar,Stevens,L. Stevens,lamar-stevens,,DNP - Coach's Decision,8,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000023,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1629731,Dean,Wade,D. Wade,dean-wade,,DNP - Coach's Decision,32,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000023,1610612765,Detroit,Pistons,DET,pistons,203924,Jerami,Grant,J. Grant,jerami-grant,F,,9,42:31,4,2,4,10,21,6,6,42,3,0,4,4
+0022000023,1610612765,Detroit,Pistons,DET,pistons,201933,Blake,Griffin,B. Griffin,blake-griffin,F,,23,44:20,3,3,0,2,24,5,12,48,0,0,1,2
+0022000023,1610612765,Detroit,Pistons,DET,pistons,203486,Mason,Plumlee,M. Plumlee,mason-plumlee,C,,24,32:47,0,0,0,6,12,6,6,32,0,0,6,1
+0022000023,1610612765,Detroit,Pistons,DET,pistons,1626153,Delon,Wright,D. Wright,delon-wright,G,,55,42:12,0,6,0,6,22,6,14,48,1,0,0,7
+0022000023,1610612765,Detroit,Pistons,DET,pistons,1630165,Killian,Hayes,K. Hayes,killian-hayes,G,,7,19:30,0,0,0,2,10,2,8,22,0,1,2,1
+0022000023,1610612765,Detroit,Pistons,DET,pistons,201565,Derrick,Rose,D. Rose,derrick-rose,,,25,33:07,5,0,2,4,17,6,4,38,0,1,1,3
+0022000023,1610612765,Detroit,Pistons,DET,pistons,1626143,Jahlil,Okafor,J. Okafor,jahlil-okafor,,,13,18:27,0,2,0,6,11,3,10,22,0,0,3,0
+0022000023,1610612765,Detroit,Pistons,DET,pistons,1629004,Svi,Mykhailiuk,S. Mykhailiuk,svi-mykhailiuk,,,19,23:34,5,0,2,6,16,4,6,22,0,0,2,4
+0022000023,1610612765,Detroit,Pistons,DET,pistons,1628367,Josh,Jackson,J. Jackson,josh-jackson,,,20,18:42,4,2,0,2,11,3,6,20,1,1,0,1
+0022000023,1610612765,Detroit,Pistons,DET,pistons,1629635,Sekou,Doumbouya,S. Doumbouya,sekou-doumbouya,,,45,8:49,0,0,0,0,9,3,2,18,0,1,0,0
+0022000023,1610612765,Detroit,Pistons,DET,pistons,1630180,Saddiq,Bey,S. Bey,saddiq-bey,,,41,6:01,0,0,0,0,2,1,6,8,0,0,1,1
+0022000023,1610612765,Detroit,Pistons,DET,pistons,201961,Wayne,Ellington,W. Ellington,wayne-ellington,,DNP - Coach's Decision,8,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000023,1610612765,Detroit,Pistons,DET,pistons,203585,Rodney,McGruder,R. McGruder,rodney-mcgruder,,DNP - Coach's Decision,17,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000023,1610612765,Detroit,Pistons,DET,pistons,1629686,Deividas,Sirvydis,D. Sirvydis,deividas-sirvydis,,DNP - Coach's Decision,91,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000023,1610612765,Detroit,Pistons,DET,pistons,1630191,Isaiah,Stewart,I. Stewart,isaiah-stewart,,DNP - Coach's Decision,28,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629006,Josh,Okogie,J. Okogie,josh-okogie,F,,20,11:01,4,0,4,4,4,9,6,14,0,0,0,0
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1627774,Jake,Layman,J. Layman,jake-layman,F,,10,14:47,2,0,2,8,4,3,5,10,0,2,1,2
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629675,Naz,Reid,N. Reid,naz-reid,C,,11,27:48,2,2,0,8,15,9,16,36,0,4,5,1
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1627736,Malik,Beasley,M. Beasley,malik-beasley,G,,5,24:27,2,0,0,4,9,5,11,26,0,0,0,3
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1626156,D'Angelo,Russell,D. Russell,dangelo-russell,G,,0,20:35,0,0,0,2,11,5,14,28,1,0,4,3
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1630162,Anthony,Edwards,A. Edwards,anthony-edwards,,,1,28:32,4,5,2,8,6,4,11,38,0,3,2,2
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629633,Jarrett,Culver,J. Culver,jarrett-culver,,,23,29:25,0,4,0,8,15,8,11,44,1,1,4,0
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,202334,Ed,Davis,E. Davis,ed-davis,,,17,12:32,0,4,0,4,2,2,2,14,1,2,4,2
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,201937,Ricky,Rubio,R. Rubio,ricky-rubio,,,9,18:06,0,0,0,6,4,6,4,24,0,0,1,0
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1627823,Juancho,Hernangomez,J. Hernangomez,juancho-hernangomez,,,41,13:24,3,1,0,2,11,8,6,20,1,2,1,3
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629020,Jarred,Vanderbilt,J. Vanderbilt,jarred-vanderbilt,,,8,15:28,0,2,0,0,6,2,8,18,1,0,0,3
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629162,Jordan,McLaughlin,J. McLaughlin,jordan-mclaughlin,,,6,16:15,0,0,0,4,6,2,4,18,0,0,0,0
+0022000040,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1630183,Jaden,McDaniels,J. McDaniels,jaden-mcdaniels,,,3,7:40,0,0,0,0,2,2,2,10,1,0,2,0
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,2544,LeBron,James,L. James,lebron-james,F,,6,26:12,2,0,2,10,13,13,6,34,0,0,1,6
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,1628398,Kyle,Kuzma,K. Kuzma,kyle-kuzma,F,,0,29:09,2,5,7,6,12,8,8,30,3,0,1,0
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,201188,Marc,Gasol,M. Gasol,marc-gasol,C,,14,20:39,0,0,0,2,10,9,6,22,4,0,2,2
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,203484,Kentavious,Caldwell-Pope,K. Caldwell-Pope,kentavious-caldwell-pope,G,,1,23:14,5,0,3,6,10,9,6,26,0,0,1,4
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,203471,Dennis,Schröder,D. Schröder,dennis-schröder,G,,17,25:14,2,0,0,6,10,9,6,28,0,1,3,5
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,202083,Wesley,Matthews,W. Matthews,wesley-matthews,,,9,17:53,2,0,0,2,2,4,2,26,1,0,1,1
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,1626149,Montrezl,Harrell,M. Harrell,montrezl-harrell,,,15,19:41,2,0,4,10,5,5,2,26,1,1,2,1
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,1627936,Alex,Caruso,A. Caruso,alex-caruso,,,4,10:31,0,4,0,4,3,5,0,14,0,0,1,0
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,202693,Markieff,Morris,M. Morris,markieff-morris,,,88,15:06,2,2,2,4,5,5,2,20,2,1,3,0
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,1629659,Talen,Horton-Tucker,T. Horton-Tucker,talen-horton-tucker,,,5,20:48,0,0,0,4,7,7,2,22,1,1,2,2
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,1626188,Quinn,Cook,Q. Cook,quinn-cook,,,2,8:33,0,0,0,2,2,4,0,12,0,0,0,1
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,1628961,Kostas,Antetokounmpo,K. Antetokounmpo,kostas-antetokounmpo,,,37,7:40,0,0,0,0,2,4,0,10,2,2,1,1
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,1628035,Alfonzo,McKinnie,A. McKinnie,alfonzo-mckinnie,,,28,7:40,2,2,2,4,2,4,0,10,0,0,1,1
+0022000040,1610612747,Los Angeles,Lakers,LAL,lakers,201162,Jared,Dudley,J. Dudley,jared-dudley,,,10,7:40,0,0,0,0,2,4,0,10,0,0,0,0
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,203925,Joe,Harris,J. Harris,joe-harris,F,,12,32:19,4,0,5,4,9,6,17,40,0,0,2,1
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,201142,Kevin,Durant,K. Durant,kevin-durant,F,,7,36:21,0,0,0,4,18,10,12,50,1,0,3,4
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,201599,DeAndre,Jordan,D. Jordan,deandre-jordan,C,,6,18:58,0,0,0,0,7,3,7,24,1,0,3,3
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,203915,Spencer,Dinwiddie,S. Dinwiddie,spencer-dinwiddie,G,,26,15:11,0,0,2,2,4,6,4,18,0,0,0,0
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,202681,Kyrie,Irving,K. Irving,kyrie-irving,G,,11,36:21,2,2,0,10,18,10,12,50,0,1,1,5
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,1628386,Jarrett,Allen,J. Allen,jarrett-allen,,,31,25:21,4,5,0,2,14,11,10,32,1,0,1,7
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,1629013,Landry,Shamet,L. Shamet,landry-shamet,,,20,13:18,0,0,0,0,14,9,2,20,0,2,2,0
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,1627747,Caris,LeVert,C. LeVert,caris-levert,,,22,25:49,2,0,0,2,19,11,12,42,1,0,0,1
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,201145,Jeff,Green,J. Green,jeff-green,,,8,12:43,0,0,0,0,7,10,4,20,0,0,1,0
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,1627752,Taurean,Prince,T. Prince,taurean-prince,,,2,11:39,0,0,1,0,5,7,7,14,1,0,2,3
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,1627789,Timothe,Luwawu-Cabarrot,T. Luwawu-Cabarrot,timothe-luwawu-cabarrot,,,9,12:00,6,0,0,2,0,2,8,10,0,0,2,1
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,1628971,Bruce,Brown,B. Brown,bruce-brown,,DNP - Coach's Decision,1,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,204020,Tyler,Johnson,T. Johnson,tyler-johnson,,DNP - Coach's Decision,10,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,1629066,Rodions,Kurucs,R. Kurucs,rodions-kurucs,,DNP - Coach's Decision,00,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000032,1610612751,Brooklyn,Nets,BKN,nets,1629617,Reggie,Perry,R. Perry,reggie-perry,,DNP - Coach's Decision,0,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,202330,Gordon,Hayward,G. Hayward,gordon-hayward,F,,20,35:35,9,2,6,20,14,4,5,22,0,0,1,1
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1629023,P.J.,Washington,P. Washington,pj-washington,F,,25,34:35,2,7,0,12,16,3,4,16,0,2,5,6
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,202687,Bismack,Biyombo,B. Biyombo,bismack-biyombo,C,,8,29:38,0,0,0,10,10,4,8,16,1,0,5,4
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1626179,Terry,Rozier,T. Rozier,terry-rozier,G,,3,30:27,2,0,7,10,11,4,7,24,0,0,1,3
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1628984,Devonte',Graham,D. Graham,devonte-graham,G,,4,35:29,5,5,6,4,16,3,5,12,0,0,3,0
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1628970,Miles,Bridges,M. Bridges,miles-bridges,,,0,27:42,0,0,0,4,8,7,3,18,2,0,3,0
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1630163,LaMelo,Ball,L. Ball,lamelo-ball,,,2,20:01,3,3,0,0,4,7,3,12,0,1,4,1
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1628998,Cody,Martin,C. Martin,cody-martin,,,11,17:43,2,0,0,4,7,3,3,6,0,0,1,0
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1628997,Caleb,Martin,C. Martin,caleb-martin,,,10,4:45,0,0,0,0,2,0,1,2,0,0,1,2
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1629667,Jalen,McDaniels,J. McDaniels,jalen-mcdaniels,,,6,4:05,0,0,0,0,2,0,1,2,0,2,1,0
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1630176,Vernon,Carey Jr.,V. Carey Jr.,vernon-carey-jr,,DNP - Coach's Decision,22,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1628370,Malik,Monk,M. Monk,malik-monk,,DNP - Coach's Decision,1,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000032,1610612766,Charlotte,Hornets,CHA,hornets,1630208,Nick,Richards,N. Richards,nick-richards,,DNP - Coach's Decision,14,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1628969,Mikal,Bridges,M. Bridges,mikal-bridges,F,,25,36:18,7,3,2,6,5,11,3,30,1,0,3,5
+0022000039,1610612756,Phoenix,Suns,PHX,suns,203109,Jae,Crowder,J. Crowder,jae-crowder,F,,99,25:48,2,0,0,2,7,11,3,24,0,0,1,0
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1629028,Deandre,Ayton,D. Ayton,deandre-ayton,C,,22,29:18,2,0,0,8,4,8,2,34,0,1,2,2
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1626164,Devin,Booker,D. Booker,devin-booker,G,,1,35:17,0,3,6,10,7,11,3,30,1,2,1,5
+0022000039,1610612756,Phoenix,Suns,PHX,suns,101108,Chris,Paul,C. Paul,chris-paul,G,,3,27:14,2,2,0,4,5,8,3,32,0,0,4,3
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1629661,Cameron,Johnson,C. Johnson,cameron-johnson,,,23,21:03,5,5,2,6,0,0,0,16,0,1,1,3
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1626166,Cameron,Payne,C. Payne,cameron-payne,,,15,19:37,2,0,2,2,2,3,0,8,0,0,6,3
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1626163,Frank,Kaminsky,F. Kaminsky,frank-kaminsky,,,8,18:42,0,2,0,8,3,3,4,8,1,0,1,0
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1628975,Jevon,Carter,J. Carter,jevon-carter,,,4,10:07,2,0,2,2,0,0,3,10,0,0,1,1
+0022000039,1610612756,Phoenix,Suns,PHX,suns,204038,Langston,Galloway,L. Galloway,langston-galloway,,,2,14:18,0,0,0,2,2,0,3,14,0,0,0,1
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1630234,Ty-Shon,Alexander,T. Alexander,ty-shon-alexander,,,0,1:09,0,0,0,0,0,0,3,2,0,0,0,0
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1627745,Damian,Jones,D. Jones,damian-jones,,,30,1:09,0,0,0,0,0,0,3,2,0,0,0,0
+0022000039,1610612756,Phoenix,Suns,PHX,suns,202734,E'Twaun,Moore,E. Moore,etwaun-moore,,DNP - Coach's Decision,55,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000039,1610612756,Phoenix,Suns,PHX,suns,1630188,Jalen,Smith,J. Smith,jalen-smith,,DNP - Injury/Illness,10,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000039,1610612756,Phoenix,Suns,PHX,suns,203967,Dario,Šarić,D. Šarić,dario-šarić,,DNP - Injury/Illness,20,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000039,1610612758,Sacramento,Kings,SAC,kings,203084,Harrison,Barnes,H. Barnes,harrison-barnes,F,,40,28:55,0,0,0,8,17,10,10,30,0,0,1,3
+0022000039,1610612758,Sacramento,Kings,SAC,kings,1628963,Marvin,Bagley III,M. Bagley III,marvin-bagley-iii,F,,35,27:28,0,3,0,6,9,7,4,30,0,1,4,2
+0022000039,1610612758,Sacramento,Kings,SAC,kings,1626158,Richaun,Holmes,R. Holmes,richaun-holmes,C,,22,24:53,4,2,2,4,13,12,6,22,1,1,4,1
+0022000039,1610612758,Sacramento,Kings,SAC,kings,1627741,Buddy,Hield,B. Hield,buddy-hield,G,,24,33:55,0,6,0,4,20,15,8,36,1,0,3,2
+0022000039,1610612758,Sacramento,Kings,SAC,kings,1628368,De'Aaron,Fox,D. Fox,deaaron-fox,G,,5,26:34,3,0,1,8,11,7,8,28,0,1,5,4
+0022000039,1610612758,Sacramento,Kings,SAC,kings,1630169,Tyrese,Haliburton,T. Haliburton,tyrese-haliburton,,,0,26:32,0,0,0,4,14,8,10,30,0,0,2,2
+0022000039,1610612758,Sacramento,Kings,SAC,kings,202709,Cory,Joseph,C. Joseph,cory-joseph,,,9,20:16,0,0,0,2,7,6,6,24,0,0,2,3
+0022000039,1610612758,Sacramento,Kings,SAC,kings,202357,Nemanja,Bjelica,N. Bjelica,nemanja-bjelica,,,8,11:07,0,0,0,0,0,0,2,10,0,0,0,0
+0022000039,1610612758,Sacramento,Kings,SAC,kings,202355,Hassan,Whiteside,H. Whiteside,hassan-whiteside,,,20,10:24,0,0,0,4,0,0,2,10,2,0,1,1
+0022000039,1610612758,Sacramento,Kings,SAC,kings,203922,Glenn,Robinson III,G. Robinson III,glenn-robinson-iii,,,30,15:54,0,0,0,0,11,10,6,20,0,0,1,0
+0022000039,1610612758,Sacramento,Kings,SAC,kings,1629657,Kyle,Guy,K. Guy,kyle-guy,,,7,5:45,0,0,3,0,2,0,2,4,0,0,0,1
+0022000039,1610612758,Sacramento,Kings,SAC,kings,1630186,Jahmi'us,Ramsey,J. Ramsey,jahmius-ramsey,,,3,2:46,0,0,0,2,2,0,2,2,0,0,0,0
+0022000039,1610612758,Sacramento,Kings,SAC,kings,1629713,Justin,James,J. James,justin-james,,,10,2:46,0,0,0,0,2,0,2,2,0,0,0,0
+0022000039,1610612758,Sacramento,Kings,SAC,kings,1630218,Robert,Woodard II,R. Woodard II,robert-woodard-ii,,,13,2:46,0,0,0,0,2,0,2,2,0,0,0,1
+0022000039,1610612758,Sacramento,Kings,SAC,kings,203953,Jabari,Parker,J. Parker,jabari-parker,,DNP - Coach's Decision,33,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1629640,Keldon,Johnson,K. Johnson,keldon-johnson,F,,3,30:46,0,5,0,6,13,14,10,24,2,0,3,2
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,201942,DeMar,DeRozan,D. DeRozan,demar-derozan,F,,10,31:03,0,2,2,4,11,16,19,34,1,2,5,6
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,200746,LaMarcus,Aldridge,L. Aldridge,lamarcus-aldridge,C,,12,20:15,0,0,0,4,11,12,19,26,2,0,3,0
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1629022,Lonnie,Walker IV,L. Walker IV,lonnie-walker-iv,G,,1,34:08,2,0,3,4,11,16,19,36,1,1,4,1
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1627749,Dejounte,Murray,D. Murray,dejounte-murray,G,,5,31:02,4,2,2,8,9,11,20,32,0,0,1,1
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,200752,Rudy,Gay,R. Gay,rudy-gay,,,22,28:07,2,6,4,12,0,8,8,22,2,1,2,2
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,201988,Patty,Mills,P. Mills,patty-mills,,,8,23:06,0,0,0,2,6,7,5,16,0,0,1,1
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1627751,Jakob,Poeltl,J. Poeltl,jakob-poeltl,,,25,23:20,0,0,0,8,2,2,3,14,2,0,3,3
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1630170,Devin,Vassell,D. Vassell,devin-vassell,,,24,12:09,0,0,0,0,2,2,2,6,0,0,1,0
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1626168,Trey,Lyles,T. Lyles,trey-lyles,,,41,6:04,0,0,0,0,0,2,5,10,0,0,0,0
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1628966,Keita,Bates-Diop,K. Bates-Diop,keita-bates-diop,,DNP - Coach's Decision,31,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1629234,Drew,Eubanks,D. Eubanks,drew-eubanks,,DNP - Coach's Decision,14,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1630200,Tre,Jones,T. Jones,tre-jones,,DNP - Coach's Decision,33,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612759,San Antonio,Spurs,SAS,spurs,1629677,Luka,Samanic,L. Samanic,luka-samanic,,DNP - Coach's Decision,19,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1627742,Brandon,Ingram,B. Ingram,brandon-ingram,F,,14,35:15,5,1,7,6,4,11,7,28,1,2,1,6
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1629627,Zion,Williamson,Z. Williamson,zion-williamson,F,,1,38:02,4,6,1,14,6,11,7,42,1,7,3,4
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,203500,Steven,Adams,S. Adams,steven-adams,C,,12,30:51,0,4,2,8,2,9,3,24,1,0,1,3
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,202339,Eric,Bledsoe,E. Bledsoe,eric-bledsoe,G,,5,28:23,2,3,0,2,4,7,7,30,1,0,1,1
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1628366,Lonzo,Ball,L. Ball,lonzo-ball,G,,2,37:25,2,4,5,6,4,15,9,38,0,0,2,2
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1628404,Josh,Hart,J. Hart,josh-hart,,,3,32:59,0,0,7,4,8,8,6,28,0,1,3,3
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,200755,JJ,Redick,J. Redick,jj-redick,,,4,19:56,0,0,0,0,6,8,8,26,0,0,1,3
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1629637,Jaxson,Hayes,J. Hayes,jaxson-hayes,,,10,17:09,0,0,0,4,6,6,8,24,0,0,4,1
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1629638,Nickeil,Alexander-Walker,N. Alexander-Walker,nickeil-alexander-walker,,DNP - Coach's Decision,6,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1626195,Willy,Hernangomez,W. Hernangomez,willy-hernangomez,,DNP - Coach's Decision,9,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1630184,Kira,Lewis Jr.,K. Lewis Jr.,kira-lewis-jr,,DNP - Coach's Decision,13,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1630230,Naji,Marshall,N. Marshall,naji-marshall,,DNP - Coach's Decision,8,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1629740,Nicolo,Melli,N. Melli,nicolo-melli,,DNP - Coach's Decision,20,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000034,1610612740,New Orleans,Pelicans,NOP,pelicans,1628414,Sindarius,Thornwell,S. Thornwell,sindarius-thornwell,,DNP - Coach's Decision,15,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,203952,Andrew,Wiggins,A. Wiggins,andrew-wiggins,F,,22,36:26,4,0,0,4,13,11,11,38,1,0,2,4
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,1629308,Juan,Toscano-Anderson,J. Toscano-Anderson,juan-toscano-anderson,F,,95,19:13,0,0,0,2,5,5,8,20,0,0,1,1
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,1630164,James,Wiseman,J. Wiseman,james-wiseman,C,,33,22:37,2,0,0,4,8,10,8,22,1,1,4,0
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,1626162,Kelly,Oubre Jr.,K. Oubre Jr.,kelly-oubre-jr,G,,12,30:18,2,4,2,6,11,13,8,24,0,2,3,1
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,201939,Stephen,Curry,S. Curry,stephen-curry,G,,30,36:26,0,0,9,8,11,13,11,32,2,1,1,7
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,1626172,Kevon,Looney,K. Looney,kevon-looney,,,5,16:53,2,4,0,6,3,3,3,12,0,0,2,1
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,1628539,Mychal,Mulder,M. Mulder,mychal-mulder,,,15,10:34,1,0,0,0,3,0,3,8,0,0,1,1
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,1629673,Jordan,Poole,J. Poole,jordan-poole,,,3,13:25,0,0,0,2,5,0,6,18,0,0,2,1
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,1629672,Eric,Paschall,E. Paschall,eric-paschall,,,7,19:07,2,2,4,2,11,5,6,22,0,2,2,4
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,1627814,Damion,Lee,D. Lee,damion-lee,,,1,20:37,3,0,3,0,5,5,3,18,0,0,4,1
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,202954,Brad,Wanamaker,B. Wanamaker,brad-wanamaker,,,10,14:24,0,0,0,2,5,0,3,16,0,0,1,0
+0022000038,1610612744,Golden State,Warriors,GSW,warriors,203145,Kent,Bazemore,K. Bazemore,kent-bazemore,,DNP - Coach's Decision,26,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1630172,Patrick,Williams,P. Williams,patrick-williams,F,,44,26:21,0,0,2,2,7,4,3,24,3,1,1,1
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1628374,Lauri,Markkanen,L. Markkanen,lauri-markkanen,F,,24,29:15,2,3,1,6,4,2,12,22,1,1,1,6
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1628976,Wendell,Carter Jr.,W. Carter Jr.,wendell-carter-jr,C,,34,31:28,3,2,0,14,12,8,8,26,0,0,3,5
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,203897,Zach,LaVine,Z. LaVine,zach-lavine,G,,8,34:48,5,0,7,8,7,10,11,30,2,0,3,4
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1629632,Coby,White,C. White,coby-white,G,,0,35:38,6,3,2,8,11,4,12,30,0,1,1,1
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,203490,Otto,Porter Jr.,O. Porter Jr.,otto-porter-jr,,,22,20:45,0,3,0,0,9,6,13,12,0,0,2,3
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,202066,Garrett,Temple,G. Temple,garrett-temple,,,17,19:28,0,2,0,2,5,4,13,12,0,0,6,0
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,203107,Tomas,Satoransky,T. Satoransky,tomas-satoransky,,,31,22:50,0,0,0,2,14,8,11,14,0,1,2,2
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1628990,Chandler,Hutchison,C. Hutchison,chandler-hutchison,,,15,19:27,0,0,2,4,11,4,7,10,0,0,2,1
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1627853,Ryan,Arcidiacono,R. Arcidiacono,ryan-arcidiacono,,DNP - Coach's Decision,51,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1626245,Cristiano,Felicio,C. Felicio,cristiano-felicio,,DNP - Coach's Decision,6,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1629655,Daniel,Gafford,D. Gafford,daniel-gafford,,DNP - Coach's Decision,12,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1628436,Luke,Kornet,L. Kornet,luke-kornet,,DNP - Coach's Decision,2,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1629690,Adam,Mokoka,A. Mokoka,adam-mokoka,,DNP - Coach's Decision,20,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000038,1610612741,Chicago,Bulls,CHI,bulls,1627756,Denzel,Valentine,D. Valentine,denzel-valentine,,DNP - Coach's Decision,45,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,203507,Giannis,Antetokounmpo,G. Antetokounmpo,giannis-antetokounmpo,F,,34,31:59,7,2,4,16,11,4,2,34,0,0,3,7
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,203114,Khris,Middleton,K. Middleton,khris-middleton,F,,22,32:46,2,6,0,14,11,6,5,32,0,1,1,3
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,201572,Brook,Lopez,B. Lopez,brook-lopez,C,,11,20:50,0,2,0,2,9,2,5,24,2,1,3,2
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,1628978,Donte,DiVincenzo,D. DiVincenzo,donte-divincenzo,G,,0,23:30,3,0,2,4,9,2,5,26,0,0,0,3
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,201950,Jrue,Holiday,J. Holiday,jrue-holiday,G,,21,27:55,0,2,2,8,9,7,0,26,0,1,0,2
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,1626171,Bobby,Portis,B. Portis,bobby-portis,,,9,26:07,6,4,2,8,6,8,0,22,1,0,5,1
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,1626192,Pat,Connaughton,P. Connaughton,pat-connaughton,,,24,15:57,2,0,0,4,0,6,0,14,1,0,2,0
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,1628391,D.J.,Wilson,D. Wilson,dj-wilson,,,5,6:55,0,1,0,0,0,4,0,6,0,0,2,1
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,201571,D.J.,Augustin,D. Augustin,dj-augustin,,,12,13:45,0,0,0,0,2,3,3,10,0,0,0,2
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,1627854,Bryn,Forbes,B. Forbes,bryn-forbes,,,7,17:38,0,0,0,0,6,2,5,20,0,1,2,1
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,1628470,Torrey,Craig,T. Craig,torrey-craig,,,3,2:44,0,0,0,0,0,2,0,2,1,0,0,0
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,1629670,Jordan,Nwora,J. Nwora,jordan-nwora,,,13,7:27,0,0,2,4,4,2,0,8,0,0,0,0
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,1630241,Sam,Merrill,S. Merrill,sam-merrill,,,15,7:27,0,0,0,0,4,2,0,8,0,0,1,1
+0022000036,1610612749,Milwaukee,Bucks,MIL,bucks,203648,Thanasis,Antetokounmpo,T. Antetokounmpo,thanasis-antetokounmpo,,,43,4:59,0,0,0,0,4,0,0,8,0,0,2,0
+0022000036,1610612752,New York,Knicks,NYK,knicks,203493,Reggie,Bullock Jr.,R. Bullock Jr.,reggie-bullock-jr,F,,25,16:53,3,0,0,2,8,2,2,16,0,0,2,2
+0022000036,1610612752,New York,Knicks,NYK,knicks,203944,Julius,Randle,J. Randle,julius-randle,F,,30,37:07,4,4,0,4,20,8,10,46,1,1,4,8
+0022000036,1610612752,New York,Knicks,NYK,knicks,1629011,Mitchell,Robinson,M. Robinson,mitchell-robinson,C,,23,34:40,0,0,0,8,16,11,10,44,1,0,2,1
+0022000036,1610612752,New York,Knicks,NYK,knicks,1629628,RJ,Barrett,R. Barrett,rj-barrett,G,,9,38:16,6,1,2,12,16,11,10,50,0,2,4,3
+0022000036,1610612752,New York,Knicks,NYK,knicks,203901,Elfrid,Payton,E. Payton,elfrid-payton,G,,6,29:18,2,5,0,16,14,11,8,42,0,2,2,2
+0022000036,1610612752,New York,Knicks,NYK,knicks,202692,Alec,Burks,A. Burks,alec-burks,,,18,20:29,0,0,0,0,4,13,8,32,0,0,3,2
+0022000036,1610612752,New York,Knicks,NYK,knicks,203457,Nerlens,Noel,N. Noel,nerlens-noel,,,3,13:20,0,0,0,2,4,6,2,16,1,0,1,1
+0022000036,1610612752,New York,Knicks,NYK,knicks,1628995,Kevin,Knox II,K. Knox II,kevin-knox-ii,,,20,26:15,0,0,0,4,8,11,6,30,1,0,1,1
+0022000036,1610612752,New York,Knicks,NYK,knicks,1628373,Frank,Ntilikina,F. Ntilikina,frank-ntilikina,,,11,18:42,0,0,3,0,6,6,4,18,0,0,4,0
+0022000036,1610612752,New York,Knicks,NYK,knicks,1629607,Jared,Harper,J. Harper,jared-harper,,,0,1:52,0,0,0,0,2,2,0,2,0,0,0,0
+0022000036,1610612752,New York,Knicks,NYK,knicks,1629033,Theo,Pinson,T. Pinson,theo-pinson,,,21,1:52,0,0,0,0,2,2,0,2,0,0,0,0
+0022000036,1610612752,New York,Knicks,NYK,knicks,1629649,Ignas,Brazdeikis,I. Brazdeikis,ignas-brazdeikis,,,17,1:16,0,0,0,0,0,2,0,2,0,0,0,1
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1628369,Jayson,Tatum,J. Tatum,jayson-tatum,F,,0,35:47,5,0,5,4,18,6,14,46,1,2,1,5
+0022000037,1610612738,Boston,Celtics,BOS,celtics,202684,Tristan,Thompson,T. Thompson,tristan-thompson,F,,13,22:17,0,2,0,6,12,2,12,32,1,0,1,2
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1628464,Daniel,Theis,D. Theis,daniel-theis,C,,27,14:56,0,0,2,2,10,0,10,20,2,1,0,1
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1627759,Jaylen,Brown,J. Brown,jaylen-brown,G,,7,33:37,4,0,6,12,19,6,17,40,1,2,4,3
+0022000037,1610612738,Boston,Celtics,BOS,celtics,203935,Marcus,Smart,M. Smart,marcus-smart,G,,36,31:38,3,0,2,4,18,6,15,38,0,1,1,1
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1629684,Grant,Williams,G. Williams,grant-williams,,,12,22:54,0,1,0,2,9,6,11,30,0,0,4,2
+0022000037,1610612738,Boston,Celtics,BOS,celtics,201952,Jeff,Teague,J. Teague,jeff-teague,,,55,21:51,2,0,0,0,11,2,15,30,0,1,2,5
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1630202,Payton,Pritchard,P. Pritchard,payton-pritchard,,,11,23:01,7,0,2,2,9,4,8,26,0,0,0,1
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1629057,Robert,Williams III,R. Williams III,robert-williams-iii,,,44,21:34,4,4,2,10,11,6,9,24,2,0,3,0
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1628400,Semi,Ojeleye,S. Ojeleye,semi-ojeleye,,,37,12:25,0,0,0,0,8,2,4,14,0,0,1,0
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1629035,Carsen,Edwards,C. Edwards,carsen-edwards,,DNP - Coach's Decision,4,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1629750,Javonte,Green,J. Green,javonte-green,,DNP - Coach's Decision,43,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1630174,Aaron,Nesmith,A. Nesmith,aaron-nesmith,,DNP - Coach's Decision,26,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000037,1610612738,Boston,Celtics,BOS,celtics,1629682,Tremont,Waters,T. Waters,tremont-waters,,DNP - Coach's Decision,51,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000037,1610612754,Indiana,Pacers,IND,pacers,203933,T.J.,Warren,T. Warren,tj-warren,F,,1,37:30,4,0,8,8,19,5,17,32,0,0,5,4
+0022000037,1610612754,Indiana,Pacers,IND,pacers,1627734,Domantas,Sabonis,D. Sabonis,domantas-sabonis,F,,11,40:35,4,2,0,12,23,7,19,38,1,3,2,4
+0022000037,1610612754,Indiana,Pacers,IND,pacers,1626167,Myles,Turner,M. Turner,myles-turner,C,,33,29:17,2,2,0,6,12,3,13,20,5,0,2,2
+0022000037,1610612754,Indiana,Pacers,IND,pacers,1628988,Aaron,Holiday,A. Holiday,aaron-holiday,G,,3,21:54,2,0,2,6,6,4,7,12,1,0,3,1
+0022000037,1610612754,Indiana,Pacers,IND,pacers,1627763,Malcolm,Brogdon,M. Brogdon,malcolm-brogdon,G,,7,36:20,6,2,7,12,21,3,19,32,0,3,0,3
+0022000037,1610612754,Indiana,Pacers,IND,pacers,203200,Justin,Holiday,J. Holiday,justin-holiday,,,8,28:06,4,2,6,8,14,5,6,30,0,0,5,2
+0022000037,1610612754,Indiana,Pacers,IND,pacers,203926,Doug,McDermott,D. McDermott,doug-mcdermott,,,20,27:10,3,0,0,6,17,4,10,28,0,1,1,1
+0022000037,1610612754,Indiana,Pacers,IND,pacers,204456,T.J.,McConnell,T. McConnell,tj-mcconnell,,,9,19:08,0,0,0,2,13,4,4,18,0,0,2,0
+0022000037,1610612754,Indiana,Pacers,IND,pacers,1629665,Jalen,Lecque,J. Lecque,jalen-lecque,,DNP - Coach's Decision,0,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000037,1610612754,Indiana,Pacers,IND,pacers,1629103,Kelan,Martin,K. Martin,kelan-martin,,DNP - Coach's Decision,21,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000037,1610612754,Indiana,Pacers,IND,pacers,203960,JaKarr,Sampson,J. Sampson,jakarr-sampson,,DNP - Coach's Decision,14,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000037,1610612754,Indiana,Pacers,IND,pacers,1630199,Cassius,Stanley,C. Stanley,cassius-stanley,,DNP - Coach's Decision,2,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000033,1610612753,Orlando,Magic,ORL,magic,1628407,Dwayne,Bacon,D. Bacon,dwayne-bacon,F,,8,17:16,0,2,0,4,8,6,8,22,1,0,1,1
+0022000033,1610612753,Orlando,Magic,ORL,magic,203932,Aaron,Gordon,A. Gordon,aaron-gordon,F,,00,19:48,2,0,0,0,6,4,6,26,0,0,0,1
+0022000033,1610612753,Orlando,Magic,ORL,magic,202696,Nikola,Vučević,N. Vučević,nikola-vučević,C,,9,28:03,0,2,0,4,10,10,8,44,0,0,2,2
+0022000033,1610612753,Orlando,Magic,ORL,magic,203095,Evan,Fournier,E. Fournier,evan-fournier,G,,10,27:50,2,3,0,2,12,10,8,44,0,1,2,6
+0022000033,1610612753,Orlando,Magic,ORL,magic,1628365,Markelle,Fultz,M. Fultz,markelle-fultz,G,,20,29:03,4,2,0,14,10,10,8,46,0,2,1,2
+0022000033,1610612753,Orlando,Magic,ORL,magic,1629643,Chuma,Okeke,C. Okeke,chuma-okeke,,,3,16:12,0,0,0,0,6,6,2,26,0,0,0,0
+0022000033,1610612753,Orlando,Magic,ORL,magic,203082,Terrence,Ross,T. Ross,terrence-ross,,,31,30:44,8,5,3,0,8,9,0,44,0,0,4,4
+0022000033,1610612753,Orlando,Magic,ORL,magic,203487,Michael,Carter-Williams,M. Carter-Williams,michael-carter-williams,,,7,23:07,2,0,0,4,4,7,0,28,1,0,1,3
+0022000033,1610612753,Orlando,Magic,ORL,magic,203920,Khem,Birch,K. Birch,khem-birch,,,24,19:57,2,2,0,2,6,5,0,22,1,1,1,3
+0022000033,1610612753,Orlando,Magic,ORL,magic,1630175,Cole,Anthony,C. Anthony,cole-anthony,,,50,18:57,0,2,0,4,6,5,0,20,0,0,1,4
+0022000033,1610612753,Orlando,Magic,ORL,magic,1629109,Gary,Clark,G. Clark,gary-clark,,,12,9:03,0,0,0,0,4,3,0,8,0,0,1,0
+0022000033,1610612753,Orlando,Magic,ORL,magic,1628964,Mo,Bamba,M. Bamba,mo-bamba,,DNP - Coach's Decision,5,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000033,1610612753,Orlando,Magic,ORL,magic,1629648,Jordan,Bone,J. Bone,jordan-bone,,DNP - Coach's Decision,23,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000033,1610612753,Orlando,Magic,ORL,magic,1630211,Karim,Mane,K. Mane,karim-mane,,DNP - Coach's Decision,4,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000033,1610612764,Washington,Wizards,WAS,wizards,1629067,Isaac,Bonga,I. Bonga,isaac-bonga,F,,17,18:06,0,0,0,0,2,6,0,12,1,0,2,0
+0022000033,1610612764,Washington,Wizards,WAS,wizards,1630166,Deni,Avdija,D. Avdija,deni-avdija,F,,9,36:11,2,2,2,6,9,15,3,24,0,0,1,0
+0022000033,1610612764,Washington,Wizards,WAS,wizards,1628418,Thomas,Bryant,T. Bryant,thomas-bryant,C,,13,32:27,0,6,0,14,14,11,3,26,1,0,5,1
+0022000033,1610612764,Washington,Wizards,WAS,wizards,203078,Bradley,Beal,B. Beal,bradley-beal,G,,3,39:06,4,0,0,14,14,16,3,26,1,3,1,7
+0022000033,1610612764,Washington,Wizards,WAS,wizards,203526,Raul,Neto,R. Neto,raul-neto,G,,19,32:13,4,5,6,14,11,11,0,26,0,0,2,2
+0022000033,1610612764,Washington,Wizards,WAS,wizards,202397,Ish,Smith,I. Smith,ish-smith,,,14,15:47,0,0,0,2,9,7,3,8,0,0,3,0
+0022000033,1610612764,Washington,Wizards,WAS,wizards,1628972,Troy,Brown Jr.,T. Brown Jr.,troy-brown-jr,,,6,23:59,2,0,0,6,13,10,3,18,0,0,4,0
+0022000033,1610612764,Washington,Wizards,WAS,wizards,201577,Robin,Lopez,R. Lopez,robin-lopez,,,15,15:33,4,0,0,8,6,7,0,8,0,0,2,2
+0022000033,1610612764,Washington,Wizards,WAS,wizards,202722,Davis,Bertans,D. Bertans,davis-bertans,,,42,19:22,0,2,0,0,11,5,0,14,1,0,3,2
+0022000033,1610612764,Washington,Wizards,WAS,wizards,1629010,Jerome,Robinson,J. Robinson,jerome-robinson,,,12,7:16,0,0,0,2,11,2,0,8,0,0,3,0
+0022000033,1610612764,Washington,Wizards,WAS,wizards,1630264,Anthony,Gill,A. Gill,anthony-gill,,DNP - Coach's Decision,16,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000033,1610612764,Washington,Wizards,WAS,wizards,1628394,Anžejs,Pasečņiks,A. Pasečņiks,anžejs-pasečņiks,,DNP - Coach's Decision,18,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000033,1610612764,Washington,Wizards,WAS,wizards,1629021,Moritz,Wagner,M. Wagner,moritz-wagner,,DNP - Coach's Decision,21,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,201980,Danny,Green,D. Green,danny-green,F,,14,17:30,2,2,0,2,17,6,7,28,1,0,1,1
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,202699,Tobias,Harris,T. Harris,tobias-harris,F,,12,28:21,0,0,0,2,26,9,10,44,0,1,1,3
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,2730,Dwight,Howard,D. Howard,dwight-howard,C,,39,15:00,2,2,2,8,15,12,5,30,0,0,4,1
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,203552,Seth,Curry,S. Curry,seth-curry,G,,31,24:26,0,0,0,0,20,9,7,38,0,0,2,1
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,1627732,Ben,Simmons,B. Simmons,ben-simmons,G,,25,28:26,2,0,6,10,26,9,10,48,2,1,2,5
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,1628396,Tony,Bradley,T. Bradley,tony-bradley,,,11,17:25,0,2,0,4,12,7,5,20,2,2,2,3
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,1629003,Shake,Milton,S. Milton,shake-milton,,,18,22:30,0,0,0,2,14,11,6,30,0,1,2,5
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,1627788,Furkan,Korkmaz,F. Korkmaz,furkan-korkmaz,,,30,16:40,2,0,0,2,9,8,4,24,0,0,0,1
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,1630178,Tyrese,Maxey,T. Maxey,tyrese-maxey,,,0,21:40,0,0,0,4,9,10,5,28,0,1,1,0
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,203118,Mike,Scott,M. Scott,mike-scott,,,1,18:37,0,2,0,2,9,8,6,22,0,0,2,1
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,1629680,Matisse,Thybulle,M. Thybulle,matisse-thybulle,,,22,8:15,0,0,0,0,2,0,0,10,0,0,1,0
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,1630198,Isaiah,Joe,I. Joe,isaiah-joe,,,7,7:04,2,0,0,2,2,2,0,6,0,0,0,1
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,1628390,Terrance,Ferguson,T. Ferguson,terrance-ferguson,,,23,7:04,0,0,0,0,2,2,0,6,0,0,1,0
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,1629751,Dakota,Mathias,D. Mathias,dakota-mathias,,,33,7:04,5,0,3,0,2,2,0,6,0,0,0,0
+0022000035,1610612755,Philadelphia,76ers,PHI,sixers,203954,Joel,Embiid,J. Embiid,joel-embiid,,DND - Injury/Illness,21,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,201567,Kevin,Love,K. Love,kevin-love,F,,0,8:50,0,0,0,4,2,0,6,8,0,2,0,0
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1626204,Larry,Nance Jr.,L. Nance Jr.,larry-nance-jr,F,,22,35:22,0,0,2,4,8,6,6,28,0,0,3,0
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203083,Andre,Drummond,A. Drummond,andre-drummond,C,,3,25:40,9,6,6,22,4,4,6,20,2,0,1,7
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1629012,Collin,Sexton,C. Sexton,collin-sexton,G,,2,29:20,6,2,2,10,10,6,6,26,0,1,1,2
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1629636,Darius,Garland,D. Garland,darius-garland,G,,10,28:57,2,2,0,10,6,4,6,24,0,0,2,2
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1629731,Dean,Wade,D. Wade,dean-wade,,,32,14:25,0,0,0,0,7,2,3,12,1,0,2,0
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1626224,Cedi,Osman,C. Osman,cedi-osman,,,16,21:46,5,3,0,6,6,0,4,16,1,1,4,3
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,201580,JaVale,McGee,J. McGee,javale-mcgee,,,6,16:26,2,0,0,2,6,2,2,14,2,1,2,1
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203957,Danté,Exum,D. Exum,danté-exum,,,1,23:05,4,2,0,6,6,2,2,12,0,0,5,2
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1628422,Damyean,Dotson,D. Dotson,damyean-dotson,,,21,19:42,3,2,3,0,7,8,5,20,0,0,0,0
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1629716,Marques,Bolden,M. Bolden,marques-bolden,,,24,5:54,0,0,0,2,5,2,3,4,0,0,0,0
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1627748,Thon,Maker,T. Maker,thon-maker,,,14,5:54,0,2,0,2,5,2,3,4,0,0,2,1
+0022000035,1610612739,Cleveland,Cavaliers,CLE,cavaliers,1630205,Lamar,Stevens,L. Stevens,lamar-stevens,,,8,4:40,2,0,0,0,3,2,3,2,0,0,0,1
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,203501,Tim,Hardaway Jr.,T. Hardaway Jr.,tim-hardaway-jr,F,,11,22:59,2,5,4,6,4,6,1,18,0,0,2,0
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1627827,Dorian,Finney-Smith,D. Finney-Smith,dorian-finney-smith,F,,10,18:02,0,0,3,0,6,4,0,16,0,1,1,1
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,203939,Dwight,Powell,D. Powell,dwight-powell,C,,7,17:54,0,0,0,2,4,4,0,16,0,0,2,3
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1626196,Josh,Richardson,J. Richardson,josh-richardson,G,,0,26:42,8,4,2,6,6,6,2,26,0,0,3,1
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1629029,Luka,Dončić,L. Dončić,luka-dončić,G,,77,25:55,3,0,3,14,6,6,2,24,0,0,0,7
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,203504,Trey,Burke,T. Burke,trey-burke,,,3,17:30,0,3,0,0,2,4,3,16,0,0,0,0
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1628467,Maxi,Kleber,M. Kleber,maxi-kleber,,,42,17:04,0,0,0,0,2,4,3,16,1,0,2,1
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1626161,Willie,Cauley-Stein,W. Cauley-Stein,willie-cauley-stein,,,33,18:01,2,0,3,4,0,4,3,12,1,0,0,2
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1628973,Jalen,Brunson,J. Brunson,jalen-brunson,,,13,13:19,0,0,7,6,2,2,1,10,0,0,0,1
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,201949,James,Johnson,J. Johnson,james-johnson,,,16,20:24,3,0,0,0,4,0,0,8,0,0,2,1
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1628411,Wes,Iwundu,W. Iwundu,wes-iwundu,,,25,11:34,2,0,4,6,4,0,0,6,0,1,1,0
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1630182,Josh,Green,J. Green,josh-green,,,8,11:34,2,0,2,2,4,0,0,6,0,0,0,1
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1626246,Boban,Marjanovic,B. Marjanovic,boban-marjanovic,,,51,10:16,0,2,0,2,4,0,0,4,0,0,0,1
+0022000031,1610612742,Dallas,Mavericks,DAL,mavericks,1630179,Tyrell,Terry,T. Terry,tyrell-terry,,,1,8:46,0,0,0,0,2,0,0,2,0,0,1,0
+0022000031,1610612746,LA,Clippers,LAC,clippers,202331,Paul,George,P. George,paul-george,F,,13,24:09,2,0,0,4,11,7,10,24,0,0,1,7
+0022000031,1610612746,LA,Clippers,LAC,clippers,201587,Nicolas,Batum,N. Batum,nicolas-batum,F,,33,21:30,2,2,0,4,11,7,10,18,0,0,2,0
+0022000031,1610612746,LA,Clippers,LAC,clippers,201586,Serge,Ibaka,S. Ibaka,serge-ibaka,C,,9,19:32,0,2,0,10,10,3,14,20,1,0,2,1
+0022000031,1610612746,LA,Clippers,LAC,clippers,1628379,Luke,Kennard,L. Kennard,luke-kennard,G,,5,29:00,2,0,0,2,14,3,24,30,0,0,2,0
+0022000031,1610612746,LA,Clippers,LAC,clippers,201976,Patrick,Beverley,P. Beverley,patrick-beverley,G,,21,21:55,0,0,0,0,10,5,17,24,0,0,4,1
+0022000031,1610612746,LA,Clippers,LAC,clippers,1627826,Ivica,Zubac,I. Zubac,ivica-zubac,,,40,16:28,0,4,2,6,6,9,8,18,0,0,1,2
+0022000031,1610612746,LA,Clippers,LAC,clippers,101150,Lou,Williams,L. Williams,lou-williams,,,23,9:00,0,0,0,0,6,6,5,16,0,2,0,0
+0022000031,1610612746,LA,Clippers,LAC,clippers,202704,Reggie,Jackson,R. Jackson,reggie-jackson,,,1,20:54,0,0,0,2,8,9,4,16,0,0,0,1
+0022000031,1610612746,LA,Clippers,LAC,clippers,202335,Patrick,Patterson,P. Patterson,patrick-patterson,,,54,8:51,0,0,0,0,5,2,12,20,0,0,0,0
+0022000031,1610612746,LA,Clippers,LAC,clippers,1629611,Terance,Mann,T. Mann,terance-mann,,,14,23:51,2,0,0,4,11,7,18,24,0,0,2,0
+0022000031,1610612746,LA,Clippers,LAC,clippers,1629599,Amir,Coffey,A. Coffey,amir-coffey,,,7,17:39,0,0,1,0,6,5,6,10,0,0,1,1
+0022000031,1610612746,LA,Clippers,LAC,clippers,1629662,Mfiondu,Kabengele,M. Kabengele,mfiondu-kabengele,,,25,15:11,2,0,0,0,6,5,6,10,0,0,2,1
+0022000031,1610612746,LA,Clippers,LAC,clippers,1630187,Daniel,Oturu,D. Oturu,daniel-oturu,,,10,12:00,0,0,0,4,6,2,6,10,1,0,2,0
+0022000031,1610612746,LA,Clippers,LAC,clippers,202695,Kawhi,Leonard,K. Leonard,kawhi-leonard,,DNP - Injury/Illness,2,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,1627884,Derrick,Jones Jr.,D. Jones Jr.,derrick-jones-jr,F,,5,36:47,0,0,0,2,10,16,14,36,3,2,4,3
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,203496,Robert,Covington,R. Covington,robert-covington,F,,23,37:49,2,2,0,4,8,14,14,46,1,1,2,0
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,203994,Jusuf,Nurkić,J. Nurkić,jusuf-nurkić,C,,27,25:55,0,2,0,8,8,14,10,26,0,0,1,1
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,203468,CJ,McCollum,C. McCollum,cj-mccollum,G,,3,36:54,5,0,5,4,8,16,16,36,1,0,1,2
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,203081,Damian,Lillard,D. Lillard,damian-lillard,G,,0,36:23,7,2,5,6,10,14,12,44,1,1,1,5
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,203918,Rodney,Hood,R. Hood,rodney-hood,,,5,15:32,0,0,0,2,2,2,2,14,0,0,1,0
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,202683,Enes,Freedom,E. Freedom,enes-freedom,,,11,22:05,0,2,0,12,2,2,6,26,0,1,3,1
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,1629018,Gary,Trent Jr.,G. Trent Jr.,gary-trent-jr,,,2,23:43,4,0,6,2,2,2,4,26,0,0,2,2
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,1629014,Anfernee,Simons,A. Simons,anfernee-simons,,,1,4:52,0,0,0,0,0,0,2,6,0,0,1,0
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,1629833,Keljin,Blevins,K. Blevins,keljin-blevins,,DNP - Coach's Decision,21,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,1629604,CJ,Elleby,C. Elleby,cj-elleby,,DNP - Coach's Decision,16,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000045,1610612757,Portland,Trail Blazers,POR,blazers,1628385,Harry,Giles III,H. Giles III,harry-giles-iii,,DNP - Coach's Decision,4,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,2544,LeBron,James,L. James,lebron-james,F,,6,35:55,2,6,8,12,15,8,8,30,1,2,2,3
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,203076,Anthony,Davis,A. Davis,anthony-davis,F,,3,37:49,0,0,2,10,12,6,10,32,0,1,1,4
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,201188,Marc,Gasol,M. Gasol,marc-gasol,C,,14,19:21,0,0,0,4,8,2,5,14,2,0,2,1
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,203484,Kentavious,Caldwell-Pope,K. Caldwell-Pope,kentavious-caldwell-pope,G,,1,28:33,2,6,2,2,11,6,5,24,0,0,0,0
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,203471,Dennis,Schröder,D. Schröder,dennis-schröder,G,,17,36:18,4,2,2,10,12,6,10,32,0,2,3,4
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,1628398,Kyle,Kuzma,K. Kuzma,kyle-kuzma,,,0,23:09,0,0,0,0,9,4,14,18,1,1,3,0
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,1626149,Montrezl,Harrell,M. Harrell,montrezl-harrell,,,15,27:16,2,2,2,6,10,4,11,26,0,0,1,3
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,202083,Wesley,Matthews,W. Matthews,wesley-matthews,,,9,15:19,0,0,0,2,4,2,4,10,0,0,1,0
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,202693,Markieff,Morris,M. Morris,markieff-morris,,,88,6:45,0,0,0,0,6,2,3,8,1,0,1,0
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,1629659,Talen,Horton-Tucker,T. Horton-Tucker,talen-horton-tucker,,,5,9:35,0,0,0,6,3,0,10,6,0,0,0,1
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,1626188,Quinn,Cook,Q. Cook,quinn-cook,,DNP - Coach's Decision,2,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,201162,Jared,Dudley,J. Dudley,jared-dudley,,DNP - Coach's Decision,10,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000045,1610612747,Los Angeles,Lakers,LAL,lakers,1628035,Alfonzo,McKinnie,A. McKinnie,alfonzo-mckinnie,,DNP - Coach's Decision,28,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1630180,Saddiq,Bey,S. Bey,saddiq-bey,F,,41,30:15,0,2,3,2,3,8,6,20,0,1,1,1
+0022000041,1610612765,Detroit,Pistons,DET,pistons,203924,Jerami,Grant,J. Grant,jerami-grant,F,,9,37:38,7,3,4,10,5,10,10,26,1,2,4,4
+0022000041,1610612765,Detroit,Pistons,DET,pistons,203486,Mason,Plumlee,M. Plumlee,mason-plumlee,C,,24,33:33,0,2,1,8,5,10,8,24,0,0,4,3
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1628367,Josh,Jackson,J. Jackson,josh-jackson,G,,20,28:01,4,0,6,16,3,8,6,18,1,1,3,5
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1630165,Killian,Hayes,K. Hayes,killian-hayes,G,,7,29:23,0,0,0,2,5,8,6,20,0,1,4,1
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1626153,Delon,Wright,D. Wright,delon-wright,,,55,21:45,1,3,1,6,5,8,7,20,2,0,3,5
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1629004,Svi,Mykhailiuk,S. Mykhailiuk,svi-mykhailiuk,,,19,14:03,2,0,0,2,3,4,7,12,0,1,1,1
+0022000041,1610612765,Detroit,Pistons,DET,pistons,201961,Wayne,Ellington,W. Ellington,wayne-ellington,,,8,20:33,0,0,0,2,5,6,7,18,0,0,2,1
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1630191,Isaiah,Stewart,I. Stewart,isaiah-stewart,,,28,14:27,0,2,0,2,3,4,5,12,0,0,3,1
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1629635,Sekou,Doumbouya,S. Doumbouya,sekou-doumbouya,,,45,10:22,0,0,2,2,3,4,3,10,0,1,0,0
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1630240,Saben,Lee,S. Lee,saben-lee,,DNP - Coach's Decision,38,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000041,1610612765,Detroit,Pistons,DET,pistons,203585,Rodney,McGruder,R. McGruder,rodney-mcgruder,,DNP - Coach's Decision,17,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1626143,Jahlil,Okafor,J. Okafor,jahlil-okafor,,DNP - Injury/Illness,13,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000041,1610612765,Detroit,Pistons,DET,pistons,1629686,Deividas,Sirvydis,D. Sirvydis,deividas-sirvydis,,DNP - Coach's Decision,91,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,1629631,De'Andre,Hunter,D. Hunter,deandre-hunter,F,,12,32:01,0,6,0,2,12,9,17,38,0,0,4,2
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,1628381,John,Collins,J. Collins,john-collins,F,,20,26:09,0,4,0,6,9,10,5,30,1,0,5,4
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,203991,Clint,Capela,C. Capela,clint-capela,C,,15,19:54,0,0,2,6,5,5,12,28,2,0,1,1
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,1629629,Cam,Reddish,C. Reddish,cam-reddish,G,,22,26:10,0,0,0,4,5,10,10,30,0,1,2,1
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,1629027,Trae,Young,T. Young,trae-young,G,,11,32:55,3,0,4,6,12,7,17,38,0,1,2,11
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,203992,Bogdan,Bogdanović,B. Bogdanović,bogdan-bogdanović,,,13,30:27,0,0,0,2,10,5,13,30,1,1,2,0
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,1628981,Bruno,Fernando,B. Fernando,bruno-fernando,,,24,10:38,0,2,0,4,2,0,2,8,1,0,0,3
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,1628989,Kevin,Huerter,K. Huerter,kevin-huerter,,,3,26:46,0,0,7,2,9,6,7,28,0,1,3,2
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,203524,Solomon,Hill,S. Hill,solomon-hill,,,18,19:55,0,0,0,0,4,3,2,16,1,0,3,0
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,200765,Rajon,Rondo,R. Rondo,rajon-rondo,,,7,15:05,5,2,0,4,2,5,0,14,1,0,0,1
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,201568,Danilo,Gallinari,D. Gallinari,danilo-gallinari,,DND - Injury/Illness,8,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,1629164,Brandon,Goodwin,B. Goodwin,brandon-goodwin,,DNP - Coach's Decision,0,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,1630233,Nathan,Knight,N. Knight,nathan-knight,,DNP - Coach's Decision,1,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000041,1610612737,Atlanta,Hawks,ATL,hawks,1630219,Skylar,Mays,S. Mays,skylar-mays,,DNP - Coach's Decision,4,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000044,1610612745,Houston,Rockets,HOU,rockets,1627863,Danuel,House Jr.,D. House Jr.,danuel-house-jr,F,,4,28:56,3,0,0,2,15,15,9,34,0,1,5,1
+0022000044,1610612745,Houston,Rockets,HOU,rockets,200782,P.J.,Tucker,P. Tucker,pj-tucker,F,,17,26:59,0,0,3,0,7,7,10,36,0,0,2,1
+0022000044,1610612745,Houston,Rockets,HOU,rockets,1626174,Christian,Wood,C. Wood,christian-wood,C,,35,36:49,5,2,0,10,12,11,14,46,2,0,1,2
+0022000044,1610612745,Houston,Rockets,HOU,rockets,1628021,David,Nwaba,D. Nwaba,david-nwaba,G,,2,31:58,0,0,2,8,7,11,12,36,0,3,2,3
+0022000044,1610612745,Houston,Rockets,HOU,rockets,201935,James,Harden,J. Harden,james-harden,G,,13,31:30,5,0,4,10,13,11,13,42,0,1,2,5
+0022000044,1610612745,Houston,Rockets,HOU,rockets,1628425,Sterling,Brown,S. Brown,sterling-brown,,,0,30:40,2,0,5,6,15,8,11,38,0,0,3,0
+0022000044,1610612745,Houston,Rockets,HOU,rockets,1630256,Jae'Sean,Tate,J. Tate,jaesean-tate,,,8,25:27,0,0,0,2,16,10,6,30,1,1,5,2
+0022000044,1610612745,Houston,Rockets,HOU,rockets,203998,Bruno,Caboclo,B. Caboclo,bruno-caboclo,,,5,19:31,0,2,2,6,11,6,4,22,0,1,3,1
+0022000044,1610612745,Houston,Rockets,HOU,rockets,1630271,Brodric,Thomas,B. Thomas,brodric-thomas,,,33,8:10,0,0,2,2,4,6,1,6,0,0,2,3
+0022000044,1610612745,Houston,Rockets,HOU,rockets,202326,DeMarcus,Cousins,D. Cousins,demarcus-cousins,,NWT - Not With Team,15,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000044,1610612745,Houston,Rockets,HOU,rockets,201569,Eric,Gordon,E. Gordon,eric-gordon,,NWT - Not With Team,10,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000044,1610612745,Houston,Rockets,HOU,rockets,1630222,Mason,Jones,M. Jones,mason-jones,,NWT - Not With Team,9,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000044,1610612745,Houston,Rockets,HOU,rockets,202322,John,Wall,J. Wall,john-wall,,NWT - Not With Team,1,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1629008,Michael,Porter Jr.,M. Porter Jr.,michael-porter-jr,F,,1,23:38,0,2,2,6,6,0,4,22,1,0,2,3
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,200794,Paul,Millsap,P. Millsap,paul-millsap,F,,4,24:44,2,0,8,8,9,2,7,28,0,0,1,3
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,203999,Nikola,Jokić,N. Jokić,nikola-jokić,C,,15,34:07,1,9,0,14,9,2,7,34,1,0,2,5
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,203914,Gary,Harris,G. Harris,gary-harris,G,,14,28:57,0,0,0,8,9,2,7,30,0,0,1,1
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1627750,Jamal,Murray,J. Murray,jamal-murray,G,,27,31:04,7,3,0,0,10,0,6,32,1,0,0,4
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1628420,Monté,Morris,M. Morris,monté-morris,,,11,23:30,3,0,0,8,7,2,5,14,1,0,2,1
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,203115,Will,Barton,W. Barton,will-barton,,,5,22:44,2,0,4,8,7,2,5,16,1,1,0,1
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1628408,PJ,Dozier,P. Dozier,pj-dozier,,,35,19:39,1,0,1,2,4,0,2,10,1,1,1,1
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1628392,Isaiah,Hartenstein,I. Hartenstein,isaiah-hartenstein,,,25,9:40,4,3,1,2,4,0,2,4,0,1,4,4
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1630267,Facundo,Campazzo,F. Campazzo,facundo-campazzo,,,7,5:27,0,0,0,0,2,2,9,8,0,0,2,2
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1629626,Bol,Bol,B. Bol,bol-bol,,,10,5:09,0,0,0,0,2,2,9,8,1,0,1,0
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1630181,R.J.,Hampton,R. Hampton,rj-hampton,,,13,4:07,0,0,0,2,2,2,9,8,0,0,1,0
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1630192,Zeke,Nnaji,Z. Nnaji,zeke-nnaji,,,22,3:37,0,0,0,0,2,2,9,8,0,0,1,0
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1628427,Vlatko,Čančar,V. Čančar,vlatko-čančar,,,31,3:37,0,0,0,0,2,2,9,8,0,0,0,0
+0022000044,1610612743,Denver,Nuggets,DEN,nuggets,1630210,Markus,Howard,M. Howard,markus-howard,,DNP - Coach's Decision,00,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000043,1610612762,Utah,Jazz,UTA,jazz,202711,Bojan,Bogdanovic,B. Bogdanovic,bojan-bogdanovic,F,,44,34:44,7,5,0,6,14,9,2,36,0,2,0,3
+0022000043,1610612762,Utah,Jazz,UTA,jazz,1626220,Royce,O'Neale,R. O'Neale,royce-oneale,F,,23,33:59,5,0,0,2,10,7,0,28,1,0,4,1
+0022000043,1610612762,Utah,Jazz,UTA,jazz,203497,Rudy,Gobert,R. Gobert,rudy-gobert,C,,27,36:49,2,0,2,12,11,11,4,32,4,0,1,2
+0022000043,1610612762,Utah,Jazz,UTA,jazz,201144,Mike,Conley,M. Conley,mike-conley,G,,10,32:22,2,2,0,8,13,11,4,32,1,0,3,3
+0022000043,1610612762,Utah,Jazz,UTA,jazz,1628378,Donovan,Mitchell,D. Mitchell,donovan-mitchell,G,,45,34:47,2,2,0,6,13,7,2,30,0,1,3,4
+0022000043,1610612762,Utah,Jazz,UTA,jazz,204060,Joe,Ingles,J. Ingles,joe-ingles,,,2,20:23,2,0,0,4,10,4,6,24,0,0,3,1
+0022000043,1610612762,Utah,Jazz,UTA,jazz,202324,Derrick,Favors,D. Favors,derrick-favors,,,15,11:11,0,0,0,6,8,0,2,16,0,0,3,0
+0022000043,1610612762,Utah,Jazz,UTA,jazz,203903,Jordan,Clarkson,J. Clarkson,jordan-clarkson,,,00,25:42,3,2,0,6,11,4,6,30,0,2,1,2
+0022000043,1610612762,Utah,Jazz,UTA,jazz,1627777,Georges,Niang,G. Niang,georges-niang,,,31,8:23,0,0,0,0,5,2,4,10,0,0,1,0
+0022000043,1610612762,Utah,Jazz,UTA,jazz,1629671,Miye,Oni,M. Oni,miye-oni,,,81,1:40,0,0,0,0,0,0,0,2,0,0,0,0
+0022000043,1610612762,Utah,Jazz,UTA,jazz,1628962,Udoka,Azubuike,U. Azubuike,udoka-azubuike,,DNP - Coach's Decision,20,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000043,1610612762,Utah,Jazz,UTA,jazz,1627885,Shaquille,Harrison,S. Harrison,shaquille-harrison,,DNP - Coach's Decision,8,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000043,1610612762,Utah,Jazz,UTA,jazz,1630190,Elijah,Hughes,E. Hughes,elijah-hughes,,DNP - Coach's Decision,33,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000043,1610612762,Utah,Jazz,UTA,jazz,1629752,Juwan,Morgan,J. Morgan,juwan-morgan,,DNP - Coach's Decision,16,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1629652,Luguentz,Dort,L. Dort,luguentz-dort,F,,5,31:42,6,5,2,8,12,7,0,24,0,0,4,3
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1629647,Darius,Bazley,D. Bazley,darius-bazley,F,,7,33:21,0,0,0,2,16,9,0,34,1,2,1,2
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,201143,Al,Horford,A. Horford,al-horford,C,,42,29:12,2,0,0,2,12,7,0,22,0,0,1,0
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1628983,Shai,Gilgeous-Alexander,S. Gilgeous-Alexander,shai-gilgeous-alexander,G,,2,36:25,4,0,2,14,13,9,0,40,1,1,3,5
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,201588,George,Hill,G. Hill,george-hill,G,,3,25:04,2,2,0,10,9,7,0,22,0,2,0,2
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1628977,Hamidou,Diallo,H. Diallo,hamidou-diallo,,,6,19:52,5,2,2,6,11,4,2,28,1,1,2,3
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,203488,Mike,Muscala,M. Muscala,mike-muscala,,,33,18:48,0,0,0,0,11,4,2,28,1,0,1,2
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1630177,Theo,Maledon,T. Maledon,theo-maledon,,,11,19:44,0,2,0,2,14,4,2,26,0,0,1,1
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1629026,Kenrich,Williams,K. Williams,kenrich-williams,,,34,11:26,0,0,0,4,10,2,2,10,0,0,2,1
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1630197,Aleksej,Pokusevski,A. Pokusevski,aleksej-pokusevski,,,17,14:26,0,0,0,0,7,2,2,16,1,0,1,0
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1629650,Moses,Brown,M. Brown,moses-brown,,DNP - Coach's Decision,9,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1630221,Josh,Hall,J. Hall,josh-hall,,DNP - Coach's Decision,15,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1628382,Justin,Jackson,J. Jackson,justin-jackson,,DNP - Coach's Decision,44,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,203121,Darius,Miller,D. Miller,darius-miller,,DNP - Coach's Decision,12,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000043,1610612760,Oklahoma City,Thunder,OKC,thunder,1629676,Isaiah,Roby,I. Roby,isaiah-roby,,DNP - Coach's Decision,22,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,1628415,Dillon,Brooks,D. Brooks,dillon-brooks,F,,24,35:17,2,2,4,8,19,8,10,30,0,1,5,2
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,203937,Kyle,Anderson,K. Anderson,kyle-anderson,F,,1,36:43,0,9,8,10,13,10,8,26,0,1,4,4
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,202685,Jonas,Valančiūnas,J. Valančiūnas,jonas-valančiūnas,C,,17,39:07,4,2,2,12,13,6,8,30,3,2,2,2
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,1628960,Grayson,Allen,G. Allen,grayson-allen,G,,3,23:58,3,1,0,0,12,6,6,16,0,0,0,3
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,1629630,Ja,Morant,J. Morant,ja-morant,G,,12,12:36,2,0,2,4,7,2,4,8,0,1,1,2
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,1629634,Brandon,Clarke,B. Clarke,brandon-clarke,,,15,28:57,4,6,0,10,17,5,6,28,0,0,0,5
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,1630217,Desmond,Bane,D. Bane,desmond-bane,,,22,23:55,3,0,0,0,17,5,6,30,0,0,3,0
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,203476,Gorgui,Dieng,G. Dieng,gorgui-dieng,,,14,13:53,5,0,2,4,13,5,4,16,1,0,0,0
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,1629723,John,Konchar,J. Konchar,john-konchar,,,46,15:51,0,0,0,0,2,3,0,12,0,0,0,0
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,1626145,Tyus,Jones,T. Jones,tyus-jones,,,21,34:43,0,0,0,8,17,5,8,34,0,1,2,2
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,1630253,Sean,McDermott,S. McDermott,sean-mcdermott,,DNP - Coach's Decision,30,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000042,1610612763,Memphis,Grizzlies,MEM,grizzlies,1630214,Xavier,Tillman,X. Tillman,xavier-tillman,,DNP - Injury/Illness,2,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,1627789,Timothe,Luwawu-Cabarrot,T. Luwawu-Cabarrot,timothe-luwawu-cabarrot,F,,9,39:53,7,0,6,8,13,20,14,38,1,0,1,4
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,1627752,Taurean,Prince,T. Prince,taurean-prince,F,,2,18:35,4,0,2,2,4,11,10,18,0,0,3,3
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,201599,DeAndre,Jordan,D. Jordan,deandre-jordan,C,,6,29:54,0,2,0,4,10,11,11,30,4,0,4,0
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,203925,Joe,Harris,J. Harris,joe-harris,G,,12,41:46,3,2,0,2,23,16,18,46,0,2,1,2
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,1627747,Caris,LeVert,C. LeVert,caris-levert,G,,22,38:11,10,2,4,20,13,18,14,34,0,1,5,3
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,1629013,Landry,Shamet,L. Shamet,landry-shamet,,,20,24:05,2,0,0,2,11,7,4,26,0,0,0,0
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,1628386,Jarrett,Allen,J. Allen,jarrett-allen,,,31,22:23,0,4,0,2,12,6,7,26,0,1,1,4
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,201145,Jeff,Green,J. Green,jeff-green,,,8,23:41,0,0,0,2,13,7,6,28,1,0,2,0
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,1629185,Chris,Chiozza,C. Chiozza,chris-chiozza,,,4,26:32,0,1,0,4,16,4,6,34,0,0,3,1
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,1628971,Bruce,Brown,B. Brown,bruce-brown,,DNP - Coach's Decision,1,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,204020,Tyler,Johnson,T. Johnson,tyler-johnson,,DNP - Coach's Decision,10,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,1629066,Rodions,Kurucs,R. Kurucs,rodions-kurucs,,DNP - Coach's Decision,00,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000042,1610612751,Brooklyn,Nets,BKN,nets,1629617,Reggie,Perry,R. Perry,reggie-perry,,DNP - Coach's Decision,0,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1630172,Patrick,Williams,P. Williams,patrick-williams,F,,44,20:21,5,4,0,6,7,2,4,10,0,1,3,0
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1628374,Lauri,Markkanen,L. Markkanen,lauri-markkanen,F,,24,19:15,0,5,0,4,2,4,2,8,0,1,2,3
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1628976,Wendell,Carter Jr.,W. Carter Jr.,wendell-carter-jr,C,,34,34:11,2,0,0,8,7,2,6,20,0,1,5,2
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,203897,Zach,LaVine,Z. LaVine,zach-lavine,G,,8,38:17,6,0,0,6,4,2,6,28,0,1,2,9
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1629632,Coby,White,C. White,coby-white,G,,0,36:57,0,2,0,8,7,4,8,18,0,0,0,4
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,203490,Otto,Porter Jr.,O. Porter Jr.,otto-porter-jr,,,22,29:21,3,2,0,0,2,2,4,24,0,0,4,3
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,202066,Garrett,Temple,G. Temple,garrett-temple,,,17,28:36,5,0,4,4,7,0,4,20,0,1,3,4
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,203107,Tomas,Satoransky,T. Satoransky,tomas-satoransky,,,31,20:06,0,0,0,2,7,2,2,18,0,1,0,1
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1628990,Chandler,Hutchison,C. Hutchison,chandler-hutchison,,,15,6:25,0,0,0,2,0,2,2,4,0,0,1,0
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1629655,Daniel,Gafford,D. Gafford,daniel-gafford,,,12,6:31,2,0,0,0,2,0,2,10,1,0,3,2
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1627853,Ryan,Arcidiacono,R. Arcidiacono,ryan-arcidiacono,,DNP - Coach's Decision,51,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1626245,Cristiano,Felicio,C. Felicio,cristiano-felicio,,DNP - Coach's Decision,6,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1628436,Luke,Kornet,L. Kornet,luke-kornet,,DNP - Coach's Decision,2,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,1627756,Denzel,Valentine,D. Valentine,denzel-valentine,,DNP - Coach's Decision,45,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000050,1610612741,Chicago,Bulls,CHI,bulls,201152,Thaddeus,Young,T. Young,thaddeus-young,,DNP - Coach's Decision,21,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000050,1610612764,Washington,Wizards,WAS,wizards,1629067,Isaac,Bonga,I. Bonga,isaac-bonga,F,,17,15:50,0,0,0,0,5,3,0,6,0,0,1,0
+0022000050,1610612764,Washington,Wizards,WAS,wizards,1630166,Deni,Avdija,D. Avdija,deni-avdija,F,,9,26:19,0,0,0,0,11,11,2,26,1,0,5,0
+0022000050,1610612764,Washington,Wizards,WAS,wizards,1628418,Thomas,Bryant,T. Bryant,thomas-bryant,C,,13,33:32,2,0,4,6,15,9,4,28,2,0,5,3
+0022000050,1610612764,Washington,Wizards,WAS,wizards,203078,Bradley,Beal,B. Beal,bradley-beal,G,,3,36:31,2,2,2,10,23,11,4,30,1,0,4,5
+0022000050,1610612764,Washington,Wizards,WAS,wizards,201566,Russell,Westbrook,R. Westbrook,russell-westbrook,G,,4,37:43,2,2,2,4,16,9,4,30,0,0,3,2
+0022000050,1610612764,Washington,Wizards,WAS,wizards,202397,Ish,Smith,I. Smith,ish-smith,,,14,21:15,0,0,0,2,9,6,0,18,2,0,0,1
+0022000050,1610612764,Washington,Wizards,WAS,wizards,1628972,Troy,Brown Jr.,T. Brown Jr.,troy-brown-jr,,,6,10:26,0,0,0,0,4,4,0,8,0,0,1,0
+0022000050,1610612764,Washington,Wizards,WAS,wizards,201577,Robin,Lopez,R. Lopez,robin-lopez,,,15,13:33,0,0,0,6,8,4,0,12,0,1,4,2
+0022000050,1610612764,Washington,Wizards,WAS,wizards,202722,Davis,Bertans,D. Bertans,davis-bertans,,,42,26:16,3,0,0,2,12,6,4,28,0,0,4,8
+0022000050,1610612764,Washington,Wizards,WAS,wizards,203526,Raul,Neto,R. Neto,raul-neto,,,19,14:44,0,0,0,2,9,2,2,14,0,0,1,2
+0022000050,1610612764,Washington,Wizards,WAS,wizards,1630264,Anthony,Gill,A. Gill,anthony-gill,,,16,3:26,0,0,0,0,3,0,0,0,0,0,0,0
+0022000050,1610612764,Washington,Wizards,WAS,wizards,1629726,Garrison,Mathews,G. Mathews,garrison-mathews,,,24,0:26,0,0,0,0,0,0,0,0,0,0,0,0
+0022000050,1610612764,Washington,Wizards,WAS,wizards,1628394,Anžejs,Pasečņiks,A. Pasečņiks,anžejs-pasečņiks,,DNP - Coach's Decision,18,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000050,1610612764,Washington,Wizards,WAS,wizards,1629010,Jerome,Robinson,J. Robinson,jerome-robinson,,DNP - Coach's Decision,12,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000050,1610612764,Washington,Wizards,WAS,wizards,1629021,Moritz,Wagner,M. Wagner,moritz-wagner,,DNP - Coach's Decision,21,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1627736,Malik,Beasley,M. Beasley,malik-beasley,F,,5,28:05,1,3,5,4,6,6,12,26,0,2,0,4
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629633,Jarrett,Culver,J. Culver,jarrett-culver,F,,23,25:30,0,0,0,0,8,9,9,28,1,3,1,1
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629675,Naz,Reid,N. Reid,naz-reid,C,,11,19:54,2,0,2,6,8,7,9,24,0,1,3,2
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1626156,D'Angelo,Russell,D. Russell,dangelo-russell,G,,0,31:03,0,3,6,6,11,14,11,36,0,0,2,3
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,201937,Ricky,Rubio,R. Rubio,ricky-rubio,G,,9,25:33,4,0,0,6,8,3,12,26,0,0,3,5
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1630162,Anthony,Edwards,A. Edwards,anthony-edwards,,,1,24:42,3,0,0,0,8,16,10,28,1,1,1,0
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629162,Jordan,McLaughlin,J. McLaughlin,jordan-mclaughlin,,,6,18:07,0,0,0,2,6,11,4,20,0,1,1,0
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,202334,Ed,Davis,E. Davis,ed-davis,,,17,12:28,0,0,0,0,0,8,0,14,1,0,0,0
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1627774,Jake,Layman,J. Layman,jake-layman,,,10,13:03,2,0,0,4,5,8,0,18,2,1,3,0
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1627823,Juancho,Hernangomez,J. Hernangomez,juancho-hernangomez,,,41,18:28,0,0,0,2,3,7,5,20,0,0,0,2
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1629020,Jarred,Vanderbilt,J. Vanderbilt,jarred-vanderbilt,,,8,15:38,3,2,3,8,6,4,7,14,1,1,0,3
+0022000054,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1630183,Jaden,McDaniels,J. McDaniels,jaden-mcdaniels,,,3,7:29,0,0,0,2,1,2,1,6,0,0,1,1
+0022000054,1610612746,LA,Clippers,LAC,clippers,202331,Paul,George,P. George,paul-george,F,,13,28:31,2,3,3,2,6,6,10,20,2,0,3,2
+0022000054,1610612746,LA,Clippers,LAC,clippers,201587,Nicolas,Batum,N. Batum,nicolas-batum,F,,33,23:42,0,0,3,2,6,3,7,18,0,0,3,2
+0022000054,1610612746,LA,Clippers,LAC,clippers,201586,Serge,Ibaka,S. Ibaka,serge-ibaka,C,,9,21:39,2,0,0,12,6,3,7,16,2,0,1,1
+0022000054,1610612746,LA,Clippers,LAC,clippers,1628379,Luke,Kennard,L. Kennard,luke-kennard,G,,5,28:29,2,0,2,6,10,6,10,22,0,0,3,0
+0022000054,1610612746,LA,Clippers,LAC,clippers,201976,Patrick,Beverley,P. Beverley,patrick-beverley,G,,21,21:57,0,0,3,0,6,6,7,18,0,0,2,1
+0022000054,1610612746,LA,Clippers,LAC,clippers,101150,Lou,Williams,L. Williams,lou-williams,,,23,20:10,5,5,2,6,8,0,6,14,0,2,0,4
+0022000054,1610612746,LA,Clippers,LAC,clippers,1627826,Ivica,Zubac,I. Zubac,ivica-zubac,,,40,18:30,2,4,0,10,6,3,6,14,3,2,0,2
+0022000054,1610612746,LA,Clippers,LAC,clippers,202704,Reggie,Jackson,R. Jackson,reggie-jackson,,,1,26:03,1,3,1,4,9,2,9,22,1,1,2,1
+0022000054,1610612746,LA,Clippers,LAC,clippers,1629611,Terance,Mann,T. Mann,terance-mann,,,14,24:50,0,2,2,4,9,5,9,22,1,0,3,2
+0022000054,1610612746,LA,Clippers,LAC,clippers,1629599,Amir,Coffey,A. Coffey,amir-coffey,,,7,11:22,0,0,0,2,3,2,3,14,0,0,0,0
+0022000054,1610612746,LA,Clippers,LAC,clippers,1629662,Mfiondu,Kabengele,M. Kabengele,mfiondu-kabengele,,,25,7:51,0,0,0,0,3,2,3,10,0,1,3,0
+0022000054,1610612746,LA,Clippers,LAC,clippers,1630187,Daniel,Oturu,D. Oturu,daniel-oturu,,,10,6:56,0,2,0,4,3,2,3,10,1,0,1,0
+0022000054,1610612746,LA,Clippers,LAC,clippers,202695,Kawhi,Leonard,K. Leonard,kawhi-leonard,,DNP - Injury/Illness,2,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000054,1610612746,LA,Clippers,LAC,clippers,202335,Patrick,Patterson,P. Patterson,patrick-patterson,,DNP - Coach's Decision,54,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1629008,Michael,Porter Jr.,M. Porter Jr.,michael-porter-jr,F,,1,40:19,6,4,4,12,31,13,9,54,2,0,4,1
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,200794,Paul,Millsap,P. Millsap,paul-millsap,F,,4,27:55,0,0,0,2,22,8,10,34,0,0,0,2
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,203999,Nikola,Jokić,N. Jokić,nikola-jokić,C,,15,38:33,2,4,1,14,28,10,12,52,0,1,4,11
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,203914,Gary,Harris,G. Harris,gary-harris,G,,14,31:25,2,0,2,6,24,10,12,40,0,0,1,0
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1628420,Monté,Morris,M. Morris,monté-morris,G,,11,36:47,2,0,5,12,28,10,12,48,1,1,2,1
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,203115,Will,Barton,W. Barton,will-barton,,,5,21:44,2,2,2,4,18,5,7,20,0,0,1,0
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1630267,Facundo,Campazzo,F. Campazzo,facundo-campazzo,,,7,12:35,0,0,0,0,9,3,2,6,0,0,4,2
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1628408,PJ,Dozier,P. Dozier,pj-dozier,,,35,16:42,0,0,0,2,13,3,4,14,2,0,0,0
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1628392,Isaiah,Hartenstein,I. Hartenstein,isaiah-hartenstein,,,25,9:03,0,0,0,2,9,3,2,2,0,0,1,1
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1629626,Bol,Bol,B. Bol,bol-bol,,,10,3:43,0,0,0,0,3,0,0,0,0,0,1,0
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1630210,Markus,Howard,M. Howard,markus-howard,,,00,0:25,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1630181,R.J.,Hampton,R. Hampton,rj-hampton,,,13,0:25,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1630192,Zeke,Nnaji,Z. Nnaji,zeke-nnaji,,,22,0:25,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1627750,Jamal,Murray,J. Murray,jamal-murray,,DNP - Injury/Illness,27,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612743,Denver,Nuggets,DEN,nuggets,1628427,Vlatko,Čančar,V. Čančar,vlatko-čančar,,DNP - Coach's Decision,31,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612758,Sacramento,Kings,SAC,kings,203084,Harrison,Barnes,H. Barnes,harrison-barnes,F,,40,33:09,0,0,0,2,14,8,14,44,0,0,0,0
+0022000055,1610612758,Sacramento,Kings,SAC,kings,1628963,Marvin,Bagley III,M. Bagley III,marvin-bagley-iii,F,,35,23:12,7,0,0,8,12,6,10,32,0,1,2,4
+0022000055,1610612758,Sacramento,Kings,SAC,kings,1626158,Richaun,Holmes,R. Holmes,richaun-holmes,C,,22,32:01,10,4,2,18,10,6,8,36,1,0,2,1
+0022000055,1610612758,Sacramento,Kings,SAC,kings,1627741,Buddy,Hield,B. Hield,buddy-hield,G,,24,34:37,3,2,3,2,12,6,11,40,0,0,2,1
+0022000055,1610612758,Sacramento,Kings,SAC,kings,1628368,De'Aaron,Fox,D. Fox,deaaron-fox,G,,5,35:03,2,0,4,12,10,8,9,42,1,1,2,6
+0022000055,1610612758,Sacramento,Kings,SAC,kings,202709,Cory,Joseph,C. Joseph,cory-joseph,,,9,23:27,5,0,0,2,4,4,6,22,0,1,3,2
+0022000055,1610612758,Sacramento,Kings,SAC,kings,202357,Nemanja,Bjelica,N. Bjelica,nemanja-bjelica,,,8,20:57,0,0,3,4,4,6,6,22,0,0,3,2
+0022000055,1610612758,Sacramento,Kings,SAC,kings,202355,Hassan,Whiteside,H. Whiteside,hassan-whiteside,,,20,12:41,2,2,0,2,2,2,4,14,0,1,3,1
+0022000055,1610612758,Sacramento,Kings,SAC,kings,1630169,Tyrese,Haliburton,T. Haliburton,tyrese-haliburton,,,0,24:54,8,5,2,4,2,4,2,18,0,1,1,1
+0022000055,1610612758,Sacramento,Kings,SAC,kings,1629657,Kyle,Guy,K. Guy,kyle-guy,,DNP - Coach's Decision,7,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612758,Sacramento,Kings,SAC,kings,1629713,Justin,James,J. James,justin-james,,DNP - Coach's Decision,10,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612758,Sacramento,Kings,SAC,kings,203953,Jabari,Parker,J. Parker,jabari-parker,,DNP - Coach's Decision,33,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612758,Sacramento,Kings,SAC,kings,1630186,Jahmi'us,Ramsey,J. Ramsey,jahmius-ramsey,,DNP - Coach's Decision,3,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612758,Sacramento,Kings,SAC,kings,203922,Glenn,Robinson III,G. Robinson III,glenn-robinson-iii,,DNP - Coach's Decision,30,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000055,1610612758,Sacramento,Kings,SAC,kings,1630218,Robert,Woodard II,R. Woodard II,robert-woodard-ii,,DNP - Coach's Decision,13,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000052,1610612753,Orlando,Magic,ORL,magic,1628407,Dwayne,Bacon,D. Bacon,dwayne-bacon,F,,8,23:06,2,4,2,18,6,9,0,22,0,0,2,2
+0022000052,1610612753,Orlando,Magic,ORL,magic,203932,Aaron,Gordon,A. Gordon,aaron-gordon,F,,00,22:10,0,0,0,10,7,2,0,28,1,0,2,1
+0022000052,1610612753,Orlando,Magic,ORL,magic,202696,Nikola,Vučević,N. Vučević,nikola-vučević,C,,9,34:25,2,2,3,14,4,9,4,46,0,2,0,4
+0022000052,1610612753,Orlando,Magic,ORL,magic,203095,Evan,Fournier,E. Fournier,evan-fournier,G,,10,31:44,2,0,2,6,8,9,4,40,0,2,4,2
+0022000052,1610612753,Orlando,Magic,ORL,magic,1628365,Markelle,Fultz,M. Fultz,markelle-fultz,G,,20,31:40,2,2,0,4,4,9,2,42,0,2,3,1
+0022000052,1610612753,Orlando,Magic,ORL,magic,1629643,Chuma,Okeke,C. Okeke,chuma-okeke,,,3,17:39,1,0,0,0,0,11,2,24,1,0,0,2
+0022000052,1610612753,Orlando,Magic,ORL,magic,203082,Terrence,Ross,T. Ross,terrence-ross,,,31,24:54,0,0,0,10,5,4,4,36,0,0,1,1
+0022000052,1610612753,Orlando,Magic,ORL,magic,1630175,Cole,Anthony,C. Anthony,cole-anthony,,,50,16:20,2,0,0,0,7,4,2,16,0,0,2,3
+0022000052,1610612753,Orlando,Magic,ORL,magic,203487,Michael,Carter-Williams,M. Carter-Williams,michael-carter-williams,,,7,24:27,2,2,0,4,7,4,2,24,0,1,5,0
+0022000052,1610612753,Orlando,Magic,ORL,magic,203920,Khem,Birch,K. Birch,khem-birch,,,24,13:35,2,2,0,6,7,4,0,12,0,0,4,2
+0022000052,1610612753,Orlando,Magic,ORL,magic,1628964,Mo,Bamba,M. Bamba,mo-bamba,,DNP - Coach's Decision,5,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000052,1610612753,Orlando,Magic,ORL,magic,1629648,Jordan,Bone,J. Bone,jordan-bone,,DNP - Coach's Decision,23,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000052,1610612753,Orlando,Magic,ORL,magic,1629109,Gary,Clark,G. Clark,gary-clark,,DNP - Coach's Decision,12,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000052,1610612753,Orlando,Magic,ORL,magic,1630211,Karim,Mane,K. Mane,karim-mane,,DNP - Coach's Decision,4,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1629647,Darius,Bazley,D. Bazley,darius-bazley,F,,7,28:31,0,0,0,6,8,6,7,44,2,2,0,0
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1628382,Justin,Jackson,J. Jackson,justin-jackson,F,,44,29:10,2,0,2,6,11,10,7,48,0,0,0,4
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1629676,Isaiah,Roby,I. Roby,isaiah-roby,C,,22,28:06,2,2,0,16,8,6,7,42,2,0,4,1
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1629652,Luguentz,Dort,L. Dort,luguentz-dort,G,,5,28:58,0,5,0,6,6,10,4,46,0,0,2,4
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1628983,Shai,Gilgeous-Alexander,S. Gilgeous-Alexander,shai-gilgeous-alexander,G,,2,33:20,0,2,0,6,10,8,7,50,0,0,1,5
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1628977,Hamidou,Diallo,H. Diallo,hamidou-diallo,,,6,21:59,0,2,0,10,7,2,3,26,1,0,3,4
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1630177,Theo,Maledon,T. Maledon,theo-maledon,,,11,20:11,0,0,2,2,7,6,0,32,0,0,2,3
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1630197,Aleksej,Pokusevski,A. Pokusevski,aleksej-pokusevski,,,17,19:29,0,2,0,2,7,6,0,28,2,0,2,0
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,203488,Mike,Muscala,M. Muscala,mike-muscala,,,33,19:54,7,0,0,4,7,6,0,30,0,0,3,1
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1629026,Kenrich,Williams,K. Williams,kenrich-williams,,,34,9:34,0,0,0,0,4,0,0,12,0,0,1,1
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1630221,Josh,Hall,J. Hall,josh-hall,,,15,0:48,0,0,0,0,0,0,0,2,0,0,0,0
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,1629650,Moses,Brown,M. Brown,moses-brown,,DNP - Coach's Decision,9,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000052,1610612760,Oklahoma City,Thunder,OKC,thunder,203121,Darius,Miller,D. Miller,darius-miller,,DNP - Coach's Decision,12,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1627742,Brandon,Ingram,B. Ingram,brandon-ingram,F,,14,28:14,0,0,0,6,16,12,7,20,0,0,0,3
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1629627,Zion,Williamson,Z. Williamson,zion-williamson,F,,1,28:49,4,2,0,18,15,10,12,16,0,2,1,4
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,203500,Steven,Adams,S. Adams,steven-adams,C,,12,23:10,2,4,0,10,14,10,7,16,1,0,1,2
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,202339,Eric,Bledsoe,E. Bledsoe,eric-bledsoe,G,,5,24:13,2,0,2,4,15,12,10,12,0,0,0,2
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1628366,Lonzo,Ball,L. Ball,lonzo-ball,G,,2,23:05,5,0,0,0,14,10,7,18,0,1,2,0
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,200755,JJ,Redick,J. Redick,jj-redick,,,4,17:34,0,0,0,0,7,4,5,8,0,0,3,0
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1628404,Josh,Hart,J. Hart,josh-hart,,,3,21:56,0,0,3,2,11,6,9,16,0,0,1,1
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1629740,Nicolo,Melli,N. Melli,nicolo-melli,,,20,15:41,0,3,0,0,5,4,5,4,0,0,2,0
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1629637,Jaxson,Hayes,J. Hayes,jaxson-hayes,,,10,11:46,0,0,0,0,2,2,2,8,2,0,0,2
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1629638,Nickeil,Alexander-Walker,N. Alexander-Walker,nickeil-alexander-walker,,,6,21:30,2,0,2,2,6,4,4,14,0,0,4,2
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1630184,Kira,Lewis Jr.,K. Lewis Jr.,kira-lewis-jr,,,13,9:38,2,0,2,4,0,2,2,4,0,1,0,0
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1628414,Sindarius,Thornwell,S. Thornwell,sindarius-thornwell,,,15,7:17,2,0,2,2,0,2,0,2,0,0,0,0
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1626195,Willy,Hernangomez,W. Hernangomez,willy-hernangomez,,,9,7:07,0,0,0,0,0,2,0,2,0,0,0,2
+0022000053,1610612740,New Orleans,Pelicans,NOP,pelicans,1630230,Naji,Marshall,N. Marshall,naji-marshall,,DNP - Coach's Decision,8,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1628969,Mikal,Bridges,M. Bridges,mikal-bridges,F,,25,30:03,5,0,5,4,11,6,4,30,0,0,1,2
+0022000053,1610612756,Phoenix,Suns,PHX,suns,203109,Jae,Crowder,J. Crowder,jae-crowder,F,,99,20:59,3,3,2,2,9,6,4,24,0,0,3,2
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1629028,Deandre,Ayton,D. Ayton,deandre-ayton,C,,22,26:27,6,8,0,10,9,4,6,30,1,3,1,1
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1626164,Devin,Booker,D. Booker,devin-booker,G,,1,25:36,0,3,0,0,9,2,5,24,0,0,3,1
+0022000053,1610612756,Phoenix,Suns,PHX,suns,101108,Chris,Paul,C. Paul,chris-paul,G,,3,23:11,2,0,2,2,9,6,4,26,0,0,1,2
+0022000053,1610612756,Phoenix,Suns,PHX,suns,203967,Dario,Šarić,D. Šarić,dario-šarić,,,20,14:16,3,0,0,2,6,2,1,12,0,0,1,2
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1629661,Cameron,Johnson,C. Johnson,cameron-johnson,,,23,22:23,0,0,2,4,8,4,3,22,2,0,2,1
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1626166,Cameron,Payne,C. Payne,cameron-payne,,,15,23:07,2,0,3,2,10,0,7,24,0,0,3,2
+0022000053,1610612756,Phoenix,Suns,PHX,suns,204038,Langston,Galloway,L. Galloway,langston-galloway,,,2,11:51,0,0,0,0,4,0,3,12,0,0,0,0
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1628975,Jevon,Carter,J. Carter,jevon-carter,,,4,18:44,0,0,0,0,8,3,6,18,0,0,1,0
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1626163,Frank,Kaminsky,F. Kaminsky,frank-kaminsky,,,8,7:17,0,2,0,2,4,3,4,6,0,0,0,1
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1627745,Damian,Jones,D. Jones,damian-jones,,,30,6:06,0,0,0,0,4,3,4,6,1,0,0,0
+0022000053,1610612756,Phoenix,Suns,PHX,suns,202734,E'Twaun,Moore,E. Moore,etwaun-moore,,,55,6:06,0,0,0,0,4,3,4,6,0,0,1,0
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1630234,Ty-Shon,Alexander,T. Alexander,ty-shon-alexander,,,0,3:54,0,0,0,0,0,3,0,0,0,0,1,0
+0022000053,1610612756,Phoenix,Suns,PHX,suns,1630188,Jalen,Smith,J. Smith,jalen-smith,,DNP - Injury/Illness,10,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,203952,Andrew,Wiggins,A. Wiggins,andrew-wiggins,F,,22,38:03,5,5,0,6,22,20,3,28,3,2,3,2
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,1629308,Juan,Toscano-Anderson,J. Toscano-Anderson,juan-toscano-anderson,F,,95,23:55,2,0,2,2,15,6,0,22,0,0,4,3
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,1630164,James,Wiseman,J. Wiseman,james-wiseman,C,,33,21:44,0,0,0,2,5,5,0,16,2,1,6,0
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,1626162,Kelly,Oubre Jr.,K. Oubre Jr.,kelly-oubre-jr,G,,12,29:01,4,0,2,10,17,7,0,22,2,0,2,4
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,201939,Stephen,Curry,S. Curry,stephen-curry,G,,30,34:50,3,0,3,2,20,15,3,30,0,2,5,4
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,1626172,Kevon,Looney,K. Looney,kevon-looney,,,5,21:49,0,2,0,0,20,13,3,18,0,0,1,2
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,1628539,Mychal,Mulder,M. Mulder,mychal-mulder,,,15,10:59,0,0,0,0,9,8,3,14,0,0,2,3
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,1629672,Eric,Paschall,E. Paschall,eric-paschall,,,7,13:29,4,0,0,6,8,7,3,12,0,0,3,4
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,1627814,Damion,Lee,D. Lee,damion-lee,,,1,18:59,2,3,0,2,8,9,0,16,0,0,0,0
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,1629673,Jordan,Poole,J. Poole,jordan-poole,,,3,9:34,0,0,0,2,8,5,0,6,0,0,1,0
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,202954,Brad,Wanamaker,B. Wanamaker,brad-wanamaker,,,10,17:37,0,0,0,4,8,5,0,16,1,1,1,4
+0022000047,1610612744,Golden State,Warriors,GSW,warriors,203145,Kent,Bazemore,K. Bazemore,kent-bazemore,,DNP - Coach's Decision,26,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000047,1610612765,Detroit,Pistons,DET,pistons,203924,Jerami,Grant,J. Grant,jerami-grant,F,,9,37:02,4,7,0,12,18,7,7,24,2,1,5,6
+0022000047,1610612765,Detroit,Pistons,DET,pistons,201933,Blake,Griffin,B. Griffin,blake-griffin,F,,23,16:59,0,2,0,0,3,3,0,8,0,0,1,2
+0022000047,1610612765,Detroit,Pistons,DET,pistons,203486,Mason,Plumlee,M. Plumlee,mason-plumlee,C,,24,24:49,1,1,0,0,16,3,7,20,1,1,2,4
+0022000047,1610612765,Detroit,Pistons,DET,pistons,1628367,Josh,Jackson,J. Jackson,josh-jackson,G,,20,29:27,3,3,0,10,16,2,7,24,1,2,5,7
+0022000047,1610612765,Detroit,Pistons,DET,pistons,1630165,Killian,Hayes,K. Hayes,killian-hayes,G,,7,16:57,0,0,0,0,6,3,0,8,0,0,0,1
+0022000047,1610612765,Detroit,Pistons,DET,pistons,1630180,Saddiq,Bey,S. Bey,saddiq-bey,,,41,15:08,0,0,0,0,9,0,5,12,0,0,3,1
+0022000047,1610612765,Detroit,Pistons,DET,pistons,201565,Derrick,Rose,D. Rose,derrick-rose,,,25,26:26,7,0,0,8,10,7,2,24,0,2,4,2
+0022000047,1610612765,Detroit,Pistons,DET,pistons,1626153,Delon,Wright,D. Wright,delon-wright,,,55,28:02,5,3,0,2,12,10,7,20,0,0,1,1
+0022000047,1610612765,Detroit,Pistons,DET,pistons,1630191,Isaiah,Stewart,I. Stewart,isaiah-stewart,,,28,23:11,2,2,0,6,4,7,0,16,2,1,2,2
+0022000047,1610612765,Detroit,Pistons,DET,pistons,1629635,Sekou,Doumbouya,S. Doumbouya,sekou-doumbouya,,,45,10:04,3,2,0,2,4,3,0,12,0,1,1,2
+0022000047,1610612765,Detroit,Pistons,DET,pistons,1629004,Svi,Mykhailiuk,S. Mykhailiuk,svi-mykhailiuk,,,19,11:55,3,0,3,0,2,5,0,12,0,0,2,0
+0022000047,1610612765,Detroit,Pistons,DET,pistons,201961,Wayne,Ellington,W. Ellington,wayne-ellington,,DNP - Coach's Decision,8,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000047,1610612765,Detroit,Pistons,DET,pistons,203585,Rodney,McGruder,R. McGruder,rodney-mcgruder,,DNP - Coach's Decision,17,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000047,1610612765,Detroit,Pistons,DET,pistons,1626143,Jahlil,Okafor,J. Okafor,jahlil-okafor,,DNP - Injury/Illness,13,,0,0,0,0,0,0,0,0,0,0,0,0
+0022000047,1610612765,Detroit,Pistons,DET,pistons,1629686,Deividas,Sirvydis,D. Sirvydis,deividas-sirvydis,,DNP - Coach's Decision,91,,0,0,0,0,0,0,0,0,0,0,0,0

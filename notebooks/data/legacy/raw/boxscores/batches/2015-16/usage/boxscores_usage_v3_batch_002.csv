@@ -1,0 +1,649 @@
+gameId,teamId,teamCity,teamName,teamTricode,teamSlug,personId,firstName,familyName,nameI,playerSlug,position,comment,jerseyNum,minutes,usagePercentage,percentageFieldGoalsMade,percentageFieldGoalsAttempted,percentageThreePointersMade,percentageThreePointersAttempted,percentageFreeThrowsMade,percentageFreeThrowsAttempted,percentageReboundsOffensive,percentageReboundsDefensive,percentageReboundsTotal,percentageAssists,percentageTurnovers,percentageSteals,percentageBlocks,percentageBlocksAllowed,percentagePersonalFouls,percentagePersonalFoulsDrawn,percentagePoints
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,203084,Harrison,Barnes,H. Barnes,harrison-barnes,F,,,26:28,0.183,0.208,0.196,0.0,0.071,0.222,0.182,0.0,0.313,0.227,0.167,0.0,0.0,0.0,0.0,0.143,0.182,0.194
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,203110,Draymond,Green,D. Green,draymond-green,F,,,31:14,0.145,0.111,0.131,0.125,0.095,0.222,0.25,0.167,0.25,0.233,0.412,0.167,0.333,0.5,0.429,0.143,0.429,0.127
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,203105,Festus,Ezeli,F. Ezeli,festus-ezeli,C,,,24:42,0.228,0.19,0.191,0.0,0.0,0.167,0.333,0.6,0.222,0.304,0.077,0.4,0.0,0.667,0.333,0.25,0.167,0.164
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,202691,Klay,Thompson,K. Thompson,klay-thompson,G,,,24:03,0.22,0.19,0.208,0.143,0.294,0.5,0.25,0.0,0.1,0.087,0.0,0.4,0.333,0.0,0.0,0.231,0.111,0.208
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,201939,Stephen,Curry,S. Curry,stephen-curry,G,,,27:24,0.258,0.36,0.288,0.571,0.474,0.375,0.286,0.0,0.318,0.259,0.4,0.167,0.25,0.0,0.0,0.308,0.167,0.385
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,2738,Andre,Iguodala,A. Iguodala,andre-iguodala,,,,29:47,0.127,0.2,0.164,0.4,0.313,0.0,0.0,0.333,0.115,0.171,0.235,0.0,0.333,0.0,0.0,0.0,0.143,0.171
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,2733,Shaun,Livingston,S. Livingston,shaun-livingston,,,,19:59,0.109,0.0,0.081,0.0,0.0,0.333,0.333,0.0,0.077,0.05,0.0,0.0,0.0,0.0,0.333,0.0,0.2,0.089
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,201578,Marreese,Speights,M. Speights,marreese-speights,,,,12:40,0.429,0.462,0.478,0.0,0.333,0.286,0.286,0.667,0.2,0.308,0.125,0.0,0.0,1.0,0.0,0.429,0.4,0.412
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,2571,Leandro,Barbosa,L. Barbosa,leandro-barbosa,,,,19:23,0.152,0.1,0.158,1.0,0.2,0.0,0.0,0.0,0.143,0.105,0.154,0.5,0.75,0.0,0.0,0.3,0.0,0.102
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,201574,Jason,Thompson,J. Thompson,jason-thompson,,,,6:26,0.15,0.333,0.214,0.0,0.0,0.0,0.0,0.5,0.333,0.375,0.0,0.0,0.0,0.0,0.333,0.2,0.0,0.267
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,203949,James Michael,McAdoo,J. McAdoo,james-michael-mcadoo,,,,7:24,0.211,0.143,0.125,0.0,0.0,1.0,1.0,0.0,0.25,0.2,0.25,1.0,0.0,0.0,0.0,0.429,1.0,0.188
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,201575,Brandon,Rush,B. Rush,brandon-rush,,,,5:54,0.235,0.167,0.308,0.0,0.333,0.0,0.0,0.5,0.25,0.333,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.143
+0021500030,1610612744,Golden State,Warriors,GSW,warriors,203546,Ian,Clark,I. Clark,ian-clark,,,,4:36,0.231,0.2,0.3,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.667,0.0,0.0,0.0,0.5,0.25,0.0,0.182
+0021500030,1610612745,Houston,Rockets,HOU,rockets,2772,Trevor,Ariza,T. Ariza,trevor-ariza,F,,,29:41,0.159,0.2,0.184,0.5,0.235,0.167,0.143,0.2,0.148,0.156,0.077,0.1,0.0,0.0,0.0,0.077,0.071,0.212
+0021500030,1610612745,Houston,Rockets,HOU,rockets,203093,Terrence,Jones,T. Jones,terrence-jones,F,,,18:09,0.156,0.2,0.269,0.0,0.143,0.0,0.0,0.2,0.231,0.222,0.125,0.0,0.0,0.5,0.0,0.0,0.1,0.114
+0021500030,1610612745,Houston,Rockets,HOU,rockets,2730,Dwight,Howard,D. Howard,dwight-howard,C,,,21:49,0.308,0.4,0.333,0.0,0.0,0.077,0.1,0.667,0.214,0.35,0.25,0.444,0.5,0.333,0.5,0.5,0.182,0.257
+0021500030,1610612745,Houston,Rockets,HOU,rockets,201935,James,Harden,J. Harden,james-harden,G,,,37:00,0.289,0.211,0.29,0.25,0.5,0.35,0.296,0.2,0.161,0.171,0.385,0.267,0.5,0.143,0.333,0.143,0.353,0.258
+0021500030,1610612745,Houston,Rockets,HOU,rockets,201951,Ty,Lawson,T. Lawson,ty-lawson,G,,,35:31,0.157,0.087,0.131,0.2,0.188,0.261,0.281,0.0,0.148,0.105,0.333,0.154,0.0,0.25,0.5,0.143,0.238,0.149
+0021500030,1610612745,Houston,Rockets,HOU,rockets,203991,Clint,Capela,C. Capela,clint-capela,,,,17:45,0.143,0.214,0.121,0.0,0.0,0.167,0.167,0.333,0.412,0.4,0.1,0.333,0.0,0.5,0.0,0.25,0.125,0.189
+0021500030,1610612745,Houston,Rockets,HOU,rockets,1626149,Montrezl,Harrell,M. Harrell,montrezl-harrell,,,,21:10,0.212,0.412,0.225,0.0,0.0,0.333,0.385,0.2,0.154,0.167,0.0,0.0,0.0,0.2,0.0,0.091,0.3,0.378
+0021500030,1610612745,Houston,Rockets,HOU,rockets,201976,Patrick,Beverley,P. Beverley,patrick-beverley,,,,20:54,0.146,0.125,0.158,0.0,0.1,0.0,0.0,0.25,0.214,0.222,0.222,0.2,0.0,0.0,0.0,0.455,0.0,0.105
+0021500030,1610612745,Houston,Rockets,HOU,rockets,201147,Corey,Brewer,C. Brewer,corey-brewer,,,,29:01,0.162,0.111,0.115,0.5,0.133,0.375,0.364,0.111,0.174,0.156,0.222,0.182,0.0,0.167,0.5,0.1,0.333,0.204
+0021500030,1610612745,Houston,Rockets,HOU,rockets,203909,KJ,McDaniels,K. McDaniels,kj-mcdaniels,,,,4:30,0.333,0.25,0.5,0.0,1.0,0.0,0.0,0.0,0.333,0.25,0.0,0.0,0.0,0.5,0.0,1.0,0.0,0.143
+0021500030,1610612745,Houston,Rockets,HOU,rockets,1626155,Sam,Dekker,S. Dekker,sam-dekker,,,,4:30,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.333,0.25,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0
+0021500030,1610612745,Houston,Rockets,HOU,rockets,1891,Jason,Terry,J. Terry,jason-terry,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500030,1610612745,Houston,Rockets,HOU,rockets,201977,Marcus,Thornton,M. Thornton,marcus-thornton,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,2207,Joe,Johnson,J. Johnson,joe-johnson,F,,,25:14,0.151,0.071,0.159,0.0,0.091,0.0,0.0,0.0,0.167,0.154,0.1,0.2,0.333,0.0,0.333,0.357,0.222,0.059
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,201152,Thaddeus,Young,T. Young,thaddeus-young,F,,,28:25,0.22,0.222,0.234,0.25,0.167,0.0,0.6,1.0,0.294,0.368,0.0,0.125,0.0,0.0,0.333,0.154,0.375,0.22
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,201572,Brook,Lopez,B. Lopez,brook-lopez,C,,,31:59,0.224,0.316,0.212,0.0,0.0,1.0,0.545,0.0,0.167,0.158,0.333,0.222,0.0,1.0,0.25,0.2,0.25,0.362
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,201961,Wayne,Ellington,W. Ellington,wayne-ellington,G,,,18:16,0.146,0.091,0.171,0.25,0.4,0.0,0.0,0.0,0.143,0.111,0.0,0.0,0.667,0.0,0.5,0.286,0.143,0.111
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,101127,Jarrett,Jack,J. Jack,jarrett-jack,G,,,26:57,0.263,0.313,0.283,0.5,0.273,0.0,0.0,0.0,0.429,0.4,0.7,0.333,0.333,0.0,0.0,0.0,0.091,0.308
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,203499,Shane,Larkin,S. Larkin,shane-larkin,,,,16:26,0.212,0.214,0.217,0.0,0.0,0.333,0.4,0.0,0.0,0.0,0.667,0.143,0.0,0.25,0.0,0.0,0.667,0.219
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,202711,Bojan,Bogdanovic,B. Bogdanovic,bojan-bogdanovic,,,,19:34,0.225,0.176,0.222,0.0,0.667,0.0,0.333,0.0,0.235,0.235,0.0,0.222,0.0,0.0,0.0,0.25,0.2,0.158
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,1626178,Rondae,Hollis-Jefferson,R. Hollis-Jefferson,rondae-hollis-jefferson,,,,26:09,0.179,0.263,0.184,0.0,0.0,0.0,0.0,0.0,0.182,0.182,0.0,0.273,0.0,0.4,0.0,0.25,0.111,0.217
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,200745,Andrea,Bargnani,A. Bargnani,andrea-bargnani,,,,16:18,0.114,0.154,0.167,1.0,0.333,0.0,0.0,0.0,0.077,0.077,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.161
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,203080,Thomas,Robinson,T. Robinson,thomas-robinson,,,,15:20,0.091,0.091,0.08,0.0,0.0,0.0,0.0,0.0,0.364,0.333,0.0,0.25,0.0,0.4,0.0,0.5,0.143,0.074
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,203900,Markel,Brown,M. Brown,markel-brown,,,,8:24,0.211,0.0,0.308,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.333,0.0,0.0,0.4,0.0,0.0
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,202388,Donald,Sloan,D. Sloan,donald-sloan,,,,4:37,0.182,0.0,0.125,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.333,0.0,0.0,0.0,0.0,0.0
+0021500028,1610612751,Brooklyn,Nets,BKN,nets,203508,Sergey,Karasev,S. Karasev,sergey-karasev,,,,2:21,0.333,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,1.0,1.0
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,202695,Kawhi,Leonard,K. Leonard,kawhi-leonard,F,,,25:47,0.373,0.273,0.348,0.0,0.182,0.667,0.667,0.2,0.36,0.333,0.083,0.444,0.667,0.5,0.0,0.375,0.444,0.291
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,200746,LaMarcus,Aldridge,L. Aldridge,lamarcus-aldridge,F,,,29:33,0.182,0.179,0.208,0.0,0.0,0.0,0.0,0.714,0.207,0.306,0.286,0.111,0.0,0.25,1.0,0.0,0.077,0.145
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,1495,Tim,Duncan,T. Duncan,tim-duncan,C,,,29:04,0.185,0.16,0.143,0.0,0.0,0.636,0.636,0.0,0.25,0.205,0.067,0.182,0.0,0.0,0.0,0.182,0.286,0.224
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,201980,Danny,Green,D. Green,danny-green,G,,,26:33,0.136,0.13,0.133,0.4,0.417,0.0,0.0,0.4,0.077,0.129,0.125,0.222,0.0,0.0,0.0,0.0,0.0,0.129
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,2225,Tony,Parker,T. Parker,tony-parker,G,,,23:46,0.17,0.217,0.205,0.0,0.0,0.0,0.0,0.0,0.037,0.03,0.308,0.1,0.0,0.0,0.0,0.333,0.0,0.172
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,201988,Patty,Mills,P. Mills,patty-mills,,,,18:24,0.143,0.308,0.162,0.5,0.313,0.0,0.0,0.333,0.182,0.214,0.333,0.0,0.0,0.0,0.0,0.0,0.2,0.324
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,1938,Manu,Ginobili,M. Ginobili,manu-ginobili,,,,21:37,0.26,0.263,0.293,0.333,0.462,0.0,0.0,0.0,0.263,0.217,0.364,0.167,0.25,0.25,0.667,0.0,0.5,0.245
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,2564,Boris,Diaw,B. Diaw,boris-diaw,,,,18:43,0.163,0.214,0.132,0.167,0.063,0.0,0.0,0.0,0.25,0.2,0.3,0.5,0.25,0.0,0.25,0.5,0.0,0.194
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,203937,Kyle,Anderson,K. Anderson,kyle-anderson,,,,10:53,0.036,0.0,0.053,0.0,0.0,0.0,0.0,0.0,0.182,0.118,0.0,0.0,0.333,1.0,0.0,0.429,0.333,0.0
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,2561,David,West,D. West,david-west,,,,14:03,0.171,0.1,0.16,0.0,0.0,0.0,0.0,0.0,0.3,0.214,0.0,0.25,0.0,0.0,0.5,0.4,0.0,0.083
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,2446,Rasual,Butler,R. Butler,rasual-butler,,,,11:10,0.143,0.111,0.19,0.5,0.5,0.0,0.0,0.0,0.143,0.091,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.136
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,203492,Ray,McCallum,R. McCallum,ray-mccallum,,,,5:50,0.125,0.25,0.1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.25,0.667,0.0,0.0,0.333,0.0,0.2
+0021500028,1610612759,San Antonio,Spurs,SAS,spurs,1626246,Boban,Marjanovic,B. Marjanovic,boban-marjanovic,,,,4:37,0.615,0.667,0.714,0.0,0.0,1.0,1.0,1.0,0.4,0.625,1.0,0.5,0.0,0.0,0.0,0.0,1.0,0.75
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,2419,Tayshaun,Prince,T. Prince,tayshaun-prince,F,,,29:20,0.045,0.05,0.067,0.0,0.5,0.0,0.0,0.0,0.12,0.094,0.167,0.0,0.4,0.0,0.0,0.154,0.0,0.03
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,708,Kevin,Garnett,K. Garnett,kevin-garnett,F,,,22:19,0.082,0.067,0.086,0.0,0.0,0.095,0.087,0.2,0.278,0.261,0.0,0.0,0.667,0.0,0.0,0.2,0.071,0.078
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1626157,Karl-Anthony,Towns,K. Towns,karl-anthony-towns,C,,,33:12,0.297,0.524,0.373,0.0,0.0,0.24,0.219,0.429,0.393,0.4,0.154,0.091,0.0,0.8,0.333,0.176,0.261,0.418
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203952,Andrew,Wiggins,A. Wiggins,andrew-wiggins,G,,,30:41,0.304,0.238,0.277,0.0,0.25,0.333,0.323,0.286,0.08,0.125,0.077,0.444,0.0,0.2,0.667,0.182,0.381,0.273
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,201937,Ricky,Rubio,R. Rubio,ricky-rubio,G,,,30:24,0.215,0.087,0.167,0.0,0.333,0.364,0.375,0.2,0.16,0.167,0.533,0.25,0.2,0.0,0.0,0.231,0.278,0.174
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,202357,Nemanja,Bjelica,N. Bjelica,nemanja-bjelica,,,,25:41,0.089,0.067,0.056,0.5,0.143,0.0,0.167,0.0,0.333,0.308,0.111,0.154,0.25,0.0,0.0,0.286,0.077,0.068
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,2755,Kevin,Martin,K. Martin,kevin-martin,,,,21:20,0.283,0.308,0.31,0.5,0.286,0.556,0.4,0.0,0.158,0.158,0.143,0.182,0.5,0.0,1.0,0.077,0.375,0.378
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203498,Shabazz,Muhammad,S. Muhammad,shabazz-muhammad,,,,16:11,0.171,0.125,0.217,0.0,0.286,0.0,0.0,0.0,0.063,0.063,0.0,0.125,0.0,0.0,0.0,0.273,0.0,0.083
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203476,Gorgui,Dieng,G. Dieng,gorgui-dieng,,,,13:16,0.143,0.143,0.167,0.0,0.0,0.0,0.0,0.0,0.077,0.077,0.0,0.167,0.0,1.0,0.0,0.143,0.0,0.083
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203897,Zach,LaVine,Z. LaVine,zach-lavine,,,,17:36,0.293,0.429,0.261,0.0,0.2,0.364,0.235,0.0,0.235,0.211,1.0,0.4,0.0,0.0,0.0,0.273,0.333,0.385
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1889,Andre,Miller,A. Miller,andre-miller,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203940,Adreian,Payne,A. Payne,adreian-payne,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500029,1610612750,Minnesota,Timberwolves,MIN,timberwolves,204014,Damjan,Rudez,D. Rudez,damjan-rudez,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,201568,Danilo,Gallinari,D. Gallinari,danilo-gallinari,F,,,33:23,0.169,0.2,0.186,0.0,0.188,0.167,0.133,0.0,0.1,0.061,0.1,0.1,0.0,0.0,0.4,0.222,0.267,0.185
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,202702,Kenneth,Faried,K. Faried,kenneth-faried,F,,,26:47,0.197,0.188,0.179,0.0,0.0,0.333,0.333,0.545,0.6,0.577,0.143,0.25,0.25,0.0,0.0,0.063,0.25,0.214
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,203530,Joffrey,Lauvergne,J. Lauvergne,joffrey-lauvergne,C,,,16:15,0.19,0.333,0.194,0.0,0.25,0.4,0.333,0.429,0.182,0.278,0.333,0.0,0.0,0.0,0.333,0.333,0.25,0.333
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,203914,Gary,Harris,G. Harris,gary-harris,G,,,17:53,0.2,0.143,0.216,0.0,0.4,0.0,0.0,0.125,0.0,0.067,0.167,0.167,0.5,0.0,0.0,0.3,0.0,0.129
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,1626144,Emmanuel,Mudiay,E. Mudiay,emmanuel-mudiay,G,,,26:30,0.314,0.294,0.278,1.0,0.556,0.3,0.429,0.0,0.118,0.071,0.333,0.444,0.5,1.0,0.333,0.111,0.333,0.326
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,203115,Will,Barton,W. Barton,will-barton,,,,29:41,0.208,0.25,0.241,0.25,0.2,0.5,0.429,0.1,0.125,0.118,0.111,0.0,0.4,0.5,0.167,0.25,0.313,0.304
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,200751,Randy,Foye,R. Foye,randy-foye,,,,8:22,0.158,0.0,0.143,0.0,0.333,0.0,0.0,0.0,0.0,0.0,0.0,0.333,0.0,0.0,0.0,0.0,0.0,0.0
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,2749,Jameer,Nelson,J. Nelson,jameer-nelson,,,,25:42,0.172,0.071,0.208,0.25,0.235,0.0,0.0,0.0,0.083,0.063,0.444,0.125,0.333,0.0,0.333,0.133,0.2,0.073
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,201589,Darrell,Arthur,D. Arthur,darrell-arthur,,,,26:26,0.123,0.071,0.149,0.25,0.158,0.0,0.0,0.5,0.316,0.36,0.25,0.111,0.0,0.5,0.0,0.333,0.0,0.071
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,203999,Nikola,Jokić,N. Jokić,nikola-jokić,,,,18:09,0.222,0.417,0.235,0.0,0.0,0.0,0.0,0.5,0.375,0.409,0.143,0.333,0.0,0.0,0.0,0.273,0.3,0.313
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,2034,Mike,Miller,M. Miller,mike-miller,,,,9:20,0.08,0.0,0.053,0.0,0.167,0.0,0.0,0.0,0.2,0.143,0.0,0.333,0.0,0.0,0.0,0.0,0.0,0.0
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,203475,Erick,Green,E. Green,erick-green,,,,1:32,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500029,1610612743,Denver,Nuggets,DEN,nuggets,201581,JJ,Hickson,J. Hickson,jj-hickson,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500021,1610612748,Miami,Heat,MIA,heat,2736,Luol,Deng,L. Deng,luol-deng,F,,,29:12,0.164,0.182,0.174,0.2,0.231,0.077,0.143,0.5,0.211,0.261,0.143,0.125,0.25,0.0,0.333,0.3,0.167,0.161
+0021500021,1610612748,Miami,Heat,MIA,heat,2547,Chris,Bosh,C. Bosh,chris-bosh,F,,,33:10,0.205,0.304,0.283,0.5,0.308,0.0,0.0,0.0,0.2,0.172,0.2,0.0,0.25,0.0,0.75,0.0,0.067,0.242
+0021500021,1610612748,Miami,Heat,MIA,heat,202355,Hassan,Whiteside,H. Whiteside,hassan-whiteside,C,,,36:02,0.13,0.143,0.123,0.0,0.0,0.167,0.2,0.333,0.32,0.321,0.105,0.2,0.0,0.857,0.0,0.143,0.25,0.138
+0021500021,1610612748,Miami,Heat,MIA,heat,201609,Goran,Dragic,G. Dragic,goran-dragic,G,,,33:36,0.162,0.115,0.164,0.2,0.214,0.25,0.222,0.0,0.115,0.1,0.375,0.1,0.2,0.0,0.0,0.25,0.25,0.151
+0021500021,1610612748,Miami,Heat,MIA,heat,2548,Dwyane,Wade,D. Wade,dwyane-wade,G,,,30:25,0.388,0.381,0.313,0.25,0.167,0.533,0.533,0.0,0.167,0.154,0.2,0.7,0.667,0.143,0.0,0.286,0.308,0.41
+0021500021,1610612748,Miami,Heat,MIA,heat,1626159,Justise,Winslow,J. Winslow,justise-winslow,,,,18:48,0.1,0.091,0.129,0.0,0.25,0.0,0.0,0.0,0.308,0.267,0.143,0.0,0.0,0.0,0.0,0.2,0.0,0.067
+0021500021,1610612748,Miami,Heat,MIA,heat,201596,Mario,Chalmers,M. Chalmers,mario-chalmers,,,,14:24,0.25,0.429,0.273,0.0,0.286,0.5,0.5,0.0,0.167,0.125,0.4,0.0,0.0,0.0,0.0,0.125,0.333,0.421
+0021500021,1610612748,Miami,Heat,MIA,heat,101123,Gerald,Green,G. Green,gerald-green,,,,16:07,0.333,0.111,0.346,1.0,0.5,0.4,0.333,0.0,0.143,0.091,0.0,0.333,0.0,0.0,0.0,0.167,0.4,0.208
+0021500021,1610612748,Miami,Heat,MIA,heat,201177,Josh,McRoberts,J. McRoberts,josh-mcroberts,,,,13:22,0.111,0.143,0.095,0.0,0.143,0.0,0.0,0.5,0.167,0.25,0.2,0.333,0.0,0.0,0.0,0.286,0.0,0.105
+0021500021,1610612748,Miami,Heat,MIA,heat,2405,Amar'e,Stoudemire,A. Stoudemire,amare-stoudemire,,,,11:58,0.08,0.2,0.1,0.0,0.0,0.0,0.0,0.667,0.143,0.3,0.0,0.0,0.0,0.0,0.0,0.333,0.333,0.167
+0021500021,1610612748,Miami,Heat,MIA,heat,203516,James,Ennis III,J. Ennis III,james-ennis-iii,,,,1:28,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500021,1610612748,Miami,Heat,MIA,heat,204020,Tyler,Johnson,T. Johnson,tyler-johnson,,,,1:28,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500021,1610612748,Miami,Heat,MIA,heat,2617,Udonis,Haslem,U. Haslem,udonis-haslem,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2544,LeBron,James,L. James,lebron-james,F,,,33:56,0.321,0.481,0.306,0.0,0.118,0.214,0.313,0.154,0.125,0.135,0.25,0.444,0.25,0.0,0.0,0.231,0.25,0.403
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,201567,Kevin,Love,K. Love,kevin-love,F,,,33:07,0.25,0.231,0.254,1.0,0.467,0.529,0.474,0.545,0.381,0.438,0.333,0.0,0.0,0.25,0.286,0.154,0.429,0.333
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,202389,Timofey,Mozgov,T. Mozgov,timofey-mozgov,C,,,18:04,0.171,0.286,0.171,0.0,0.0,0.143,0.125,0.167,0.308,0.263,0.0,0.333,0.0,0.5,0.25,0.222,0.167,0.25
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2747,JR,Smith,J. Smith,jr-smith,G,,,22:15,0.2,0.059,0.195,0.0,0.273,0.0,0.0,0.0,0.118,0.08,0.0,0.4,0.0,0.5,0.0,0.444,0.0,0.045
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2590,Mo,Williams,M. Williams,mo-williams,G,,,25:48,0.203,0.095,0.213,0.0,0.308,0.222,0.2,0.0,0.0,0.0,0.231,0.125,0.5,0.0,0.4,0.231,0.111,0.111
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203521,Matthew,Dellavedova,M. Dellavedova,matthew-dellavedova,,,,26:58,0.102,0.042,0.106,0.25,0.286,0.2,0.167,0.167,0.182,0.179,0.588,0.0,0.333,0.0,0.0,0.0,0.154,0.081
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2210,Richard,Jefferson,R. Jefferson,richard-jefferson,,,,24:23,0.185,0.1,0.159,0.333,0.231,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.5,0.0,0.0,0.1,0.077,0.093
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,202684,Tristan,Thompson,T. Thompson,tristan-thompson,,,,26:03,0.175,0.273,0.2,0.0,0.0,0.091,0.154,0.286,0.35,0.333,0.063,0.0,0.0,0.5,0.667,0.111,0.214,0.22
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203099,Jared,Cunningham,J. Cunningham,jared-cunningham,,,,9:12,0.2,0.286,0.267,0.0,0.167,0.0,0.0,0.0,0.0,0.0,0.333,0.0,0.0,0.0,0.0,0.333,0.0,0.235
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2760,Anderson,Varejao,A. Varejao,anderson-varejao,,,,15:50,0.059,0.071,0.069,0.0,0.0,0.0,0.0,0.5,0.429,0.444,0.0,0.0,0.0,0.0,0.0,0.2,0.5,0.065
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2592,James,Jones,J. Jones,james-jones,,,,1:28,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203925,Joe,Harris,J. Harris,joe-harris,,,,1:28,0.25,1.0,0.5,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+0021500021,1610612739,Cleveland,Cavaliers,CLE,cavaliers,201619,Sasha,Kaun,S. Kaun,sasha-kaun,,,,1:28,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,202329,Al-Farouq,Aminu,A. Aminu,al-farouq-aminu,F,,,31:32,0.221,0.217,0.161,0.333,0.2,0.308,0.294,0.429,0.292,0.323,0.0,0.4,0.0,0.667,0.25,0.227,0.231,0.246
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,203086,Meyers,Leonard,M. Leonard,meyers-leonard,F,,,17:33,0.167,0.0,0.172,0.0,0.2,0.0,0.0,0.0,0.3,0.25,0.25,0.2,0.0,0.0,0.0,0.333,0.2,0.0
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,203486,Mason,Plumlee,M. Plumlee,mason-plumlee,C,,,25:36,0.226,0.368,0.289,0.0,0.0,0.111,0.2,0.6,0.118,0.227,0.091,0.077,0.6,0.0,0.667,0.19,0.333,0.288
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,203468,CJ,McCollum,C. McCollum,cj-mccollum,G,,,33:18,0.282,0.318,0.344,0.286,0.333,0.0,0.0,0.1,0.15,0.133,0.231,0.133,0.286,0.0,0.4,0.167,0.077,0.262
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,203081,Damian,Lillard,D. Lillard,damian-lillard,G,,,36:50,0.333,0.259,0.323,0.5,0.5,0.583,0.438,0.0,0.115,0.088,0.429,0.333,0.0,0.0,0.2,0.154,0.429,0.333
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,203459,Allen,Crabbe,A. Crabbe,allen-crabbe,,,,22:56,0.074,0.0,0.068,0.0,0.091,0.0,0.0,0.0,0.214,0.15,0.2,0.125,1.0,0.0,0.0,0.214,0.0,0.0
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,202334,Ed,Davis,E. Davis,ed-davis,,,,19:42,0.128,0.143,0.081,0.0,0.0,0.25,0.429,0.167,0.077,0.105,0.2,0.25,0.0,0.2,0.0,0.2,0.286,0.143
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,203090,Maurice,Harkless,M. Harkless,maurice-harkless,,,,24:01,0.121,0.211,0.128,0.333,0.167,0.0,0.0,0.143,0.25,0.217,0.143,0.111,0.0,0.25,0.0,0.25,0.0,0.196
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,203943,Noah,Vonleh,N. Vonleh,noah-vonleh,,,,21:02,0.042,0.063,0.056,0.0,0.0,0.0,0.0,0.5,0.333,0.375,0.167,0.0,0.0,0.333,0.0,0.133,0.0,0.051
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,1626192,Pat,Connaughton,P. Connaughton,pat-connaughton,,,,2:42,0.429,1.0,0.5,1.0,0.5,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,1.0
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,1626242,Luis,Montero,L. Montero,luis-montero,,,,2:24,0.333,0.0,0.333,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,0.0
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,204025,Tim,Frazier,T. Frazier,tim-frazier,,,,2:24,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.5,0.0,0.0
+0021500032,1610612757,Portland,Trail Blazers,POR,blazers,2549,Chris,Kaman,C. Kaman,chris-kaman,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500032,1610612756,Phoenix,Suns,PHX,suns,200782,P.J.,Tucker,P. Tucker,pj-tucker,F,,,23:45,0.133,0.118,0.154,0.0,0.333,0.0,0.0,0.0,0.19,0.16,0.125,0.25,0.222,0.0,0.0,0.25,0.118,0.071
+0021500032,1610612756,Phoenix,Suns,PHX,suns,202693,Markieff,Morris,M. Morris,markieff-morris,F,,,34:21,0.22,0.214,0.266,0.5,0.231,0.0,0.0,0.273,0.185,0.211,0.154,0.25,0.091,0.5,0.667,0.273,0.04,0.155
+0021500032,1610612756,Phoenix,Suns,PHX,suns,2199,Tyson,Chandler,T. Chandler,tyson-chandler,C,,,25:54,0.209,0.158,0.156,0.0,0.0,0.36,0.4,0.714,0.381,0.464,0.125,0.143,0.111,0.5,0.0,0.222,0.3,0.231
+0021500032,1610612756,Phoenix,Suns,PHX,suns,202688,Brandon,Knight,B. Knight,brandon-knight,G,,,33:04,0.198,0.269,0.246,0.667,0.455,0.083,0.067,0.125,0.091,0.098,0.333,0.133,0.429,0.0,0.0,0.231,0.16,0.228
+0021500032,1610612756,Phoenix,Suns,PHX,suns,202339,Eric,Bledsoe,E. Bledsoe,eric-bledsoe,G,,,33:14,0.247,0.24,0.23,0.0,0.154,0.385,0.355,0.0,0.067,0.051,0.25,0.231,0.2,0.2,0.5,0.0,0.25,0.278
+0021500032,1610612756,Phoenix,Suns,PHX,suns,201603,Sonny,Weems,S. Weems,sonny-weems,,,,16:48,0.154,0.077,0.071,0.0,0.125,0.25,0.125,0.0,0.188,0.158,0.0,0.571,0.0,0.0,0.0,0.0,0.286,0.094
+0021500032,1610612756,Phoenix,Suns,PHX,suns,203458,Alex,Len,A. Len,alex-len,,,,18:45,0.174,0.286,0.2,0.0,0.0,0.333,0.364,0.5,0.158,0.19,0.167,0.1,0.25,0.5,0.0,0.143,0.3,0.278
+0021500032,1610612756,Phoenix,Suns,PHX,suns,202720,Jon,Leuer,J. Leuer,jon-leuer,,,,14:36,0.105,0.0,0.12,0.0,0.0,0.2,0.25,0.0,0.421,0.381,0.286,0.0,0.0,0.0,0.5,0.333,0.333,0.032
+0021500032,1610612756,Phoenix,Suns,PHX,suns,203933,T.J.,Warren,T. Warren,tj-warren,,,,21:51,0.224,0.368,0.238,0.5,0.222,0.2,0.267,0.143,0.238,0.214,0.111,0.1,0.0,0.0,0.0,0.25,0.143,0.34
+0021500032,1610612756,Phoenix,Suns,PHX,suns,101179,Ronnie,Price,R. Price,ronnie-price,,,,10:30,0.185,0.111,0.167,0.0,0.5,0.5,0.333,0.0,0.286,0.222,0.667,0.0,0.4,0.0,0.0,0.25,0.375,0.231
+0021500032,1610612756,Phoenix,Suns,PHX,suns,1626164,Devin,Booker,D. Booker,devin-booker,,,,2:24,0.333,0.0,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,1.0,0.0,0.0
+0021500032,1610612756,Phoenix,Suns,PHX,suns,203462,Archie,Goodwin,A. Goodwin,archie-goodwin,,,,2:24,0.333,0.0,0.0,0.0,0.0,0.5,0.667,0.0,0.5,0.5,0.0,0.5,0.0,1.0,0.0,0.0,0.5,0.25
+0021500032,1610612756,Phoenix,Suns,PHX,suns,203141,Mirza,Teletovic,M. Teletovic,mirza-teletovic,,,,2:24,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,977,Kobe,Bryant,K. Bryant,kobe-bryant,F,,,22:12,0.281,0.263,0.3,0.25,0.5,0.5,0.333,0.4,0.143,0.211,0.429,0.25,0.0,0.0,0.0,0.125,0.125,0.283
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,203944,Julius,Randle,J. Randle,julius-randle,F,,,16:13,0.275,0.091,0.154,0.0,0.0,0.333,0.571,0.0,0.333,0.222,0.333,0.5,0.0,0.0,0.0,0.313,0.286,0.111
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,201579,Roy,Hibbert,R. Hibbert,roy-hibbert,C,,,21:16,0.17,0.15,0.158,0.0,0.071,0.5,0.364,0.75,0.133,0.263,0.0,0.1,0.0,0.714,0.5,0.444,0.429,0.192
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,203903,Jordan,Clarkson,J. Clarkson,jordan-clarkson,G,,,28:32,0.239,0.417,0.306,0.5,0.188,0.0,0.0,0.0,0.235,0.2,0.0,0.154,0.5,0.125,0.25,0.059,0.2,0.338
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,1626156,D'Angelo,Russell,D. Russell,dangelo-russell,G,,,23:02,0.197,0.263,0.25,0.5,0.313,0.143,0.154,0.0,0.125,0.095,0.286,0.071,0.0,0.0,0.0,0.0,0.1,0.265
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,101138,Brandon,Bass,B. Bass,brandon-bass,,,,20:10,0.149,0.125,0.103,0.0,0.0,0.444,0.4,1.0,0.2,0.273,0.1,0.25,0.0,0.0,0.0,0.333,0.333,0.17
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,101150,Lou,Williams,L. Williams,lou-williams,,,,26:08,0.188,0.13,0.176,0.0,0.15,0.143,0.143,0.0,0.267,0.222,0.385,0.286,0.2,0.0,0.2,0.2,0.231,0.118
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,201156,Nick,Young,N. Young,nick-young,,,,21:44,0.235,0.278,0.275,0.5,0.467,0.286,0.286,0.0,0.167,0.154,0.273,0.0,0.75,0.0,0.25,0.0,0.231,0.304
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,203527,Ryan,Kelly,R. Kelly,ryan-kelly,,,,27:43,0.147,0.154,0.13,0.125,0.143,0.067,0.125,0.0,0.3,0.261,0.067,0.286,0.2,0.375,0.2,0.0,0.143,0.133
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,1626273,Marcelo,Huertas,M. Huertas,marcelo-huertas,,,,18:18,0.128,0.063,0.132,0.167,0.125,0.0,0.0,0.2,0.1,0.133,0.364,0.25,0.25,0.0,0.0,0.429,0.0,0.065
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,204028,Tarik,Black,T. Black,tarik-black,,,,6:34,0.048,0.0,0.083,0.0,0.0,0.0,0.0,0.0,0.25,0.143,0.0,0.0,0.0,0.0,0.5,1.0,0.0,0.0
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,1626148,Anthony,Brown,A. Brown,anthony-brown,,,,4:04,0.231,0.25,0.222,1.0,0.667,0.667,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.417
+0021500031,1610612747,Los Angeles,Lakers,LAL,lakers,203135,Robert,Sacre,R. Sacre,robert-sacre,,,,4:04,0.308,0.25,0.333,0.0,0.0,0.0,0.0,0.5,0.333,0.4,0.0,0.5,0.0,0.0,0.5,0.0,0.0,0.167
+0021500031,1610612758,Sacramento,Kings,SAC,kings,200752,Rudy,Gay,R. Gay,rudy-gay,F,,,31:21,0.148,0.229,0.188,0.5,0.214,0.053,0.077,0.125,0.179,0.167,0.158,0.0,0.667,0.0,0.5,0.091,0.1,0.204
+0021500031,1610612758,Sacramento,Kings,SAC,kings,202326,DeMarcus,Cousins,D. Cousins,demarcus-cousins,F,,,28:23,0.301,0.167,0.273,0.0,0.2,0.647,0.583,0.6,0.348,0.393,0.188,0.0,0.0,0.667,0.2,0.25,0.529,0.263
+0021500031,1610612758,Sacramento,Kings,SAC,kings,1626161,Willie,Cauley-Stein,W. Cauley-Stein,willie-cauley-stein,C,,,30:11,0.146,0.194,0.123,0.0,0.0,0.188,0.25,0.273,0.25,0.257,0.071,0.25,0.25,0.75,0.0,0.385,0.176,0.185
+0021500031,1610612758,Sacramento,Kings,SAC,kings,203463,Ben,McLemore,B. McLemore,ben-mclemore,G,,,24:59,0.156,0.071,0.17,0.25,0.3,0.125,0.091,0.25,0.095,0.12,0.071,0.143,0.0,0.0,0.5,0.4,0.125,0.092
+0021500031,1610612758,Sacramento,Kings,SAC,kings,200765,Rajon,Rondo,R. Rondo,rajon-rondo,G,,,23:47,0.3,0.375,0.289,0.333,0.222,0.125,0.091,0.0,0.176,0.143,0.615,0.8,0.5,0.0,0.0,0.1,0.125,0.313
+0021500031,1610612758,Sacramento,Kings,SAC,kings,201954,Darren,Collison,D. Collison,darren-collison,,,,23:50,0.209,0.28,0.232,0.0,0.25,0.0,0.0,0.0,0.05,0.03,0.25,0.125,0.333,0.0,0.143,0.0,0.125,0.241
+0021500031,1610612758,Sacramento,Kings,SAC,kings,201956,Omri,Casspi,O. Casspi,omri-casspi,,,,21:59,0.161,0.2,0.173,0.0,0.154,0.5,0.5,0.273,0.3,0.29,0.154,0.0,0.0,0.0,0.143,0.231,0.286,0.211
+0021500031,1610612758,Sacramento,Kings,SAC,kings,201585,Kosta,Koufos,K. Koufos,kosta-koufos,,,,21:15,0.22,0.19,0.234,0.0,0.0,0.0,0.0,0.455,0.263,0.333,0.167,0.333,0.0,0.2,0.429,0.25,0.0,0.154
+0021500031,1610612758,Sacramento,Kings,SAC,kings,201158,Marco,Belinelli,M. Belinelli,marco-belinelli,,,,22:12,0.159,0.083,0.132,0.5,0.455,0.125,0.2,0.0,0.1,0.061,0.182,0.333,0.333,0.0,0.0,0.167,0.333,0.103
+0021500031,1610612758,Sacramento,Kings,SAC,kings,202341,James,Anderson,J. Anderson,james-anderson,,,,4:30,0.364,0.25,0.286,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,0.333
+0021500031,1610612758,Sacramento,Kings,SAC,kings,203552,Seth,Curry,S. Curry,seth-curry,,,,3:49,0.2,0.25,0.286,0.0,0.0,0.0,0.0,0.0,0.333,0.333,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.222
+0021500031,1610612758,Sacramento,Kings,SAC,kings,203961,Eric,Moreland,E. Moreland,eric-moreland,,,,3:44,0.1,0.25,0.143,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.222
+0021500031,1610612758,Sacramento,Kings,SAC,kings,2406,Caron,Butler,C. Butler,caron-butler,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,203503,Tony,Snell,T. Snell,tony-snell,F,,,30:05,0.076,0.1,0.102,0.0,0.2,0.0,0.0,0.167,0.056,0.083,0.111,0.0,0.167,0.0,0.0,0.444,0.0,0.07
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,202703,Nikola,Mirotic,N. Mirotic,nikola-mirotic,F,,,38:30,0.241,0.292,0.23,0.75,0.5,0.263,0.273,0.2,0.179,0.182,0.0,0.267,0.25,0.0,0.0,0.059,0.294,0.31
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,2200,Pau,Gasol,P. Gasol,pau-gasol,C,,,32:03,0.247,0.368,0.28,0.0,0.077,0.154,0.143,0.6,0.474,0.5,0.333,0.188,0.333,0.75,0.0,0.25,0.2,0.296
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,202710,Jimmy,Butler III,J. Butler III,jimmy-butler-iii,G,,,42:06,0.278,0.185,0.271,0.25,0.176,0.667,0.7,0.0,0.333,0.268,0.0,0.067,0.429,0.0,0.0,0.158,0.5,0.303
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,201565,Derrick,Rose,D. Rose,derrick-rose,G,,,34:29,0.231,0.2,0.25,0.0,0.077,0.0,0.0,0.0,0.095,0.077,0.6,0.294,0.0,0.0,1.0,0.167,0.0,0.136
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,202734,E'Twaun,Moore,E. Moore,etwaun-moore,,,,18:15,0.05,0.0,0.037,0.0,0.111,0.0,0.0,0.0,0.1,0.091,0.0,0.125,0.0,0.333,0.0,0.0,0.0,0.0
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,201149,Joakim,Noah,J. Noah,joakim-noah,,,,17:27,0.108,0.091,0.036,0.0,0.0,0.0,0.25,0.0,0.136,0.125,0.286,0.667,0.0,0.333,0.0,0.0,0.286,0.071
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,201166,Aaron,Brooks,A. Brooks,aaron-brooks,,,,17:58,0.15,0.143,0.194,0.25,0.5,0.0,0.0,0.0,0.2,0.174,0.5,0.0,0.0,0.0,0.0,0.167,0.143,0.143
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,201959,Taj,Gibson,T. Gibson,taj-gibson,,,,19:34,0.22,0.286,0.233,0.0,0.0,0.0,0.25,1.0,0.25,0.368,0.0,0.167,0.0,0.6,1.0,0.455,0.25,0.229
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,203926,Doug,McDermott,D. McDermott,doug-mcdermott,,,,14:32,0.176,0.182,0.182,0.5,0.25,0.0,0.0,0.0,0.077,0.071,0.222,0.25,0.0,0.0,0.0,0.3,0.0,0.207
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,1626245,Cristiano,Felicio,C. Felicio,cristiano-felicio,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,2550,Kirk,Hinrich,K. Hinrich,kirk-hinrich,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500025,1610612741,Chicago,Bulls,CHI,bulls,1626171,Bobby,Portis,B. Portis,bobby-portis,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500025,1610612765,Detroit,Pistons,DET,pistons,202694,Marcus,Morris Sr.,M. Morris Sr.,marcus-morris-sr,F,,,41:45,0.196,0.313,0.185,0.5,0.105,0.333,0.36,0.067,0.188,0.149,0.154,0.167,0.0,0.0,0.0,0.267,0.25,0.325
+0021500025,1610612765,Detroit,Pistons,DET,pistons,101141,Ersan,Ilyasova,E. Ilyasova,ersan-ilyasova,F,,,21:47,0.111,0.056,0.114,0.0,0.3,0.0,0.0,0.333,0.118,0.192,0.0,0.167,0.0,0.0,0.0,0.429,0.111,0.049
+0021500025,1610612765,Detroit,Pistons,DET,pistons,203083,Andre,Drummond,A. Drummond,andre-drummond,C,,,39:05,0.267,0.25,0.257,0.0,0.0,0.308,0.4,0.563,0.379,0.444,0.0,0.214,0.286,1.0,0.4,0.2,0.368,0.247
+0021500025,1610612765,Detroit,Pistons,DET,pistons,203484,Kentavious,Caldwell-Pope,K. Caldwell-Pope,kentavious-caldwell-pope,G,,,38:38,0.15,0.065,0.158,0.0,0.294,0.2,0.095,0.067,0.097,0.087,0.154,0.167,0.333,0.0,0.0,0.143,0.063,0.079
+0021500025,1610612765,Detroit,Pistons,DET,pistons,202704,Reggie,Jackson,R. Jackson,reggie-jackson,G,,,37:05,0.326,0.31,0.348,0.333,0.308,0.3,0.19,0.077,0.214,0.171,0.7,0.357,0.286,0.0,0.667,0.188,0.294,0.31
+0021500025,1610612765,Detroit,Pistons,DET,pistons,203382,Aron,Baynes,A. Baynes,aron-baynes,,,,13:55,0.152,0.286,0.133,0.0,0.0,0.0,0.667,0.25,0.417,0.375,0.167,0.0,0.0,0.0,0.333,0.25,0.4,0.235
+0021500025,1610612765,Detroit,Pistons,DET,pistons,2581,Steve,Blake,S. Blake,steve-blake,,,,15:55,0.175,0.0,0.2,0.0,0.267,0.0,0.0,0.143,0.154,0.15,0.625,0.0,0.0,0.0,0.2,0.0,0.0,0.0
+0021500025,1610612765,Detroit,Pistons,DET,pistons,201229,Anthony,Tolliver,A. Tolliver,anthony-tolliver,,,,30:12,0.12,0.19,0.153,0.75,0.471,0.0,0.0,0.0,0.136,0.094,0.0,0.0,0.5,0.0,0.0,0.091,0.083,0.204
+0021500025,1610612765,Detroit,Pistons,DET,pistons,1626169,Stanley,Johnson,S. Johnson,stanley-johnson,,,,11:59,0.29,0.429,0.348,0.0,0.111,0.2,0.111,0.4,0.182,0.25,0.2,0.333,0.5,0.0,0.5,0.2,0.286,0.333
+0021500025,1610612765,Detroit,Pistons,DET,pistons,203493,Reggie,Bullock Jr.,R. Bullock Jr.,reggie-bullock-jr,,,,14:40,0.027,0.0,0.034,0.0,0.083,0.0,0.0,0.167,0.1,0.125,0.0,0.0,0.0,0.0,0.0,0.2,0.0,0.0
+0021500025,1610612765,Detroit,Pistons,DET,pistons,201202,Joel,Anthony,J. Anthony,joel-anthony,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500025,1610612765,Detroit,Pistons,DET,pistons,203915,Spencer,Dinwiddie,S. Dinwiddie,spencer-dinwiddie,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500025,1610612765,Detroit,Pistons,DET,pistons,1626199,Darrun,Hilliard,D. Hilliard,darrun-hilliard,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500033,1610612762,Utah,Jazz,UTA,jazz,202330,Gordon,Hayward,G. Hayward,gordon-hayward,F,,,28:15,0.203,0.19,0.212,0.667,0.375,0.1,0.083,0.0,0.0,0.0,0.273,0.25,0.125,0.0,0.0,0.222,0.308,0.2
+0021500033,1610612762,Utah,Jazz,UTA,jazz,202324,Derrick,Favors,D. Favors,derrick-favors,F,,,31:11,0.246,0.36,0.296,0.0,0.0,0.0,0.083,0.25,0.238,0.241,0.167,0.1,0.3,0.333,0.6,0.214,0.077,0.29
+0021500033,1610612762,Utah,Jazz,UTA,jazz,203497,Rudy,Gobert,R. Gobert,rudy-gobert,C,,,31:14,0.12,0.107,0.086,0.0,0.0,0.429,0.444,0.5,0.571,0.548,0.2,0.167,0.0,0.75,0.25,0.133,0.333,0.136
+0021500033,1610612762,Utah,Jazz,UTA,jazz,203918,Rodney,Hood,R. Hood,rodney-hood,G,,,28:43,0.229,0.296,0.232,0.333,0.429,0.0,0.0,0.083,0.25,0.179,0.1,0.3,0.364,0.0,0.25,0.286,0.0,0.274
+0021500033,1610612762,Utah,Jazz,UTA,jazz,203526,Raul,Neto,R. Neto,raul-neto,G,,,19:46,0.16,0.0,0.128,0.0,0.143,0.0,0.0,0.222,0.0,0.08,0.286,0.375,0.0,0.0,0.0,0.111,0.25,0.0
+0021500033,1610612762,Utah,Jazz,UTA,jazz,202344,Trevor,Booker,T. Booker,trevor-booker,,,,27:43,0.103,0.091,0.132,0.0,0.091,0.0,0.0,0.125,0.222,0.192,0.0,0.0,0.0,0.0,0.2,0.188,0.0,0.071
+0021500033,1610612762,Utah,Jazz,UTA,jazz,203504,Trey,Burke,T. Burke,trey-burke,,,,21:27,0.283,0.333,0.297,0.25,0.5,0.286,0.2,0.167,0.167,0.167,0.375,0.333,0.333,0.0,0.333,0.231,0.222,0.319
+0021500033,1610612762,Utah,Jazz,UTA,jazz,202692,Alec,Burks,A. Burks,alec-burks,,,,20:33,0.3,0.222,0.317,0.0,0.0,0.5,0.5,0.0,0.091,0.063,0.0,0.143,0.2,0.0,0.0,0.1,0.167,0.238
+0021500033,1610612762,Utah,Jazz,UTA,jazz,1626168,Trey,Lyles,T. Lyles,trey-lyles,,,,4:31,0.385,0.0,0.222,0.0,0.0,1.0,1.0,1.0,0.333,0.667,0.0,1.0,0.0,0.0,0.0,0.333,0.667,0.286
+0021500033,1610612762,Utah,Jazz,UTA,jazz,204060,Joe,Ingles,J. Ingles,joe-ingles,,,,19:16,0.15,0.2,0.167,0.667,0.571,0.333,0.222,0.0,0.214,0.2,0.4,0.0,0.333,0.0,0.0,0.167,0.286,0.256
+0021500033,1610612762,Utah,Jazz,UTA,jazz,202407,Elijah,Millsap,E. Millsap,elijah-millsap,,,,3:35,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0
+0021500033,1610612762,Utah,Jazz,UTA,jazz,203187,Chris,Johnson,C. Johnson,chris-johnson,,,,2:25,0.167,0.0,0.0,0.0,0.0,1.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.5,0.25
+0021500033,1610612762,Utah,Jazz,UTA,jazz,203481,Jeff,Withey,J. Withey,jeff-withey,,,,1:21,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500033,1610612754,Indiana,Pacers,IND,pacers,101139,CJ,Miles,C. Miles,cj-miles,F,,,26:22,0.211,0.063,0.214,0.0,0.545,0.273,0.286,0.0,0.154,0.118,0.333,0.111,0.286,0.2,0.25,0.182,0.214,0.114
+0021500033,1610612754,Indiana,Pacers,IND,pacers,202331,Paul,George,P. George,paul-george,F,,,33:37,0.219,0.316,0.216,0.0,0.083,0.308,0.375,0.0,0.176,0.136,0.143,0.2,0.143,0.0,0.0,0.2,0.5,0.308
+0021500033,1610612754,Indiana,Pacers,IND,pacers,101133,Ian,Mahinmi,I. Mahinmi,ian-mahinmi,C,,,23:23,0.137,0.231,0.184,0.0,0.0,0.0,0.0,0.5,0.273,0.333,0.0,0.0,0.0,0.5,0.5,0.455,0.0,0.167
+0021500033,1610612754,Indiana,Pacers,IND,pacers,101145,Monta,Ellis,M. Ellis,monta-ellis,G,,,32:05,0.264,0.263,0.269,0.0,0.182,0.143,0.111,0.0,0.235,0.182,0.429,0.364,0.333,0.286,0.25,0.071,0.167,0.226
+0021500033,1610612754,Indiana,Pacers,IND,pacers,201588,George,Hill,G. Hill,george-hill,G,,,37:22,0.228,0.227,0.164,0.75,0.313,0.364,0.333,0.333,0.2,0.231,0.143,0.389,0.286,0.0,0.0,0.214,0.278,0.288
+0021500033,1610612754,Indiana,Pacers,IND,pacers,201155,Rodney,Stuckey,R. Stuckey,rodney-stuckey,,,,22:41,0.137,0.133,0.194,0.0,0.143,0.0,0.0,0.0,0.133,0.111,0.167,0.077,0.333,0.0,0.0,0.167,0.0,0.1
+0021500033,1610612754,Indiana,Pacers,IND,pacers,1626167,Myles,Turner,M. Turner,myles-turner,,,,22:41,0.196,0.267,0.258,0.0,0.0,0.286,0.222,0.333,0.2,0.222,0.0,0.077,0.0,0.333,0.0,0.167,0.083,0.25
+0021500033,1610612754,Indiana,Pacers,IND,pacers,202730,Lavoy,Allen,L. Allen,lavoy-allen,,,,21:38,0.188,0.083,0.143,0.0,0.0,0.2,0.286,0.667,0.214,0.294,0.25,0.267,0.0,0.5,0.0,0.125,0.1,0.094
+0021500033,1610612754,Indiana,Pacers,IND,pacers,201978,Chase,Budinger,C. Budinger,chase-budinger,,,,14:23,0.063,0.111,0.105,0.333,0.4,0.0,0.0,0.0,0.3,0.25,0.333,0.0,0.0,0.0,0.0,0.25,0.333,0.125
+0021500033,1610612754,Indiana,Pacers,IND,pacers,203524,Solomon,Hill,S. Hill,solomon-hill,,,,1:56,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500033,1610612754,Indiana,Pacers,IND,pacers,203963,Shayne,Whittington,S. Whittington,shayne-whittington,,,,1:56,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.667,0.0,0.0,0.0,0.5,0.0,0.0
+0021500033,1610612754,Indiana,Pacers,IND,pacers,1626202,Joe,Young,J. Young,joe-young,,,,1:56,0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.333,0.0,0.0,0.0,0.0,0.0,0.0
+0021500033,1610612754,Indiana,Pacers,IND,pacers,201941,Jordan,Hill,J. Hill,jordan-hill,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,203084,Harrison,Barnes,H. Barnes,harrison-barnes,F,,,32:14,0.151,0.152,0.179,0.0,0.1,0.059,0.045,1.0,0.286,0.318,0.105,0.167,0.0,0.0,0.5,0.111,0.071,0.113
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,203110,Draymond,Green,D. Green,draymond-green,F,,,37:11,0.209,0.194,0.182,0.267,0.185,0.125,0.182,0.333,0.185,0.2,0.211,0.5,0.125,0.5,0.25,0.222,0.15,0.189
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,203105,Festus,Ezeli,F. Ezeli,festus-ezeli,C,,,15:04,0.152,0.0,0.087,0.0,0.0,0.1,0.375,0.0,0.417,0.417,0.143,0.0,1.0,0.5,0.5,0.429,0.364,0.023
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,202691,Klay,Thompson,K. Thompson,klay-thompson,G,,,27:20,0.219,0.222,0.245,0.167,0.238,0.263,0.208,0.0,0.136,0.136,0.067,0.0,0.0,0.333,0.0,0.267,0.2,0.224
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,201939,Stephen,Curry,S. Curry,stephen-curry,G,,,35:38,0.413,0.472,0.429,0.533,0.56,0.5,0.355,0.0,0.154,0.143,0.474,0.5,0.571,0.0,0.0,0.167,0.368,0.486
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,2738,Andre,Iguodala,A. Iguodala,andre-iguodala,,,,29:30,0.106,0.103,0.115,0.111,0.133,0.1,0.125,0.5,0.3,0.318,0.188,0.0,0.111,0.0,0.0,0.231,0.091,0.104
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,2733,Shaun,Livingston,S. Livingston,shaun-livingston,,,,21:50,0.118,0.0,0.081,0.0,0.0,0.25,0.154,0.0,0.067,0.056,0.3,0.286,0.286,0.0,0.0,0.182,0.111,0.042
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,201578,Marreese,Speights,M. Speights,marreese-speights,,,,14:29,0.194,0.182,0.16,0.0,0.0,0.25,0.333,0.0,0.091,0.077,0.25,0.333,0.0,1.0,0.0,0.143,0.4,0.172
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,2571,Leandro,Barbosa,L. Barbosa,leandro-barbosa,,,,11:51,0.231,0.364,0.286,1.0,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.333,0.333,0.375
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,203949,James Michael,McAdoo,J. McAdoo,james-michael-mcadoo,,,,3:32,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,201575,Brandon,Rush,B. Rush,brandon-rush,,,,10:51,0.071,0.2,0.091,0.5,0.125,0.0,0.0,0.0,0.4,0.364,0.167,0.0,0.333,0.0,0.0,0.0,0.0,0.192
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,203546,Ian,Clark,I. Clark,ian-clark,,,,0:30,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500035,1610612744,Golden State,Warriors,GSW,warriors,201574,Jason,Thompson,J. Thompson,jason-thompson,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,201967,Dante,Cunningham,D. Cunningham,dante-cunningham,F,,,22:09,0.073,0.136,0.085,0.5,0.182,0.0,0.0,0.0,0.077,0.056,0.0,0.0,0.0,0.5,0.0,0.167,0.0,0.16
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,203076,Anthony,Davis,A. Davis,anthony-davis,F,,,37:11,0.24,0.229,0.221,0.143,0.105,0.6,0.611,0.417,0.417,0.417,0.25,0.231,0.0,0.5,0.5,0.1,0.5,0.283
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,2570,Kendrick,Perkins,K. Perkins,kendrick-perkins,C,,,2:26,0.143,0.333,0.167,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,1.0,0.0,0.25
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,201569,Eric,Gordon,E. Gordon,eric-gordon,G,,,24:29,0.19,0.136,0.224,0.25,0.273,0.125,0.118,0.111,0.188,0.16,0.154,0.0,0.25,0.0,0.25,0.417,0.125,0.141
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,201950,Jrue,Holiday,J. Holiday,jrue-holiday,G,,,26:45,0.353,0.333,0.365,0.2,0.286,0.313,0.278,0.0,0.118,0.083,0.545,0.444,0.0,0.0,0.5,0.267,0.389,0.319
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,201600,Omer,Asik,O. Asik,omer-asik,,,,10:20,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.25,0.0,0.125,0.0,0.0,0.5,0.0,0.0,0.222,0.0,0.0
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,202397,Ish,Smith,I. Smith,ish-smith,,,,10:59,0.31,0.182,0.24,0.0,0.25,0.0,0.0,0.2,0.125,0.154,0.75,0.75,0.0,0.0,0.0,0.167,0.333,0.174
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,201962,Toney,Douglas,T. Douglas,toney-douglas,,,,22:49,0.258,0.292,0.226,0.25,0.111,0.25,0.3,0.1,0.133,0.12,0.333,0.5,0.5,0.0,0.5,0.333,0.111,0.283
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,202337,Luke,Babbitt,L. Babbitt,luke-babbitt,,,,30:29,0.089,0.063,0.094,0.0,0.286,0.0,0.0,0.0,0.286,0.2,0.067,0.091,0.0,0.0,0.0,0.182,0.071,0.049
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,201583,Ryan,Anderson,R. Anderson,ryan-anderson,,,,30:01,0.215,0.296,0.267,0.5,0.308,0.053,0.048,0.273,0.174,0.206,0.0,0.083,0.0,0.5,0.0,0.0,0.105,0.247
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,201582,Alexis,Ajinca,A. Ajinca,alexis-ajinca,,,,6:09,0.294,0.429,0.333,0.0,0.0,0.25,0.25,1.0,0.25,0.625,0.2,0.0,0.5,0.0,0.0,0.0,0.25,0.368
+0021500035,1610612740,New Orleans,Pelicans,NOP,pelicans,202087,Alonzo,Gee,A. Gee,alonzo-gee,,,,16:13,0.077,0.071,0.111,0.0,0.143,0.0,0.0,0.0,0.143,0.118,0.0,0.0,0.0,0.0,0.0,0.167,0.0,0.056
+0021500037,1610612756,Phoenix,Suns,PHX,suns,200782,P.J.,Tucker,P. Tucker,pj-tucker,F,,,30:59,0.056,0.074,0.069,0.0,0.1,0.0,0.0,0.286,0.174,0.2,0.0,0.0,0.0,0.0,0.0,0.091,0.154,0.058
+0021500037,1610612756,Phoenix,Suns,PHX,suns,202693,Markieff,Morris,M. Morris,markieff-morris,F,,,22:47,0.37,0.25,0.395,0.429,0.4,0.0,0.0,0.429,0.353,0.375,0.083,0.6,0.143,0.25,1.0,0.357,0.0,0.238
+0021500037,1610612756,Phoenix,Suns,PHX,suns,2199,Tyson,Chandler,T. Chandler,tyson-chandler,C,,,32:30,0.118,0.074,0.082,0.0,0.048,0.1,0.143,0.286,0.36,0.344,0.111,0.429,0.25,0.5,0.333,0.333,0.154,0.072
+0021500037,1610612756,Phoenix,Suns,PHX,suns,202688,Brandon,Knight,B. Knight,brandon-knight,G,,,34:29,0.267,0.345,0.275,0.4,0.346,0.3,0.308,0.1,0.154,0.139,0.385,0.182,0.222,0.2,0.0,0.111,0.267,0.346
+0021500037,1610612756,Phoenix,Suns,PHX,suns,202339,Eric,Bledsoe,E. Bledsoe,eric-bledsoe,G,,,38:23,0.297,0.353,0.292,0.25,0.24,0.636,0.6,0.0,0.1,0.079,0.429,0.182,0.4,0.4,0.25,0.067,0.588,0.379
+0021500037,1610612756,Phoenix,Suns,PHX,suns,203933,T.J.,Warren,T. Warren,tj-warren,,,,18:46,0.128,0.0,0.158,0.0,0.167,0.0,0.0,0.0,0.067,0.053,0.0,0.0,0.0,0.0,0.0,0.333,0.0,0.0
+0021500037,1610612756,Phoenix,Suns,PHX,suns,201603,Sonny,Weems,S. Weems,sonny-weems,,,,6:12,0.071,0.0,0.077,0.0,0.2,0.0,0.0,0.0,0.0,0.0,0.5,0.0,1.0,0.0,0.0,0.0,0.5,0.0
+0021500037,1610612756,Phoenix,Suns,PHX,suns,203458,Alex,Len,A. Len,alex-len,,,,13:01,0.303,0.111,0.276,0.0,0.0,0.0,0.0,0.5,0.182,0.267,0.0,0.5,0.5,0.0,0.5,0.4,0.0,0.083
+0021500037,1610612756,Phoenix,Suns,PHX,suns,202720,Jon,Leuer,J. Leuer,jon-leuer,,,,21:54,0.14,0.214,0.156,0.333,0.176,0.0,0.0,0.25,0.467,0.421,0.143,0.1,0.0,0.0,0.0,0.222,0.0,0.211
+0021500037,1610612756,Phoenix,Suns,PHX,suns,101179,Ronnie,Price,R. Price,ronnie-price,,,,16:56,0.105,0.25,0.118,0.0,0.0,0.333,0.25,0.0,0.067,0.056,0.333,0.0,0.0,0.0,0.0,0.0,0.167,0.241
+0021500037,1610612756,Phoenix,Suns,PHX,suns,203141,Mirza,Teletovic,M. Teletovic,mirza-teletovic,,,,4:03,0.25,0.0,0.25,0.0,0.667,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500037,1610612756,Phoenix,Suns,PHX,suns,1626164,Devin,Booker,D. Booker,devin-booker,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500037,1610612756,Phoenix,Suns,PHX,suns,203462,Archie,Goodwin,A. Goodwin,archie-goodwin,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,202329,Al-Farouq,Aminu,A. Aminu,al-farouq-aminu,F,,,33:44,0.234,0.2,0.259,0.286,0.182,0.333,0.182,0.0,0.333,0.269,0.313,0.182,0.0,0.0,0.25,0.133,0.188,0.232
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,203086,Meyers,Leonard,M. Leonard,meyers-leonard,F,,,30:58,0.139,0.143,0.151,0.0,0.211,0.333,0.25,0.0,0.05,0.037,0.0,0.0,0.5,0.333,0.0,0.091,0.273,0.164
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,203486,Mason,Plumlee,M. Plumlee,mason-plumlee,C,,,26:49,0.145,0.2,0.093,0.0,0.0,0.0,0.25,0.25,0.333,0.318,0.167,0.3,0.0,0.667,0.0,0.231,0.25,0.14
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,203468,CJ,McCollum,C. McCollum,cj-mccollum,G,,,34:17,0.205,0.261,0.259,0.143,0.261,0.143,0.091,0.143,0.148,0.147,0.286,0.091,0.2,0.0,0.333,0.143,0.067,0.224
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,203081,Damian,Lillard,D. Lillard,damian-lillard,G,,,36:16,0.298,0.308,0.293,0.429,0.348,0.333,0.273,0.0,0.16,0.129,0.471,0.385,0.333,0.0,0.6,0.313,0.25,0.324
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,203459,Allen,Crabbe,A. Crabbe,allen-crabbe,,,,17:00,0.263,0.5,0.32,0.5,0.364,0.286,0.2,0.0,0.0,0.0,0.0,0.167,0.0,0.0,0.0,0.556,0.143,0.44
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,203090,Maurice,Harkless,M. Harkless,maurice-harkless,,,,28:13,0.179,0.143,0.191,0.333,0.267,0.0,0.125,0.375,0.038,0.118,0.0,0.182,0.333,0.0,0.0,0.0,0.167,0.135
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,202334,Ed,Davis,E. Davis,ed-davis,,,,21:11,0.102,0.0,0.056,0.0,0.0,0.167,0.333,0.5,0.471,0.478,0.0,0.167,0.333,1.0,0.0,0.143,0.375,0.03
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,203943,Noah,Vonleh,N. Vonleh,noah-vonleh,,,,6:29,0.071,0.0,0.091,0.0,0.0,0.0,0.0,1.0,0.5,0.571,0.333,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,204025,Tim,Frazier,T. Frazier,tim-frazier,,,,5:03,0.167,0.0,0.1,0.0,0.0,0.0,0.0,0.5,0.25,0.333,0.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,1626192,Pat,Connaughton,P. Connaughton,pat-connaughton,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,2549,Chris,Kaman,C. Kaman,chris-kaman,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500037,1610612757,Portland,Trail Blazers,POR,blazers,1626242,Luis,Montero,L. Montero,luis-montero,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,2207,Joe,Johnson,J. Johnson,joe-johnson,F,,,32:22,0.129,0.148,0.132,1.0,0.222,0.2,0.125,0.0,0.095,0.077,0.188,0.125,0.0,0.0,0.0,0.071,0.133,0.169
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,201152,Thaddeus,Young,T. Young,thaddeus-young,F,,,31:44,0.164,0.172,0.154,0.0,0.0,0.2,0.222,0.0,0.409,0.333,0.118,0.222,1.0,0.5,0.0,0.333,0.2,0.169
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,201572,Brook,Lopez,B. Lopez,brook-lopez,C,,,28:18,0.237,0.167,0.244,0.0,0.0,0.667,0.6,0.667,0.381,0.417,0.0,0.0,0.0,1.0,0.0,0.273,0.5,0.214
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,203900,Markel,Brown,M. Brown,markel-brown,G,,,14:13,0.172,0.077,0.15,0.0,0.5,0.0,0.0,0.0,0.0,0.0,0.222,0.4,0.0,0.0,0.0,0.222,0.0,0.069
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,101127,Jarrett,Jack,J. Jack,jarrett-jack,G,,,35:22,0.244,0.25,0.283,0.0,0.333,0.111,0.071,0.143,0.08,0.094,0.563,0.2,0.0,0.0,1.0,0.2,0.071,0.227
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,200745,Andrea,Bargnani,A. Bargnani,andrea-bargnani,,,,14:53,0.147,0.222,0.087,0.0,0.0,0.143,0.222,0.0,0.125,0.091,0.0,1.0,0.0,0.0,0.0,0.2,0.125,0.192
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,202711,Bojan,Bogdanovic,B. Bogdanovic,bojan-bogdanovic,,,,33:47,0.24,0.32,0.254,0.0,0.273,0.333,0.333,0.0,0.069,0.054,0.167,0.143,0.5,0.0,0.0,0.231,0.308,0.306
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,203499,Shane,Larkin,S. Larkin,shane-larkin,,,,12:38,0.192,0.1,0.263,0.0,0.0,0.0,0.0,0.0,0.1,0.091,0.4,0.0,0.0,0.0,1.0,0.143,0.0,0.08
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,203080,Thomas,Robinson,T. Robinson,thomas-robinson,,,,15:05,0.2,0.364,0.185,0.0,0.0,0.0,0.125,1.0,0.533,0.632,0.0,0.667,0.0,0.333,0.0,0.25,0.333,0.286
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,1626178,Rondae,Hollis-Jefferson,R. Hollis-Jefferson,rondae-hollis-jefferson,,,,12:56,0.069,0.0,0.091,0.0,0.0,0.0,0.0,0.333,0.182,0.214,0.333,0.0,0.0,0.0,0.0,0.222,0.333,0.0
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,201961,Wayne,Ellington,W. Ellington,wayne-ellington,,,,8:43,0.211,0.333,0.267,1.0,0.8,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.429
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,203508,Sergey,Karasev,S. Karasev,sergey-karasev,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500036,1610612751,Brooklyn,Nets,BKN,nets,202388,Donald,Sloan,D. Sloan,donald-sloan,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,2754,Tony,Allen,T. Allen,tony-allen,F,,,28:48,0.1,0.143,0.136,0.0,0.091,0.0,0.0,0.2,0.3,0.28,0.118,0.0,0.4,0.0,0.0,0.444,0.0,0.098
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,2216,Zach,Randolph,Z. Randolph,zach-randolph,F,,,29:38,0.283,0.25,0.255,0.0,0.0,0.231,0.286,0.6,0.526,0.542,0.05,0.429,0.0,0.0,0.5,0.182,0.182,0.224
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,201188,Marc,Gasol,M. Gasol,marc-gasol,C,,,29:50,0.234,0.095,0.204,0.0,0.071,0.2,0.222,0.167,0.167,0.167,0.353,0.5,0.0,0.0,0.667,0.364,0.385,0.109
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,201584,Courtney,Lee,C. Lee,courtney-lee,G,,,33:38,0.171,0.16,0.17,0.167,0.2,0.353,0.333,0.2,0.0,0.036,0.048,0.143,0.4,0.0,0.0,0.0,0.231,0.205
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,201144,Mike,Conley,M. Conley,mike-conley,G,,,32:26,0.217,0.292,0.218,0.667,0.438,0.308,0.286,0.0,0.095,0.071,0.421,0.143,0.2,0.0,0.0,0.0,0.273,0.328
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,201145,Jeff,Green,J. Green,jeff-green,,,,27:00,0.169,0.105,0.106,0.167,0.2,0.533,0.556,0.0,0.222,0.16,0.357,0.0,0.0,0.0,0.0,0.25,0.5,0.22
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,203210,JaMychal,Green,J. Green,jamychal-green,,,,11:20,0.192,0.286,0.263,0.5,0.2,0.0,0.0,0.25,0.333,0.3,0.0,0.0,0.0,1.0,0.0,0.286,0.111,0.208
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,2757,Beno,Udrih,B. Udrih,beno-udrih,,,,15:18,0.235,0.3,0.32,0.667,0.429,0.0,0.0,0.0,0.2,0.143,0.429,0.0,0.0,0.5,0.0,0.0,0.091,0.235
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,2440,Matt,Barnes,M. Barnes,matt-barnes,,,,15:41,0.222,0.2,0.276,0.0,0.444,0.0,0.0,0.167,0.0,0.067,0.0,0.0,1.0,0.0,0.0,0.571,0.0,0.133
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,201148,Brandan,Wright,B. Wright,brandan-wright,,,,16:21,0.154,0.333,0.156,0.0,0.0,0.0,0.0,0.5,0.182,0.294,0.0,0.333,0.0,0.0,0.0,0.0,0.0,0.231
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,203919,Jordan,Adams,J. Adams,jordan-adams,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,1713,Vince,Carter,V. Carter,vince-carter,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500036,1610612763,Memphis,Grizzlies,MEM,grizzlies,203893,Russ,Smith,R. Smith,russ-smith,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500034,1610612752,New York,Knicks,NYK,knicks,2546,Carmelo,Anthony,C. Anthony,carmelo-anthony,F,,,35:45,0.292,0.355,0.273,0.5,0.313,0.611,0.571,0.143,0.24,0.219,0.25,0.154,0.0,0.25,0.0,0.167,0.455,0.42
+0021500034,1610612752,New York,Knicks,NYK,knicks,204001,Kristaps,Porziņģis,K. Porziņģis,kristaps-porziņģis,F,,,21:02,0.148,0.176,0.15,0.0,0.0,0.222,0.2,0.2,0.313,0.286,0.0,0.125,0.0,0.0,0.0,0.333,0.2,0.167
+0021500034,1610612752,New York,Knicks,NYK,knicks,201577,Robin,Lopez,R. Lopez,robin-lopez,C,,,30:55,0.182,0.115,0.167,0.0,0.0,0.143,0.133,0.5,0.167,0.25,0.2,0.3,0.0,0.667,0.0,0.267,0.167,0.111
+0021500034,1610612752,New York,Knicks,NYK,knicks,101181,Jose,Calderon,J. Calderon,jose-calderon,G,,,21:02,0.216,0.222,0.214,0.2,0.286,0.2,0.167,0.0,0.0,0.0,0.273,0.286,0.5,0.0,0.0,0.231,0.222,0.217
+0021500034,1610612752,New York,Knicks,NYK,knicks,2756,Sasha,Vujacic,S. Vujacic,sasha-vujacic,G,,,26:11,0.162,0.087,0.189,0.0,0.286,0.0,0.0,0.167,0.238,0.222,0.308,0.125,0.333,0.0,0.0,0.167,0.133,0.061
+0021500034,1610612752,New York,Knicks,NYK,knicks,202498,Lance,Thomas,L. Thomas,lance-thomas,,,,26:08,0.147,0.25,0.17,0.0,0.0,0.0,0.045,0.0,0.067,0.053,0.091,0.182,0.2,0.0,0.0,0.105,0.1,0.174
+0021500034,1610612752,New York,Knicks,NYK,knicks,204038,Langston,Galloway,L. Galloway,langston-galloway,,,,27:37,0.162,0.167,0.182,0.4,0.429,0.222,0.217,0.25,0.4,0.368,0.333,0.083,0.2,0.5,0.5,0.15,0.238,0.197
+0021500034,1610612752,New York,Knicks,NYK,knicks,203124,Kyle,O'Quinn,K. O'Quinn,kyle-oquinn,,,,14:48,0.243,0.231,0.238,0.0,0.0,0.364,0.333,0.0,0.4,0.4,0.25,0.25,0.0,0.5,0.0,0.333,0.154,0.256
+0021500034,1610612752,New York,Knicks,NYK,knicks,1626170,Jerian,Grant,J. Grant,jerian-grant,,,,21:10,0.182,0.176,0.212,0.5,0.333,0.0,0.0,0.25,0.1,0.143,0.0,0.273,0.5,0.0,0.667,0.2,0.105,0.137
+0021500034,1610612752,New York,Knicks,NYK,knicks,202682,Derrick,Williams,D. Williams,derrick-williams,,,,15:22,0.205,0.167,0.208,0.5,0.5,0.222,0.308,0.0,0.125,0.091,0.143,0.143,0.25,0.0,0.0,0.143,0.154,0.2
+0021500034,1610612752,New York,Knicks,NYK,knicks,201167,Arron,Afflalo,A. Afflalo,arron-afflalo,,DND - Strained Left Hamstring,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500034,1610612752,New York,Knicks,NYK,knicks,203921,Cleanthony,Early,C. Early,cleanthony-early,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500034,1610612752,New York,Knicks,NYK,knicks,202338,Kevin,Seraphin,K. Seraphin,kevin-seraphin,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500034,1610612764,Washington,Wizards,WAS,wizards,203490,Otto,Porter Jr.,O. Porter Jr.,otto-porter-jr,F,,,35:01,0.16,0.259,0.2,0.0,0.267,0.083,0.071,0.333,0.269,0.281,0.071,0.063,0.333,0.0,0.0,0.125,0.19,0.193
+0021500034,1610612764,Washington,Wizards,WAS,wizards,2743,Kris,Humphries,K. Humphries,kris-humphries,F,,,14:34,0.053,0.0,0.038,0.0,0.0,0.222,0.154,0.0,0.3,0.25,0.5,0.0,0.0,0.0,0.0,0.25,0.111,0.065
+0021500034,1610612764,Washington,Wizards,WAS,wizards,101162,Marcin,Gortat,M. Gortat,marcin-gortat,C,,,25:33,0.217,0.111,0.17,0.0,0.0,0.313,0.3,0.2,0.2,0.2,0.1,0.308,0.167,0.0,1.0,0.263,0.357,0.164
+0021500034,1610612764,Washington,Wizards,WAS,wizards,203078,Bradley,Beal,B. Beal,bradley-beal,G,,,37:13,0.271,0.346,0.338,0.5,0.316,0.25,0.208,0.0,0.133,0.103,0.0,0.063,0.286,0.0,0.0,0.182,0.2,0.333
+0021500034,1610612764,Washington,Wizards,WAS,wizards,202322,John,Wall,J. Wall,john-wall,G,,,35:45,0.269,0.286,0.254,0.4,0.267,0.333,0.423,0.333,0.037,0.091,0.308,0.214,0.125,1.0,0.25,0.136,0.3,0.305
+0021500034,1610612764,Washington,Wizards,WAS,wizards,2400,Drew,Gooden,D. Gooden,drew-gooden,,,,24:03,0.188,0.238,0.213,0.25,0.273,0.0,0.0,0.444,0.438,0.44,0.2,0.182,0.25,1.0,0.0,0.111,0.067,0.186
+0021500034,1610612764,Washington,Wizards,WAS,wizards,2403,Nene,Hilario,Nene,nene-hilario,,,,18:06,0.116,0.167,0.114,0.0,0.0,0.2,0.182,0.0,0.222,0.167,0.143,0.0,0.5,0.0,0.0,0.545,0.333,0.167
+0021500034,1610612764,Washington,Wizards,WAS,wizards,202390,Gary,Neal,G. Neal,gary-neal,,,,15:21,0.209,0.214,0.219,0.0,0.111,0.0,0.0,0.0,0.0,0.0,0.167,0.286,0.0,0.0,0.5,0.071,0.0,0.162
+0021500034,1610612764,Washington,Wizards,WAS,wizards,201196,Ramon,Sessions,R. Sessions,ramon-sessions,,,,12:15,0.226,0.1,0.174,0.0,0.286,0.714,0.714,0.2,0.2,0.2,0.75,0.2,0.0,0.0,0.0,0.1,0.3,0.25
+0021500034,1610612764,Washington,Wizards,WAS,wizards,201162,Jared,Dudley,J. Dudley,jared-dudley,,,,17:49,0.077,0.0,0.063,0.0,0.286,0.0,0.0,0.0,0.333,0.273,0.25,0.5,0.333,0.0,0.0,0.3,0.0,0.0
+0021500034,1610612764,Washington,Wizards,WAS,wizards,201971,DeJuan,Blair,D. Blair,dejuan-blair,,,,4:21,0.25,0.0,0.125,0.0,0.0,0.0,0.0,0.333,0.0,0.167,0.0,0.667,0.0,0.0,0.0,1.0,0.5,0.0
+0021500034,1610612764,Washington,Wizards,WAS,wizards,1626162,Kelly,Oubre Jr.,K. Oubre Jr.,kelly-oubre-jr,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500034,1610612764,Washington,Wizards,WAS,wizards,202066,Garrett,Temple,G. Temple,garrett-temple,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500038,1610612758,Sacramento,Kings,SAC,kings,200752,Rudy,Gay,R. Gay,rudy-gay,F,,,31:03,0.329,0.286,0.348,0.667,0.417,0.167,0.133,0.385,0.211,0.281,0.154,0.333,0.286,0.0,0.333,0.2,0.231,0.282
+0021500038,1610612758,Sacramento,Kings,SAC,kings,202326,DeMarcus,Cousins,D. Cousins,demarcus-cousins,F,,,15:19,0.386,0.4,0.424,0.0,0.5,0.167,0.222,0.4,0.583,0.529,0.2,0.286,0.333,0.0,0.5,0.2,0.286,0.342
+0021500038,1610612758,Sacramento,Kings,SAC,kings,1626161,Willie,Cauley-Stein,W. Cauley-Stein,willie-cauley-stein,C,,,22:48,0.15,0.143,0.109,0.0,0.0,0.333,0.308,0.556,0.333,0.429,0.0,0.286,0.6,1.0,0.0,0.385,0.231,0.157
+0021500038,1610612758,Sacramento,Kings,SAC,kings,203463,Ben,McLemore,B. McLemore,ben-mclemore,G,,,10:25,0.103,0.111,0.143,0.0,0.0,0.2,0.143,0.0,0.125,0.091,0.0,0.0,0.0,0.0,0.0,0.1,0.2,0.125
+0021500038,1610612758,Sacramento,Kings,SAC,kings,200765,Rajon,Rondo,R. Rondo,rajon-rondo,G,,,33:00,0.239,0.281,0.243,0.25,0.308,0.2,0.353,0.077,0.211,0.156,0.615,0.1,0.333,0.0,0.0,0.208,0.385,0.269
+0021500038,1610612758,Sacramento,Kings,SAC,kings,201956,Omri,Casspi,O. Casspi,omri-casspi,,,,21:23,0.172,0.19,0.128,0.333,0.143,0.5,0.333,0.111,0.176,0.154,0.182,0.5,0.0,0.0,0.0,0.167,0.125,0.213
+0021500038,1610612758,Sacramento,Kings,SAC,kings,201954,Darren,Collison,D. Collison,darren-collison,,,,35:00,0.2,0.188,0.205,0.2,0.143,0.167,0.143,0.067,0.095,0.083,0.429,0.222,0.0,0.0,0.625,0.167,0.2,0.185
+0021500038,1610612758,Sacramento,Kings,SAC,kings,201585,Kosta,Koufos,K. Koufos,kosta-koufos,,,,29:13,0.063,0.087,0.078,0.0,0.0,0.0,0.0,0.286,0.167,0.219,0.0,0.0,0.0,0.5,0.0,0.375,0.0,0.066
+0021500038,1610612758,Sacramento,Kings,SAC,kings,201158,Marco,Belinelli,M. Belinelli,marco-belinelli,,,,28:04,0.151,0.091,0.14,0.25,0.182,0.429,0.3,0.0,0.125,0.071,0.077,0.0,0.167,0.0,0.167,0.091,0.2,0.177
+0021500038,1610612758,Sacramento,Kings,SAC,kings,2406,Caron,Butler,C. Butler,caron-butler,,,,13:45,0.121,0.167,0.174,0.0,0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.143,0.111,0.125
+0021500038,1610612758,Sacramento,Kings,SAC,kings,203112,Quincy,Acy,Q. Acy,quincy-acy,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500038,1610612758,Sacramento,Kings,SAC,kings,202341,James,Anderson,J. Anderson,james-anderson,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500038,1610612758,Sacramento,Kings,SAC,kings,203552,Seth,Curry,S. Curry,seth-curry,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500038,1610612746,LA,Clippers,LAC,clippers,202362,Lance,Stephenson,L. Stephenson,lance-stephenson,F,,,24:17,0.15,0.115,0.146,0.0,0.143,0.067,0.08,0.0,0.1,0.087,0.211,0.286,0.0,0.0,0.0,0.3,0.056,0.1
+0021500038,1610612746,LA,Clippers,LAC,clippers,201933,Blake,Griffin,B. Griffin,blake-griffin,F,,,36:14,0.36,0.361,0.367,0.0,0.0,0.407,0.385,0.2,0.267,0.257,0.25,0.273,0.5,0.0,1.0,0.25,0.357,0.359
+0021500038,1610612746,LA,Clippers,LAC,clippers,201599,DeAndre,Jordan,D. Jordan,deandre-jordan,C,,,35:41,0.135,0.135,0.102,0.0,0.0,0.185,0.3,0.75,0.5,0.529,0.042,0.091,0.25,0.875,0.0,0.067,0.286,0.143
+0021500038,1610612746,LA,Clippers,LAC,clippers,200755,JJ,Redick,J. Redick,jj-redick,G,,,32:41,0.128,0.267,0.188,0.5,0.25,0.185,0.122,0.0,0.0,0.0,0.091,0.0,0.0,0.167,0.0,0.308,0.077,0.253
+0021500038,1610612746,LA,Clippers,LAC,clippers,101108,Chris,Paul,C. Paul,chris-paul,G,,,38:28,0.234,0.135,0.206,0.25,0.455,0.214,0.19,0.0,0.2,0.167,0.44,0.455,0.25,0.0,0.0,0.118,0.267,0.16
+0021500038,1610612746,LA,Clippers,LAC,clippers,1718,Paul,Pierce,P. Pierce,paul-pierce,,,,13:46,0.1,0.2,0.048,1.0,0.1,0.0,0.0,0.0,0.333,0.286,0.0,0.333,0.0,0.0,0.0,0.167,0.0,0.188
+0021500038,1610612746,LA,Clippers,LAC,clippers,2037,Jamal,Crawford,J. Crawford,jamal-crawford,,,,22:59,0.218,0.231,0.278,0.0,0.333,0.235,0.19,0.0,0.071,0.059,0.0,0.0,0.0,0.0,1.0,0.083,0.188,0.233
+0021500038,1610612746,LA,Clippers,LAC,clippers,2746,Josh,Smith,J. Smith,josh-smith,,,,12:15,0.231,0.333,0.235,0.0,0.143,0.0,0.0,1.0,0.0,0.286,1.0,0.333,0.0,1.0,0.0,0.0,0.333,0.182
+0021500038,1610612746,LA,Clippers,LAC,clippers,203085,Austin,Rivers,A. Rivers,austin-rivers,,,,11:58,0.185,0.0,0.176,0.0,0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.333,0.0,0.0,0.0,0.5,0.0,0.0
+0021500038,1610612746,LA,Clippers,LAC,clippers,202325,Wesley,Johnson,W. Johnson,wesley-johnson,,,,11:24,0.074,0.0,0.111,0.0,0.4,0.0,0.0,0.0,0.143,0.125,0.0,0.0,0.0,0.0,0.0,0.375,0.0,0.0
+0021500038,1610612746,LA,Clippers,LAC,clippers,201601,Luc,Mbah a Moute,L. Mbah a Moute,luc-mbah-a-moute,,,,0:17,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500038,1610612746,LA,Clippers,LAC,clippers,202332,Cole,Aldrich,C. Aldrich,cole-aldrich,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500038,1610612746,LA,Clippers,LAC,clippers,203143,Pablo,Prigioni,P. Prigioni,pablo-prigioni,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500043,1610612753,Orlando,Magic,ORL,magic,203095,Evan,Fournier,E. Fournier,evan-fournier,F,,,35:10,0.198,0.32,0.224,0.5,0.235,0.143,0.182,0.0,0.227,0.161,0.125,0.083,0.0,0.0,0.286,0.2,0.333,0.311
+0021500043,1610612753,Orlando,Magic,ORL,magic,202699,Tobias,Harris,T. Harris,tobias-harris,F,,,21:48,0.36,0.25,0.333,0.0,0.222,0.25,0.4,0.667,0.214,0.35,0.182,0.5,0.0,0.0,0.4,0.25,0.5,0.239
+0021500043,1610612753,Orlando,Magic,ORL,magic,202696,Nikola,Vučević,N. Vučević,nikola-vučević,C,,,34:30,0.214,0.222,0.182,0.0,0.0,0.6,0.333,0.333,0.348,0.344,0.176,0.417,0.4,0.333,0.0,0.083,0.3,0.238
+0021500043,1610612753,Orlando,Magic,ORL,magic,203506,Victor,Oladipo,V. Oladipo,victor-oladipo,G,,,38:43,0.149,0.161,0.173,0.286,0.286,0.1,0.133,0.0,0.12,0.086,0.263,0.0,0.4,0.333,0.143,0.083,0.143,0.165
+0021500043,1610612753,Orlando,Magic,ORL,magic,203901,Elfrid,Payton,E. Payton,elfrid-payton,G,,,22:27,0.192,0.105,0.163,0.0,0.2,0.0,0.0,0.0,0.067,0.053,0.273,0.375,0.0,0.2,0.2,0.5,0.0,0.098
+0021500043,1610612753,Orlando,Magic,ORL,magic,1626209,Mario,Hezonja,M. Hezonja,mario-hezonja,,,,5:06,0.2,0.0,0.273,0.0,0.0,0.0,0.0,0.5,0.0,0.333,0.0,0.0,0.0,0.0,1.0,0.25,0.0,0.0
+0021500043,1610612753,Orlando,Magic,ORL,magic,203932,Aaron,Gordon,A. Gordon,aaron-gordon,,,,24:35,0.159,0.143,0.159,0.0,0.077,0.0,0.0,0.333,0.313,0.318,0.111,0.273,0.4,0.4,0.0,0.1,0.0,0.105
+0021500043,1610612753,Orlando,Magic,ORL,magic,101112,Channing,Frye,C. Frye,channing-frye,,,,9:20,0.13,0.0,0.125,0.0,0.286,0.2,0.25,0.5,0.25,0.333,0.333,0.0,0.0,0.0,0.0,0.0,0.2,0.067
+0021500043,1610612753,Orlando,Magic,ORL,magic,203894,Shabazz,Napier,S. Napier,shabazz-napier,,,,16:09,0.14,0.182,0.152,0.25,0.222,0.4,0.25,0.0,0.0,0.0,0.167,0.0,0.25,0.0,0.0,0.333,0.333,0.226
+0021500043,1610612753,Orlando,Magic,ORL,magic,201228,C.J.,Watson,C. Watson,cj-watson,,,,13:54,0.147,0.286,0.19,0.5,0.333,0.0,0.333,0.25,0.2,0.214,0.4,0.0,0.0,0.0,0.0,0.0,0.333,0.263
+0021500043,1610612753,Orlando,Magic,ORL,magic,201160,Jason,Smith,J. Smith,jason-smith,,,,14:12,0.242,0.333,0.292,0.333,0.4,1.0,0.5,0.0,0.182,0.143,0.2,0.0,0.0,0.5,0.0,0.2,0.143,0.364
+0021500043,1610612753,Orlando,Magic,ORL,magic,203094,Andrew,Nicholson,A. Nicholson,andrew-nicholson,,,,4:06,0.2,0.0,0.125,0.0,0.0,0.0,0.0,0.0,0.25,0.2,0.0,0.5,0.0,0.0,0.0,0.333,0.0,0.0
+0021500043,1610612753,Orlando,Magic,ORL,magic,203473,Dewayne,Dedmon,D. Dedmon,dewayne-dedmon,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,203503,Tony,Snell,T. Snell,tony-snell,F,,,26:29,0.115,0.158,0.133,0.4,0.267,0.0,0.0,0.0,0.25,0.19,0.0,0.143,0.0,0.143,0.0,0.2,0.0,0.145
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,202703,Nikola,Mirotic,N. Mirotic,nikola-mirotic,F,,,28:23,0.246,0.2,0.226,0.6,0.444,0.333,0.375,0.167,0.105,0.12,0.0,0.25,0.0,0.4,0.333,0.167,0.267,0.267
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,2200,Pau,Gasol,P. Gasol,pau-gasol,C,,,23:47,0.281,0.467,0.318,0.0,0.167,0.154,0.143,0.75,0.294,0.381,0.111,0.167,0.2,0.2,0.5,0.25,0.143,0.348
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,202710,Jimmy,Butler III,J. Butler III,jimmy-butler-iii,G,,,32:51,0.184,0.182,0.182,0.0,0.111,0.316,0.364,0.0,0.167,0.138,0.333,0.0,0.8,0.25,0.0,0.0,0.389,0.206
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,201565,Derrick,Rose,D. Rose,derrick-rose,G,,,32:19,0.16,0.083,0.136,0.0,0.059,0.133,0.125,0.0,0.292,0.233,0.5,0.375,0.0,0.0,0.125,0.2,0.25,0.088
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,201149,Joakim,Noah,J. Noah,joakim-noah,,,,24:18,0.15,0.167,0.14,0.0,0.0,0.333,0.25,0.429,0.316,0.346,0.286,0.222,0.5,0.333,0.2,0.25,0.2,0.174
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,201959,Taj,Gibson,T. Gibson,taj-gibson,,,,19:33,0.106,0.154,0.088,0.0,0.0,0.5,0.333,0.2,0.294,0.273,0.1,0.143,0.0,0.0,0.2,0.0,0.25,0.188
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,201166,Aaron,Brooks,A. Brooks,aaron-brooks,,,,15:41,0.316,0.333,0.393,0.0,0.455,0.0,0.0,0.4,0.083,0.176,0.143,0.143,0.5,0.5,0.0,0.364,0.0,0.25
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,203926,Doug,McDermott,D. McDermott,doug-mcdermott,,,,17:57,0.224,0.385,0.27,1.0,0.333,0.0,0.0,0.167,0.0,0.045,0.0,0.167,0.0,0.0,0.4,0.2,0.0,0.364
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,202734,E'Twaun,Moore,E. Moore,etwaun-moore,,,,18:43,0.174,0.0,0.189,0.0,0.182,0.0,0.0,0.0,0.125,0.091,0.375,0.143,0.0,0.0,0.167,0.333,0.0,0.0
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,203946,Cameron,Bairstow,C. Bairstow,cameron-bairstow,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,1626245,Cristiano,Felicio,C. Felicio,cristiano-felicio,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500043,1610612741,Chicago,Bulls,CHI,bulls,1626171,Bobby,Portis,B. Portis,bobby-portis,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,202695,Kawhi,Leonard,K. Leonard,kawhi-leonard,F,,,34:17,0.259,0.32,0.305,0.333,0.273,0.182,0.118,0.0,0.172,0.135,0.133,0.154,0.25,0.25,0.25,0.182,0.143,0.297
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,200746,LaMarcus,Aldridge,L. Aldridge,lamarcus-aldridge,F,,,34:42,0.301,0.333,0.316,0.0,0.067,0.533,0.556,0.5,0.333,0.368,0.313,0.133,0.125,0.2,0.667,0.111,0.467,0.358
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,1495,Tim,Duncan,T. Duncan,tim-duncan,C,,,28:48,0.203,0.136,0.18,0.0,0.111,0.125,0.143,0.2,0.333,0.31,0.333,0.333,0.0,0.25,0.0,0.571,0.083,0.13
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,201980,Danny,Green,D. Green,danny-green,G,,,28:51,0.155,0.105,0.192,0.0,0.625,0.0,0.182,0.125,0.208,0.188,0.083,0.0,0.667,0.5,0.333,0.1,0.167,0.091
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,2225,Tony,Parker,T. Parker,tony-parker,G,,,27:25,0.138,0.167,0.13,0.0,0.0,0.0,0.0,0.167,0.136,0.143,0.077,0.25,0.0,0.0,0.0,0.286,0.0,0.133
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,2564,Boris,Diaw,B. Diaw,boris-diaw,,,,23:46,0.148,0.211,0.19,0.0,0.083,0.167,0.176,0.0,0.045,0.038,0.4,0.0,0.0,0.0,0.0,0.1,0.2,0.185
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,201988,Patty,Mills,P. Mills,patty-mills,,,,20:35,0.096,0.167,0.081,0.5,0.167,0.0,0.0,0.0,0.053,0.043,0.111,0.25,0.0,0.0,0.0,0.111,0.167,0.16
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,1938,Manu,Ginobili,M. Ginobili,manu-ginobili,,,,23:54,0.22,0.19,0.2,0.4,0.308,0.25,0.286,0.333,0.35,0.348,0.231,0.273,0.6,0.0,0.5,0.222,0.286,0.22
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,203937,Kyle,Anderson,K. Anderson,kyle-anderson,,,,0:58,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,2446,Rasual,Butler,R. Butler,rasual-butler,,,,7:60,0.143,0.0,0.133,0.0,0.333,0.4,0.333,0.0,0.125,0.111,0.0,0.0,0.0,1.0,0.0,0.0,0.4,0.095
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,2561,David,West,D. West,david-west,,,,8:44,0.136,0.143,0.059,0.0,0.0,0.0,0.0,0.667,0.0,0.222,0.0,0.5,0.0,0.0,0.0,0.333,0.0,0.133
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,2588,Matt,Bonner,M. Bonner,matt-bonner,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500040,1610612759,San Antonio,Spurs,SAS,spurs,203492,Ray,McCallum,R. McCallum,ray-mccallum,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500040,1610612738,Boston,Celtics,BOS,celtics,203109,Jae,Crowder,J. Crowder,jae-crowder,F,,,22:59,0.224,0.231,0.205,0.5,0.417,0.0,0.0,0.2,0.158,0.167,0.111,0.4,0.429,0.5,0.0,0.364,0.0,0.226
+0021500040,1610612738,Boston,Celtics,BOS,celtics,101135,David,Lee,D. Lee,david-lee,F,,,20:35,0.173,0.083,0.167,0.0,0.0,0.0,0.0,0.5,0.278,0.333,0.125,0.286,0.0,0.0,0.333,0.143,0.0,0.069
+0021500040,1610612738,Boston,Celtics,BOS,celtics,203092,Tyler,Zeller,T. Zeller,tyler-zeller,C,,,6:28,0.214,0.0,0.2,0.0,0.0,0.0,0.0,0.0,0.143,0.143,0.5,0.333,0.0,0.0,0.0,0.0,0.0,0.0
+0021500040,1610612738,Boston,Celtics,BOS,celtics,202340,Avery,Bradley,A. Bradley,avery-bradley,G,,,30:28,0.269,0.318,0.281,0.25,0.235,0.333,0.333,0.143,0.118,0.129,0.214,0.111,0.0,0.0,0.5,0.167,0.222,0.316
+0021500040,1610612738,Boston,Celtics,BOS,celtics,203935,Marcus,Smart,M. Smart,marcus-smart,G,,,38:30,0.151,0.25,0.16,0.167,0.208,0.25,0.364,0.083,0.04,0.054,0.158,0.077,0.5,0.2,0.0,0.15,0.462,0.243
+0021500040,1610612738,Boston,Celtics,BOS,celtics,202738,Isaiah,Thomas,I. Thomas,isaiah-thomas,,,,26:35,0.301,0.2,0.295,0.333,0.263,0.75,0.75,0.0,0.077,0.04,0.5,0.222,0.2,0.0,0.5,0.059,0.5,0.294
+0021500040,1610612738,Boston,Celtics,BOS,celtics,202323,Evan,Turner,E. Turner,evan-turner,,,,15:49,0.128,0.067,0.118,0.0,0.111,0.0,0.0,0.2,0.429,0.333,0.375,0.25,0.0,1.0,0.0,0.25,0.0,0.057
+0021500040,1610612738,Boston,Celtics,BOS,celtics,203096,Jared,Sullinger,J. Sullinger,jared-sullinger,,,,23:31,0.224,0.235,0.245,0.5,0.308,0.0,0.0,0.5,0.571,0.533,0.2,0.2,0.167,0.0,0.333,0.3,0.125,0.217
+0021500040,1610612738,Boston,Celtics,BOS,celtics,101161,Amir,Johnson,A. Johnson,amir-johnson,,,,28:24,0.143,0.208,0.172,0.0,0.105,0.0,0.0,0.3,0.091,0.19,0.071,0.0,0.0,0.333,0.0,0.267,0.167,0.167
+0021500040,1610612738,Boston,Celtics,BOS,celtics,201973,Jonas,Jerebko,J. Jerebko,jonas-jerebko,,,,13:40,0.138,0.273,0.13,0.0,0.0,0.0,0.0,0.0,0.222,0.222,0.0,0.2,0.0,0.0,0.0,0.429,0.0,0.231
+0021500040,1610612738,Boston,Celtics,BOS,celtics,203482,Kelly,Olynyk,K. Olynyk,kelly-olynyk,,,,12:60,0.132,0.0,0.1,0.0,0.25,0.0,0.0,0.125,0.5,0.35,0.2,0.333,0.5,0.5,0.0,0.0,0.0,0.0
+0021500040,1610612738,Boston,Celtics,BOS,celtics,1626154,RJ,Hunter,R. Hunter,rj-hunter,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500040,1610612738,Boston,Celtics,BOS,celtics,1626179,Terry,Rozier,T. Rozier,terry-rozier,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,201568,Danilo,Gallinari,D. Gallinari,danilo-gallinari,F,,,27:19,0.273,0.176,0.245,0.5,0.333,0.875,0.8,0.2,0.182,0.19,0.0,0.125,0.2,0.0,0.286,0.182,0.545,0.326
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,202702,Kenneth,Faried,K. Faried,kenneth-faried,F,,,14:10,0.206,0.5,0.25,0.0,0.0,0.0,0.143,0.5,0.0,0.222,0.167,0.167,0.0,1.0,0.25,0.167,0.143,0.348
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,203530,Joffrey,Lauvergne,J. Lauvergne,joffrey-lauvergne,C,,,18:50,0.146,0.333,0.167,0.5,0.2,0.167,0.125,0.286,0.5,0.412,0.375,0.125,0.25,0.0,0.143,0.5,0.143,0.324
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,203914,Gary,Harris,G. Harris,gary-harris,G,,,26:41,0.138,0.133,0.102,0.2,0.154,0.222,0.231,0.125,0.214,0.182,0.0,0.333,0.0,0.0,0.0,0.0,0.25,0.159
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,1626144,Emmanuel,Mudiay,E. Mudiay,emmanuel-mudiay,G,,,26:52,0.277,0.167,0.286,0.0,0.273,0.0,0.0,0.143,0.214,0.19,0.417,0.4,0.2,0.0,0.429,0.091,0.0,0.122
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,201589,Darrell,Arthur,D. Arthur,darrell-arthur,,,,24:08,0.127,0.158,0.143,0.0,0.0,0.0,0.0,0.286,0.286,0.286,0.1,0.0,0.5,1.0,0.0,0.5,0.0,0.133
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,2749,Jameer,Nelson,J. Nelson,jameer-nelson,,,,27:03,0.231,0.2,0.228,0.333,0.294,0.167,0.143,0.1,0.0,0.048,0.583,0.333,0.333,0.0,0.0,0.3,0.333,0.21
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,203999,Nikola,Jokić,N. Jokić,nikola-jokić,,,,24:26,0.179,0.2,0.184,0.0,0.0,0.0,0.0,0.5,0.125,0.286,0.0,0.2,0.0,0.0,0.667,0.2,0.25,0.163
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,200751,Randy,Foye,R. Foye,randy-foye,,,,16:09,0.158,0.067,0.167,0.25,0.385,0.0,0.0,0.0,0.0,0.0,0.143,0.0,0.0,0.0,0.0,0.0,0.111,0.083
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,203115,Will,Barton,W. Barton,will-barton,,,,24:15,0.228,0.3,0.261,0.2,0.231,0.25,0.273,0.0,0.25,0.188,0.083,0.0,0.5,0.0,0.333,0.0,0.231,0.283
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,203475,Erick,Green,E. Green,erick-green,,,,4:27,0.1,0.0,0.167,0.0,0.5,0.0,0.0,0.0,0.333,0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,201581,JJ,Hickson,J. Hickson,jj-hickson,,,,2:55,0.143,0.0,0.0,0.0,0.0,0.333,0.4,0.0,0.333,0.333,0.0,0.0,1.0,0.0,0.0,0.0,0.333,0.125
+0021500044,1610612743,Denver,Nuggets,DEN,nuggets,2034,Mike,Miller,M. Miller,mike-miller,,,,2:45,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,201142,Kevin,Durant,K. Durant,kevin-durant,F,,,27:44,0.238,0.267,0.22,0.333,0.294,0.75,0.5,0.0,0.1,0.077,0.25,0.25,0.0,0.125,0.0,0.167,0.4,0.325
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,201586,Serge,Ibaka,S. Ibaka,serge-ibaka,F,,,30:50,0.205,0.235,0.224,0.0,0.0,0.2,0.214,0.125,0.261,0.226,0.174,0.1,0.0,0.625,0.5,0.231,0.167,0.207
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,203500,Steven,Adams,S. Adams,steven-adams,C,,,21:32,0.109,0.042,0.071,0.0,0.0,0.0,0.167,0.5,0.0,0.125,0.067,0.222,0.0,0.5,0.0,0.364,0.3,0.033
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,203460,Andre,Roberson,A. Roberson,andre-roberson,G,,,20:21,0.184,0.19,0.175,0.25,0.273,0.125,0.2,0.2,0.333,0.304,0.067,0.2,0.25,0.0,0.0,0.375,0.125,0.185
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,201566,Russell,Westbrook,R. Westbrook,russell-westbrook,G,,,25:26,0.274,0.259,0.271,0.167,0.286,0.0,0.0,0.333,0.333,0.333,0.421,0.444,0.5,0.0,0.0,0.0,0.0,0.214
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,203079,Dion,Waiters,D. Waiters,dion-waiters,,,,23:55,0.179,0.143,0.195,0.125,0.154,0.5,0.375,0.0,0.059,0.04,0.286,0.0,0.25,0.0,0.0,0.0,0.222,0.179
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,202713,Kyle,Singler,K. Singler,kyle-singler,,,,19:56,0.167,0.067,0.2,0.25,0.25,0.0,0.0,0.143,0.063,0.087,0.0,0.091,0.2,1.0,0.5,0.417,0.143,0.075
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,201571,D.J.,Augustin,D. Augustin,dj-augustin,,,,18:07,0.19,0.333,0.25,0.667,0.5,0.0,0.0,0.143,0.077,0.1,0.3,0.0,0.0,0.0,0.5,0.0,0.0,0.35
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,202683,Enes,Freedom,E. Freedom,enes-freedom,,,,17:35,0.425,0.545,0.379,0.0,0.0,0.0,0.0,0.5,0.467,0.476,0.111,0.667,0.0,0.0,0.0,0.5,0.4,0.4
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,2555,Nick,Collison,N. Collison,nick-collison,,,,9:52,0.045,0.0,0.0,0.0,0.0,0.5,0.5,0.5,0.429,0.444,0.25,0.0,1.0,0.0,0.0,0.0,0.25,0.105
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,201627,Anthony,Morrow,A. Morrow,anthony-morrow,,,,15:48,0.147,0.133,0.185,0.333,0.4,0.0,0.0,0.0,0.273,0.2,0.077,0.0,0.333,0.0,0.0,0.0,0.333,0.162
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,1626166,Cameron,Payne,C. Payne,cameron-payne,,,,4:27,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0,0.0,0.333,0.0,0.0
+0021500044,1610612760,Oklahoma City,Thunder,OKC,thunder,203956,Mitch,McGary,M. McGary,mitch-mcgary,,,,4:27,0.222,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.667,0.0,0.0,0.0,0.0,0.0,0.0
+0021500041,1610612745,Houston,Rockets,HOU,rockets,2772,Trevor,Ariza,T. Ariza,trevor-ariza,F,,,40:47,0.17,0.103,0.194,0.333,0.276,0.0,0.0,0.0,0.269,0.25,0.211,0.143,0.429,0.0,0.2,0.125,0.083,0.117
+0021500041,1610612745,Houston,Rockets,HOU,rockets,201977,Marcus,Thornton,M. Thornton,marcus-thornton,F,,,30:53,0.269,0.381,0.327,0.625,0.375,0.0,0.0,0.0,0.111,0.1,0.167,0.154,0.0,0.0,0.0,0.286,0.091,0.35
+0021500041,1610612745,Houston,Rockets,HOU,rockets,203991,Clint,Capela,C. Capela,clint-capela,C,,,14:07,0.207,0.455,0.25,0.0,0.0,0.0,0.0,1.0,0.444,0.5,0.0,0.167,0.0,1.0,0.0,0.286,0.0,0.303
+0021500041,1610612745,Houston,Rockets,HOU,rockets,201935,James,Harden,J. Harden,james-harden,G,,,39:06,0.291,0.08,0.246,0.0,0.345,0.8,0.778,0.0,0.261,0.24,0.467,0.294,0.5,0.333,1.0,0.1,0.6,0.216
+0021500041,1610612745,Houston,Rockets,HOU,rockets,201951,Ty,Lawson,T. Lawson,ty-lawson,G,,,37:27,0.084,0.043,0.05,0.0,0.0,0.154,0.125,0.0,0.174,0.16,0.267,0.188,0.167,0.0,0.0,0.188,0.083,0.061
+0021500041,1610612745,Houston,Rockets,HOU,rockets,1626149,Montrezl,Harrell,M. Harrell,montrezl-harrell,,,,22:16,0.113,0.2,0.103,0.0,0.0,0.143,0.25,1.0,0.214,0.313,0.0,0.1,0.0,1.0,0.0,0.2,0.25,0.184
+0021500041,1610612745,Houston,Rockets,HOU,rockets,201976,Patrick,Beverley,P. Beverley,patrick-beverley,,,,19:47,0.222,0.286,0.194,0.333,0.2,0.0,0.0,0.0,0.2,0.176,0.0,0.5,0.0,0.0,0.0,0.273,0.167,0.25
+0021500041,1610612745,Houston,Rockets,HOU,rockets,201147,Corey,Brewer,C. Brewer,corey-brewer,,,,21:16,0.265,0.333,0.325,0.0,0.176,0.0,0.0,0.0,0.067,0.059,0.333,0.0,0.333,0.0,0.667,0.273,0.2,0.263
+0021500041,1610612745,Houston,Rockets,HOU,rockets,101236,Chuck,Hayes,C. Hayes,chuck-hayes,,,,9:19,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.125,0.125,0.0,0.0,0.0,0.0,0.0,0.333,0.0,0.0
+0021500041,1610612745,Houston,Rockets,HOU,rockets,1891,Jason,Terry,J. Terry,jason-terry,,,,5:02,0.333,0.333,0.375,0.5,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.3
+0021500041,1610612745,Houston,Rockets,HOU,rockets,1626155,Sam,Dekker,S. Dekker,sam-dekker,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500041,1610612745,Houston,Rockets,HOU,rockets,2730,Dwight,Howard,D. Howard,dwight-howard,,DND - Rest,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500041,1610612745,Houston,Rockets,HOU,rockets,203909,KJ,McDaniels,K. McDaniels,kj-mcdaniels,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500041,1610612748,Miami,Heat,MIA,heat,2736,Luol,Deng,L. Deng,luol-deng,F,,,26:38,0.231,0.217,0.231,0.5,0.333,0.25,0.286,0.375,0.167,0.231,0.083,0.143,0.0,0.0,0.0,0.125,0.214,0.233
+0021500041,1610612748,Miami,Heat,MIA,heat,2547,Chris,Bosh,C. Bosh,chris-bosh,F,,,24:45,0.2,0.222,0.262,0.5,0.364,0.0,0.0,0.143,0.389,0.32,0.0,0.0,0.0,0.5,0.0,0.111,0.077,0.217
+0021500041,1610612748,Miami,Heat,MIA,heat,202355,Hassan,Whiteside,H. Whiteside,hassan-whiteside,C,,,33:31,0.237,0.375,0.25,0.0,0.0,0.063,0.15,0.167,0.609,0.517,0.05,0.375,0.333,1.0,0.5,0.182,0.235,0.291
+0021500041,1610612748,Miami,Heat,MIA,heat,2548,Dwyane,Wade,D. Wade,dwyane-wade,G,,,32:50,0.27,0.2,0.281,0.4,0.214,0.5,0.429,0.0,0.083,0.067,0.444,0.1,0.25,0.0,0.667,0.083,0.333,0.26
+0021500041,1610612748,Miami,Heat,MIA,heat,201609,Goran,Dragic,G. Dragic,goran-dragic,G,,,24:17,0.161,0.158,0.167,0.0,0.083,0.182,0.167,0.0,0.188,0.15,0.545,0.111,0.167,0.0,0.0,0.444,0.2,0.157
+0021500041,1610612748,Miami,Heat,MIA,heat,1626159,Justise,Winslow,J. Winslow,justise-winslow,,,,30:40,0.122,0.138,0.14,0.25,0.167,0.0,0.0,0.25,0.037,0.086,0.118,0.1,0.286,0.0,0.0,0.222,0.0,0.132
+0021500041,1610612748,Miami,Heat,MIA,heat,201596,Mario,Chalmers,M. Chalmers,mario-chalmers,,,,22:35,0.135,0.045,0.073,0.0,0.1,0.4,0.333,0.143,0.0,0.037,0.231,0.5,0.4,0.0,0.0,0.429,0.5,0.071
+0021500041,1610612748,Miami,Heat,MIA,heat,101123,Gerald,Green,G. Green,gerald-green,,,,18:21,0.182,0.133,0.206,0.25,0.5,0.5,0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.286,0.1,0.184
+0021500041,1610612748,Miami,Heat,MIA,heat,201177,Josh,McRoberts,J. McRoberts,josh-mcroberts,,,,5:11,0.167,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.4,0.4,0.0,0.4,0.0,0.0,0.0,0.0,0.5,0.0
+0021500041,1610612748,Miami,Heat,MIA,heat,204020,Tyler,Johnson,T. Johnson,tyler-johnson,,,,21:12,0.149,0.238,0.179,0.143,0.154,0.0,0.143,0.75,0.294,0.381,0.231,0.0,0.2,0.333,0.0,0.0,0.125,0.208
+0021500041,1610612748,Miami,Heat,MIA,heat,203516,James,Ennis III,J. Ennis III,james-ennis-iii,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500041,1610612748,Miami,Heat,MIA,heat,2617,Udonis,Haslem,U. Haslem,udonis-haslem,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500041,1610612748,Miami,Heat,MIA,heat,2405,Amar'e,Stoudemire,A. Stoudemire,amare-stoudemire,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,203507,Giannis,Antetokounmpo,G. Antetokounmpo,giannis-antetokounmpo,F,,,32:41,0.188,0.364,0.24,0.25,0.083,0.167,0.167,0.0,0.45,0.36,0.125,0.0,0.0,0.25,0.333,0.059,0.154,0.303
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,203948,Johnny,O'Bryant III,J. O'Bryant III,johnny-obryant-iii,F,,,27:01,0.086,0.063,0.128,0.0,0.0,0.0,0.0,0.0,0.267,0.222,0.091,0.0,0.0,0.0,0.333,0.154,0.077,0.038
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,202328,Greg,Monroe,G. Monroe,greg-monroe,C,,,28:24,0.19,0.278,0.184,0.0,0.0,0.25,0.25,0.5,0.25,0.3,0.385,0.167,0.333,0.667,0.0,0.357,0.417,0.259
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,203114,Khris,Middleton,K. Middleton,khris-middleton,G,,,29:13,0.217,0.158,0.238,0.0,0.25,0.143,0.143,0.0,0.118,0.095,0.0,0.182,0.0,0.0,0.0,0.313,0.182,0.145
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,203487,Michael,Carter-Williams,M. Carter-Williams,michael-carter-williams,G,,,32:39,0.235,0.143,0.222,0.5,0.357,0.222,0.222,0.25,0.25,0.25,0.438,0.364,0.4,0.0,0.5,0.143,0.214,0.188
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,202349,Greivis,Vasquez,G. Vasquez,greivis-vasquez,,,,25:27,0.231,0.125,0.184,0.0,0.333,0.5,0.5,0.0,0.231,0.176,0.333,0.3,0.333,0.0,0.0,0.182,0.333,0.2
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,203101,Miles,Plumlee,M. Plumlee,miles-plumlee,,,,14:47,0.206,0.429,0.208,0.0,0.0,0.25,0.25,1.0,0.0,0.273,0.0,0.2,0.333,1.0,0.0,0.5,0.2,0.333
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,203142,Chris,Copeland,C. Copeland,chris-copeland,,,,20:32,0.214,0.231,0.214,0.667,0.4,0.5,0.5,0.0,0.0,0.0,0.0,0.2,0.0,0.0,0.0,0.0,0.143,0.303
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,201573,Jerryd,Bayless,J. Bayless,jerryd-bayless,,,,22:10,0.133,0.077,0.097,0.0,0.1,0.0,0.0,0.2,0.0,0.059,0.222,0.25,0.0,0.2,0.0,0.143,0.0,0.059
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,1626173,Rashad,Vaughn,R. Vaughn,rashad-vaughn,,,,3:33,0.222,0.0,0.4,0.0,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,203996,Damien,Inglis,D. Inglis,damien-inglis,,,,3:33,0.444,0.0,0.4,0.0,0.5,0.5,0.5,0.0,0.0,0.0,0.0,1.0,0.5,0.0,0.0,0.0,0.5,0.5
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,203089,John,Henson,J. Henson,john-henson,,NWT - Sore Left Achilles,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500042,1610612749,Milwaukee,Bucks,MIL,bucks,201564,O.J.,Mayo,O. Mayo,oj-mayo,,NWT - Right Hamstring Strain,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,201960,DeMarre,Carroll,D. Carroll,demarre-carroll,F,,,30:40,0.224,0.208,0.224,0.429,0.444,0.091,0.118,0.231,0.0,0.094,0.071,0.375,0.0,0.0,0.0,0.083,0.133,0.212
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,2449,Luis,Scola,L. Scola,luis-scola,F,,,21:29,0.204,0.143,0.231,0.0,0.0,0.125,0.143,0.375,0.444,0.412,0.125,0.0,0.0,0.5,0.0,0.222,0.083,0.135
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,202685,Jonas,Valančiūnas,J. Valančiūnas,jonas-valančiūnas,C,,,28:59,0.265,0.241,0.214,0.0,0.0,0.625,0.571,0.4,0.25,0.308,0.0,0.4,0.2,0.0,0.25,0.273,0.429,0.26
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,201942,DeMar,DeRozan,D. DeRozan,demar-derozan,G,,,37:17,0.176,0.194,0.188,0.0,0.056,0.125,0.143,0.0,0.053,0.032,0.2,0.222,0.091,0.333,0.5,0.063,0.222,0.169
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,200768,Kyle,Lowry,K. Lowry,kyle-lowry,G,,,29:19,0.188,0.185,0.189,0.167,0.294,0.333,0.222,0.182,0.2,0.192,0.5,0.167,0.5,0.0,0.0,0.273,0.176,0.208
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,202687,Bismack,Biyombo,B. Biyombo,bismack-biyombo,,,,19:01,0.167,0.083,0.206,0.0,0.0,0.2,0.333,0.5,0.5,0.5,0.0,0.0,0.0,1.0,0.25,0.5,0.286,0.091
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,202335,Patrick,Patterson,P. Patterson,patrick-patterson,,,,24:09,0.169,0.316,0.191,0.444,0.294,0.0,0.0,0.0,0.176,0.115,0.071,0.143,0.0,0.0,0.25,0.25,0.111,0.308
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,203082,Terrence,Ross,T. Ross,terrence-ross,,,,21:02,0.2,0.25,0.225,0.5,0.455,0.0,0.0,0.125,0.214,0.182,0.222,0.2,0.4,0.0,0.0,0.333,0.0,0.25
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,202709,Cory,Joseph,C. Joseph,cory-joseph,,,,18:37,0.109,0.118,0.132,0.0,0.0,0.0,0.0,0.0,0.182,0.111,0.667,0.0,0.429,0.0,0.5,0.0,0.333,0.098
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,203461,Anthony,Bennett,A. Bennett,anthony-bennett,,,,2:22,0.286,1.0,0.25,0.0,0.0,0.0,0.0,1.0,0.5,0.667,0.0,0.333,0.0,0.0,0.0,0.5,0.0,1.0
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,201949,James,Johnson,J. Johnson,james-johnson,,,,2:22,0.143,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.333,0.0,0.0,0.0,0.0,0.0,0.0
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,1626181,Norman,Powell,N. Powell,norman-powell,,,,2:22,0.143,0.0,0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0
+0021500042,1610612761,Toronto,Raptors,TOR,raptors,1626153,Delon,Wright,D. Wright,delon-wright,,,,2:22,0.286,0.0,0.25,0.0,1.0,0.0,0.0,0.0,0.5,0.333,0.0,0.333,0.0,0.0,0.0,0.0,0.0,0.0
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,203145,Kent,Bazemore,K. Bazemore,kent-bazemore,F,,,28:13,0.259,0.286,0.255,0.5,0.313,0.5,0.5,0.0,0.19,0.174,0.077,0.0,0.6,0.25,0.286,0.111,0.375,0.345
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,200794,Paul,Millsap,P. Millsap,paul-millsap,F,,,34:56,0.171,0.241,0.203,0.333,0.217,0.0,0.0,0.167,0.192,0.188,0.316,0.0,0.0,0.4,0.0,0.231,0.182,0.219
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,201143,Al,Horford,A. Horford,al-horford,C,,,34:55,0.24,0.28,0.226,0.0,0.227,0.182,0.167,0.5,0.345,0.364,0.077,0.429,0.0,0.5,0.111,0.1,0.0,0.242
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,2594,Kyle,Korver,K. Korver,kyle-korver,G,,,31:18,0.149,0.115,0.158,0.0,0.2,0.0,0.0,0.0,0.083,0.071,0.133,0.2,0.0,0.0,0.0,0.273,0.125,0.091
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,201952,Jeff,Teague,J. Teague,jeff-teague,G,,,32:11,0.275,0.261,0.276,0.4,0.211,0.444,0.4,0.0,0.222,0.194,0.333,0.2,0.333,0.0,0.444,0.2,0.444,0.3
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,201168,Tiago,Splitter,T. Splitter,tiago-splitter,,,,17:30,0.136,0.188,0.111,0.0,0.0,0.333,0.5,0.429,0.267,0.318,0.1,0.2,0.5,0.0,0.25,0.286,0.167,0.184
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,203934,Lamar,Patterson,L. Patterson,lamar-patterson,,,,9:06,0.167,0.0,0.15,0.0,0.167,0.0,0.0,0.0,0.125,0.083,0.333,0.333,0.0,0.0,0.25,0.0,0.333,0.0
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,203471,Dennis,Schröder,D. Schröder,dennis-schröder,,,,21:11,0.2,0.176,0.225,0.0,0.167,0.0,0.0,0.167,0.118,0.13,0.273,0.143,0.167,0.0,0.333,0.25,0.333,0.15
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,200757,Thabo,Sefolosha,T. Sefolosha,thabo-sefolosha,,,,17:36,0.186,0.167,0.156,0.5,0.111,0.0,0.0,0.4,0.133,0.2,0.0,0.375,0.333,0.0,0.167,0.167,0.0,0.167
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,203118,Mike,Scott,M. Scott,mike-scott,,,,13:04,0.097,0.0,0.125,0.0,0.333,0.0,0.0,0.0,0.231,0.188,0.667,0.0,0.0,0.0,0.167,0.333,0.0,0.0
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,203200,Justin,Holiday,J. Holiday,justin-holiday,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,202714,Shelvin,Mack,S. Mack,shelvin-mack,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500039,1610612737,Atlanta,Hawks,ATL,hawks,203488,Mike,Muscala,M. Muscala,mike-muscala,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,203798,PJ,Hairston,P. Hairston,pj-hairston,F,,,23:12,0.173,0.105,0.146,0.0,0.235,0.5,0.429,0.0,0.222,0.174,0.067,0.333,0.0,0.0,0.0,0.25,0.286,0.135
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,101107,Marvin,Williams,M. Williams,marvin-williams,F,,,32:58,0.162,0.217,0.172,0.385,0.276,0.0,0.0,0.0,0.185,0.152,0.048,0.2,0.0,0.273,0.25,0.0,0.0,0.217
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,2744,Al,Jefferson,A. Jefferson,al-jefferson,C,,,29:24,0.185,0.238,0.231,0.0,0.0,0.0,0.0,0.0,0.455,0.357,0.118,0.0,0.0,0.286,0.5,0.167,0.091,0.161
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,201587,Nicolas,Batum,N. Batum,nicolas-batum,G,,,36:15,0.207,0.185,0.212,0.333,0.333,0.167,0.154,0.375,0.083,0.156,0.364,0.286,0.333,0.25,0.0,0.182,0.154,0.205
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,202689,Kemba,Walker,K. Walker,kemba-walker,G,,,31:16,0.208,0.182,0.153,0.182,0.125,0.7,0.727,0.25,0.174,0.194,0.333,0.333,0.5,0.0,0.2,0.333,0.636,0.262
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,203469,Cody,Zeller,C. Zeller,cody-zeller,,,,22:49,0.137,0.3,0.15,0.0,0.0,0.0,0.0,0.5,0.188,0.25,0.0,0.143,0.167,0.167,0.0,0.0,0.143,0.222
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,201150,Spencer,Hawes,S. Hawes,spencer-hawes,,,,18:24,0.209,0.091,0.235,0.0,0.133,0.0,0.0,0.333,0.214,0.235,0.2,0.167,0.333,0.167,0.5,0.5,0.0,0.067
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,202391,Jeremy,Lin,J. Lin,jeremy-lin,,,,21:28,0.229,0.154,0.243,0.167,0.333,0.25,0.25,0.333,0.067,0.111,0.417,0.167,0.333,0.333,0.0,0.25,0.375,0.175
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,203087,Jeremy,Lamb,J. Lamb,jeremy-lamb,,,,18:16,0.262,0.444,0.324,0.333,0.267,0.0,0.0,0.0,0.25,0.222,0.25,0.0,0.0,0.333,0.5,0.167,0.0,0.36
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,1626163,Frank,Kaminsky,F. Kaminsky,frank-kaminsky,,,,5:59,0.091,0.2,0.111,1.0,0.25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.25
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,203584,Troy,Daniels,T. Daniels,troy-daniels,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,201946,Tyler,Hansbrough,T. Hansbrough,tyler-hansbrough,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500039,1610612766,Charlotte,Hornets,CHA,hornets,203148,Brian,Roberts,B. Roberts,brian-roberts,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,202718,Chandler,Parsons,C. Parsons,chandler-parsons,F,,,11:52,0.25,0.1,0.261,0.0,0.1,0.0,0.0,0.0,0.273,0.25,0.375,0.0,1.0,0.0,0.667,0.4,0.25,0.074
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,1717,Dirk,Nowitzki,D. Nowitzki,dirk-nowitzki,F,,,29:54,0.224,0.417,0.245,0.429,0.278,0.25,0.2,0.0,0.321,0.273,0.056,0.125,0.2,0.0,0.0,0.2,0.308,0.397
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,2585,Zaza,Pachulia,Z. Pachulia,zaza-pachulia,C,,,29:17,0.232,0.19,0.151,0.0,0.0,0.8,0.833,0.5,0.333,0.364,0.071,0.429,0.0,1.0,0.167,0.364,0.5,0.271
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,202083,Wesley,Matthews,W. Matthews,wesley-matthews,G,,,26:15,0.186,0.136,0.196,0.429,0.4,0.143,0.2,0.25,0.05,0.083,0.071,0.0,0.0,0.0,0.0,0.083,0.231,0.172
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,101114,Deron,Williams,D. Williams,deron-williams,G,,,30:44,0.183,0.2,0.203,0.125,0.174,0.0,0.0,0.0,0.179,0.147,0.533,0.167,0.0,0.0,0.286,0.059,0.125,0.172
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,101109,Raymond,Felton,R. Felton,raymond-felton,,,,28:21,0.132,0.208,0.16,0.333,0.143,0.0,0.0,0.167,0.037,0.061,0.125,0.111,0.333,0.0,0.2,0.182,0.0,0.183
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,203939,Dwight,Powell,D. Powell,dwight-powell,,,,24:50,0.145,0.167,0.152,0.0,0.0,0.0,0.167,0.5,0.375,0.4,0.133,0.25,0.0,1.0,0.0,0.4,0.1,0.143
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,2734,Devin,Harris,D. Harris,devin-harris,,,,22:13,0.216,0.15,0.256,0.2,0.333,0.0,0.0,0.0,0.143,0.13,0.133,0.143,1.0,0.0,0.333,0.3,0.3,0.143
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,200826,J.J.,Barea,J. Barea,jj-barea,,,,23:39,0.182,0.211,0.184,0.25,0.2,0.111,0.083,0.2,0.125,0.143,0.438,0.429,0.0,0.0,1.0,0.0,0.071,0.196
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,101111,Charlie,Villanueva,C. Villanueva,charlie-villanueva,,,,11:56,0.214,0.091,0.273,0.25,0.444,0.0,0.0,0.0,0.2,0.182,0.111,0.0,0.0,0.5,0.0,0.25,0.0,0.107
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,202379,Jeremy,Evans,J. Evans,jeremy-evans,,,,0:59,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,203098,John,Jenkins,J. Jenkins,john-jenkins,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500045,1610612742,Dallas,Mavericks,DAL,mavericks,1626257,Salah,Mejri,S. Mejri,salah-mejri,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,977,Kobe,Bryant,K. Bryant,kobe-bryant,F,,,31:21,0.26,0.15,0.263,0.333,0.381,0.412,0.318,0.333,0.13,0.172,0.091,0.167,0.0,0.0,0.0,0.417,0.2,0.238
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,203944,Julius,Randle,J. Randle,julius-randle,F,,,33:37,0.275,0.391,0.288,0.0,0.0,0.235,0.348,0.0,0.556,0.455,0.308,0.2,0.667,0.167,0.5,0.154,0.353,0.319
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,201579,Roy,Hibbert,R. Hibbert,roy-hibbert,C,,,26:05,0.115,0.067,0.044,0.0,0.0,0.125,0.2,0.75,0.227,0.308,0.25,0.429,0.0,0.333,0.0,0.444,0.308,0.078
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,203903,Jordan,Clarkson,J. Clarkson,jordan-clarkson,G,,,30:00,0.141,0.111,0.154,0.2,0.235,0.133,0.1,0.0,0.0,0.0,0.3,0.091,0.25,0.286,0.0,0.2,0.067,0.125
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,1626156,D'Angelo,Russell,D. Russell,dangelo-russell,G,,,27:22,0.219,0.25,0.271,0.333,0.35,0.0,0.0,0.0,0.167,0.136,0.111,0.167,0.167,0.2,0.0,0.0,0.0,0.182
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,101150,Lou,Williams,L. Williams,lou-williams,,,,26:53,0.267,0.2,0.245,0.5,0.45,0.222,0.167,0.0,0.053,0.042,0.083,0.5,0.2,0.0,0.333,0.231,0.167,0.236
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,201156,Nick,Young,N. Young,nick-young,,,,18:56,0.163,0.167,0.147,0.5,0.222,0.5,0.333,0.0,0.0,0.0,0.0,0.167,0.0,0.333,0.0,0.222,0.143,0.25
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,101138,Brandon,Bass,B. Bass,brandon-bass,,,,20:23,0.163,0.267,0.171,0.0,0.0,0.4,0.375,0.667,0.25,0.333,0.222,0.0,0.0,0.0,0.0,0.0,0.333,0.25
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,203527,Ryan,Kelly,R. Kelly,ryan-kelly,,,,14:23,0.129,0.0,0.154,0.0,0.143,0.0,0.0,0.0,0.571,0.444,0.2,0.0,0.5,0.333,0.5,0.0,0.2,0.0
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,1626273,Marcelo,Huertas,M. Huertas,marcelo-huertas,,,,11:00,0.125,0.25,0.15,0.0,0.0,0.0,0.0,0.333,0.0,0.091,0.6,0.0,0.0,0.5,0.5,0.286,0.333,0.2
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,204028,Tarik,Black,T. Black,tarik-black,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,1626148,Anthony,Brown,A. Brown,anthony-brown,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500045,1610612747,Los Angeles,Lakers,LAL,lakers,1897,Metta,World Peace,M. World Peace,metta-world-peace,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,201142,Kevin,Durant,K. Durant,kevin-durant,F,,,35:00,0.315,0.346,0.317,0.5,0.5,0.538,0.529,0.1,0.1,0.1,0.0,0.25,0.0,0.333,0.2,0.0,0.438,0.397
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,201586,Serge,Ibaka,S. Ibaka,serge-ibaka,F,,,33:52,0.176,0.222,0.233,0.0,0.053,0.0,0.0,0.545,0.308,0.378,0.167,0.056,0.2,0.571,0.6,0.158,0.063,0.169
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,203500,Steven,Adams,S. Adams,steven-adams,C,,,19:12,0.08,0.143,0.088,0.0,0.0,0.2,0.286,0.0,0.188,0.136,0.0,0.0,0.333,0.0,0.0,0.1,0.222,0.135
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,203460,Andre,Roberson,A. Roberson,andre-roberson,G,,,22:24,0.089,0.143,0.125,0.25,0.143,0.0,0.0,0.25,0.111,0.136,0.0,0.0,0.0,0.5,0.25,0.308,0.0,0.143
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,201566,Russell,Westbrook,R. Westbrook,russell-westbrook,G,,,31:57,0.304,0.345,0.281,0.375,0.333,0.2,0.154,0.2,0.222,0.216,0.786,0.467,0.4,0.0,0.0,0.294,0.286,0.329
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,203079,Dion,Waiters,D. Waiters,dion-waiters,,,,32:23,0.138,0.115,0.143,0.167,0.059,0.154,0.2,0.1,0.1,0.1,0.111,0.067,0.5,0.0,0.0,0.417,0.118,0.127
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,202713,Kyle,Singler,K. Singler,kyle-singler,,,,15:58,0.064,0.0,0.065,0.0,0.222,0.0,0.0,0.0,0.133,0.087,0.0,0.125,0.0,0.0,0.0,0.333,0.0,0.0
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,202683,Enes,Freedom,E. Freedom,enes-freedom,,,,22:13,0.189,0.15,0.222,0.0,0.0,0.0,0.0,0.6,0.45,0.48,0.333,0.182,0.0,0.25,0.667,0.143,0.0,0.115
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,201571,D.J.,Augustin,D. Augustin,dj-augustin,,,,21:35,0.321,0.235,0.257,0.333,0.375,0.5,0.455,0.0,0.263,0.208,0.0,0.5,0.5,0.0,0.0,0.222,0.5,0.279
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,201627,Anthony,Morrow,A. Morrow,anthony-morrow,,,,5:26,0.071,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.333,0.5,0.0,0.0,0.0,0.0,0.0
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,2555,Nick,Collison,N. Collison,nick-collison,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,203956,Mitch,McGary,M. McGary,mitch-mcgary,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500049,1610612760,Oklahoma City,Thunder,OKC,thunder,1626166,Cameron,Payne,C. Payne,cameron-payne,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500049,1610612745,Houston,Rockets,HOU,rockets,2772,Trevor,Ariza,T. Ariza,trevor-ariza,F,,,36:02,0.103,0.094,0.119,0.167,0.182,0.143,0.1,0.143,0.143,0.143,0.133,0.0,0.067,0.0,0.167,0.176,0.063,0.107
+0021500049,1610612745,Houston,Rockets,HOU,rockets,201977,Marcus,Thornton,M. Thornton,marcus-thornton,F,,,37:20,0.163,0.135,0.194,0.25,0.273,0.0,0.0,0.286,0.227,0.241,0.053,0.111,0.067,0.0,0.0,0.059,0.0,0.126
+0021500049,1610612745,Houston,Rockets,HOU,rockets,2730,Dwight,Howard,D. Howard,dwight-howard,C,,,34:38,0.202,0.194,0.2,0.0,0.0,0.4,0.35,0.4,0.3,0.32,0.0,0.1,0.154,0.8,0.5,0.154,0.353,0.205
+0021500049,1610612745,Houston,Rockets,HOU,rockets,201935,James,Harden,J. Harden,james-harden,G,,,38:28,0.359,0.387,0.382,0.5,0.48,0.529,0.407,0.0,0.238,0.179,0.231,0.2,0.188,0.333,0.286,0.059,0.455,0.425
+0021500049,1610612745,Houston,Rockets,HOU,rockets,201951,Ty,Lawson,T. Lawson,ty-lawson,G,,,36:49,0.195,0.194,0.145,0.0,0.095,0.154,0.304,0.4,0.143,0.192,0.647,0.5,0.333,0.0,0.0,0.214,0.294,0.171
+0021500049,1610612745,Houston,Rockets,HOU,rockets,201976,Patrick,Beverley,P. Beverley,patrick-beverley,,,,20:56,0.14,0.125,0.125,0.667,0.231,0.0,0.0,0.0,0.2,0.167,0.182,0.333,0.25,0.0,0.5,0.308,0.0,0.143
+0021500049,1610612745,Houston,Rockets,HOU,rockets,203991,Clint,Capela,C. Capela,clint-capela,,,,10:43,0.12,0.25,0.105,0.0,0.0,0.0,0.0,0.0,0.167,0.125,0.0,0.5,0.25,0.5,0.0,0.5,0.0,0.16
+0021500049,1610612745,Houston,Rockets,HOU,rockets,201147,Corey,Brewer,C. Brewer,corey-brewer,,,,22:25,0.245,0.294,0.275,0.0,0.154,0.167,0.125,0.0,0.154,0.154,0.231,0.2,0.5,0.0,0.25,0.3,0.154,0.24
+0021500049,1610612745,Houston,Rockets,HOU,rockets,1626149,Montrezl,Harrell,M. Harrell,montrezl-harrell,,,,2:39,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0
+0021500049,1610612745,Houston,Rockets,HOU,rockets,1626155,Sam,Dekker,S. Dekker,sam-dekker,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500049,1610612745,Houston,Rockets,HOU,rockets,101236,Chuck,Hayes,C. Hayes,chuck-hayes,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500049,1610612745,Houston,Rockets,HOU,rockets,203909,KJ,McDaniels,K. McDaniels,kj-mcdaniels,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500049,1610612745,Houston,Rockets,HOU,rockets,1891,Jason,Terry,J. Terry,jason-terry,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500052,1610612756,Phoenix,Suns,PHX,suns,200782,P.J.,Tucker,P. Tucker,pj-tucker,F,,,26:37,0.063,0.048,0.038,0.2,0.063,0.273,0.286,0.167,0.095,0.111,0.143,0.0,0.167,0.0,0.0,0.25,0.273,0.103
+0021500052,1610612756,Phoenix,Suns,PHX,suns,202693,Markieff,Morris,M. Morris,markieff-morris,F,,,36:24,0.289,0.25,0.301,0.4,0.381,0.25,0.294,0.182,0.194,0.19,0.118,0.25,0.0,0.0,0.5,0.167,0.308,0.26
+0021500052,1610612756,Phoenix,Suns,PHX,suns,2199,Tyson,Chandler,T. Chandler,tyson-chandler,C,,,35:59,0.112,0.259,0.137,0.0,0.0,0.0,0.059,0.545,0.393,0.436,0.063,0.0,0.0,0.0,0.25,0.214,0.077,0.197
+0021500052,1610612756,Phoenix,Suns,PHX,suns,202688,Brandon,Knight,B. Knight,brandon-knight,G,,,40:39,0.222,0.121,0.238,0.125,0.32,0.25,0.176,0.077,0.171,0.146,0.364,0.143,0.333,0.0,0.25,0.0,0.143,0.14
+0021500052,1610612756,Phoenix,Suns,PHX,suns,202339,Eric,Bledsoe,E. Bledsoe,eric-bledsoe,G,,,31:38,0.308,0.24,0.292,0.2,0.222,0.3,0.267,0.0,0.167,0.118,0.467,0.5,0.333,1.0,0.333,0.214,0.273,0.246
+0021500052,1610612756,Phoenix,Suns,PHX,suns,101179,Ronnie,Price,R. Price,ronnie-price,,,,16:28,0.171,0.3,0.182,0.75,0.5,0.0,0.0,0.0,0.154,0.105,0.286,0.333,0.333,0.0,0.0,0.375,0.0,0.3
+0021500052,1610612756,Phoenix,Suns,PHX,suns,203933,T.J.,Warren,T. Warren,tj-warren,,,,21:29,0.218,0.333,0.244,0.0,0.077,0.25,0.286,0.4,0.053,0.172,0.111,0.0,0.5,0.0,0.0,0.182,0.429,0.289
+0021500052,1610612756,Phoenix,Suns,PHX,suns,203458,Alex,Len,A. Len,alex-len,,,,6:55,0.313,0.0,0.214,0.0,0.0,1.0,1.0,0.0,0.444,0.364,0.0,1.0,0.0,0.0,0.0,0.333,1.0,0.125
+0021500052,1610612756,Phoenix,Suns,PHX,suns,202720,Jon,Leuer,J. Leuer,jon-leuer,,,,11:32,0.138,0.375,0.16,0.25,0.222,0.0,0.0,0.4,0.125,0.231,0.0,0.0,1.0,0.0,0.0,0.143,0.0,0.304
+0021500052,1610612756,Phoenix,Suns,PHX,suns,201603,Sonny,Weems,S. Weems,sonny-weems,,,,7:33,0.1,0.0,0.067,0.0,0.0,0.0,0.0,0.0,0.333,0.222,0.0,0.25,0.0,0.0,0.0,0.167,0.0,0.0
+0021500052,1610612756,Phoenix,Suns,PHX,suns,203141,Mirza,Teletovic,M. Teletovic,mirza-teletovic,,,,4:48,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.667,0.0,0.0
+0021500052,1610612756,Phoenix,Suns,PHX,suns,203462,Archie,Goodwin,A. Goodwin,archie-goodwin,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500052,1610612756,Phoenix,Suns,PHX,suns,203928,Cory,Jefferson,C. Jefferson,cory-jefferson,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500052,1610612746,LA,Clippers,LAC,clippers,202362,Lance,Stephenson,L. Stephenson,lance-stephenson,F,,,18:20,0.184,0.143,0.188,0.0,0.0,0.25,0.25,0.333,0.294,0.3,0.4,0.2,0.0,0.0,0.0,0.375,0.333,0.147
+0021500052,1610612746,LA,Clippers,LAC,clippers,201933,Blake,Griffin,B. Griffin,blake-griffin,F,,,33:57,0.243,0.333,0.254,0.0,0.0,0.462,0.467,0.333,0.31,0.313,0.182,0.0,0.0,0.25,0.0,0.154,0.455,0.338
+0021500052,1610612746,LA,Clippers,LAC,clippers,201599,DeAndre,Jordan,D. Jordan,deandre-jordan,C,,,31:53,0.069,0.115,0.055,0.0,0.0,0.077,0.143,0.0,0.29,0.265,0.0,0.111,0.25,0.75,0.0,0.25,0.091,0.101
+0021500052,1610612746,LA,Clippers,LAC,clippers,200755,JJ,Redick,J. Redick,jj-redick,G,,,27:50,0.21,0.136,0.24,0.75,0.833,0.091,0.077,0.333,0.087,0.115,0.182,0.143,0.0,0.0,0.0,0.125,0.0,0.169
+0021500052,1610612746,LA,Clippers,LAC,clippers,101108,Chris,Paul,C. Paul,chris-paul,G,,,30:47,0.313,0.304,0.283,0.25,0.154,0.154,0.133,0.0,0.115,0.103,0.455,0.714,1.0,0.0,1.0,0.231,0.273,0.27
+0021500052,1610612746,LA,Clippers,LAC,clippers,1718,Paul,Pierce,P. Pierce,paul-pierce,,,,23:10,0.137,0.158,0.15,0.2,0.235,0.0,0.0,0.0,0.316,0.316,0.154,0.2,0.0,0.0,0.0,0.143,0.071,0.125
+0021500052,1610612746,LA,Clippers,LAC,clippers,2746,Josh,Smith,J. Smith,josh-smith,,,,15:39,0.233,0.182,0.2,0.5,0.308,0.25,0.4,0.0,0.333,0.333,0.5,0.5,0.0,1.0,0.0,0.333,0.429,0.233
+0021500052,1610612746,LA,Clippers,LAC,clippers,2037,Jamal,Crawford,J. Crawford,jamal-crawford,,,,26:17,0.204,0.105,0.195,0.2,0.235,0.4,0.333,0.0,0.087,0.087,0.273,0.0,0.333,0.0,0.0,0.182,0.267,0.19
+0021500052,1610612746,LA,Clippers,LAC,clippers,203085,Austin,Rivers,A. Rivers,austin-rivers,,,,17:39,0.184,0.214,0.214,0.0,0.077,0.143,0.125,0.0,0.0,0.0,0.111,0.25,0.333,0.0,0.0,0.0,0.111,0.179
+0021500052,1610612746,LA,Clippers,LAC,clippers,202325,Wesley,Johnson,W. Johnson,wesley-johnson,,,,14:03,0.172,0.308,0.227,0.0,0.1,0.143,0.125,0.0,0.214,0.214,0.0,0.0,0.0,0.0,0.0,0.2,0.111,0.243
+0021500052,1610612746,LA,Clippers,LAC,clippers,201601,Luc,Mbah a Moute,L. Mbah a Moute,luc-mbah-a-moute,,,,0:25,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500052,1610612746,LA,Clippers,LAC,clippers,202332,Cole,Aldrich,C. Aldrich,cole-aldrich,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500052,1610612746,LA,Clippers,LAC,clippers,203143,Pablo,Prigioni,P. Prigioni,pablo-prigioni,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,202329,Al-Farouq,Aminu,A. Aminu,al-farouq-aminu,F,,,32:24,0.171,0.25,0.203,0.286,0.2,0.125,0.2,0.375,0.231,0.265,0.071,0.0,0.0,0.2,0.0,0.25,0.2,0.239
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,203086,Meyers,Leonard,M. Leonard,meyers-leonard,F,,,23:52,0.17,0.053,0.175,0.0,0.333,0.25,0.222,0.333,0.333,0.333,0.125,0.125,0.0,0.333,0.0,0.214,0.2,0.083
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,203486,Mason,Plumlee,M. Plumlee,mason-plumlee,C,,,27:40,0.179,0.174,0.1,0.0,0.0,0.091,0.154,0.167,0.136,0.143,0.222,0.6,0.0,0.25,0.25,0.125,0.167,0.15
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,203468,CJ,McCollum,C. McCollum,cj-mccollum,G,,,35:56,0.264,0.233,0.269,0.286,0.24,0.182,0.154,0.0,0.2,0.154,0.308,0.308,0.333,0.167,0.0,0.222,0.2,0.231
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,203081,Damian,Lillard,D. Lillard,damian-lillard,G,,,37:57,0.304,0.424,0.352,0.667,0.36,0.154,0.167,0.125,0.037,0.057,0.5,0.182,0.4,0.25,0.75,0.182,0.294,0.4
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,203090,Maurice,Harkless,M. Harkless,maurice-harkless,,,,17:15,0.116,0.133,0.152,0.0,0.167,0.143,0.1,0.25,0.333,0.308,0.2,0.0,0.0,0.0,0.0,0.2,0.083,0.128
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,203459,Allen,Crabbe,A. Crabbe,allen-crabbe,,,,25:29,0.169,0.15,0.204,0.2,0.267,0.0,0.0,0.0,0.0,0.0,0.111,0.111,0.25,0.0,0.0,0.0,0.077,0.135
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,202334,Ed,Davis,E. Davis,ed-davis,,,,20:20,0.122,0.111,0.103,0.0,0.0,0.75,0.571,0.8,0.538,0.611,0.111,0.0,0.5,0.5,0.0,0.364,0.3,0.152
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,203943,Noah,Vonleh,N. Vonleh,noah-vonleh,,,,19:07,0.14,0.053,0.081,0.0,0.083,0.5,0.444,0.0,0.214,0.15,0.0,0.286,0.0,0.0,0.0,0.273,0.273,0.098
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,1626192,Pat,Connaughton,P. Connaughton,pat-connaughton,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,204025,Tim,Frazier,T. Frazier,tim-frazier,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,2549,Chris,Kaman,C. Kaman,chris-kaman,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500050,1610612757,Portland,Trail Blazers,POR,blazers,1626242,Luis,Montero,L. Montero,luis-montero,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,2419,Tayshaun,Prince,T. Prince,tayshaun-prince,F,,,20:12,0.089,0.0,0.091,0.0,0.0,0.143,0.118,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.083,0.044
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,708,Kevin,Garnett,K. Garnett,kevin-garnett,F,,,16:35,0.108,0.0,0.115,0.0,0.0,0.0,0.182,0.0,0.1,0.1,0.143,0.0,0.333,0.0,0.0,0.0,0.143,0.0
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1626157,Karl-Anthony,Towns,K. Towns,karl-anthony-towns,C,,,26:56,0.197,0.333,0.2,1.0,0.125,0.0,0.0,0.2,0.25,0.238,0.0,0.444,0.0,1.0,0.25,0.455,0.056,0.216
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203952,Andrew,Wiggins,A. Wiggins,andrew-wiggins,G,,,23:25,0.397,0.357,0.405,0.0,0.375,0.462,0.412,0.6,0.188,0.286,0.3,0.375,0.2,0.0,0.5,0.2,0.417,0.381
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,201937,Ricky,Rubio,R. Rubio,ricky-rubio,G,,,31:57,0.169,0.19,0.182,0.0,0.222,0.19,0.143,0.0,0.429,0.346,0.6,0.111,0.375,0.0,0.2,0.286,0.263,0.185
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,2755,Kevin,Martin,K. Martin,kevin-martin,,,,35:01,0.238,0.28,0.211,0.667,0.4,0.348,0.355,0.0,0.077,0.063,0.063,0.25,0.0,0.0,0.2,0.188,0.238,0.316
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,202357,Nemanja,Bjelica,N. Bjelica,nemanja-bjelica,,,,31:25,0.092,0.077,0.075,0.0,0.2,0.045,0.071,0.375,0.261,0.29,0.133,0.2,0.286,0.0,0.0,0.308,0.1,0.066
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203476,Gorgui,Dieng,G. Dieng,gorgui-dieng,,,,21:06,0.188,0.316,0.265,0.0,0.0,0.0,0.077,0.333,0.222,0.238,0.083,0.0,0.0,0.0,0.0,0.182,0.111,0.24
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203897,Zach,LaVine,Z. LaVine,zach-lavine,,,,16:01,0.306,0.231,0.292,0.0,0.25,0.444,0.364,0.0,0.0,0.0,0.714,0.333,0.0,0.0,1.0,0.125,0.375,0.278
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203498,Shabazz,Muhammad,S. Muhammad,shabazz-muhammad,,,,17:22,0.179,0.143,0.192,0.0,0.0,0.5,0.462,0.0,0.308,0.25,0.0,0.0,0.333,0.0,0.0,0.111,0.333,0.231
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,1889,Andre,Miller,A. Miller,andre-miller,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,203940,Adreian,Payne,A. Payne,adreian-payne,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500050,1610612750,Minnesota,Timberwolves,MIN,timberwolves,204014,Damjan,Rudez,D. Rudez,damjan-rudez,,DNP - Coach's Decision,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2544,LeBron,James,L. James,lebron-james,F,,,33:20,0.295,0.273,0.306,0.0,0.2,0.5,0.4,0.0,0.31,0.25,0.55,0.3,0.8,0.4,0.5,0.231,0.2,0.278
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,201567,Kevin,Love,K. Love,kevin-love,F,,,28:34,0.242,0.259,0.28,0.0,0.333,0.091,0.067,0.2,0.269,0.258,0.111,0.2,0.0,0.0,0.25,0.182,0.182,0.217
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,202389,Timofey,Mozgov,T. Mozgov,timofey-mozgov,C,,,22:06,0.208,0.118,0.194,0.0,0.0,0.286,0.25,0.75,0.25,0.35,0.091,0.25,0.0,0.8,0.0,0.286,0.5,0.133
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2747,JR,Smith,J. Smith,jr-smith,G,,,4:57,0.25,0.0,0.125,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.667,0.0,0.0
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2590,Mo,Williams,M. Williams,mo-williams,G,,,27:56,0.203,0.32,0.208,0.667,0.273,0.273,0.214,0.0,0.04,0.033,0.188,0.2,0.25,0.0,0.0,0.182,0.1,0.328
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2210,Richard,Jefferson,R. Jefferson,richard-jefferson,,,,21:43,0.106,0.118,0.114,0.333,0.222,0.4,0.286,0.0,0.083,0.067,0.0,0.0,0.0,0.0,0.0,0.286,0.143,0.167
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203521,Matthew,Dellavedova,M. Dellavedova,matthew-dellavedova,,,,34:22,0.154,0.161,0.136,0.143,0.176,0.083,0.133,0.75,0.074,0.161,0.429,0.333,0.0,0.0,0.0,0.133,0.313,0.148
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,202684,Tristan,Thompson,T. Thompson,tristan-thompson,,,,26:18,0.131,0.16,0.156,0.0,0.0,0.0,0.167,0.0,0.45,0.391,0.059,0.0,0.0,0.75,0.333,0.167,0.167,0.129
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2760,Anderson,Varejao,A. Varejao,anderson-varejao,,,,3:59,0.3,0.0,0.2,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.667,0.0,0.0,0.0,0.0,0.0,0.0
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203099,Jared,Cunningham,J. Cunningham,jared-cunningham,,,,17:03,0.128,0.077,0.125,0.0,0.0,0.25,0.308,0.0,0.2,0.2,0.0,0.0,0.0,0.0,0.333,0.333,0.222,0.105
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,2592,James,Jones,J. Jones,james-jones,,,,15:03,0.182,0.286,0.231,1.0,0.556,0.0,0.0,0.0,0.1,0.091,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.343
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,203925,Joe,Harris,J. Harris,joe-harris,,,,4:39,0.1,0.0,0.143,0.0,0.333,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500046,1610612739,Cleveland,Cavaliers,CLE,cavaliers,201619,Sasha,Kaun,S. Kaun,sasha-kaun,,NWT - Personal Reasons,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,203496,Robert,Covington,R. Covington,robert-covington,F,,,22:27,0.207,0.091,0.209,0.0,0.385,0.222,0.167,0.0,0.2,0.133,0.0,0.222,0.5,0.5,0.0,0.3,0.083,0.121
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,203457,Nerlens,Noel,N. Noel,nerlens-noel,F,,,33:27,0.234,0.333,0.22,0.0,0.0,0.0,0.133,0.5,0.25,0.308,0.2,0.4,0.333,0.75,0.0,0.167,0.154,0.255
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,1626143,Jahlil,Okafor,J. Okafor,jahlil-okafor,C,,,26:54,0.348,0.647,0.447,0.0,0.0,0.2,0.214,0.286,0.067,0.136,0.0,0.111,0.0,0.0,0.667,0.4,0.25,0.511
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,203917,Nik,Stauskas,N. Stauskas,nik-stauskas,G,,,28:31,0.209,0.25,0.204,0.75,0.563,0.364,0.235,0.0,0.222,0.167,0.1,0.222,0.333,0.0,0.0,0.214,0.2,0.319
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,203477,Isaiah,Canaan,I. Canaan,isaiah-canaan,G,,,30:56,0.127,0.118,0.145,0.5,0.188,0.154,0.111,0.0,0.118,0.083,0.143,0.0,0.0,0.0,0.167,0.0,0.2,0.143
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,203138,Hollis,Thompson,H. Thompson,hollis-thompson,,,,31:02,0.149,0.091,0.132,0.167,0.267,0.556,0.5,0.25,0.278,0.273,0.2,0.125,0.167,0.0,0.143,0.111,0.429,0.148
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,203924,Jerami,Grant,J. Grant,jerami-grant,,,,22:59,0.208,0.12,0.186,0.0,0.083,0.2,0.333,0.25,0.077,0.118,0.059,0.333,0.167,0.0,0.5,0.5,0.4,0.117
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,204456,T.J.,McConnell,T. McConnell,tj-mcconnell,,,,23:06,0.077,0.111,0.098,0.0,0.0,0.0,0.0,0.333,0.4,0.389,0.706,0.0,0.25,0.0,0.0,0.167,0.0,0.092
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,1626158,Richaun,Holmes,R. Holmes,richaun-holmes,,,,11:13,0.08,0.077,0.056,0.333,0.25,0.111,0.182,0.0,0.125,0.111,0.0,0.0,0.0,0.5,0.0,0.167,0.125,0.105
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,203960,JaKarr,Sampson,J. Sampson,jakarr-sampson,,,,4:20,0.182,1.0,0.143,0.0,0.0,0.0,0.0,0.5,0.333,0.4,0.0,0.5,0.0,0.0,0.0,0.0,0.0,0.5
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,1626174,Christian,Wood,C. Wood,christian-wood,,,,5:05,0.3,0.222,0.3,0.5,0.5,0.0,0.0,0.0,0.0,0.0,0.167,0.0,0.0,0.0,1.0,0.0,0.5,0.238
+0021500046,1610612755,Philadelphia,76ers,PHI,sixers,203088,Kendall,Marshall,K. Marshall,kendall-marshall,,DND - Right Knee Injury,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,200746,LaMarcus,Aldridge,L. Aldridge,lamarcus-aldridge,F,,,32:10,0.292,0.333,0.306,0.0,0.0,0.375,0.364,0.167,0.238,0.222,0.0,0.222,0.0,0.0,0.0,0.1,0.385,0.339
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,202695,Kawhi,Leonard,K. Leonard,kawhi-leonard,F,,,36:05,0.237,0.267,0.267,0.333,0.4,0.143,0.111,0.286,0.429,0.4,0.063,0.222,0.5,0.667,0.5,0.444,0.25,0.257
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,1495,Tim,Duncan,T. Duncan,tim-duncan,C,,,35:10,0.189,0.194,0.172,0.0,0.0,0.4,0.462,0.167,0.29,0.27,0.333,0.111,0.25,0.333,0.0,0.667,0.267,0.211
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,201980,Danny,Green,D. Green,danny-green,G,,,27:25,0.121,0.087,0.14,0.0,0.25,0.0,0.0,0.4,0.158,0.208,0.083,0.125,0.0,0.143,1.0,0.0,0.077,0.068
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,2225,Tony,Parker,T. Parker,tony-parker,G,,,29:25,0.213,0.269,0.245,0.0,0.0,0.286,0.222,0.0,0.042,0.034,0.2,0.0,0.0,0.0,0.5,0.0,0.083,0.258
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,203937,Kyle,Anderson,K. Anderson,kyle-anderson,,,,6:06,0.071,0.0,0.1,0.0,0.0,0.0,0.0,0.0,0.143,0.125,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,201988,Patty,Mills,P. Mills,patty-mills,,,,25:09,0.117,0.1,0.136,0.5,0.429,0.0,0.0,0.0,0.1,0.083,0.182,0.111,0.5,0.0,0.0,0.167,0.0,0.109
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,2564,Boris,Diaw,B. Diaw,boris-diaw,,,,20:00,0.217,0.133,0.182,0.5,0.4,0.2,0.25,0.333,0.231,0.25,0.143,0.429,0.0,0.0,0.0,0.286,0.167,0.162
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,1938,Manu,Ginobili,M. Ginobili,manu-ginobili,,,,17:06,0.189,0.2,0.185,1.0,0.5,0.0,0.0,0.0,0.0,0.0,0.429,0.333,0.0,0.0,0.0,0.0,0.333,0.2
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,2561,David,West,D. West,david-west,,,,7:18,0.105,0.125,0.063,0.0,0.0,0.0,0.0,1.0,0.125,0.222,0.429,0.5,0.333,0.0,0.0,0.0,0.0,0.111
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,1626246,Boban,Marjanovic,B. Marjanovic,boban-marjanovic,,,,1:22,0.2,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,203492,Ray,McCallum,R. McCallum,ray-mccallum,,,,1:22,0.2,0.0,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500048,1610612759,San Antonio,Spurs,SAS,spurs,2446,Rasual,Butler,R. Butler,rasual-butler,,,,1:22,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500048,1610612752,New York,Knicks,NYK,knicks,2546,Carmelo,Anthony,C. Anthony,carmelo-anthony,F,,,35:28,0.282,0.2,0.25,0.25,0.231,0.833,0.8,0.176,0.174,0.175,0.154,0.125,0.167,0.0,0.667,0.25,0.667,0.339
+0021500048,1610612752,New York,Knicks,NYK,knicks,204001,Kristaps,Porziņģis,K. Porziņģis,kristaps-porziņģis,F,,,24:08,0.305,0.333,0.294,0.25,0.5,1.0,1.0,0.615,0.429,0.519,0.091,0.333,0.6,1.0,0.2,0.556,0.5,0.361
+0021500048,1610612752,New York,Knicks,NYK,knicks,201577,Robin,Lopez,R. Lopez,robin-lopez,C,,,32:10,0.169,0.263,0.188,0.0,0.0,0.0,0.0,0.063,0.2,0.139,0.308,0.125,0.2,0.0,0.0,0.167,0.167,0.204
+0021500048,1610612752,New York,Knicks,NYK,knicks,101181,Jose,Calderon,J. Calderon,jose-calderon,G,,,23:16,0.118,0.118,0.116,0.5,0.222,0.0,0.0,0.0,0.0,0.0,0.182,0.2,0.25,0.0,0.0,0.182,0.0,0.136
+0021500048,1610612752,New York,Knicks,NYK,knicks,2756,Sasha,Vujacic,S. Vujacic,sasha-vujacic,G,,,20:29,0.18,0.077,0.163,0.0,0.2,0.0,0.0,0.182,0.182,0.182,0.333,0.5,0.0,0.0,0.0,0.0,0.0,0.059
+0021500048,1610612752,New York,Knicks,NYK,knicks,204038,Langston,Galloway,L. Galloway,langston-galloway,,,,28:55,0.116,0.111,0.096,0.0,0.0,0.2,0.286,0.111,0.19,0.167,0.125,0.125,0.2,0.0,0.25,0.0,0.25,0.13
+0021500048,1610612752,New York,Knicks,NYK,knicks,203124,Kyle,O'Quinn,K. O'Quinn,kyle-oquinn,,,,19:12,0.143,0.214,0.2,0.0,0.0,0.0,0.0,0.667,0.2,0.278,0.25,0.0,0.5,0.0,0.0,0.429,0.0,0.15
+0021500048,1610612752,New York,Knicks,NYK,knicks,1626170,Jerian,Grant,J. Grant,jerian-grant,,,,23:20,0.189,0.313,0.2,0.0,0.0,0.167,0.176,0.0,0.211,0.167,0.5,0.333,0.0,0.0,0.5,0.25,0.2,0.273
+0021500048,1610612752,New York,Knicks,NYK,knicks,202498,Lance,Thomas,L. Thomas,lance-thomas,,,,16:07,0.111,0.067,0.154,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.054
+0021500048,1610612752,New York,Knicks,NYK,knicks,202682,Derrick,Williams,D. Williams,derrick-williams,,,,10:30,0.32,0.375,0.389,0.0,1.0,0.0,0.0,0.0,0.333,0.286,0.0,0.333,0.0,1.0,0.0,0.0,0.0,0.333
+0021500048,1610612752,New York,Knicks,NYK,knicks,202338,Kevin,Seraphin,K. Seraphin,kevin-seraphin,,,,5:03,0.273,0.25,0.375,0.0,0.0,0.0,0.0,0.0,0.4,0.4,0.0,0.0,0.0,0.0,0.0,0.333,0.0,0.167
+0021500048,1610612752,New York,Knicks,NYK,knicks,203921,Cleanthony,Early,C. Early,cleanthony-early,,,,1:22,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+0021500048,1610612752,New York,Knicks,NYK,knicks,201167,Arron,Afflalo,A. Afflalo,arron-afflalo,,DND - Strained Left Hamstring,,,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0

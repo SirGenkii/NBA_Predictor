@@ -1,0 +1,19 @@
+project: nba_predictor
+registry: ${FEAST_REGISTRY_PATH:-data/feature_repo/registry.db}
+provider: local
+entity_key_serialization_version: 2
+
+online_store:
+  type: postgres
+  host: ${FEAST_ONLINE_HOST:-localhost}
+  port: ${FEAST_ONLINE_PORT:-5432}
+  database: ${FEAST_ONLINE_DATABASE:-feast}
+  db_schema: public
+  user: ${FEAST_ONLINE_USER:-feast}
+  password: ${FEAST_ONLINE_PASSWORD:-feast}
+
+offline_store:
+  type: file
+  location: ${FEAST_OFFLINE_PATH:-data/silver/feast_offline}
+
+batch_source_fallback_to_current: true
