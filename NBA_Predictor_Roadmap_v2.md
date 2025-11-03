@@ -231,13 +231,15 @@ nba-predictor/
   - Compare la liste des joueurs attendus vs `boxscores` joués (minutes > 0).  
   - Produit des indicateurs : `active_players`, `inactive_players`, `starters_available` (top 5 par minutes moyennes sur les 10 matchs précédents, paramètres `core_top_n` / `core_minutes_window` ajustables), `minutes_share_top3`, `missing_starters`, `injury_reported`, `two_way_players_active`, etc.  
   - Alimente `data/silver/player_availability/season=<YYYY>/` avec `team_id`, `game_id`, `game_date`, `injury_designation`, `availability_flags`.
-- `build_team_aggregates.py` (Polars) lit `data/silver/team_boxscores_agg/` et applique les fenêtres `N_LIST` issues des settings. Sortie : `team_form_windowed` avec colonnes `avg_*`, `win_rate_*`, `streak_length`, `form_elo`.
-- `build_team_vs_opp_h2h.py` :  
-  1) Construire table **pairwise** à partir de `matchups_h2h_base` (dérivée des boxscores merge) : colonnes `team_id`, `opponent_team_id`, `game_date`, `is_home`, `team_pts`, `opp_pts`, `pace_advanced`, `possessions_advanced`, `season`.  
-  2) Calculer cumul & fenêtres roulantes (Polars) avec les tailles `N_LIST` + `N_LIST_TOP` (héritées de `config`) et versions **exp. decay** (`lambda` configurable).  
-  3) Appliquer **lissage bayésien** sur les taux de victoire (prior = `win_rate_last20` de TeamAggregated) + fallback global si `n < min_n`.  
-  4) Générer colonnes dérivées : `h2h_margin_exp_decay`, `h2h_pts_for_lastN`, `h2h_turnover_rate_diff_lastN`, `h2h_win_rate_smooth`.  
-  5) Publier Parquet → `data/silver/matchups_h2h_features/v1/` puis `feast apply`.
+- `build_team_form_windowed.py` (Polars) lit `data/silver/team_boxscores_agg/` joint à `team_game_facts`, applique les fenêtres `N_LIST` (paramétrables) et génère :
+  - moyennes/écarts-types glissants `team_*_avg_lastN` / `team_*_std_lastN`,
+  - win rate & nombre de victoires (`win_rate_lastN`, `wins_lastN`),
+  - colonnes de contexte (`is_home`, `opponent_team_id`) pour la suite des features diff.
+- `build_matchups_h2h_base.py` : joint `team_game_facts` & `team_boxscores_agg` pour obtenir une ligne par `(team_id, opponent_team_id, game_id)` avec margin, stats de pace/possessions et contexte home/away.
+- `build_matchups_h2h_features.py` :  
+  1) Trie par `(team_id, opponent_team_id, game_date)` et applique les fenêtres `N_LIST`.  
+  2) Produit pour chaque fenêtre : moyennes/écarts-types, `h2h_win_rate_lastN`, `h2h_wins_lastN`, `h2h_margin_avg_lastN`.  
+  3) Prépare le Parquet final dans `data/silver/matchups_h2h_features/season=<YYYY>/` consommé par Feast.
 - `feature_views/team_vs_opp_h2h.py` référence cette table, joint fallback sur `team_form_windowed` pour les features globales, expose les features `h2h_*` et `team_form_*` nécessaires à la modélisation.
 - `materialize-incremental` se limite aux matchups dont `game_date` ≥ dernière date disponible dans bronze, en s’appuyant sur le watermark enregistré dans Postgres.
 
@@ -289,6 +291,7 @@ pip install prefect feast mlflow pandas numpy polars structlog typer pydantic-se
 - `update_data_flow`: taches `scrape_games`, `scrape_boxscores`, `sync_player_availability`, `rebuild_silver`, `publish_feast`. Variante `legacy_update` appelle encore les scripts d’origine si besoin.
 - `train_model_flow`: extraction `get_historical_features` (Team + H2H home/away) → construction dataset diff → entraînement (MLflow) → enregistrement modèle + artefacts.
 - `predict_flow`: vérification fraicheur (Feast `last_materialization`) → features `point-in-time` → prédictions → persistance dans `data/gold/scoring_payloads/`.
+- Scaffolding `flows/*` déjà en place : tâches Prefect appellent les transformations (bronze optionnel, silver, H2H) et exposent des placeholders pour le training/pred scoring en attendant l’intégration MLflow/Feast.
 
 ### Étape 5 — Notebooks & observabilité
 - Créer les notebooks de debug listés §4 (lecture seule) + un `00_data_checks.ipynb` branché sur `data/bronze`.
