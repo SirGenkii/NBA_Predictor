@@ -240,6 +240,7 @@ nba-predictor/
   1) Trie par `(team_id, opponent_team_id, game_date)` et applique les fenêtres `N_LIST`.  
   2) Produit pour chaque fenêtre : moyennes/écarts-types, `h2h_win_rate_lastN`, `h2h_wins_lastN`, `h2h_margin_avg_lastN`.  
   3) Prépare le Parquet final dans `data/silver/matchups_h2h_features/season=<YYYY>/` consommé par Feast.
+- `datasets/training.py` : assemble les features home/away + `diff` (TeamAggregated + H2H) et génère les jeux d’entraînement (`data/gold/training_sets/`) ainsi que les payloads de scoring (`data/gold/scoring_payloads/`).
 - `feature_views/team_vs_opp_h2h.py` référence cette table, joint fallback sur `team_form_windowed` pour les features globales, expose les features `h2h_*` et `team_form_*` nécessaires à la modélisation.
 - `materialize-incremental` se limite aux matchups dont `game_date` ≥ dernière date disponible dans bronze, en s’appuyant sur le watermark enregistré dans Postgres.
 
@@ -271,6 +272,7 @@ pip install prefect feast mlflow pandas numpy polars structlog typer pydantic-se
             scikit-learn xgboost lightgbm
 ```
 - Mettre à jour `requirements.txt` + `Makefile` (cibles `lint`, `format`, `test`, `data-update`).
+- Créer un fichier `.env` (cf. `.env.example` ajouté) pour centraliser `NBA_ENV`, conf Feast/MLflow/Postgres/Prefect et variables de debug (`NBA_INGEST_TS`, `NBA_DEBUG_TEAM_ID`, etc.).
 
 ### Étape 2 — Ingestion Bronze & préparation Silver
 - Refactor `nba_scrapping.py` en `nba_predictor.data_ingest` : clients `nba_api`, orchestration saison, gestion batch, retry & logging unifiés.
@@ -291,7 +293,8 @@ pip install prefect feast mlflow pandas numpy polars structlog typer pydantic-se
 - `update_data_flow`: taches `scrape_games`, `scrape_boxscores`, `sync_player_availability`, `rebuild_silver`, `publish_feast`. Variante `legacy_update` appelle encore les scripts d’origine si besoin.
 - `train_model_flow`: extraction `get_historical_features` (Team + H2H home/away) → construction dataset diff → entraînement (MLflow) → enregistrement modèle + artefacts.
 - `predict_flow`: vérification fraicheur (Feast `last_materialization`) → features `point-in-time` → prédictions → persistance dans `data/gold/scoring_payloads/`.
-- Scaffolding `flows/*` déjà en place : tâches Prefect appellent les transformations (bronze optionnel, silver, H2H) et exposent des placeholders pour le training/pred scoring en attendant l’intégration MLflow/Feast.
+- `flows/update_data_flow.py` orchestre le rebuild bronze + toutes les transformations silver/H2H ; `flows/train_model_flow.py` et `flows/predict_flow.py` déclenchent respectivement `build_training_dataset` / `train_model` et `build_scoring_payload` / `predict_matches`.
+- `pipelines/training.py` et `pipelines/prediction.py` fournissent la logique MLflow : LightGBM + log des métriques (AUC, logloss, accuracy), enregistrement modèle (`TrainConfig`) et scoring via `mlflow.pyfunc` sur les payloads générés.
 
 ### Étape 5 — Notebooks & observabilité
 - Créer les notebooks de debug listés §4 (lecture seule) + un `00_data_checks.ipynb` branché sur `data/bronze`.

@@ -5,35 +5,37 @@ from typing import Optional
 
 from prefect import flow, task, get_run_logger
 
+from nba_predictor.datasets.training import build_scoring_payload
+from nba_predictor.pipelines.prediction import predict_matches
+
 
 def _timestamp() -> str:
     return datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
 
 
 @task
-def load_latest_model() -> None:
-    get_run_logger().info("Loading latest production model")
-    # Placeholder: pull model from MLflow registry.
+def build_payload_task(match_date: str, ingest_ts: str) -> str:
+    logger = get_run_logger()
+    logger.info("Building scoring payload", match_date=match_date, ingest_ts=ingest_ts)
+    payload_path = build_scoring_payload(match_date=match_date, ingest_ts=ingest_ts)
+    return str(payload_path)
 
 
 @task
-def fetch_features_task(match_date: str) -> None:
-    get_run_logger().info("Fetching features for predictions", match_date=match_date)
-    # Placeholder: query Feast or offline store for upcoming matches.
-
-
-@task
-def score_matches_task() -> None:
-    get_run_logger().info("Scoring matches")
-    # Placeholder: apply model to features and persist predictions.
+def score_matches_task(match_date: str, payload_path: str, model_uri: Optional[str]) -> str:
+    logger = get_run_logger()
+    logger.info("Scoring matches", match_date=match_date, payload=payload_path, model_uri=model_uri)
+    output = predict_matches(match_date=match_date, payload_path=payload_path, model_uri=model_uri)
+    logger.info("Predictions stored", path=str(output))
+    return str(output)
 
 
 @flow(name="predict_flow")
-def predict_flow(*, match_date: Optional[str] = None) -> None:
+def predict_flow(*, match_date: Optional[str] = None, model_uri: Optional[str] = None) -> None:
     match_date = match_date or datetime.utcnow().date().isoformat()
-    model = load_latest_model.submit()
-    features = fetch_features_task.submit(match_date, wait_for=[model])
-    score_matches_task.submit(wait_for=[features])
+    ingest_ts = _timestamp()
+    payload_future = build_payload_task.submit(match_date, ingest_ts)
+    score_matches_task.submit(match_date, payload_future, model_uri)
 
 
 __all__ = ["predict_flow"]
