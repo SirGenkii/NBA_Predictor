@@ -29,7 +29,7 @@ def _scan_parquet(root: Path) -> pl.LazyFrame:
     matches = glob(str(pattern), recursive=True)
     if not matches:
         raise FileNotFoundError(f"No parquet files found under {root}")
-    return pl.concat([pl.scan_parquet(path) for path in matches])
+    return pl.concat([pl.scan_parquet(path) for path in matches], how="diagonal_relaxed")
 
 
 def _suffix_features(df: pl.LazyFrame, suffix: str, protected: Iterable[str]) -> pl.LazyFrame:

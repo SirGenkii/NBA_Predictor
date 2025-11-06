@@ -24,26 +24,28 @@ def season_label_from_id(season_id: pl.Expr, fallback: pl.Expr | None = None) ->
 
 def minutes_to_float(column: pl.Expr) -> pl.Expr:
     iso_pattern = r"PT(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?"
+    mm_pattern = r"^(\d+):(\d+)$"
 
     def _parse_iso(expr: pl.Expr) -> pl.Expr:
-        minutes = expr.str.extract(iso_pattern, group_index=1).cast(pl.Float64).fill_null(0.0)
-        seconds = expr.str.extract(iso_pattern, group_index=2).cast(pl.Float64).fill_null(0.0)
+        minutes = expr.str.extract(iso_pattern, group_index=1).cast(pl.Float64, strict=False).fill_null(0.0)
+        seconds = expr.str.extract(iso_pattern, group_index=2).cast(pl.Float64, strict=False).fill_null(0.0)
         return minutes + seconds / 60.0
 
     def _parse_mm_ss(expr: pl.Expr) -> pl.Expr:
-        parts = expr.str.split(":")
-        minutes = parts.list.get(0).cast(pl.Float64).fill_null(0.0)
-        seconds = parts.list.get(1).cast(pl.Float64).fill_null(0.0)
+        minutes = expr.str.extract(mm_pattern, group_index=1).cast(pl.Float64, strict=False).fill_null(0.0)
+        seconds = expr.str.extract(mm_pattern, group_index=2).cast(pl.Float64, strict=False).fill_null(0.0)
         return minutes + seconds / 60.0
 
+    as_str = column.cast(pl.Utf8, strict=False)
+
     return (
-        pl.when(column.is_null() | (column == "") | (column == "0"))
+        pl.when(as_str.is_null() | (as_str == "") | (as_str == "0"))
         .then(0.0)
-        .when(column.str.starts_with("PT"))
-        .then(_parse_iso(column))
-        .when(column.str.contains(":"))
-        .then(_parse_mm_ss(column))
-        .otherwise(column.cast(pl.Float64))
+        .when(as_str.str.starts_with("PT").fill_null(False))
+        .then(_parse_iso(as_str))
+        .when(as_str.str.contains(":").fill_null(False))
+        .then(_parse_mm_ss(as_str))
+        .otherwise(0.0)
         .alias(column.meta.output_name())
     )
 

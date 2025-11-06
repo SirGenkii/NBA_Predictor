@@ -29,7 +29,7 @@ PLAYER_ID_COLUMNS = {
     "comment",
     "jersey_num",
 }
-METADATA_COLUMNS = {"source_snapshot", "bronze_ingest_ts"}
+METADATA_COLUMNS = {"bronze_source_snapshot", "bronze_source_file", "bronze_ingest_ts"}
 
 
 SUM_KEYWORDS = (
@@ -67,15 +67,48 @@ def _default_ingest_ts() -> str:
 
 
 def _load_boxscores(snapshot_labels: Sequence[str]) -> pl.LazyFrame:
-    scans = []
+    paths: list[Path] = []
     for label in snapshot_labels:
-        base_pattern = BRONZE_SUBDIR / label / "**" / "*boxscores*.parquet"
-        pattern_str = str(base_pattern)
-        if glob(pattern_str, recursive=True):
-            scans.append(pl.scan_parquet(pattern_str))
-    if not scans:
+        pattern = BRONZE_SUBDIR / label / "**" / "*boxscores*.parquet"
+        for path_str in glob(str(pattern), recursive=True):
+            paths.append(Path(path_str))
+    if not paths:
         raise FileNotFoundError("No bronze boxscores parquet files found. Run `rebuild_bronze.py` first.")
-    return pl.concat(scans)
+
+    frames: list[pl.DataFrame] = []
+    for path in paths:
+        df = pl.read_parquet(path)
+
+        for col_name, alias in [
+            ("ingest_ts", "bronze_ingest_ts"),
+            ("source_snapshot", "bronze_source_snapshot"),
+            ("source_file", "bronze_source_file"),
+        ]:
+            if col_name in df.columns:
+                if alias in df.columns:
+                    df = df.drop(alias)
+                df = df.rename({col_name: alias})
+            elif alias not in df.columns:
+                df = df.with_columns(pl.lit(None).alias(alias))
+
+        drops = [col for col in ("ingest_ts", "source_snapshot", "source_file") if col in df.columns]
+        if drops:
+            df = df.drop(drops)
+
+        df = df.with_columns(
+            [
+                pl.col("game_id")
+                .cast(pl.Utf8, strict=False)
+                .alias("game_id"),
+                pl.col("team_id").cast(pl.Utf8, strict=False).alias("team_id"),
+                pl.col("person_id").cast(pl.Utf8, strict=False).alias("person_id"),
+            ]
+        )
+
+        frames.append(df)
+
+    combined = pl.concat(frames, how="diagonal_relaxed")
+    return combined.lazy()
 
 
 NUMERIC_TYPES = {
@@ -140,15 +173,11 @@ def _build_aggregations(
         else:
             first_exprs.append(pl.col(name).first().alias(alias))
 
-    for meta in METADATA_COLUMNS:
-        if meta in schema:
-            first_exprs.append(pl.col(meta).first().alias(meta))
-
     return sum_exprs, first_exprs, weighted_specs
 
 
 def _season_from_game_id(game_id: pl.Expr) -> pl.Expr:
-    season_code = game_id.cast(pl.Utf8).str.slice(3, 2).cast(pl.Int64)
+    season_code = game_id.cast(pl.Utf8, strict=False).str.zfill(10).str.slice(3, 2).cast(pl.Int64)
     start_year = pl.when(season_code >= 50).then(season_code + 1900).otherwise(season_code + 2000)
     end_suffix = ((start_year + 1) % 100).cast(pl.Int64)
     return (
@@ -176,78 +205,86 @@ def build_team_boxscores_agg(
 
     boxscores = _load_boxscores(snapshot_labels)
 
-    df = (
-        boxscores.select(pl.all())
-        .with_columns(
-            [
-                pl.col("game_id").cast(pl.Utf8),
-                pl.col("team_id").cast(pl.Int64),
-                minutes_to_float(pl.col("minutes")).alias("minutes_float"),
-                pl.col("ingest_ts").alias("bronze_ingest_ts"),
-            ]
-        )
-        .drop("ingest_ts")
+    df = boxscores.with_columns(
+        [
+            pl.col("game_id").cast(pl.Utf8),
+            pl.col("team_id").cast(pl.Utf8),
+            pl.col("person_id").cast(pl.Utf8, strict=False),
+            minutes_to_float(pl.col("minutes")).alias("minutes_float"),
+            _season_from_game_id(pl.col("game_id")).alias("season"),
+        ]
     )
 
     schema = df.schema
     field_rules = build_rules_from_schema(schema.keys())
     sum_exprs, first_exprs, weighted_specs = _build_aggregations(schema, field_rules)
 
-    aggregated = (
-        df.groupby(GROUP_KEYS)
-        .agg(sum_exprs + first_exprs)
-        .with_columns(_season_from_game_id(pl.col("game_id")))
+    seasons_df = df.select(pl.col("season").unique()).collect()
+    seasons = seasons_df["season"].to_list() if "season" in seasons_df.columns else []
+
+    logger.info(
+        "team_boxscores_agg_season_list",
+        seasons_count=len(seasons),
+        seasons=sorted(seasons),
     )
 
-    extra_weight_aliases: set[str] = set()
+    total_rows = 0
+    written_seasons = 0
+    for season in seasons:
+        season_lazy = (
+            df.filter(pl.col("season") == pl.lit(season))
+            .group_by(GROUP_KEYS)
+            .agg(sum_exprs + first_exprs)
+            .with_columns(pl.lit(season).alias("season"))
+        )
 
-    for alias, temp_alias, weight_alias in weighted_specs:
-        aggregated = aggregated.with_columns(
-            pl.when(pl.col(weight_alias) > 0)
-            .then(pl.col(temp_alias) / pl.col(weight_alias))
-            .otherwise(None)
-            .alias(alias)
-        ).drop(temp_alias)
-        if weight_alias not in {"team_minutes_total"}:
-            extra_weight_aliases.add(weight_alias)
+        extra_weight_aliases: set[str] = set()
+        for alias, temp_alias, weight_alias in weighted_specs:
+            season_lazy = season_lazy.with_columns(
+                pl.when(pl.col(weight_alias) > 0)
+                .then(pl.col(temp_alias) / pl.col(weight_alias))
+                .otherwise(None)
+                .alias(alias)
+            ).drop(temp_alias)
+            if weight_alias not in {"team_minutes_total"}:
+                extra_weight_aliases.add(weight_alias)
 
-    if extra_weight_aliases:
-        aggregated = aggregated.drop(list(extra_weight_aliases))
+        if extra_weight_aliases:
+            season_lazy = season_lazy.drop(list(extra_weight_aliases))
 
-    for numerator, denominator, alias in DERIVED_RATIOS:
-        if numerator in aggregated.columns and denominator in aggregated.columns:
-            aggregated = aggregated.with_columns(
+        for numerator, denominator, alias in DERIVED_RATIOS:
+            season_lazy = season_lazy.with_columns(
                 pl.when(pl.col(denominator) > 0)
                 .then(pl.col(numerator) / pl.col(denominator))
                 .otherwise(None)
                 .alias(alias)
             )
 
-    aggregated = aggregated.with_columns(pl.col("team_minutes_total").round(3))
+        season_lazy = season_lazy.with_columns(pl.col("team_minutes_total").round(3))
 
-    materialized = aggregated.collect()
+        season_df = season_lazy.collect(streaming=True).rename({"team_minutes_total": "team_minutes"})
+        if season_df.is_empty():
+            continue
 
-    if materialized.is_empty():
+        for meta_col in ("bronze_ingest_ts", "bronze_source_snapshot", "bronze_source_file"):
+            if meta_col not in season_df.columns:
+                season_df = season_df.with_columns(pl.lit(None).alias(meta_col))
+
+        write_partitioned(
+            season_df,
+            OUTPUT_ROOT,
+            ingest_ts,
+            partition_cols=["season"],
+        )
+        total_rows += season_df.height
+        written_seasons += 1
+
+    if written_seasons == 0:
         raise RuntimeError("team_boxscores_agg: no rows produced. Check bronze inputs.")
-
-    drop_cols = [col for col in ("source_file", "ingest_ts") if col in materialized.columns]
-    if drop_cols:
-        materialized = materialized.drop(drop_cols)
-
-    if "bronze_ingest_ts" not in materialized.columns and "source_snapshot" in materialized.columns:
-        materialized = materialized.with_columns(pl.lit(None).alias("bronze_ingest_ts"))
-
-    materialized = materialized.rename({"team_minutes_total": "team_minutes"})
-
-    write_partitioned(
-        materialized,
-        OUTPUT_ROOT,
-        ingest_ts,
-        partition_cols=["season"],
-    )
 
     logger.info(
         "team_boxscores_agg_complete",
-        rows=materialized.height,
+        rows=total_rows,
+        seasons=written_seasons,
     )
     return OUTPUT_ROOT

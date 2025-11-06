@@ -40,7 +40,8 @@ EXCLUDE_FEATURE_COLUMNS = {
     "is_home",
     "is_win",
     "bronze_ingest_ts",
-    "source_snapshot",
+    "bronze_source_snapshot",
+    "bronze_source_file",
 }
 
 
@@ -58,12 +59,12 @@ def _collect_latest_parquet(root: Path) -> list[str]:
 
 def _load_team_boxscores() -> pl.LazyFrame:
     paths = _collect_latest_parquet(TEAM_AGG_ROOT)
-    return pl.concat([pl.scan_parquet(path) for path in paths])
+    return pl.concat([pl.scan_parquet(path) for path in paths], how="diagonal_relaxed")
 
 
 def _load_team_game_facts() -> pl.LazyFrame:
     paths = _collect_latest_parquet(TEAM_FACTS_ROOT)
-    return pl.concat([pl.scan_parquet(path) for path in paths])
+    return pl.concat([pl.scan_parquet(path) for path in paths], how="diagonal_relaxed")
 
 
 def _identify_feature_columns(schema: Dict[str, pl.DataType]) -> list[str]:
@@ -152,7 +153,9 @@ def build_team_form_windowed(
     enriched = joined.with_columns(rolling_exprs).drop("is_win_int")
 
     output_columns = BASE_COLUMNS + [
-        col for col in enriched.columns if col not in BASE_COLUMNS and col not in {"source_snapshot", "bronze_ingest_ts"}
+        col
+        for col in enriched.columns
+        if col not in BASE_COLUMNS and col not in {"bronze_source_snapshot", "bronze_source_file", "bronze_ingest_ts"}
     ]
     materialized = enriched.select(output_columns).collect()
 

@@ -26,6 +26,9 @@ EXCLUDE_COLUMNS = {
     "opponent_team_id",
     "is_home",
     "is_win",
+    "bronze_ingest_ts",
+    "bronze_source_snapshot",
+    "bronze_source_file",
 }
 
 
@@ -67,7 +70,10 @@ def build_matchups_h2h_features(
     window_sizes = tuple(window_sizes or WINDOW_SIZES)
     logger.info("matchups_h2h_features_start", ingest_ts=ingest_ts, window_sizes=window_sizes, decay_lambda=decay_lambda)
 
-    base = pl.concat([pl.scan_parquet(path) for path in _glob_parquet(H2H_BASE_ROOT)])
+    base = pl.concat(
+        [pl.scan_parquet(path) for path in _glob_parquet(H2H_BASE_ROOT)],
+        how="diagonal_relaxed",
+    )
 
     base = base.with_columns(
         [
@@ -128,7 +134,19 @@ def build_matchups_h2h_features(
     ] + [
         col
         for col in enriched.columns
-        if col not in {"season", "game_date", "game_id", "team_id", "opponent_team_id", "is_home", "is_win"}
+        if col
+        not in {
+            "season",
+            "game_date",
+            "game_id",
+            "team_id",
+            "opponent_team_id",
+            "is_home",
+            "is_win",
+            "bronze_ingest_ts",
+            "bronze_source_snapshot",
+            "bronze_source_file",
+        }
     ]
 
     materialized = enriched.select(output_columns).collect()

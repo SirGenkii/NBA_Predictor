@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: nba_predictor_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${FEAST_ONLINE_DATABASE:-feast}
+      POSTGRES_USER: ${FEAST_ONLINE_USER:-feast}
+      POSTGRES_PASSWORD: ${FEAST_ONLINE_PASSWORD:-feast}
+    ports:
+      - "${FEAST_ONLINE_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${FEAST_ONLINE_USER:-feast} -d ${FEAST_ONLINE_DATABASE:-feast}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  pgadmin:
+    image: dpage/pgadmin4:8
+    container_name: nba_predictor_pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@local.test}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  feast:
+    build:
+      context: .
+      dockerfile: docker/feast.Dockerfile
+    container_name: nba_predictor_feast
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    working_dir: /workspace
+    volumes:
+      - .:/workspace:rw
+    environment:
+      FEAST_REGISTRY_PATH: ${FEAST_REGISTRY_PATH:-/workspace/data/feature_repo/registry.db}
+      FEAST_OFFLINE_PATH: ${FEAST_OFFLINE_PATH:-/workspace/data/silver/feast_offline}
+      FEAST_ONLINE_HOST: postgres
+      FEAST_ONLINE_PORT: "5432"
+      FEAST_ONLINE_DATABASE: ${FEAST_ONLINE_DATABASE:-feast}
+      FEAST_ONLINE_USER: ${FEAST_ONLINE_USER:-feast}
+      FEAST_ONLINE_PASSWORD: ${FEAST_ONLINE_PASSWORD:-feast}
+    command: ["tail", "-f", "/dev/null"]
+
+volumes:
+  postgres_data:
+  pgadmin_data:

@@ -65,14 +65,14 @@ def matchups_h2h_features_task(ingest_ts: str) -> None:
 def update_data_flow(*, ingest_ts: Optional[str] = None, rebuild_bronze_data: bool = False) -> None:
     ts = ingest_ts or _timestamp()
     if rebuild_bronze_data:
-        rebuild_bronze_task.submit(ts)
+        rebuild_bronze_task(ingest_ts=ts)
 
-    team_game_facts_task.submit(ts)
-    team_boxscores_agg_task.submit(ts)
-    player_availability_task.submit(ts)
-    team_form_windowed_task.submit(ts)
-    matchups_h2h_base_task.submit(ts)
-    matchups_h2h_features_task.submit(ts)
+    team_game_facts_task(ingest_ts=ts)
+    team_boxscores_agg_task(ingest_ts=ts)
+    player_availability_task(ingest_ts=ts)
+    team_form_windowed_task(ingest_ts=ts)
+    matchups_h2h_base_task(ingest_ts=ts)
+    matchups_h2h_features_task(ingest_ts=ts)
 
 
 __all__ = ["update_data_flow"]

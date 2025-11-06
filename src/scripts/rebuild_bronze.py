@@ -52,6 +52,7 @@ def _read_csv(path: Path) -> pl.DataFrame:
         try_parse_dates=True,
         ignore_errors=True,
         null_values=["", "None", "null", "NULL"],
+        schema_overrides=SCHEMA_OVERRIDES,
     )
 
 
@@ -75,6 +76,67 @@ def _write_dataframe(df: pl.DataFrame, output_dir: Path, source_path: Path) -> P
 def _normalise_columns(df: pl.DataFrame) -> pl.DataFrame:
     rename_map = {name: _snake_case(name) for name in df.columns}
     return df.rename(rename_map)
+
+IDENTIFIER_COLUMNS = {
+    "game_id",
+    "team_id",
+    "opponent_team_id",
+    "home_team_id",
+    "away_team_id",
+    "player_id",
+    "person_id",
+    "opp_team_id",
+    "opp_player_id",
+    "opp_person_id",
+    "teamid",
+    "gameid",
+    "playerid",
+}
+
+_IDENTIFIER_SCHEMA_NAMES = {
+    "gameId",
+    "GAME_ID",
+    "GameID",
+    "game_id",
+    "teamId",
+    "TEAM_ID",
+    "TeamID",
+    "team_id",
+    "opponentTeamId",
+    "OPPONENT_TEAM_ID",
+    "opponent_team_id",
+    "homeTeamId",
+    "HOME_TEAM_ID",
+    "awayTeamId",
+    "AWAY_TEAM_ID",
+    "playerId",
+    "PLAYER_ID",
+    "player_id",
+    "personId",
+    "PERSON_ID",
+    "person_id",
+    "oppTeamId",
+    "opp_team_id",
+    "oppPlayerId",
+    "oppPersonId",
+    "TEAMID",
+    "GAMEID",
+}
+
+SCHEMA_OVERRIDES = {name: pl.Utf8 for name in _IDENTIFIER_SCHEMA_NAMES}
+
+
+def _cast_identifier_columns(df: pl.DataFrame) -> pl.DataFrame:
+    out = df
+    for col in df.columns:
+        col_lower = col.lower()
+        if col_lower in IDENTIFIER_COLUMNS:
+            expr = pl.col(col)
+            expr = expr.cast(pl.Float64, strict=False).cast(pl.Int64, strict=False).cast(pl.Utf8, strict=False)
+            if "game_id" in col_lower or col_lower.endswith("gameid"):
+                expr = expr.str.zfill(10)
+            out = out.with_columns(expr.alias(col))
+    return out
 
 
 def _snake_case(name: str) -> str:
@@ -109,6 +171,8 @@ def _process_directory(source_root: Path, dest_root: Path, ingest_ts: str, snaps
 
         if normalise:
             df = _normalise_columns(df)
+
+        df = _cast_identifier_columns(df)
 
         df = _append_metadata(df, ingest_ts, snapshot_label, csv_path)
         total_rows += df.height

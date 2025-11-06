@@ -18,7 +18,14 @@ TEAM_AGG_ROOT = settings.data_paths.silver_team_boxscores_agg
 TEAM_FACTS_ROOT = settings.data_paths.silver_team_game_facts
 OUTPUT_ROOT = settings.data_paths.silver_matchups_h2h_base
 
-EXCLUDE_AGG_COLUMNS = {"team_id", "game_id", "season", "bronze_ingest_ts", "source_snapshot"}
+EXCLUDE_AGG_COLUMNS = {
+    "team_id",
+    "game_id",
+    "season",
+    "bronze_ingest_ts",
+    "bronze_source_snapshot",
+    "bronze_source_file",
+}
 
 
 def _default_ingest_ts() -> str:
@@ -43,8 +50,14 @@ def build_matchups_h2h_base(*, ingest_ts: str | None = None) -> Path:
     ingest_ts = ingest_ts or _default_ingest_ts()
     logger.info("matchups_h2h_base_start", ingest_ts=ingest_ts)
 
-    team_facts = pl.concat([pl.scan_parquet(path) for path in _glob_parquet(TEAM_FACTS_ROOT)])
-    team_agg = pl.concat([pl.scan_parquet(path) for path in _glob_parquet(TEAM_AGG_ROOT)])
+    team_facts = pl.concat(
+        [pl.scan_parquet(path) for path in _glob_parquet(TEAM_FACTS_ROOT)],
+        how="diagonal_relaxed",
+    )
+    team_agg = pl.concat(
+        [pl.scan_parquet(path) for path in _glob_parquet(TEAM_AGG_ROOT)],
+        how="diagonal_relaxed",
+    )
 
     agg_columns = [col for col in team_agg.schema if col not in EXCLUDE_AGG_COLUMNS]
 
