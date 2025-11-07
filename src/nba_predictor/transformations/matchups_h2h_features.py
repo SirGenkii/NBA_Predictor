@@ -17,6 +17,7 @@ logger = structlog.get_logger("nba_predictor.transformations.matchups_h2h_featur
 H2H_BASE_ROOT = settings.data_paths.silver_matchups_h2h_base
 OUTPUT_ROOT = settings.data_paths.silver_matchups_h2h_features
 WINDOW_SIZES = settings.feature_windows
+STD_MAX_WINDOW = 10
 
 EXCLUDE_COLUMNS = {
     "season",
@@ -29,7 +30,11 @@ EXCLUDE_COLUMNS = {
     "bronze_ingest_ts",
     "bronze_source_snapshot",
     "bronze_source_file",
+    "team_name",
+    "team_abbreviation",
+    "team_tricode",
 }
+OUTPUT_EXCLUDE_COLUMNS = EXCLUDE_COLUMNS
 
 
 def _default_ingest_ts() -> str:
@@ -70,72 +75,82 @@ def build_matchups_h2h_features(
     window_sizes = tuple(window_sizes or WINDOW_SIZES)
     logger.info("matchups_h2h_features_start", ingest_ts=ingest_ts, window_sizes=window_sizes, decay_lambda=decay_lambda)
 
-    base = pl.concat(
+    # Load base data
+    base_all = pl.concat(
         [pl.scan_parquet(path) for path in _glob_parquet(H2H_BASE_ROOT)],
         how="diagonal_relaxed",
     )
 
-    base = base.with_columns(
-        [
-            pl.col("game_date").cast(pl.Date),
-            pl.col("is_win").cast(pl.Int8).alias("is_win_int"),
-            (pl.col("point_margin")).alias("point_margin"),
-        ]
-    ).sort(["team_id", "opponent_team_id", "game_date"])
+    # Get seasons FIRST to process one at a time (critical for memory)
+    seasons_df = base_all.select(pl.col("season").unique()).collect(streaming=True)
+    seasons = seasons_df["season"].to_list() if "season" in seasons_df.columns else []
+    
+    if not seasons:
+        raise ValueError("No seasons found in h2h_base")
 
-    schema = base.schema
-    feature_cols = _feature_columns(schema)
+    logger.info("matchups_h2h_features_seasons", seasons_count=len(seasons), seasons=sorted(seasons))
 
-    rolling_exprs: list[pl.Expr] = []
-    for window in window_sizes:
-        suffix = f"last{window}"
-        for column in feature_cols:
+    total_rows = 0
+    
+    # Process each season separately to avoid memory explosion
+    for season in seasons:
+        logger.info("matchups_h2h_features_season_start", season=season)
+        
+        # Filter by season BEFORE processing (reduces memory)
+        base = (
+            base_all.filter(pl.col("season") == season)
+            .with_columns(
+                [
+                    pl.col("game_date").cast(pl.Date),
+                    pl.col("is_win").cast(pl.Int8).alias("is_win_int"),
+                    (pl.col("point_margin")).alias("point_margin"),
+                ]
+            )
+            .sort(["team_id", "opponent_team_id", "game_date"])
+        )
+
+        schema = base.schema
+        feature_cols = _feature_columns(schema)
+
+        rolling_exprs: list[pl.Expr] = []
+        for window in window_sizes:
+            suffix = f"last{window}"
+            for column in feature_cols:
+                rolling_exprs.append(
+                    pl.col(column)
+                    .rolling_mean(window_size=window, min_periods=1)
+                    .over(["team_id", "opponent_team_id"])
+                    .alias(f"{column}_avg_{suffix}")
+                )
+                if window <= STD_MAX_WINDOW:
+                    rolling_exprs.append(
+                        pl.col(column)
+                        .rolling_std(window_size=window, min_periods=1)
+                        .over(["team_id", "opponent_team_id"])
+                        .alias(f"{column}_std_{suffix}")
+                    )
             rolling_exprs.append(
-                pl.col(column)
+                pl.col("is_win_int")
                 .rolling_mean(window_size=window, min_periods=1)
                 .over(["team_id", "opponent_team_id"])
-                .alias(f"{column}_avg_{suffix}")
+                .alias(f"h2h_win_rate_{suffix}")
             )
             rolling_exprs.append(
-                pl.col(column)
-                .rolling_std(window_size=window, min_periods=1)
+                pl.col("is_win_int")
+                .rolling_sum(window_size=window, min_periods=1)
                 .over(["team_id", "opponent_team_id"])
-                .alias(f"{column}_std_{suffix}")
+                .alias(f"h2h_wins_{suffix}")
             )
-        rolling_exprs.append(
-            pl.col("is_win_int")
-            .rolling_mean(window_size=window, min_periods=1)
-            .over(["team_id", "opponent_team_id"])
-            .alias(f"h2h_win_rate_{suffix}")
-        )
-        rolling_exprs.append(
-            pl.col("is_win_int")
-            .rolling_sum(window_size=window, min_periods=1)
-            .over(["team_id", "opponent_team_id"])
-            .alias(f"h2h_wins_{suffix}")
-        )
-        rolling_exprs.append(
-            pl.col("point_margin")
-            .rolling_mean(window_size=window, min_periods=1)
-            .over(["team_id", "opponent_team_id"])
-            .alias(f"h2h_margin_avg_{suffix}")
-        )
+            rolling_exprs.append(
+                pl.col("point_margin")
+                .rolling_mean(window_size=window, min_periods=1)
+                .over(["team_id", "opponent_team_id"])
+                .alias(f"h2h_margin_avg_{suffix}")
+            )
 
-    enriched = base.with_columns(rolling_exprs).drop(["is_win_int"])
+        enriched = base.with_columns(rolling_exprs).drop(["is_win_int"])
 
-    output_columns = [
-        "season",
-        "game_date",
-        "game_id",
-        "team_id",
-        "opponent_team_id",
-        "is_home",
-        "is_win",
-    ] + [
-        col
-        for col in enriched.columns
-        if col
-        not in {
+        output_columns = [
             "season",
             "game_date",
             "game_id",
@@ -143,23 +158,38 @@ def build_matchups_h2h_features(
             "opponent_team_id",
             "is_home",
             "is_win",
-            "bronze_ingest_ts",
-            "bronze_source_snapshot",
-            "bronze_source_file",
-        }
-    ]
+        ] + [
+            col
+            for col in enriched.columns
+            if col
+            not in OUTPUT_EXCLUDE_COLUMNS
+        ]
 
-    materialized = enriched.select(output_columns).collect()
+        # Collect and write THIS season only (releases memory after each season)
+        season_materialized = enriched.select(output_columns).collect(streaming=True)
+        float_cols = [
+            name for name, dtype in season_materialized.schema.items() if isinstance(dtype, (pl.Float64,))
+        ]
+        if float_cols:
+            season_materialized = season_materialized.with_columns(pl.col(float_cols).cast(pl.Float32))
 
-    write_partitioned(
-        materialized,
-        OUTPUT_ROOT,
-        ingest_ts,
-        partition_cols=["season"],
-    )
+        # Write this season directly
+        write_partitioned(
+            season_materialized,
+            OUTPUT_ROOT,
+            ingest_ts,
+            partition_cols=["season"],
+        )
+        
+        total_rows += season_materialized.height
+        logger.info(
+            "matchups_h2h_features_season_complete",
+            season=season,
+            rows=season_materialized.height,
+        )
 
     logger.info(
         "matchups_h2h_features_complete",
-        rows=materialized.height,
+        total_rows=total_rows,
     )
     return OUTPUT_ROOT

@@ -1,0 +1,420 @@
+"""
+Version optimisée de training.py pour résoudre les problèmes de mémoire.
+
+Ce fichier montre comment refactoriser prepare_match_feature_frame() et build_training_dataset()
+pour éviter l'explosion de RAM.
+"""
+
+from __future__ import annotations
+
+import shutil
+import tempfile
+from datetime import date, datetime, timezone
+from glob import glob
+from pathlib import Path
+from typing import Iterable, Iterator, Sequence
+
+import polars as pl
+import structlog
+import typer
+
+try:
+    import pyarrow.parquet as pq
+except ImportError:
+    pq = None
+
+from nba_predictor import settings
+
+logger = structlog.get_logger("nba_predictor.datasets.training")
+
+TEAM_FACTS_ROOT = settings.data_paths.silver_team_game_facts
+TEAM_FORM_ROOT = settings.data_paths.silver_team_form_windowed
+H2H_FEATURES_ROOT = settings.data_paths.silver_matchups_h2h_features
+OUTPUT_ROOT = settings.data_paths.gold_training_sets
+
+DIFF_SUFFIX = "_diff"
+DEFAULT_CHUNK_SIZE = 30
+
+
+def prepare_match_feature_frame_chunked(
+    *,
+    seasons: Sequence[str] | None = None,
+    date_start: date | None = None,
+    date_end: date | None = None,
+) -> pl.LazyFrame:
+    """
+    Version optimisée qui filtre par dates AVANT les jointures pour réduire l'utilisation mémoire.
+    
+    Args:
+        seasons: Liste des saisons à traiter
+        date_start: Date de début pour filtrer les données
+        date_end: Date de fin pour filtrer les données
+    """
+    
+    # 1. Charger team_facts avec filtrage préalable par dates
+    team_facts = _scan_parquet(
+        TEAM_FACTS_ROOT, 
+        seasons=seasons, 
+        label="team_game_facts"
+    ).select([
+        "season",
+        "game_date",
+        "game_id",
+        "team_id",
+        "opponent_team_id",
+        "is_home",
+        "is_win",
+        "team_points",
+        "opponent_points",
+        "team_plus_minus",
+        "team_ast",
+        "team_reb",
+        "team_tov",
+        "team_pf",
+    ])
+    
+    # Filtrer par dates si spécifié
+    if date_start and date_end:
+        team_facts = team_facts.filter(
+            (pl.col("game_date") >= pl.lit(date_start)) &
+            (pl.col("game_date") <= pl.lit(date_end))
+        )
+    
+    # 2. Charger team_form avec filtrage par dates
+    team_form = _scan_parquet(
+        TEAM_FORM_ROOT, 
+        seasons=seasons, 
+        label="team_form_windowed"
+    )
+    
+    if date_start and date_end:
+        team_form = team_form.filter(
+            (pl.col("game_date") >= pl.lit(date_start)) &
+            (pl.col("game_date") <= pl.lit(date_end))
+        )
+    
+    # 3. Charger h2h_features avec filtrage par dates
+    h2h_features = _scan_parquet(
+        H2H_FEATURES_ROOT, 
+        seasons=seasons, 
+        label="matchups_h2h_features"
+    )
+    
+    if date_start and date_end:
+        h2h_features = h2h_features.filter(
+            (pl.col("game_date") >= pl.lit(date_start)) &
+            (pl.col("game_date") <= pl.lit(date_end))
+        )
+    
+    # 4. Jointures (maintenant sur des datasets filtrés)
+    joined = (
+        team_facts.join(
+            team_form,
+            on=["season", "game_id", "team_id"],
+            how="left",
+            suffix="_team_form",
+        )
+        .join(
+            h2h_features,
+            on=["season", "game_id", "team_id", "opponent_team_id"],
+            how="left",
+            suffix="_h2h",
+        )
+        .with_columns([
+            pl.col("game_date").cast(pl.Date),
+            pl.col("is_win").cast(pl.Int8),
+        ])
+    )
+    
+    # 5. Séparer home et away AVANT de faire les transformations coûteuses
+    # Cela évite de matérialiser le joined complet
+    home = (
+        joined.filter(pl.col("is_home"))
+        .rename({
+            "team_id": "home_team_id", 
+            "opponent_team_id": "away_team_id", 
+            "is_win": "home_is_win"
+        })
+        .pipe(
+            _suffix_features,
+            suffix="home",
+            protected=["season", "game_date", "game_id", "home_team_id", "away_team_id", "home_is_win"],
+        )
+    )
+    
+    away = (
+        joined.filter(~pl.col("is_home"))
+        .rename({
+            "team_id": "away_team_id", 
+            "opponent_team_id": "home_team_id", 
+            "is_win": "away_is_win"
+        })
+        .pipe(
+            _suffix_features,
+            suffix="away",
+            protected=["season", "game_date", "game_id", "home_team_id", "away_team_id", "away_is_win"],
+        )
+    )
+    
+    # 6. Jointure finale home/away
+    dataset = (
+        home.join(
+            away,
+            on=["season", "game_date", "game_id", "home_team_id", "away_team_id"],
+            how="inner",
+        )
+        .pipe(_compute_differences)
+        .with_columns([
+            pl.col("home_is_win").cast(pl.Int8).alias("target_home_win"),
+            (pl.col("team_points_home") - pl.col("team_points_away")).alias("target_point_margin"),
+        ])
+        .sort("game_date")
+    )
+    
+    return dataset
+
+
+def build_training_dataset_optimized(
+    *,
+    ingest_ts: str | None = None,
+    game_dates: Sequence[str] | None = None,
+    compression: str = "zstd",
+    chunk_size: int = DEFAULT_CHUNK_SIZE,
+) -> Path:
+    """
+    Version optimisée qui fait les jointures par chunks pour éviter l'explosion de RAM.
+    """
+    
+    if pq is None:
+        raise ImportError("pyarrow is required to build the training dataset. Install `pyarrow` and retry.")
+    
+    ingest_ts = ingest_ts or _now_ts()
+    logger.info("build_training_dataset_start", ingest_ts=ingest_ts)
+    
+    OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
+    output_path = OUTPUT_ROOT / f"nba_training_{ingest_ts}.parquet"
+    latest_path = OUTPUT_ROOT / "latest.parquet"
+    
+    target_dates_by_season: dict[str, set[date]] = {}
+    if game_dates:
+        for raw_value in game_dates:
+            parsed_date = datetime.fromisoformat(raw_value).date()
+            season_label = _season_label_from_date(parsed_date)
+            target_dates_by_season.setdefault(season_label, set()).add(parsed_date)
+    
+    seasons = _season_partitions(TEAM_FACTS_ROOT)
+    if not seasons:
+        raise FileNotFoundError(f"No season partitions found under {TEAM_FACTS_ROOT}")
+    
+    writer: pq.ParquetWriter | None = None
+    total_rows = 0
+    column_count = 0
+    
+    try:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmpdir_path = Path(tmpdir)
+            
+            for season in seasons:
+                if target_dates_by_season and season not in target_dates_by_season:
+                    continue
+                
+                logger.info("build_training_dataset_season_start", season=season)
+                
+                # Récupérer les dates UNE SEULE FOIS pour cette saison
+                # Utiliser un scan minimal pour éviter de charger toutes les données
+                dates_lazy = (
+                    _scan_parquet(TEAM_FACTS_ROOT, seasons=[season], label="team_game_facts")
+                    .select(pl.col("game_date").unique())
+                )
+                
+                allowed_dates = target_dates_by_season.get(season)
+                if allowed_dates:
+                    date_list = sorted(allowed_dates)
+                else:
+                    # Collecter seulement les dates (très léger)
+                    dates_df = dates_lazy.collect(streaming=True).sort("game_date")
+                    date_list = dates_df["game_date"].to_list()
+                
+                if not date_list:
+                    logger.warning("build_training_dataset_no_dates", season=season)
+                    continue
+                
+                season_rows = 0
+                chunk_counter = 0
+                
+                # Traiter par chunks de dates
+                for start_date, end_date in _chunk_date_ranges(date_list, chunk_size):
+                    chunk_counter += 1
+                    logger.debug(
+                        "build_training_dataset_chunk_start",
+                        season=season,
+                        chunk=chunk_counter,
+                        start=str(start_date),
+                        end=str(end_date),
+                    )
+                    
+                    # Préparer le frame pour ce chunk spécifique
+                    # Les jointures se font maintenant sur un sous-ensemble de dates
+                    chunk_frame = prepare_match_feature_frame_chunked(
+                        seasons=[season],
+                        date_start=start_date,
+                        date_end=end_date,
+                    )
+                    
+                    # Écrire le chunk directement sans matérialiser tout en mémoire
+                    chunk_output = tmpdir_path / f"{season}_{chunk_counter}.parquet"
+                    chunk_frame.sink_parquet(
+                        chunk_output.as_posix(),
+                        compression=compression,
+                        maintain_order=True,
+                        statistics=False,
+                    )
+                    
+                    # Vérifier que le fichier n'est pas vide
+                    parquet_file = pq.ParquetFile(chunk_output.as_posix())
+                    if parquet_file.metadata.num_rows == 0:
+                        chunk_output.unlink(missing_ok=True)
+                        continue
+                    
+                    # Initialiser le writer avec le schéma du premier chunk
+                    if writer is None:
+                        writer = pq.ParquetWriter(
+                            output_path.as_posix(),
+                            parquet_file.schema_arrow,
+                            compression=compression,
+                        )
+                        column_count = parquet_file.schema_arrow.num_fields
+                    
+                    # Écrire les row groups du chunk dans le fichier final
+                    for row_group_index in range(parquet_file.num_row_groups):
+                        writer.write_table(parquet_file.read_row_group(row_group_index))
+                    
+                    season_rows += parquet_file.metadata.num_rows
+                    total_rows += parquet_file.metadata.num_rows
+                    
+                    # Supprimer le chunk temporaire immédiatement
+                    chunk_output.unlink(missing_ok=True)
+                    
+                    logger.debug(
+                        "build_training_dataset_chunk_complete",
+                        season=season,
+                        chunk=chunk_counter,
+                        start=str(start_date),
+                        end=str(end_date),
+                        rows=parquet_file.metadata.num_rows,
+                    )
+                
+                logger.info(
+                    "build_training_dataset_season_complete",
+                    season=season,
+                    rows=season_rows,
+                    chunks=chunk_counter,
+                )
+    finally:
+        if writer is not None:
+            writer.close()
+    
+    if total_rows == 0:
+        raise RuntimeError("No rows produced while building the training dataset.")
+    
+    shutil.copy2(output_path, latest_path)
+    
+    logger.info(
+        "build_training_dataset_complete",
+        rows=total_rows,
+        columns=column_count,
+        output=str(output_path),
+    )
+    return output_path
+
+
+# Fonctions utilitaires (à copier depuis training.py)
+def _now_ts() -> str:
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+
+def _latest_ingest_directories(root: Path, seasons: Sequence[str] | None = None, *, label: str | None = None) -> list[Path]:
+    season_filter = set(seasons) if seasons else None
+    ingest_dirs: list[Path] = []
+    for season_dir in sorted(root.glob("season=*")):
+        if not season_dir.is_dir():
+            continue
+        _, _, season_value = season_dir.name.partition("=")
+        if season_filter and season_value not in season_filter:
+            continue
+        candidates = sorted([p for p in season_dir.glob("ingest_ts=*") if p.is_dir()])
+        if not candidates:
+            continue
+        latest_dir = candidates[-1]
+        ingest_dirs.append(latest_dir)
+        if label:
+            logger.debug(
+                "selected_ingest_partition",
+                dataset=label,
+                season=season_value,
+                ingest_ts=latest_dir.name.partition("=")[-1],
+            )
+    return ingest_dirs
+
+
+def _scan_parquet(root: Path, *, seasons: Sequence[str] | None = None, label: str | None = None) -> pl.LazyFrame:
+    ingest_dirs = _latest_ingest_directories(root, seasons=seasons, label=label)
+    matches: list[str] = []
+    for directory in ingest_dirs:
+        matches.extend(glob(str(directory / "**" / "*.parquet"), recursive=True))
+    
+    if not matches:
+        target = ", ".join(seasons) if seasons else "all seasons"
+        raise FileNotFoundError(f"No parquet files found under {root} for {target}")
+    
+    return pl.concat([pl.scan_parquet(path) for path in matches], how="diagonal_relaxed")
+
+
+def _suffix_features(df: pl.LazyFrame, suffix: str, protected: Iterable[str]) -> pl.LazyFrame:
+    protected_set = set(protected)
+    column_names = df.collect_schema().names()
+    rename_map = {col: f"{col}_{suffix}" for col in column_names if col not in protected_set}
+    if rename_map:
+        df = df.rename(rename_map)
+    return df
+
+
+def _compute_differences(df: pl.LazyFrame) -> pl.LazyFrame:
+    diff_exprs = []
+    columns = df.columns
+    for col in columns:
+        if col.endswith("_home"):
+            base = col[:-5]
+            away_col = f"{base}_away"
+            if away_col in columns:
+                diff_exprs.append((pl.col(col) - pl.col(away_col)).alias(f"{base}{DIFF_SUFFIX}"))
+    if diff_exprs:
+        df = df.with_columns(diff_exprs)
+    return df
+
+
+def _season_partitions(root: Path) -> list[str]:
+    if not root.exists():
+        return []
+    seasons: list[str] = []
+    for path in sorted(root.glob("season=*")):
+        if path.is_dir():
+            _, _, value = path.name.partition("=")
+            if value:
+                seasons.append(value)
+    return seasons
+
+
+def _season_label_from_date(value: date) -> str:
+    start_year = value.year if value.month >= 7 else value.year - 1
+    return f"{start_year}-{(start_year + 1) % 100:02d}"
+
+
+def _chunk_date_ranges(dates: list[date], chunk_size: int) -> Iterator[tuple[date, date]]:
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be positive")
+    for idx in range(0, len(dates), chunk_size):
+        start = dates[idx]
+        end = dates[min(idx + chunk_size - 1, len(dates) - 1)]
+        yield start, end
+

@@ -95,6 +95,7 @@ player_absent_input_cols = [
     'num_absent',
 ]
 
+
 features_to_roll = cols_to_sum + cols_to_weighted_avg 
 features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg]
 top_player_features_to_roll = cols_player_stats.copy()

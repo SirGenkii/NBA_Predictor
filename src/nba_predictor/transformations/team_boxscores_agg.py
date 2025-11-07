@@ -67,6 +67,10 @@ def _default_ingest_ts() -> str:
 
 
 def _load_boxscores(snapshot_labels: Sequence[str]) -> pl.LazyFrame:
+    """
+    Load boxscores using lazy evaluation to avoid loading all files in memory.
+    This is a critical optimization to prevent RAM explosion.
+    """
     paths: list[Path] = []
     for label in snapshot_labels:
         pattern = BRONZE_SUBDIR / label / "**" / "*boxscores*.parquet"
@@ -75,40 +79,41 @@ def _load_boxscores(snapshot_labels: Sequence[str]) -> pl.LazyFrame:
     if not paths:
         raise FileNotFoundError("No bronze boxscores parquet files found. Run `rebuild_bronze.py` first.")
 
-    frames: list[pl.DataFrame] = []
+    # Use lazy evaluation: scan parquet files and apply transformations lazily
+    lazy_frames: list[pl.LazyFrame] = []
     for path in paths:
-        df = pl.read_parquet(path)
-
+        lazy_df = pl.scan_parquet(str(path))
+        
+        # Handle column aliases and additions
         for col_name, alias in [
             ("ingest_ts", "bronze_ingest_ts"),
             ("source_snapshot", "bronze_source_snapshot"),
             ("source_file", "bronze_source_file"),
         ]:
-            if col_name in df.columns:
-                if alias in df.columns:
-                    df = df.drop(alias)
-                df = df.rename({col_name: alias})
-            elif alias not in df.columns:
-                df = df.with_columns(pl.lit(None).alias(alias))
-
-        drops = [col for col in ("ingest_ts", "source_snapshot", "source_file") if col in df.columns]
+            if col_name in lazy_df.schema:
+                if alias in lazy_df.schema:
+                    lazy_df = lazy_df.drop(alias)
+                lazy_df = lazy_df.rename({col_name: alias})
+            elif alias not in lazy_df.schema:
+                lazy_df = lazy_df.with_columns(pl.lit(None).alias(alias))
+        
+        # Drop columns if they exist
+        drops = [col for col in ("ingest_ts", "source_snapshot", "source_file") if col in lazy_df.schema]
         if drops:
-            df = df.drop(drops)
+            lazy_df = lazy_df.drop(drops)
+        
+        # Cast columns
+        lazy_df = lazy_df.with_columns([
+            pl.col("game_id").cast(pl.Utf8, strict=False).alias("game_id"),
+            pl.col("team_id").cast(pl.Utf8, strict=False).alias("team_id"),
+            pl.col("person_id").cast(pl.Utf8, strict=False).alias("person_id"),
+        ])
+        
+        lazy_frames.append(lazy_df)
 
-        df = df.with_columns(
-            [
-                pl.col("game_id")
-                .cast(pl.Utf8, strict=False)
-                .alias("game_id"),
-                pl.col("team_id").cast(pl.Utf8, strict=False).alias("team_id"),
-                pl.col("person_id").cast(pl.Utf8, strict=False).alias("person_id"),
-            ]
-        )
-
-        frames.append(df)
-
-    combined = pl.concat(frames, how="diagonal_relaxed")
-    return combined.lazy()
+    # Concatenate lazy frames (much more memory efficient)
+    combined = pl.concat(lazy_frames, how="diagonal_relaxed")
+    return combined
 
 
 NUMERIC_TYPES = {
@@ -219,7 +224,7 @@ def build_team_boxscores_agg(
     field_rules = build_rules_from_schema(schema.keys())
     sum_exprs, first_exprs, weighted_specs = _build_aggregations(schema, field_rules)
 
-    seasons_df = df.select(pl.col("season").unique()).collect()
+    seasons_df = df.select(pl.col("season").unique()).collect(streaming=True)
     seasons = seasons_df["season"].to_list() if "season" in seasons_df.columns else []
 
     logger.info(

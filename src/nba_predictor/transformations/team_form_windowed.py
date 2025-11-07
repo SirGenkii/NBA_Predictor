@@ -20,6 +20,7 @@ TEAM_FACTS_ROOT = settings.data_paths.silver_team_game_facts
 OUTPUT_ROOT = settings.data_paths.silver_team_form_windowed
 
 WINDOW_SIZES = settings.feature_windows
+STD_MAX_WINDOW = 10
 
 BASE_COLUMNS = [
     "season",
@@ -42,6 +43,17 @@ EXCLUDE_FEATURE_COLUMNS = {
     "bronze_ingest_ts",
     "bronze_source_snapshot",
     "bronze_source_file",
+    "team_name",
+    "team_tricode",
+    "team_abbreviation",
+}
+OUTPUT_EXCLUDE_COLUMNS = {
+    "bronze_source_snapshot",
+    "bronze_source_file",
+    "bronze_ingest_ts",
+    "team_name",
+    "team_tricode",
+    "team_abbreviation",
 }
 
 
@@ -95,80 +107,113 @@ def build_team_form_windowed(
     team_boxscores = _load_team_boxscores()
     team_facts = _load_team_game_facts()
 
-    joined = (
-        team_boxscores.join(
-            team_facts.select(
-                "season",
-                "game_date",
-                "game_id",
-                "team_id",
-                "opponent_team_id",
-                "is_home",
-                "is_win",
-            ),
-            on=["game_id", "team_id"],
-            how="inner",
-        )
-        .with_columns(
-            [
-                pl.col("game_date").cast(pl.Date),
-                pl.col("is_win").cast(pl.Int8).alias("is_win_int"),
-            ]
-        )
-        .sort(["team_id", "game_date"])
-    )
+    # Get seasons FIRST to process one at a time (critical for memory)
+    seasons_df = team_facts.select(pl.col("season").unique()).collect(streaming=True)
+    seasons = seasons_df["season"].to_list() if "season" in seasons_df.columns else []
+    
+    if not seasons:
+        raise ValueError("No seasons found in team_game_facts")
 
-    schema = joined.schema
-    feature_columns = _identify_feature_columns(schema)
+    logger.info("team_form_windowed_seasons", seasons_count=len(seasons), seasons=sorted(seasons))
 
-    rolling_exprs: list[pl.Expr] = []
-    for window in window_sizes:
-        suffix = f"last{window}"
-        for column in feature_columns:
+    total_rows = 0
+    
+    # Process each season separately to avoid memory explosion
+    for season in seasons:
+        logger.info("team_form_windowed_season_start", season=season)
+        
+        # Filter by season BEFORE joining (reduces memory)
+        season_boxscores = team_boxscores.filter(pl.col("season") == season)
+        season_facts = team_facts.filter(pl.col("season") == season)
+
+        joined = (
+            season_boxscores.join(
+                season_facts.select(
+                    "season",
+                    "game_date",
+                    "game_id",
+                    "team_id",
+                    "opponent_team_id",
+                    "is_home",
+                    "is_win",
+                ),
+                on=["game_id", "team_id"],
+                how="inner",
+            )
+            .with_columns(
+                [
+                    pl.col("game_date").cast(pl.Date),
+                    pl.col("is_win").cast(pl.Int8).alias("is_win_int"),
+                ]
+            )
+            .sort(["team_id", "game_date"])
+        )
+
+        schema = joined.schema
+        feature_columns = _identify_feature_columns(schema)
+
+        rolling_exprs: list[pl.Expr] = []
+        for window in window_sizes:
+            suffix = f"last{window}"
+            for column in feature_columns:
+                rolling_exprs.append(
+                    pl.col(column)
+                    .rolling_mean(window_size=window, min_periods=1)
+                    .over("team_id")
+                    .alias(f"{column}_avg_{suffix}")
+                )
+                if window <= STD_MAX_WINDOW:
+                    rolling_exprs.append(
+                        pl.col(column)
+                        .rolling_std(window_size=window, min_periods=1)
+                        .over("team_id")
+                        .alias(f"{column}_std_{suffix}")
+                    )
             rolling_exprs.append(
-                pl.col(column)
+                pl.col("is_win_int")
                 .rolling_mean(window_size=window, min_periods=1)
                 .over("team_id")
-                .alias(f"{column}_avg_{suffix}")
+                .alias(f"win_rate_{suffix}")
             )
             rolling_exprs.append(
-                pl.col(column)
-                .rolling_std(window_size=window, min_periods=1)
+                pl.col("is_win_int")
+                .rolling_sum(window_size=window, min_periods=1)
                 .over("team_id")
-                .alias(f"{column}_std_{suffix}")
+                .alias(f"wins_{suffix}")
             )
-        rolling_exprs.append(
-            pl.col("is_win_int")
-            .rolling_mean(window_size=window, min_periods=1)
-            .over("team_id")
-            .alias(f"win_rate_{suffix}")
+
+        enriched = joined.with_columns(rolling_exprs).drop("is_win_int")
+
+        output_columns = BASE_COLUMNS + [
+            col for col in enriched.columns if col not in BASE_COLUMNS and col not in OUTPUT_EXCLUDE_COLUMNS
+        ]
+        
+        # Collect and write THIS season only (releases memory after each season)
+        season_materialized = enriched.select(output_columns).collect(streaming=True)
+        float_cols = [
+            name for name, dtype in season_materialized.schema.items() if isinstance(dtype, (pl.Float64,))
+        ]
+        if float_cols:
+            season_materialized = season_materialized.with_columns(pl.col(float_cols).cast(pl.Float32))
+        
+        # Write this season directly
+        write_partitioned(
+            season_materialized,
+            OUTPUT_ROOT,
+            ingest_ts,
+            partition_cols=["season"],
         )
-        rolling_exprs.append(
-            pl.col("is_win_int")
-            .rolling_sum(window_size=window, min_periods=1)
-            .over("team_id")
-            .alias(f"wins_{suffix}")
+        
+        total_rows += season_materialized.height
+        logger.info(
+            "team_form_windowed_season_complete",
+            season=season,
+            rows=season_materialized.height,
         )
-
-    enriched = joined.with_columns(rolling_exprs).drop("is_win_int")
-
-    output_columns = BASE_COLUMNS + [
-        col
-        for col in enriched.columns
-        if col not in BASE_COLUMNS and col not in {"bronze_source_snapshot", "bronze_source_file", "bronze_ingest_ts"}
-    ]
-    materialized = enriched.select(output_columns).collect()
-
-    write_partitioned(
-        materialized,
-        OUTPUT_ROOT,
-        ingest_ts,
-        partition_cols=["season"],
-    )
 
     logger.info(
         "team_form_windowed_complete",
-        rows=materialized.height,
+        total_rows=total_rows,
         window_sizes=window_sizes,
     )
     return OUTPUT_ROOT

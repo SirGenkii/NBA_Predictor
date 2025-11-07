@@ -15,7 +15,8 @@ DC := docker compose  # Pour Docker Compose V2 (officiel)
 .PHONY: venv install activate freeze rebuild-bronze update-data train-model predict \
 	up down logs restart clean ps exec build-containers rebuild-containers \
 	run-team-game-facts run-team-boxscores-agg run-player-availability \
-	run-team-form-windowed run-matchups-h2h-base run-matchups-h2h-features
+	run-team-form-windowed run-matchups-h2h-base run-matchups-h2h-features \
+	run-training-dataset
 
 $(PYTHON_BIN):
 	$(PYTHON) -m venv $(VENV_DIR)
@@ -81,11 +82,17 @@ run-matchups-h2h-features: install
 	INGEST_TS=$(INGEST_TS) $(PYTHON_BIN) -c "import os; from nba_predictor.transformations.matchups_h2h_features import build_matchups_h2h_features; build_matchups_h2h_features(ingest_ts=os.environ['INGEST_TS'])" >> logs/matchups_h2h_features.log 2>&1
 	@echo "build_matchups_h2h_features completed. See logs/matchups_h2h_features.log"
 
+run-training-dataset: install
+	@mkdir -p logs
+	@echo "Running build_training_dataset (logs/training_dataset.log)"
+	INGEST_TS=$(INGEST_TS) $(PYTHON_BIN) -m nba_predictor.datasets.training build --ingest-ts "$(INGEST_TS)" >> logs/training_dataset.log 2>&1
+	@echo "build_training_dataset completed. See logs/training_dataset.log"
+
 run-silver-pipeline: run-team-game-facts run-team-boxscores-agg run-player-availability run-team-form-windowed run-matchups-h2h-base run-matchups-h2h-features
 	@echo "Sequential silver pipeline completed. See individual logs in logs/."
 
 train-model: install
-	INGEST_TS=$(INGEST_TS) $(PYTHON_BIN) -c "import os; from flows import train_model_flow; train_model_flow(ingest_ts=os.environ.get('INGEST_TS'))"
+	INGEST_TS=$(INGEST_TS) DATASET_PATH=$(DATASET_PATH) $(PYTHON_BIN) -c "import os; from flows import train_model_flow; train_model_flow(ingest_ts=os.environ.get('INGEST_TS'), dataset_path=os.environ.get('DATASET_PATH'))"
 
 predict: install
 	MATCH_DATE=$(MATCH_DATE) MODEL_URI=$(MODEL_URI) $(PYTHON_BIN) -c "import os; from flows import predict_flow; predict_flow(match_date=os.environ['MATCH_DATE'], model_uri=os.environ.get('MODEL_URI') or None)"

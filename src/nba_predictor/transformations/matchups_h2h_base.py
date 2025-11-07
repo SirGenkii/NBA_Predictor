@@ -77,7 +77,7 @@ def build_matchups_h2h_base(*, ingest_ts: str | None = None) -> Path:
         .sort(["team_id", "game_date"])
     )
 
-    materialized = joined.collect()
+    materialized = joined.collect(streaming=True)
 
     write_partitioned(
         materialized,

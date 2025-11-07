@@ -94,7 +94,7 @@ class Settings(BaseSettings):
         description="Batch size used when scraping boxscores.",
     )
     feature_windows: Tuple[int, ...] = Field(
-        default=(3, 5, 10, 25, 50, 100, 200),
+        default=(3, 5, 10, 25),  # Reduced from (3, 5, 10, 25, 50, 100, 200) to avoid memory explosion
         description="Rolling window lengths used for feature aggregation.",
     )
     feature_windows_top_players: Tuple[int, ...] = Field(
