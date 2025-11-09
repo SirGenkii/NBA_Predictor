@@ -12,6 +12,7 @@ from sklearn.ensemble import StackingClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
+from sklearn.model_selection import learning_curve
 from xgboost import XGBClassifier
 from lightgbm import LGBMClassifier
 
@@ -81,6 +82,8 @@ class ModelTrainer:
                     "model_key": model_key,
                 }
             )
+
+            #self._log_learning_curve(pipeline, model_key)
 
             pipeline.fit(self.X_train, self.y_train)
             y_pred = pipeline.predict(self.X_test)
@@ -222,3 +225,24 @@ class ModelTrainer:
         aligned_names = feature_names[:min_len]
         aligned_importances = importances[:min_len]
         return aligned_names, aligned_importances
+
+    def _log_learning_curve(self, pipeline, model_key: str):
+        train_sizes, train_scores, test_scores = learning_curve(
+            pipeline,
+            self.X_train,
+            self.y_train,
+            cv=3,
+            scoring="roc_auc",
+            train_sizes=np.linspace(0.2, 1.0, 5),
+            n_jobs=-1,
+        )
+        fig, ax = plt.subplots(figsize=(6, 4))
+        ax.plot(train_sizes, train_scores.mean(axis=1), label="train")
+        ax.plot(train_sizes, test_scores.mean(axis=1), label="cv")
+        ax.set_title(f"Learning curve - {model_key}")
+        ax.set_xlabel("Training examples")
+        ax.set_ylabel("ROC AUC")
+        ax.legend()
+        fig.tight_layout()
+        mlflow.log_figure(fig, f"plots/{model_key}_learning_curve.png")
+        plt.close(fig)

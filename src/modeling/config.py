@@ -4,7 +4,30 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional
 
-from src.config import DATA_GOLD_DIR, COLS_MATCH_REAL
+from src.config import (
+    DATA_GOLD_DIR,
+    COLS_MATCH_REAL,
+    cols_to_sum,
+    cols_to_weighted_avg,
+    cols_player_stats,
+)
+
+
+def _leak_columns() -> List[str]:
+    base_stats = cols_to_sum + cols_to_weighted_avg
+    opp_stats = [f"OPP_{col}" for col in base_stats]
+    player_stats = cols_player_stats + [f"OPP_{col}" for col in cols_player_stats]
+    explicit_targets = [
+        "POINTS_FOR",
+        "POINTS_AGAINST",
+        "POINT_TOTAL",
+        "POINT_DIFF",
+        "PTS",
+        "OPP_PTS",
+        "points_traditional",
+        "OPP_points_traditional",
+    ]
+    return base_stats + opp_stats + player_stats + explicit_targets
 
 
 def _latest_file(directory: Path, pattern: str) -> Path:
@@ -33,6 +56,7 @@ class DatasetConfig:
             "SEASON",
         ]
         + COLS_MATCH_REAL
+        + _leak_columns()
     )
     keep_numeric_only: bool = True
     dropna: bool = False
