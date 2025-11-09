@@ -103,6 +103,16 @@ N_LIST_TOP = [1, 2, 3, 5, 10]
 DATA_DIR = 'data'
 DATA_RAW_DIR = os.path.join(DATA_DIR, 'raw')
 
+
+DATA_BRONZE_DIR = os.path.join(DATA_DIR, '01_bronze')
+DATA_SILVER_DIR = os.path.join(DATA_DIR, '02_silver')
+DATA_GOLD_DIR = os.path.join(DATA_DIR, '03_gold')
+DATA_BRONZE_MATCHES_DIR = os.path.join(DATA_BRONZE_DIR, 'matches')
+
+DATA_BRONZE_BOXSCORES_DIR =  os.path.join(DATA_BRONZE_DIR, 'boxscores')
+DATA_BRONZE_TEAMS_DIR =  os.path.join(DATA_BRONZE_DIR, 'teams')
+DATA_BRONZE_GAMES_DIR =  os.path.join(DATA_BRONZE_DIR, 'games')
+
 DATA_GAMES_DIR = os.path.join(DATA_RAW_DIR, 'games')
 DATA_PLAYERS_DIR = os.path.join(DATA_RAW_DIR, 'players')
 DATA_BOXSCORES_DIR = os.path.join(DATA_RAW_DIR, 'boxscores')
@@ -113,16 +123,16 @@ DATA_BOXSCORES_BATCHES_MERGED_DIR = os.path.join(DATA_BOXSCORES_DIR, 'batches_me
 
 DATA_RAW_LAST_DIR = os.path.join(DATA_DIR, 'raw_last')
 DATA_LAST_GAMES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games')
-DATA_LAST_GAMES_MERGED_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games_merged')
+DATA_LAST_GAMES_MERGED_DIR = DATA_BRONZE_GAMES_DIR #os.path.join(DATA_RAW_LAST_DIR, 'games_merged')
 DATA_LAST_BOXSCORES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'boxscores')
 DATA_LAST_BOXSCORES_BATCHES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'batches')
-DATA_LAST_BOXSCORES_BATCHES_MERGED_DIR = os.path.join(DATA_RAW_LAST_DIR, 'batches_merged')
+DATA_LAST_BOXSCORES_BATCHES_MERGED_DIR = DATA_BRONZE_BOXSCORES_DIR #os.path.join(DATA_RAW_LAST_DIR, 'batches_merged')
 DATA_LAST_PLAYERS_STATS_DIR = os.path.join(DATA_RAW_LAST_DIR, 'player_stats')
 
-DATA_FINAL_DATASET_DIR = os.path.join(DATA_DIR, 'final_dataset')
-DATA_FINAL_CLEANED_DATASET_DIR = os.path.join(DATA_DIR, 'final_cleaned_dataset')
+DATA_FINAL_DATASET_DIR = DATA_SILVER_DIR #os.path.join(DATA_DIR, 'final_dataset')
+DATA_FINAL_CLEANED_DATASET_DIR = DATA_GOLD_DIR #os.path.join(DATA_DIR, 'final_cleaned_dataset')
 
-DATA_TEAMS_DIR = os.path.join(DATA_RAW_DIR, 'teams')
+DATA_TEAMS_DIR = DATA_BRONZE_TEAMS_DIR #os.path.join(DATA_RAW_DIR, 'teams')
 
 DATA_PREDICTION_ROWS_DIR = os.path.join(DATA_DIR, 'predictions_rows')
 

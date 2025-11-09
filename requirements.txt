@@ -17,6 +17,7 @@ xgboost
 lightgbm
 catboost
 scikit-optimize
+mlflow
 
 # Deep Learning (PyTorch GPU - CUDA 11.8) - pour CPU only: remplace par juste `torch`
 torch==2.2.2+cu118

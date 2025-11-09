@@ -9,6 +9,16 @@ from datetime import timedelta
 import numpy as np
 import pandas as pd
 
+
+def _rolling_shifted_mean(series, group_ids, window):
+    """
+    Helper: for each group, shift by 1 then compute rolling mean with given window.
+    """
+    return (
+        series.groupby(group_ids)
+              .transform(lambda s: s.shift(1).rolling(window, min_periods=1).mean())
+    )
+
 def compute_rolling_features(df, group_col, sort_cols, value_cols, windows, method="mean", apply_log=False):
     """
     Calcule des features de rolling moyenne ou ewm pour une liste de colonnes.
@@ -103,9 +113,28 @@ def compute_side_win_streak(df: pd.DataFrame, win_shifted_col: str = "IS_WIN_SHI
 
 
 def rename_pts_against_columns(df: pd.DataFrame) -> pd.DataFrame:
-    for n in [3, 5, 10, 25, 50, 100, 200]:
-        df[f"ROLL_HOME_PTS_AGAINST_{n}"] = df[f"ROLL_HOME_OPP_PTS_AGAINST_{n}"]
-        df[f"ROLL_AWAY_PTS_AGAINST_{n}"] = df[f"ROLL_AWAY_OPP_PTS_AGAINST_{n}"]
+    """
+    Backward compatibility helper: copy opponent rolling points columns into the old
+    ROLL_[HOME|AWAY]_PTS_AGAINST_* slots, no-op if source columns are absent.
+    """
+    windows = [3, 5, 10, 25, 50, 100, 200]
+    for n in windows:
+        home_sources = [
+            f"ROLL_HOME_OPP_PTS_AGAINST_{n}",
+            f"ROLL_HOME_OPP_points_traditional_AGAINST_{n}",
+        ]
+        away_sources = [
+            f"ROLL_AWAY_OPP_PTS_AGAINST_{n}",
+            f"ROLL_AWAY_OPP_points_traditional_AGAINST_{n}",
+        ]
+        for src in home_sources:
+            if src in df.columns:
+                df[f"ROLL_HOME_PTS_AGAINST_{n}"] = df[src]
+                break
+        for src in away_sources:
+            if src in df.columns:
+                df[f"ROLL_AWAY_PTS_AGAINST_{n}"] = df[src]
+                break
     return df
 
 
@@ -253,26 +282,15 @@ def compute_h2h(df: pd.DataFrame, windows: list) -> pd.DataFrame:
 def compute_home_away_pts(df: pd.DataFrame, group_col: str, is_home_col: str, pts_col: str, opp_pts_col: str, windows: list) -> pd.DataFrame:
     df = df.sort_values([group_col, "GAME_DATE"]).copy()
     for n in windows:
-        df[f"ROLL_HOME_{pts_col}_FOR_{n}"] = (
-            df.groupby(group_col)
-              .apply(lambda d: d[pts_col].where(d[is_home_col] == 1).shift(1).rolling(n, min_periods=1).mean())
-              .reset_index(level=0, drop=True)
-        )
-        df[f"ROLL_HOME_{opp_pts_col}_AGAINST_{n}"] = (
-            df.groupby(group_col)
-              .apply(lambda d: d[opp_pts_col].where(d[is_home_col] == 1).shift(1).rolling(n, min_periods=1).mean())
-              .reset_index(level=0, drop=True)
-        )
-        df[f"ROLL_AWAY_{pts_col}_FOR_{n}"] = (
-            df.groupby(group_col)
-              .apply(lambda d: d[pts_col].where(d[is_home_col] == 0).shift(1).rolling(n, min_periods=1).mean())
-              .reset_index(level=0, drop=True)
-        )
-        df[f"ROLL_AWAY_{opp_pts_col}_AGAINST_{n}"] = (
-            df.groupby(group_col)
-              .apply(lambda d: d[opp_pts_col].where(d[is_home_col] == 0).shift(1).rolling(n, min_periods=1).mean())
-              .reset_index(level=0, drop=True)
-        )
+        home_pts = df[pts_col].where(df[is_home_col] == 1)
+        home_opp_pts = df[opp_pts_col].where(df[is_home_col] == 1)
+        away_pts = df[pts_col].where(df[is_home_col] == 0)
+        away_opp_pts = df[opp_pts_col].where(df[is_home_col] == 0)
+
+        df[f"ROLL_HOME_{pts_col}_FOR_{n}"] = _rolling_shifted_mean(home_pts, df[group_col], n)
+        df[f"ROLL_HOME_{opp_pts_col}_AGAINST_{n}"] = _rolling_shifted_mean(home_opp_pts, df[group_col], n)
+        df[f"ROLL_AWAY_{pts_col}_FOR_{n}"] = _rolling_shifted_mean(away_pts, df[group_col], n)
+        df[f"ROLL_AWAY_{opp_pts_col}_AGAINST_{n}"] = _rolling_shifted_mean(away_opp_pts, df[group_col], n)
         
         #fill NaN values with -1
         df[f"ROLL_HOME_{pts_col}_FOR_{n}"] = df[f"ROLL_HOME_{pts_col}_FOR_{n}"].fillna(-1)
@@ -362,18 +380,10 @@ def compute_h2h_streak(df: pd.DataFrame) -> pd.DataFrame:
 def compute_rolling_rest_advantage(df: pd.DataFrame, group_col: str, is_home_col: str, rest_col: str, windows: list) -> pd.DataFrame:
     df = df.sort_values(["GAME_DATE"]).copy()
     for n in windows:
-        df[f"ROLL_HOME_REST_ADV_{n}"] = (
-            df.groupby(group_col)
-              .apply(lambda d: d[rest_col].where(d[is_home_col] == 1).shift(1).rolling(n, min_periods=1).mean())
-              .reset_index(level=0, drop=True)
-              .fillna(0)
-        )
-        df[f"ROLL_AWAY_REST_ADV_{n}"] = (
-            df.groupby(group_col)
-              .apply(lambda d: d[rest_col].where(d[is_home_col] == 0).shift(1).rolling(n, min_periods=1).mean())
-              .reset_index(level=0, drop=True)
-              .fillna(0)
-        )
+        home_rest = df[rest_col].where(df[is_home_col] == 1)
+        away_rest = df[rest_col].where(df[is_home_col] == 0)
+        df[f"ROLL_HOME_REST_ADV_{n}"] = _rolling_shifted_mean(home_rest, df[group_col], n).fillna(0)
+        df[f"ROLL_AWAY_REST_ADV_{n}"] = _rolling_shifted_mean(away_rest, df[group_col], n).fillna(0)
     return df
 
 

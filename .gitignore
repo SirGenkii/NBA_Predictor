@@ -9,9 +9,16 @@
 /data/final_dataset/
 /data/raw_last/
 /data/models/
+/data/v2/
+/data/01_bronze/
+/data/02_silver/
+/data/03_gold/
+
 /logs/
 
 /backup/*.zip
+
+/mlruns/
 
 
 /catboost_info/
