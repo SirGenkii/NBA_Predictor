@@ -1,25 +1,24 @@
 from __future__ import annotations
 
-from typing import Dict, Tuple
+from typing import Dict
 
-import numpy as np
 from sklearn.metrics import (
     accuracy_score,
     brier_score_loss,
-    classification_report,
     confusion_matrix,
     f1_score,
     log_loss,
+    mean_absolute_error,
+    mean_squared_error,
     precision_score,
+    r2_score,
     recall_score,
     roc_auc_score,
 )
 
 
-def classification_metrics(
-    y_true, y_pred, y_proba
-) -> Dict[str, float]:
-    metrics = {
+def classification_metrics(y_true, y_pred, y_proba) -> Dict[str, float]:
+    return {
         "accuracy": accuracy_score(y_true, y_pred),
         "precision": precision_score(y_true, y_pred),
         "recall": recall_score(y_true, y_pred),
@@ -28,7 +27,13 @@ def classification_metrics(
         "log_loss": log_loss(y_true, y_proba),
         "brier": brier_score_loss(y_true, y_proba),
     }
-    return metrics
+
+
+def regression_metrics(y_true, y_pred) -> Dict[str, float]:
+    rmse = mean_squared_error(y_true, y_pred) ** 0.5
+    mae = mean_absolute_error(y_true, y_pred)
+    r2 = r2_score(y_true, y_pred)
+    return {"rmse": rmse, "mae": mae, "r2": r2}
 
 
 def confusion_matrix_values(y_true, y_pred) -> Dict[str, int]:

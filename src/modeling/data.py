@@ -40,6 +40,9 @@ def prepare_features(
     bool_cols = features.select_dtypes(include=["bool"]).columns
     features[bool_cols] = features[bool_cols].astype(int)
 
+    # Drop columns that are entirely NaN (would break imputers/models)
+    features = features.dropna(axis=1, how="all")
+
     if cfg.dropna:
         valid_idx = features.dropna().index
         features = features.loc[valid_idx]
@@ -56,7 +59,7 @@ def train_test_split_data(
     y: pd.Series,
     cfg: TrainingConfig,
 ):
-    stratify = y if cfg.stratify else None
+    stratify = y if (cfg.stratify and cfg.task_type == "classification") else None
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,

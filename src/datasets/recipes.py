@@ -11,6 +11,7 @@ from src.config import (
     COLS_TO_DROP_TARGET_POINT_DIFF,
     features_to_roll,
     top_player_features_to_roll,
+    player_absent_input_cols,
 )
 from src.feature_builder import (
     compute_elo,
@@ -28,6 +29,29 @@ from src.feature_builder import (
     convert_elos_to_elo_diff,
     rename_pts_against_columns,
 )
+
+PLAYER_AVAILABILITY_BASE = [
+    "has_absent",
+    "has_top_absent",
+    "num_absent",
+    "top_player_absent",
+    "top_player_absent_rate",
+    "top_player_injury_rate",
+    "top_player_resting_rate",
+    "top_player_suspension_rate",
+    "top_player_personal_rate",
+    "top_player_absent_other_rate",
+    "top_player_count",
+    "num_injured",
+    "num_resting",
+    "num_suspended",
+    "num_personal",
+    "num_absent_other",
+]
+PLAYER_AVAILABILITY_BASE += player_absent_input_cols
+PLAYER_AVAILABILITY_BASE = list(dict.fromkeys(PLAYER_AVAILABILITY_BASE))
+PLAYER_AVAILABILITY_WINDOWS = [3, 5, 10, 25]
+MATCHUP_WINDOWS = [5, 10, 25]
 
 
 # ---------------------------------------------------------------------------
@@ -109,24 +133,69 @@ def add_elo_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def add_player_availability_rollups(df: pd.DataFrame) -> pd.DataFrame:
+    """Create leak-safe rolling stats for player availability/absences."""
+
+    df = df.sort_values(["TEAM_ID", "GAME_DATE"]).copy()
+    numeric_cols = [col for col in PLAYER_AVAILABILITY_BASE if col in df.columns]
+    for col in numeric_cols:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+        group = df.groupby("TEAM_ID")[col]
+        for n in PLAYER_AVAILABILITY_WINDOWS:
+            df[f"ROLL_{col}_{n}"] = group.transform(
+                lambda s: s.shift(1).rolling(n, min_periods=1).mean()
+            )
+
+    drop_cols = numeric_cols + [f"OPP_{col}" for col in numeric_cols]
+    df = df.drop(columns=drop_cols, errors="ignore")
+    return df
+
+
+def add_matchup_scoring_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Add pace & scoring matchup aggregates for totals modeling."""
+
+    df = df.copy()
+    for n in MATCHUP_WINDOWS:
+        pace = f"ROLL_pace_advanced_{n}"
+        opp_pace = f"ROLL_OPP_pace_advanced_{n}"
+        if pace in df.columns and opp_pace in df.columns:
+            df[f"MATCH_PACE_{n}"] = (df[pace] + df[opp_pace]) / 2
+            df[f"PACE_DIFF_{n}"] = df[pace] - df[opp_pace]
+
+        pts_for = f"ROLL_points_traditional_{n}"
+        pts_against = f"ROLL_OPP_points_traditional_{n}"
+        if pts_for in df.columns and pts_against in df.columns:
+            df[f"TOTAL_POINTS_EXPECTED_{n}"] = df[pts_for] + df[pts_against]
+            df[f"POINTS_DIFF_EXPECTED_{n}"] = df[pts_for] - df[pts_against]
+
+        off_rating = f"ROLL_offensiveRating_advanced_{n}"
+        opp_def_rating = f"ROLL_OPP_defensiveRating_advanced_{n}"
+        if off_rating in df.columns and opp_def_rating in df.columns:
+            df[f"OFF_DEF_GAP_{n}"] = df[off_rating] - df[opp_def_rating]
+
+        opp_off_rating = f"ROLL_OPP_offensiveRating_advanced_{n}"
+        def_rating = f"ROLL_defensiveRating_advanced_{n}"
+        if opp_off_rating in df.columns and def_rating in df.columns:
+            df[f"DEF_VS_OPP_OFF_{n}"] = df[def_rating] - df[opp_off_rating]
+
+    return df
+
+
+def _select_best_column(df: pd.DataFrame, candidates: list[str]):
+    for col in candidates:
+        if col in df.columns:
+            series = df[col]
+            if series.notna().any():
+                return series
+    return None
+
+
 def add_point_targets(df: pd.DataFrame) -> pd.DataFrame:
     """Create explicit scoring targets from raw PTS columns (or existing point fields)."""
 
     df = df.copy()
-    pts_for = (
-        df["PTS"]
-        if "PTS" in df.columns
-        else df["points_traditional"]
-        if "points_traditional" in df.columns
-        else df.get("POINTS_FOR")
-    )
-    pts_against = (
-        df["OPP_PTS"]
-        if "OPP_PTS" in df.columns
-        else df["OPP_points_traditional"]
-        if "OPP_points_traditional" in df.columns
-        else df.get("POINTS_AGAINST")
-    )
+    pts_for = _select_best_column(df, ["PTS", "points_traditional", "POINTS_FOR"])
+    pts_against = _select_best_column(df, ["OPP_PTS", "OPP_points_traditional", "POINTS_AGAINST"])
 
     if pts_for is None or pts_against is None:
         raise KeyError("Unable to derive POINTS_FOR/AGAINST (missing PTS columns in dataset).")
@@ -182,6 +251,8 @@ DEFAULT_SILVER_FEATURE_STEPS: List[Callable[[pd.DataFrame], pd.DataFrame]] = [
     add_rolling_features,
     add_h2h_features,
     add_elo_features,
+    add_player_availability_rollups,
+    add_matchup_scoring_features,
 ]
 
 DEFAULT_SILVER_TARGET_STEPS: List[Callable[[pd.DataFrame], pd.DataFrame]] = [

@@ -26,6 +26,9 @@
 5. **Dataset entrypoints**  
    - Provide both a CLI (`python -m src.datasets.build --build-from-bronze ...`) and a companion notebook (`06_build_datasets.ipynb`) so data builds can run outside of legacy notebooks while staying user-friendly.  
    - The CLI/notebook should rely on a shared `src/datasets/bronze.py` assembler that converts the latest `games`/`boxscores` CSVs into match-level rows (two per game) with odds + top-player features before handing off to the silver/gold builders.
+6. **Player availability & pace integrity**  
+   - Replace current `has_absent` / `top_player_absent` columns (post-match) with leak-safe rolling stats (e.g., `% of last 5 games with ≥1 top player absent`, `rolling top-player availability rate`).  
+   - Audit the bronze assembler so point-related columns use historical data only and remain populated when passing to silver/gold.
 
 ---
 
@@ -62,7 +65,11 @@
 3. **Gaussian distribution system**  
    - Implement a two-output head (μ, log σ) on top of gradient boosting or neural net regressors. Optimize negative log-likelihood of observed diff/total under `N(μ, σ²)`.  
    - Allow alternative parametrizations (predict μ via LightGBM and σ via a secondary model on residuals).  
-   - Expose utilities to sample from the predicted distribution and compute probabilities of beating custom pivots.
+   - Expose utilities to sample from the predicted distribution and compute probabilities of beating custom pivots (218.5 → 244.5).  
+   - Log Gaussian overlays for randomly selected games plus CSVs of `P(over/under pivot)` to feed betting evaluation.
+4. **Bookmaker context**  
+   - Even without totals, ingest closing win odds and implied moneyline probabilities to build features capturing market expectations (e.g., convert odds to implied margin, infer expected pace mismatch).  
+   - Tie these odds features to the new over/under pipeline to monitor where the model disagrees most with consensus.
 4. **Training orchestration**  
    - CLI / script (e.g., `python -m src.modeling.train --target point_total`) that loads the gold dataset, applies preprocessing (scaling, feature selection, class balancing), splits by season, trains, evaluates, and logs artifacts.  
    - Cross-validation strategies mindful of temporal ordering (walk-forward, season-based splits).  
