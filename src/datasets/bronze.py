@@ -7,10 +7,12 @@ import numpy as np
 import pandas as pd
 
 from src.config import (
+    BASE_TEAM_FEATURE_COLUMNS,
     DATA_BRONZE_BOXSCORES_DIR,
     DATA_BRONZE_GAMES_DIR,
     DATA_BRONZE_MATCHES_DIR,
     DATA_ODDS_HISTORY_DIR,
+    MATCH_IDENTIFIER_COLUMNS,
     cols_player_stats,
     cols_to_sum,
     cols_to_weighted_avg,
@@ -23,6 +25,7 @@ from src.feature_aggregation import (
     identify_historical_top_players,
 )
 from src.feature_builder import build_player_status_features, match_odds_with_dataset
+from src.features.reshaping import team_rows_to_match_rows
 from src.utils import get_latest_file, merge_odds_csv_files
 
 
@@ -196,7 +199,20 @@ def assemble_match_dataset(
         team_stats = match_odds_with_dataset(odds_df, team_stats)
 
     team_stats = team_stats.sort_values(["GAME_DATE", "GAME_ID", "TEAM_ID"]).reset_index(drop=True)
-    return team_stats
+
+    keep_cols = set(MATCH_IDENTIFIER_COLUMNS + ["TEAM_ID", "IS_HOME", "IS_WIN", "POINTS_FOR", "POINTS_AGAINST", "POINT_TOTAL", "POINT_DIFF", "ODDS"])
+    keep_cols.update(BASE_TEAM_FEATURE_COLUMNS)
+    filtered_cols = [col for col in team_stats.columns if col in keep_cols]
+    filtered = team_stats[filtered_cols].copy()
+
+    match_df = team_rows_to_match_rows(filtered)
+    match_df = match_df.rename(
+        columns={
+            "HOME_ODDS": "HOME_MONEYLINE",
+            "AWAY_ODDS": "AWAY_MONEYLINE",
+        }
+    )
+    return match_df
 
 
 def build_match_dataset_from_bronze(

@@ -37,7 +37,15 @@ def plot_feature_importance(feature_names: Sequence[str], importances, top_n: in
     if importances is None or feature_names is None:
         return None
     feature_array = np.asarray(feature_names)
-    importance_array = np.asarray(importances)
+    importance_array = np.asarray(importances).ravel()
+
+    min_len = min(len(feature_array), len(importance_array))
+    feature_array = feature_array[:min_len]
+    importance_array = importance_array[:min_len]
+
+    mask = np.isfinite(importance_array)
+    feature_array = feature_array[mask]
+    importance_array = importance_array[mask]
     top_n = min(top_n, len(feature_array), len(importance_array))
     if top_n == 0:
         return None

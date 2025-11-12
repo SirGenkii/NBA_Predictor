@@ -13,7 +13,7 @@ from .base import (
     save_dataset,
     timestamped_filename,
 )
-from .recipes import DEFAULT_SILVER_FEATURE_STEPS, DEFAULT_SILVER_TARGET_STEPS
+from .recipes import DEFAULT_FEATURE_PLAN, DEFAULT_SILVER_FEATURE_STEPS, DEFAULT_SILVER_TARGET_STEPS
 
 
 @dataclass
@@ -59,6 +59,7 @@ def build_silver_dataset(
         save_dataset(df, artifact_path, fmt=cfg.output_format)
 
     metadata = {"rows": len(df), "columns": len(df.columns)}
+    metadata.setdefault("feature_plan", DEFAULT_FEATURE_PLAN.summary())
     metadata.update(cfg.extra_metadata)
 
     return BuildResult(dataset=df, path=artifact_path, metadata=metadata)

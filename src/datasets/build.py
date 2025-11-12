@@ -16,6 +16,13 @@ import pandas as pd
 from .gold import GoldBuildConfig, build_gold_dataset
 from .silver import SilverBuildConfig, build_silver_dataset
 from .bronze import build_match_dataset_from_bronze
+from .schema import build_schema, save_schema
+from .validation import (
+    validate_gold_dataset,
+    validate_match_dataset,
+    validate_silver_dataset,
+    ValidationResult,
+)
 
 Stage = Literal["silver", "gold", "all"]
 
@@ -35,6 +42,23 @@ def _load_matches(path: Path) -> pd.DataFrame:
 def _print_result(stage: str, result) -> None:
     path_display = str(result.path) if result.path else "<not saved>"
     print(f"[{stage.upper()}] rows={result.metadata.get('rows')} cols={result.metadata.get('columns')} -> {path_display}")
+
+
+def _print_validation(result: ValidationResult) -> None:
+    status = "OK" if result.ok else "FAILED"
+    stats = ", ".join(f"{k}={v}" for k, v in result.stats.items() if v is not None)
+    print(f"[VALIDATE:{result.stage.upper()}] {status} {stats}".strip())
+    for issue in result.issues:
+        print(f"  - {issue}")
+    for warning in result.warnings:
+        print(f"  * warning: {warning}")
+
+
+def _write_schema(df: pd.DataFrame, directory: Path, stage: str, fmt: str) -> None:
+    report = build_schema(df, stage=stage)
+    filename = directory / f"{stage}_schema.{fmt}"
+    save_schema(report, filename, fmt=fmt)
+    print(f"[SCHEMA:{stage.upper()}] saved to {filename}")
 
 
 def main() -> None:
@@ -63,6 +87,22 @@ def main() -> None:
         action="store_true",
         help="If set, do not persist artifacts to disk (useful for dry runs).",
     )
+    parser.add_argument(
+        "--validate",
+        action="store_true",
+        help="Run dataset validation checks after each stage.",
+    )
+    parser.add_argument(
+        "--schema-dir",
+        type=Path,
+        help="Optional directory where schema CSVs will be written (matches/silver/gold).",
+    )
+    parser.add_argument(
+        "--schema-format",
+        default="csv",
+        choices=["csv", "md"],
+        help="Output format for schema snapshots.",
+    )
     args = parser.parse_args()
 
     if args.build_from_bronze:
@@ -73,10 +113,18 @@ def main() -> None:
         )
         bronze_df = match_result.dataset
         _print_result("matches", match_result)
+        if args.schema_dir:
+            _write_schema(match_result.dataset, args.schema_dir, "matches", args.schema_format)
+        if args.validate:
+            _print_validation(validate_match_dataset(bronze_df, stage="matches"))
     else:
         if not args.matches:
             parser.error("Provide --matches or use --build-from-bronze.")
         bronze_df = _load_matches(args.matches)
+        if args.schema_dir:
+            _write_schema(bronze_df, args.schema_dir, "matches", args.schema_format)
+        if args.validate:
+            _print_validation(validate_match_dataset(bronze_df, stage="matches"))
 
     silver_cfg = SilverBuildConfig()
     gold_cfg = GoldBuildConfig(target=args.target)
@@ -87,10 +135,18 @@ def main() -> None:
 
     silver_result = build_silver_dataset(bronze_df, config=silver_cfg)
     _print_result("silver", silver_result)
+    if args.schema_dir:
+        _write_schema(silver_result.dataset, args.schema_dir, "silver", args.schema_format)
+    if args.validate:
+        _print_validation(validate_silver_dataset(silver_result.dataset))
 
     if args.stage in {"gold", "all"}:
         gold_result = build_gold_dataset(silver_result.dataset, config=gold_cfg)
         _print_result("gold", gold_result)
+        if args.schema_dir:
+            _write_schema(gold_result.dataset, args.schema_dir, "gold", args.schema_format)
+        if args.validate:
+            _print_validation(validate_gold_dataset(gold_result.dataset))
 
 
 if __name__ == "__main__":

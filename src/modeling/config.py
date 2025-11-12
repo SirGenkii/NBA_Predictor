@@ -2,53 +2,33 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 from src.config import (
     DATA_GOLD_DIR,
     COLS_MATCH_REAL,
+    cols_player_stats,
     cols_to_sum,
     cols_to_weighted_avg,
-    cols_player_stats,
     player_absent_input_cols,
 )
 
 
 def _leak_columns() -> List[str]:
-    base_stats = cols_to_sum + cols_to_weighted_avg
-    opp_stats = [f"OPP_{col}" for col in base_stats]
-    player_stats = cols_player_stats + [f"OPP_{col}" for col in cols_player_stats]
-    availability_cols = [
-        "has_absent",
-        "has_top_absent",
-        "top_player_absent",
-        "top_player_absent_rate",
-        "top_player_injury_rate",
-        "top_player_resting_rate",
-        "top_player_suspension_rate",
-        "top_player_personal_rate",
-        "top_player_absent_other_rate",
-        "top_player_count",
-        "num_absent",
-        "num_injured",
-        "num_resting",
-        "num_suspended",
-        "num_personal",
-        "num_absent_other",
-        "num_present",
-    ] + list(player_absent_input_cols)
-    availability_cols = list(dict.fromkeys(availability_cols))
-    availability_cols += [f"OPP_{col}" for col in availability_cols]
-    explicit_targets = [
+    raw_cols = cols_to_sum + cols_to_weighted_avg + cols_player_stats + list(player_absent_input_cols)
+    prefixed = []
+    for col in raw_cols:
+        prefixed.extend([f"HOME_{col}", f"AWAY_{col}", f"DIFF_{col}"])
+
+    helper = [
         "POINTS_FOR",
         "POINTS_AGAINST",
-        "POINT_DIFF",
-        "PTS",
-        "OPP_PTS",
-        "points_traditional",
-        "OPP_points_traditional",
+        "HOME_POINTS_FOR",
+        "AWAY_POINTS_FOR",
+        "HOME_IS_WIN",
+        "AWAY_IS_WIN",
     ]
-    return base_stats + opp_stats + player_stats + availability_cols + explicit_targets
+    return prefixed + helper
 
 
 def _latest_file(directory: Path, pattern: str) -> Path:
@@ -69,18 +49,21 @@ class DatasetConfig:
     drop_columns: List[str] = field(
         default_factory=lambda: [
             "GAME_ID",
-            "TEAM_ID",
-            "OPP_TEAM_ID",
             "GAME_DATE",
-            "OPP_GAME_DATE",
-            "MATCHUP",
             "SEASON",
+            "HOME_TEAM_ID",
+            "AWAY_TEAM_ID",
         ]
         + COLS_MATCH_REAL
         + _leak_columns()
     )
     keep_numeric_only: bool = True
     dropna: bool = False
+    use_feast: bool = False
+    feast_repo_path: Path = Path("src/feast")
+    feast_feature_service: Optional[str] = None
+    feast_timestamp_column: str = "GAME_DATE"
+    feast_entity_mapping: Dict[str, str] = field(default_factory=lambda: {"match_id": "GAME_ID"})
 
     def resolve_path(self) -> Path:
         if self.path:

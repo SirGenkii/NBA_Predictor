@@ -1,21 +1,37 @@
-import os
-import sys
+from pathlib import Path
 
 
-# Liste des colonnes à dropper pour clean dataset final. 
+# Liste des colonnes à dropper pour clean dataset final.
 # Currently keeping ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'POINT_DIFF','SEASON'] to drop them before modeling.
 COLS_MATCH_REAL = [
     # Identifiants et logs
-    "OPP_GAME_DATE", "MATCHUP","IS_WIN_SHIFTED",
-    
-    #ajoutés par les odds 
-    "TEAM_NAME","OPPONENT_NAME"
+    "OPP_GAME_DATE",
+    "MATCHUP",
+    "IS_WIN_SHIFTED",
+    # ajoutés par les odds
+    "TEAM_NAME",
+    "OPPONENT_NAME",
 ]
 
-COLS_TO_DROP_TARGET_IS_WIN = ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'POINT_DIFF','POINT_TOTAL','SEASON']
-COLS_TO_DROP_TARGET_POINT_DIFF = ['GAME_DATE','GAME_ID', 'TEAM_ID', 'OPP_TEAM_ID', 'IS_WIN','SEASON']
+COLS_TO_DROP_TARGET_IS_WIN = [
+    "GAME_DATE",
+    "GAME_ID",
+    "HOME_TEAM_ID",
+    "AWAY_TEAM_ID",
+    "POINT_DIFF",
+    "POINT_TOTAL",
+    "SEASON",
+]
+COLS_TO_DROP_TARGET_POINT_DIFF = [
+    "GAME_DATE",
+    "GAME_ID",
+    "HOME_TEAM_ID",
+    "AWAY_TEAM_ID",
+    "IS_WIN",
+    "SEASON",
+]
 
-COLS_ODDS = ["ODDS","OPP_ODDS"]
+COLS_ODDS = ["ODDS", "OPP_ODDS", "HOME_MONEYLINE", "AWAY_MONEYLINE"]
 
 
 cols_to_sum = [
@@ -91,6 +107,51 @@ player_absent_input_cols = [
     'num_absent',
 ]
 
+# Availability base columns reused by multiple modules
+PLAYER_AVAILABILITY_BASE = [
+    "has_absent",
+    "has_top_absent",
+    "num_absent",
+    "top_player_absent",
+    "top_player_absent_rate",
+    "top_player_injury_rate",
+    "top_player_resting_rate",
+    "top_player_suspension_rate",
+    "top_player_personal_rate",
+    "top_player_absent_other_rate",
+    "top_player_count",
+    "num_injured",
+    "num_resting",
+    "num_suspended",
+    "num_personal",
+    "num_absent_other",
+] + player_absent_input_cols
+PLAYER_AVAILABILITY_BASE = list(dict.fromkeys(PLAYER_AVAILABILITY_BASE))
+PLAYER_AVAILABILITY_WINDOWS = [3, 5, 10, 25]
+
+MATCHUP_WINDOWS = [5, 10, 25]
+
+# Raw stat columns that seed the match-level representation before derived features
+BASE_TEAM_FEATURE_COLUMNS = sorted(
+    set(cols_to_sum + cols_to_weighted_avg + cols_player_stats + player_absent_input_cols)
+)
+
+RESULT_BASE_COLUMNS = ["IS_WIN", "POINTS_FOR", "POINTS_AGAINST", "POINT_DIFF", "POINT_TOTAL"]
+
+MATCH_IDENTIFIER_COLUMNS = ["GAME_ID", "GAME_DATE", "SEASON"]
+MATCH_SIDE_PREFIXES = ("HOME", "AWAY")
+MATCH_ALLOWED_PREFIXES = ("HOME_", "AWAY_", "DIFF_", "MATCH_", "TOTAL_", "ODDS_", "IMPLIED_")
+MATCH_ALLOWED_BASE_COLUMNS = [
+    "GAME_ID",
+    "GAME_DATE",
+    "SEASON",
+    "HOME_TEAM_ID",
+    "AWAY_TEAM_ID",
+    "IS_WIN",
+    "POINT_DIFF",
+    "POINT_TOTAL",
+]
+    
 features_to_roll = cols_to_sum + cols_to_weighted_avg 
 features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg]
 top_player_features_to_roll = cols_player_stats.copy()
@@ -98,54 +159,28 @@ top_player_features_to_roll += [f"OPP_{col}" for col in cols_player_stats]
 
 N_LIST = [3, 5, 10, 25, 50, 100, 200]
 
-N_LIST_TOP = [1, 2, 3, 5, 10]
+DATA_ROOT = Path("data")
+DATA_BRONZE_DIR = DATA_ROOT / "01_bronze"
+DATA_SILVER_DIR = DATA_ROOT / "02_silver"
+DATA_GOLD_DIR = DATA_ROOT / "03_gold"
+DATA_BRONZE_MATCHES_DIR = DATA_BRONZE_DIR / "matches"
+DATA_BRONZE_BOXSCORES_DIR = DATA_BRONZE_DIR / "boxscores"
+DATA_BRONZE_GAMES_DIR = DATA_BRONZE_DIR / "games"
+DATA_TEAMS_DIR = DATA_BRONZE_DIR / "teams"
 
-DATA_DIR = 'data'
-DATA_RAW_DIR = os.path.join(DATA_DIR, 'raw')
+DATA_LAST_ROOT = DATA_ROOT / "raw_last"
+DATA_LAST_GAMES_DIR = DATA_LAST_ROOT / "games"
+DATA_LAST_GAMES_MERGED_DIR = DATA_BRONZE_GAMES_DIR
+DATA_LAST_BOXSCORES_BATCHES_DIR = DATA_LAST_ROOT / "boxscores"
+DATA_LAST_BOXSCORES_BATCHES_MERGED_DIR = DATA_BRONZE_BOXSCORES_DIR
+DATA_LAST_PLAYERS_STATS_DIR = DATA_LAST_ROOT / "player_stats"
 
+DATA_FINAL_DATASET_DIR = DATA_SILVER_DIR
+DATA_FINAL_CLEANED_DATASET_DIR = DATA_GOLD_DIR
 
-DATA_BRONZE_DIR = os.path.join(DATA_DIR, '01_bronze')
-DATA_SILVER_DIR = os.path.join(DATA_DIR, '02_silver')
-DATA_GOLD_DIR = os.path.join(DATA_DIR, '03_gold')
-DATA_BRONZE_MATCHES_DIR = os.path.join(DATA_BRONZE_DIR, 'matches')
+DATA_ODDS_HISTORY_DIR = DATA_ROOT / "odds_history"
+DATA_MODELS_SIMULATIONS_DIR = DATA_ROOT / "models" / "simulations"
+DATA_GRID_SIMULATIONS_BETS_DIR = DATA_ROOT / "grid_simulations"
 
-DATA_BRONZE_BOXSCORES_DIR =  os.path.join(DATA_BRONZE_DIR, 'boxscores')
-DATA_BRONZE_TEAMS_DIR =  os.path.join(DATA_BRONZE_DIR, 'teams')
-DATA_BRONZE_GAMES_DIR =  os.path.join(DATA_BRONZE_DIR, 'games')
-
-DATA_GAMES_DIR = os.path.join(DATA_RAW_DIR, 'games')
-DATA_PLAYERS_DIR = os.path.join(DATA_RAW_DIR, 'players')
-DATA_BOXSCORES_DIR = os.path.join(DATA_RAW_DIR, 'boxscores')
-DATA_BOXSCORES_BATCHES_DIR = os.path.join(DATA_BOXSCORES_DIR, 'batches')
-DATA_BOXSCORES_BATCHES_MERGED_DIR = os.path.join(DATA_BOXSCORES_DIR, 'batches_merged')
-
-
-
-DATA_RAW_LAST_DIR = os.path.join(DATA_DIR, 'raw_last')
-DATA_LAST_GAMES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'games')
-DATA_LAST_GAMES_MERGED_DIR = DATA_BRONZE_GAMES_DIR #os.path.join(DATA_RAW_LAST_DIR, 'games_merged')
-DATA_LAST_BOXSCORES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'boxscores')
-DATA_LAST_BOXSCORES_BATCHES_DIR = os.path.join(DATA_RAW_LAST_DIR, 'batches')
-DATA_LAST_BOXSCORES_BATCHES_MERGED_DIR = DATA_BRONZE_BOXSCORES_DIR #os.path.join(DATA_RAW_LAST_DIR, 'batches_merged')
-DATA_LAST_PLAYERS_STATS_DIR = os.path.join(DATA_RAW_LAST_DIR, 'player_stats')
-
-DATA_FINAL_DATASET_DIR = DATA_SILVER_DIR #os.path.join(DATA_DIR, 'final_dataset')
-DATA_FINAL_CLEANED_DATASET_DIR = DATA_GOLD_DIR #os.path.join(DATA_DIR, 'final_cleaned_dataset')
-
-DATA_TEAMS_DIR = DATA_BRONZE_TEAMS_DIR #os.path.join(DATA_RAW_DIR, 'teams')
-
-DATA_PREDICTION_ROWS_DIR = os.path.join(DATA_DIR, 'predictions_rows')
-
-DATA_MODELS_DIR = os.path.join(DATA_DIR, 'models')
-DATA_MODELS_SIMULATIONS_DIR = os.path.join(DATA_MODELS_DIR, 'simulations')
-
-DATA_ODDS_HISTORY_DIR = os.path.join(DATA_DIR, 'odds_history')
-DATA_SIMULATIONS_DIR = os.path.join(DATA_DIR, 'simulations')
-DATA_GRID_SIMULATIONS_BETS_DIR = os.path.join(DATA_DIR, 'grid_simulations')
-
-BATCH_SIZE = 25
-
-ERROR_LOG_FOLDER = 'logs'
-BOXSCORES_SCRAPPING_LOG_FILE = os.path.join(ERROR_LOG_FOLDER, 'boxscores_scrapping.log')
-
-FULL_CSV = 'nba_player_boxscores_full.csv'
+ERROR_LOG_FOLDER = Path("logs")
+BOXSCORES_SCRAPPING_LOG_FILE = ERROR_LOG_FOLDER / "boxscores_scrapping.log"

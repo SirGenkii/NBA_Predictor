@@ -1,5 +1,5 @@
 # Base Python scientific stack
-numpy
+numpy==1.26
 pandas
 scipy
 matplotlib
@@ -19,6 +19,8 @@ catboost
 scikit-optimize
 mlflow
 ngboost
+optuna
+feast
 
 # Deep Learning (PyTorch GPU - CUDA 11.8) - pour CPU only: remplace par juste `torch`
 torch==2.2.2+cu118

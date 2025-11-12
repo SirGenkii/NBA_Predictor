@@ -1,13 +1,12 @@
-import pandas as pd
-from typing import Tuple
+import math
 from collections import defaultdict, deque
-import numpy as np
-from datetime import datetime
-from src.utils import get_team_mapping_id
-from datetime import timedelta
+from datetime import datetime, timedelta
+from typing import Tuple
 
 import numpy as np
 import pandas as pd
+
+from src.utils import get_team_mapping_id
 
 
 def _rolling_shifted_mean(series, group_ids, window):
@@ -143,10 +142,17 @@ def compute_rest_days(df: pd.DataFrame, date_col: str, group_col: str) -> pd.Ser
     return df.groupby(group_col)[date_col].diff().dt.days.fillna(7)
 
 
-def compute_elo(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.DataFrame:
+def compute_elo(
+    df: pd.DataFrame,
+    k: int = 24,
+    start: int = 1500,
+    home_advantage: int = 60,
+    use_margin: bool = True,
+) -> pd.DataFrame:
 
     df = df.sort_values(["GAME_DATE", "GAME_ID", "TEAM_ID"]).copy()
     elo_history = defaultdict(lambda: start)
+    games_played = defaultdict(int)
     elos = []
 
     for _, row in df.iterrows():
@@ -156,30 +162,43 @@ def compute_elo(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.DataFram
 
         team_elo = elo_history[team]
         opp_elo = elo_history[opp]
+        advantage = home_advantage if row.get("IS_HOME", 0) else -home_advantage
 
-        expected = 1 / (1 + 10 ** ((opp_elo - team_elo) / 400))
+        expected = 1 / (1 + 10 ** (((opp_elo - team_elo) + advantage) / 400))
         outcome = 1 if row["IS_WIN"] else 0
 
-        new_elo = team_elo + k * (outcome - expected)
-        elo_history[team] = new_elo
+        mov = row.get("POINTS_FOR", 0) - row.get("POINTS_AGAINST", 0)
+        mov = 0 if pd.isna(mov) else mov
+        mov_factor = 1.0
+        if use_margin and mov != 0:
+            mov_factor = math.log(abs(mov) + 1) * (2.2 / ((abs(team_elo - opp_elo) * 0.001) + 2.2))
+        dynamic_k = k * (1 + 1 / (games_played[team] + 1))
+        update = dynamic_k * mov_factor * (outcome - expected)
 
         elos.append({"GAME_ID": game_id, "TEAM_ID": team, "ELO_PRE": team_elo})
+        elo_history[team] = team_elo + update
+        games_played[team] += 1
 
     elo_df = pd.DataFrame(elos)
     df = df.merge(elo_df, on=["GAME_ID", "TEAM_ID"], how="left")
 
-    # Ajout propre de OPP_ELO_PRE
     opp_elo_df = elo_df.rename(columns={"TEAM_ID": "OPP_TEAM_ID", "ELO_PRE": "OPP_ELO_PRE"})
     df = df.merge(opp_elo_df, on=["GAME_ID", "OPP_TEAM_ID"], how="left")
 
     return df
 
 
-
-def compute_elo_season(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.DataFrame:
+def compute_elo_season(
+    df: pd.DataFrame,
+    k: int = 24,
+    start: int = 1500,
+    home_advantage: int = 60,
+    use_margin: bool = True,
+) -> pd.DataFrame:
 
     df = df.sort_values(["SEASON", "GAME_DATE", "GAME_ID", "TEAM_ID"]).copy()
     elo_history = defaultdict(lambda: start)
+    games_played = defaultdict(int)
     elos = []
 
     for _, row in df.iterrows():
@@ -190,19 +209,26 @@ def compute_elo_season(df: pd.DataFrame, k: int = 24, start: int = 1500) -> pd.D
 
         team_elo = elo_history[(season, team)]
         opp_elo = elo_history[(season, opp)]
+        advantage = home_advantage if row.get("IS_HOME", 0) else -home_advantage
 
-        expected = 1 / (1 + 10 ** ((opp_elo - team_elo) / 400))
+        expected = 1 / (1 + 10 ** (((opp_elo - team_elo) + advantage) / 400))
         outcome = 1 if row["IS_WIN"] else 0
 
-        new_elo = team_elo + k * (outcome - expected)
-        elo_history[(season, team)] = new_elo
+        mov = row.get("POINTS_FOR", 0) - row.get("POINTS_AGAINST", 0)
+        mov = 0 if pd.isna(mov) else mov
+        mov_factor = 1.0
+        if use_margin and mov != 0:
+            mov_factor = math.log(abs(mov) + 1) * (2.2 / ((abs(team_elo - opp_elo) * 0.001) + 2.2))
+        dynamic_k = k * (1 + 1 / (games_played[(season, team)] + 1))
+        update = dynamic_k * mov_factor * (outcome - expected)
 
         elos.append({"GAME_ID": game_id, "TEAM_ID": team, "ELO_PRE_SEASON": team_elo})
+        elo_history[(season, team)] = team_elo + update
+        games_played[(season, team)] += 1
 
     elo_df = pd.DataFrame(elos)
     df = df.merge(elo_df, on=["GAME_ID", "TEAM_ID"], how="left")
 
-    # Ajout propre de OPP_ELO_PRE_SEASON
     opp_elo_df = elo_df.rename(columns={"TEAM_ID": "OPP_TEAM_ID", "ELO_PRE_SEASON": "OPP_ELO_PRE_SEASON"})
     df = df.merge(opp_elo_df, on=["GAME_ID", "OPP_TEAM_ID"], how="left")
 
@@ -219,8 +245,8 @@ def convert_elos_to_elo_diff(df: pd.DataFrame) -> pd.DataFrame:
     df["ELO_DIFF"] = df["ELO_PRE"] - df["OPP_ELO_PRE"]
     df["ELO_DIFF_SEASON"] = df["ELO_PRE_SEASON"] - df["OPP_ELO_PRE_SEASON"]
     
-    # Supprimer les colonnes originales
-    df.drop(columns=["ELO_PRE", "OPP_ELO_PRE", "ELO_PRE_SEASON", "OPP_ELO_PRE_SEASON"], inplace=True, errors='ignore')
+    df["ELO_MEAN"] = (df["ELO_PRE"] + df["OPP_ELO_PRE"]) / 2
+    df["ELO_MEAN_SEASON"] = (df["ELO_PRE_SEASON"] + df["OPP_ELO_PRE_SEASON"]) / 2
     
     return df
 

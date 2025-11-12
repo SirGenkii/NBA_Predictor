@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import tempfile
-from typing import Dict, List
+from typing import Dict, List, Optional
 from pathlib import Path
-
+from contextlib import nullcontext
 import matplotlib.pyplot as plt
 import mlflow
 import mlflow.sklearn
@@ -76,28 +76,54 @@ class ModelTrainer:
             results.append({"model": model_key, **metrics})
         return pd.DataFrame(results)
 
+    def train_with_params(
+        self,
+        model_key: str,
+        *,
+        param_overrides: Optional[dict] = None,
+        log_run: bool = True,
+        run_name: Optional[str] = None,
+    ) -> Dict[str, float]:
+        if model_key not in self.available_models():
+            raise ValueError(f"Modèle {model_key} non supporté.")
+        return self._train_single_model(
+            model_key,
+            param_overrides=param_overrides,
+            log_run=log_run,
+            run_name=run_name,
+        )
+
     # ------------------------------------------------------------------
     # Internal helpers
     # ------------------------------------------------------------------
 
-    def _train_single_model(self, model_key: str) -> Dict[str, float]:
+    def _train_single_model(
+        self,
+        model_key: str,
+        *,
+        param_overrides: Optional[dict] = None,
+        log_run: bool = True,
+        run_name: Optional[str] = None,
+    ) -> Dict[str, float]:
 
-        pipeline = self._build_model(model_key)
-        run_name = f"{model_key}"
+        pipeline = self._build_model(model_key, overrides=param_overrides)
+        run_name = run_name or f"{model_key}"
 
-        with mlflow.start_run(run_name=run_name):
-            mlflow.log_param("dataset_path", self._dataset_path)
-            mlflow.log_param("target", self.dataset_cfg.target)
-            mlflow.log_params(
-                {
-                    "test_size": self.training_cfg.test_size,
-                    "random_state": self.training_cfg.random_state,
-                    "model_key": model_key,
-                    "task_type": self.training_cfg.task_type,
-                }
-            )
+        context = mlflow.start_run(run_name=run_name) if log_run else nullcontext()
+        with context:
+            if log_run:
+                mlflow.log_param("dataset_path", self._dataset_path)
+                mlflow.log_param("target", self.dataset_cfg.target)
+                mlflow.log_params(
+                    {
+                        "test_size": self.training_cfg.test_size,
+                        "random_state": self.training_cfg.random_state,
+                        "model_key": model_key,
+                        "task_type": self.training_cfg.task_type,
+                    }
+                )
 
-            if self.training_cfg.enable_learning_curve:
+            if self.training_cfg.enable_learning_curve and log_run:
                 self._log_learning_curve(pipeline, model_key)
 
             pipeline.fit(self.X_train, self.y_train)
@@ -109,13 +135,14 @@ class ModelTrainer:
                     index=self.X_test.index,
                 )
                 metrics = classification_metrics(self.y_test, y_pred, y_proba)
-                for k, v in metrics.items():
-                    mlflow.log_metric(k, float(v))
+                if log_run:
+                    for k, v in metrics.items():
+                        mlflow.log_metric(k, float(v))
 
-                cm_vals = confusion_matrix_values(self.y_test, y_pred)
-                for k, v in cm_vals.items():
-                    if isinstance(v, (int, float)):
-                        mlflow.log_metric(f"cm_{k}", v)
+                    cm_vals = confusion_matrix_values(self.y_test, y_pred)
+                    for k, v in cm_vals.items():
+                        if isinstance(v, (int, float)):
+                            mlflow.log_metric(f"cm_{k}", v)
 
                 preds_df = pd.DataFrame(
                     {
@@ -125,13 +152,16 @@ class ModelTrainer:
                     },
                     index=self.X_test.index,
                 )
-                self._log_classification_plots(model_key, y_pred, y_proba)
+                if log_run:
+                    self._log_classification_plots(model_key, y_pred, y_proba)
             else:
                 metrics = regression_metrics(self.y_test, y_pred)
-                for k, v in metrics.items():
-                    mlflow.log_metric(k, float(v))
+                if log_run:
+                    for k, v in metrics.items():
+                        mlflow.log_metric(k, float(v))
                 sigma_series = self._get_sigma_predictions(model_key, pipeline)
-                mlflow.log_metric("residual_std", float(sigma_series.mean()))
+                if log_run:
+                    mlflow.log_metric("residual_std", float(sigma_series.mean()))
                 preds_df = pd.DataFrame(
                     {
                         "y_true": self.y_test,
@@ -141,42 +171,67 @@ class ModelTrainer:
                     },
                     index=self.X_test.index,
                 )
-                self._log_regression_plots(
-                    model_key,
-                    y_pred,
-                    sigma_series,
-                    self._pivot_list(),
-                )
+                if log_run:
+                    self._log_regression_plots(
+                        model_key,
+                        y_pred,
+                        sigma_series,
+                        self._pivot_list(),
+                    )
 
-            with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as tmp:
-                preds_df.to_csv(tmp.name, index=False)
-                mlflow.log_artifact(tmp.name, artifact_path="predictions")
-
-            importances = self._extract_feature_importances(pipeline)
-            if importances is not None:
-                fi_names, fi_values = self._align_feature_importances(
-                    self._feature_names, importances
-                )
-                fig = plot_feature_importance(fi_names, fi_values)
-                if fig:
-                    mlflow.log_figure(fig, f"plots/{model_key}_feature_importance.png")
-                    plt.close(fig)
-                fi_df = pd.DataFrame(
-                    {"feature": fi_names, "importance": fi_values}
-                ).sort_values("importance", ascending=False)
+            if log_run:
                 with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as tmp:
-                    fi_df.to_csv(tmp.name, index=False)
-                    mlflow.log_artifact(tmp.name, artifact_path="feature_importance")
+                    preds_df.to_csv(tmp.name, index=False)
+                    mlflow.log_artifact(tmp.name, artifact_path="predictions")
 
-            # Log model artifact
-            mlflow.sklearn.log_model(pipeline, artifact_path="model")
+                importances = self._extract_feature_importances(pipeline)
+                if importances is not None:
+                    fi_names, fi_values = self._align_feature_importances(
+                        self._feature_names, importances
+                    )
+                    fig = plot_feature_importance(fi_names, fi_values)
+                    if fig:
+                        mlflow.log_figure(
+                            fig, f"plots/{model_key}_feature_importance.png"
+                        )
+                        plt.close(fig)
+                    fi_df = pd.DataFrame(
+                        {
+                            "feature": np.ravel(fi_names),
+                            "importance": np.ravel(fi_values),
+                        }
+                    ).sort_values("importance", ascending=False)
+                    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as tmp:
+                        fi_df.to_csv(tmp.name, index=False)
+                        mlflow.log_artifact(tmp.name, artifact_path="feature_importance")
+
+                mlflow.sklearn.log_model(pipeline, artifact_path="model")
 
             return metrics
 
-    def _build_model(self, key: str) -> Pipeline:
+    def _build_model(self, key: str, overrides: Optional[dict] = None) -> Pipeline:
         if self.training_cfg.task_type == "classification":
-            return self._build_classification_model(key)
-        return self._build_regression_model(key)
+            pipeline = self._build_classification_model(key)
+        else:
+            pipeline = self._build_regression_model(key)
+        if overrides:
+            pipeline = pipeline.set_params(**self._normalize_overrides(pipeline, overrides))
+        return pipeline
+
+    @staticmethod
+    def _normalize_overrides(pipeline: Pipeline, overrides: dict) -> dict:
+        """Accept bare parameter names (e.g., `n_estimators`) and route them to the underlying model."""
+
+        normalized = {}
+        for key, value in overrides.items():
+            if "__" in key:
+                normalized[key] = value
+                continue
+            if hasattr(pipeline, "named_steps") and "model" in pipeline.named_steps:
+                normalized[f"model__{key}"] = value
+                continue
+            normalized[key] = value
+        return normalized
 
     def _build_classification_model(self, key: str) -> Pipeline:
         if key == "lgbm":
@@ -322,12 +377,10 @@ class ModelTrainer:
         return None
 
     def _align_feature_importances(self, feature_names, importances):
-        if len(importances) == len(feature_names):
-            return feature_names, importances
-        min_len = min(len(importances), len(feature_names))
-        aligned_names = feature_names[:min_len]
-        aligned_importances = importances[:min_len]
-        return aligned_names, aligned_importances
+        names = np.asarray(feature_names).ravel()
+        imps = np.asarray(importances).ravel()
+        min_len = min(len(names), len(imps))
+        return names[:min_len], imps[:min_len]
 
     def _get_sigma_predictions(self, model_key: str, pipeline) -> pd.Series:
         if not self.training_cfg.enable_sigma_model:
@@ -473,7 +526,7 @@ class ModelTrainer:
         mlflow.log_artifact(summary_path, artifact_path=f"probabilities/{model_key}")
 
         sample = probs_df.sample(
-            n=min(200, len(probs_df)), random_state=self.training_cfg.random_state
+            n=min(1000, len(probs_df)), random_state=self.training_cfg.random_state
         )
         sample_path = tmp_dir / f"{model_key}_pivot_samples.csv"
         sample.to_csv(sample_path, index=False)
