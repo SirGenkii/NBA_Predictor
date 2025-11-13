@@ -1,0 +1,30 @@
+{
+  "lgbm": {
+    "metric": 0.6282788988990491,
+    "params": {
+      "colsample_bytree": 0.9229691815659138,
+      "learning_rate": 0.01006687088455254,
+      "n_estimators": 600,
+      "num_leaves": 197,
+      "subsample": 0.7413822628030389
+    }
+  },
+  "stacking": {
+    "metric": 0.6213356287834375,
+    "params": {
+      "stack_C": 0.97827525194831
+    }
+  },
+  "xgb": {
+    "metric": 0.6415935767712841,
+    "params": {
+      "colsample_bytree": 0.8158445934400218,
+      "learning_rate": 0.019444487274848442,
+      "max_depth": 7,
+      "n_estimators": 1200,
+      "reg_alpha": 0.031164875084465672,
+      "reg_lambda": 3.516268257626507e-07,
+      "subsample": 0.5110683444082067
+    }
+  }
+}
