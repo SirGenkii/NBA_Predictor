@@ -19,9 +19,10 @@ feast-refresh:
 	$(PYTHON) -m src.feast.pipeline --seasons 2025-26 --targets POINT_TOTAL IS_WIN --materialize
 
 model-point-total:
-	$(PYTHON) -m src.modeling.run_point_total --tune --trials 1
+	$(PYTHON) -m src.modeling.run_point_total --tune --trials 20
 
-
+model-is-win:
+	$(PYTHON) -m src.modeling.run_is_win --tune --trials 2
 
 up:
 	$(DC) up -d

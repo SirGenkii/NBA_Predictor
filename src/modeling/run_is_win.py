@@ -7,11 +7,14 @@ from typing import Dict, List, Optional
 
 import pandas as pd
 
-from src.modeling.builders import build_point_total_trainer, point_total_bundle
-from src.modeling.tuning import tune_point_total
+from src.modeling.builders import (
+    build_is_win_trainer,
+    is_win_bundle,
+)
+from src.modeling.tuning import tune_is_win
 from src.modeling.trainer import ModelTrainer
 
-BEST_PARAMS_PATH = Path("artifacts/point_total_best_params.json")
+BEST_PARAMS_PATH = Path("artifacts/is_win_best_params.json")
 
 
 def load_best_params() -> Dict[str, Dict]:
@@ -33,7 +36,7 @@ def update_best_params(results) -> None:
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Train/tune POINT_TOTAL models using Feast features.")
+    parser = argparse.ArgumentParser(description="Train/tune IS_WIN models using Feast features.")
     parser.add_argument("--tune", action="store_true", help="Run Optuna tuning before training.")
     parser.add_argument("--trials", type=int, default=20, help="Number of Optuna trials per model.")
     parser.add_argument(
@@ -43,7 +46,7 @@ def parse_args():
         help="Optional subset of models to train/tune (e.g. lgbm xgb).",
     )
     parser.add_argument("--skip-training", action="store_true", help="Skip final training phase.")
-    parser.add_argument("--metric", default="rmse", help="Metric used during tuning.")
+    parser.add_argument("--metric", default="log_loss", help="Metric used during tuning (log_loss, roc_auc...).")
     return parser.parse_args()
 
 
@@ -54,6 +57,8 @@ def _normalize_stacking_params(params: Optional[Dict[str, float]]) -> Optional[D
     for key, value in params.items():
         if key in {"stack_alpha", "final_estimator__alpha"}:
             normalized["final_estimator__alpha"] = value
+        elif key in {"stack_C", "final_estimator__C"}:
+            normalized["final_estimator__C"] = value
         else:
             normalized[key] = value
     return normalized
@@ -78,11 +83,11 @@ def train_with_best_params(trainer: ModelTrainer, models: Optional[List[str]] = 
 
 def main():
     args = parse_args()
-    bundle = point_total_bundle()
-    trainer = build_point_total_trainer()
+    bundle = is_win_bundle()
+    trainer = build_is_win_trainer()
 
     if args.tune:
-        results = tune_point_total(
+        results = tune_is_win(
             bundle.dataset,
             bundle.training,
             models=args.models,

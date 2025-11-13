@@ -17,7 +17,7 @@ class TuningResult:
     study: optuna.Study
 
 
-def _param_space(trial: optuna.trial.Trial, model_key: str) -> Dict[str, float]:
+def _param_space(trial: optuna.trial.Trial, model_key: str, task_type: str) -> Dict[str, float]:
     if model_key == "lgbm":
         return {
             "model__n_estimators": trial.suggest_int("n_estimators", 400, 1400, step=200),
@@ -43,9 +43,12 @@ def _param_space(trial: optuna.trial.Trial, model_key: str) -> Dict[str, float]:
             "model__minibatch_frac": trial.suggest_float("minibatch_frac", 0.5, 1.0),
         }
     if model_key == "stacking":
-        # stacking regressor (final estimator = Ridge)
+        if task_type == "classification":
+            return {
+                "final_estimator__C": trial.suggest_float("stack_C", 1e-3, 10.0, log=True),
+            }
         return {
-            "final_estimator__alpha": trial.suggest_float("final_estimator__alpha", 1e-3, 10.0, log=True),
+            "final_estimator__alpha": trial.suggest_float("stack_alpha", 1e-3, 10.0, log=True),
         }
     raise ValueError(f"No Optuna search space configured for model '{model_key}'.")
 
@@ -75,6 +78,21 @@ def tune_point_total(
     return _run_tuning(trainer, target_models, n_trials=n_trials, metric=metric)
 
 
+def tune_is_win(
+    dataset_cfg: DatasetConfig,
+    training_cfg: TrainingConfig,
+    *,
+    models: Optional[List[str]] = None,
+    n_trials: int = 25,
+    metric: str = "log_loss",
+) -> List[TuningResult]:
+    """Optuna tuning helper for IS_WIN classification."""
+
+    trainer = ModelTrainer(dataset_cfg, training_cfg)
+    target_models = models or trainer.available_models()
+    return _run_tuning(trainer, target_models, n_trials=n_trials, metric=metric)
+
+
 def _run_tuning(
     trainer: ModelTrainer,
     models: List[str],
@@ -91,7 +109,7 @@ def _run_tuning(
             continue
 
         def objective(trial: optuna.trial.Trial) -> float:
-            overrides = _param_space(trial, model_key)
+            overrides = _param_space(trial, model_key, trainer.training_cfg.task_type)
             metrics = trainer.train_with_params(
                 model_key,
                 param_overrides=overrides,
