@@ -94,6 +94,10 @@ def _feast_features(df: pd.DataFrame, cfg: DatasetConfig) -> pd.DataFrame:
         .drop(columns=drop_cols, errors="ignore")
         .set_index("__row_id")
     )
+    if cfg.target in feature_df.columns:
+        feature_df = feature_df.drop(columns=[cfg.target], errors="ignore")
+    if cfg.drop_columns:
+        feature_df = feature_df.drop(columns=cfg.drop_columns, errors="ignore")
     if cfg.keep_numeric_only:
         numeric_cols = feature_df.select_dtypes(include=["number", "bool"]).columns
         feature_df = feature_df[numeric_cols]

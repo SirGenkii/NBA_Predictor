@@ -21,6 +21,7 @@ from src.datasets.recipes import (
 from src.mlflow_utils import get_latest_run_dir
 from src.modeling.config import DatasetConfig, TrainingConfig
 from src.modeling.data import load_dataset, prepare_features
+from src.modeling.builders import build_point_total_trainer, point_total_bundle
 from src.modeling.trainer import ModelTrainer
 from src.prediction.data_refresh import refresh_recent_boxscores
 from src.prediction.schemas import PredictionRequest
@@ -110,7 +111,7 @@ class _TrainingReference:
 
 @lru_cache(maxsize=1)
 def _training_reference() -> _TrainingReference:
-    trainer = _build_trainer()
+    trainer = build_point_total_trainer()
     best_params = _load_best_params().get("stacking")
     return _fit_or_load_model(trainer, best_params)
 
@@ -170,54 +171,8 @@ def _prediction_game_id(req: PredictionRequest) -> str:
 
 
 def _build_trainer() -> ModelTrainer:
-    dataset_cfg = DatasetConfig(
-        target="POINT_TOTAL",
-        gold_pattern="gold_dataset_point_total_*.parquet",
-        use_feast=True,
-        feast_feature_service="point_total_service",
-    )
-    training_cfg = TrainingConfig(
-        experiment_name=EXPERIMENT_NAME,
-        tracking_uri="file:./mlruns",
-        test_size=0.2,
-        random_state=42,
-        stratify=False,
-        task_type="regression",
-        pivot_value=220.0,
-        enable_learning_curve=False,
-        pivot_values=[
-            218.5,
-            219.5,
-            220.5,
-            221.5,
-            222.5,
-            223.5,
-            224.5,
-            225.5,
-            226.5,
-            227.5,
-            228.5,
-            229.5,
-            230.5,
-            231.5,
-            232.5,
-            233.5,
-            234.5,
-            235.5,
-            236.5,
-            237.5,
-            238.5,
-            239.5,
-            240.5,
-            241.5,
-            242.5,
-            243.5,
-            244.5,
-        ],
-        enable_sigma_model=True,
-        min_sigma=6.0,
-    )
-    return ModelTrainer(dataset_cfg, training_cfg)
+    # Deprecated alias kept for backward compatibility within this module.
+    return build_point_total_trainer()
 
 
 def _load_best_params() -> dict:

@@ -45,7 +45,7 @@ def _param_space(trial: optuna.trial.Trial, model_key: str) -> Dict[str, float]:
     if model_key == "stacking":
         # stacking regressor (final estimator = Ridge)
         return {
-            "final_estimator__alpha": trial.suggest_float("stack_alpha", 1e-3, 10.0, log=True),
+            "final_estimator__alpha": trial.suggest_float("final_estimator__alpha", 1e-3, 10.0, log=True),
         }
     raise ValueError(f"No Optuna search space configured for model '{model_key}'.")
 

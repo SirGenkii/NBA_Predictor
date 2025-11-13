@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Iterable, List, Optional, Sequence, Set
+from typing import List, Optional, Sequence, Set
 
 import pandas as pd
 from feast import Field

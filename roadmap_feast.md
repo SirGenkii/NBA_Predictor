@@ -87,4 +87,4 @@
 - **Current workflow (WIP)**
   1. `python -m src.feast.pipeline --seasons 2024-25 --targets POINT_TOTAL IS_WIN --materialize`  
      ↳ refreshes raw data, rebuilds bronze/silver/gold artifacts, runs `feast apply`, and materializes recent features.
-  2. Training/prediction jobs can then call Feast FeatureServices instead of relying on ad-hoc datasets (next milestone).
+  2. `python -m src.modeling.run_point_total --tune --trials 20` (or `make model-point-total`) trains via Feast features and logs to MLflow. Prediction pipeline already consumes the same FeatureService.

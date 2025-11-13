@@ -275,32 +275,102 @@ def compute_h2h(df: pd.DataFrame, windows: list) -> pd.DataFrame:
 
     df = df.sort_values(["GAME_DATE", "GAME_ID"]).copy()
     for n in windows:
-        results = defaultdict(lambda: deque(maxlen=n))
+        history = defaultdict(lambda: deque(maxlen=n))
         diffs, winrates, counts = [], [], []
+        home_counts, away_counts = [], []
+        home_winrates, away_winrates = [], []
+        ewm_winrates = []
+        avg_totals, avg_margins, avg_margin_abs = [], [], []
+
+        decay = 0.85
 
         for _, row in df.iterrows():
             team, opp = row["TEAM_ID"], row["OPP_TEAM_ID"]
             res = 1 if row["IS_WIN"] else 0
+            is_home = int(row.get("IS_HOME", 0))
+            pts_for = row.get("POINTS_FOR", row.get("points_traditional", 0)) or 0
+            pts_against = row.get("POINTS_AGAINST", row.get("OPP_points_traditional", 0)) or 0
+            total_points = pts_for + pts_against
 
-            hist = results[(team, opp)]
-            count = len(hist)
-            winrate = sum(hist)/count if count else 0.5
-            diff = sum(hist) - (count - sum(hist)) if count else 0
+            hist = history[(team, opp)]
+            hist_list = list(hist)
+            count = len(hist_list)
+            win_sum = sum(entry["result"] for entry in hist_list)
+            winrate = win_sum / count if count else 0.5
+            diff = win_sum - (count - win_sum) if count else 0
+
+            home_hist = [h for h in hist_list if h["is_home"] == 1]
+            away_hist = [h for h in hist_list if h["is_home"] == 0]
+
+            home_count = len(home_hist)
+            away_count = len(away_hist)
+            home_win = sum(h["result"] for h in home_hist)
+            away_win = sum(h["result"] for h in away_hist)
+            home_winrate = home_win / home_count if home_count else 0.5
+            away_winrate = away_win / away_count if away_count else 0.5
+
+            if hist_list:
+                weights = [decay ** idx for idx in range(len(hist_list) - 1, -1, -1)]
+                weighted_sum = sum(entry["result"] * w for entry, w in zip(hist_list, weights))
+                ewm = weighted_sum / sum(weights)
+            else:
+                ewm = 0.5
+
+            if count:
+                avg_total = sum(entry["point_total"] for entry in hist_list) / count
+                margins = [entry["points_for"] - entry["points_against"] for entry in hist_list]
+                avg_margin = sum(margins) / count
+                avg_margin_abs_val = sum(abs(m) for m in margins) / count
+            else:
+                avg_total = 0
+                avg_margin = 0
+                avg_margin_abs_val = 0
 
             diffs.append(diff)
             winrates.append(winrate)
             counts.append(count)
+            home_counts.append(home_count)
+            away_counts.append(away_count)
+            home_winrates.append(home_winrate)
+            away_winrates.append(away_winrate)
+            ewm_winrates.append(ewm)
+            avg_totals.append(avg_total)
+            avg_margins.append(avg_margin)
+            avg_margin_abs.append(avg_margin_abs_val)
 
-            results[(team, opp)].append(res)
+            hist.append(
+                {
+                    "result": res,
+                    "is_home": is_home,
+                    "points_for": pts_for,
+                    "points_against": pts_against,
+                    "point_total": total_points,
+                }
+            )
 
         df[f"H2H_LAST_{n}_DIFF"] = diffs
         df[f"H2H_LAST_{n}_WINRATE"] = winrates
         df[f"H2H_LAST_{n}_COUNT"] = counts
+        df[f"H2H_HOME_LAST_{n}_COUNT"] = home_counts
+        df[f"H2H_AWAY_LAST_{n}_COUNT"] = away_counts
+        df[f"H2H_HOME_LAST_{n}_WINRATE"] = home_winrates
+        df[f"H2H_AWAY_LAST_{n}_WINRATE"] = away_winrates
+        df[f"H2H_LAST_{n}_EWM_WINRATE"] = ewm_winrates
+        df[f"H2H_LAST_{n}_AVG_TOTAL_POINTS"] = avg_totals
+        df[f"H2H_LAST_{n}_AVG_MARGIN"] = avg_margins
+        df[f"H2H_LAST_{n}_AVG_MARGIN_ABS"] = avg_margin_abs
 
-        #fill NaN values with 0
         df[f"H2H_LAST_{n}_DIFF"] = df[f"H2H_LAST_{n}_DIFF"].fillna(0)
         df[f"H2H_LAST_{n}_WINRATE"] = df[f"H2H_LAST_{n}_WINRATE"].fillna(0.5)
         df[f"H2H_LAST_{n}_COUNT"] = df[f"H2H_LAST_{n}_COUNT"].fillna(0)
+        df[f"H2H_HOME_LAST_{n}_COUNT"] = df[f"H2H_HOME_LAST_{n}_COUNT"].fillna(0)
+        df[f"H2H_AWAY_LAST_{n}_COUNT"] = df[f"H2H_AWAY_LAST_{n}_COUNT"].fillna(0)
+        df[f"H2H_HOME_LAST_{n}_WINRATE"] = df[f"H2H_HOME_LAST_{n}_WINRATE"].fillna(0.5)
+        df[f"H2H_AWAY_LAST_{n}_WINRATE"] = df[f"H2H_AWAY_LAST_{n}_WINRATE"].fillna(0.5)
+        df[f"H2H_LAST_{n}_EWM_WINRATE"] = df[f"H2H_LAST_{n}_EWM_WINRATE"].fillna(0.5)
+        df[f"H2H_LAST_{n}_AVG_TOTAL_POINTS"] = df[f"H2H_LAST_{n}_AVG_TOTAL_POINTS"].fillna(0)
+        df[f"H2H_LAST_{n}_AVG_MARGIN"] = df[f"H2H_LAST_{n}_AVG_MARGIN"].fillna(0)
+        df[f"H2H_LAST_{n}_AVG_MARGIN_ABS"] = df[f"H2H_LAST_{n}_AVG_MARGIN_ABS"].fillna(0)
 
     return df
 
