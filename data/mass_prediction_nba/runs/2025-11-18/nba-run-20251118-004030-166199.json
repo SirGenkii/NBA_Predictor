@@ -1,0 +1,1493 @@
+{
+  "run_id": "nba-run-20251118-004030-166199",
+  "created_at": "2025-11-18T00:40:30",
+  "matches": [
+    {
+      "match": {
+        "home": {
+          "team_id": 1610612755,
+          "name": "Philadelphia 76ers",
+          "aliases": [
+            "76ers",
+            "PHI",
+            "Philadelphia",
+            "Philadelphia 76ers",
+            "Philadelphia 76erss"
+          ],
+          "input_name": "Philadelphia 76ers"
+        },
+        "away": {
+          "team_id": 1610612746,
+          "name": "Los Angeles Clippers",
+          "aliases": [
+            "Clippers",
+            "LA",
+            "LA Clippers",
+            "LAC",
+            "Los Angeles",
+            "Los Angeles Clippers",
+            "Los Angeles Clipperss"
+          ],
+          "input_name": "LA Clippers"
+        },
+        "match_date": "2025-11-18",
+        "metadata": {
+          "match_time": null,
+          "source": "ocr",
+          "overrides": {
+            "match_date": false,
+            "home_team": false,
+            "away_team": false
+          },
+          "team_dataset": "data/01_bronze/teams/nba_teams__2025-11-04_22-08-02.csv"
+        },
+        "markets": [
+          {
+            "pivot": 207.5,
+            "over_odds": 1.19,
+            "under_odds": 3.25,
+            "label": "Moins de 207.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 208.5,
+            "over_odds": 1.24,
+            "under_odds": 3.05,
+            "label": "Moins de 208.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 209.5,
+            "over_odds": 1.27,
+            "under_odds": 2.9,
+            "label": "Moins de 209.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 210.5,
+            "over_odds": 1.3,
+            "under_odds": 2.75,
+            "label": "Moins de 210.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 211.5,
+            "over_odds": 1.34,
+            "under_odds": 2.48,
+            "label": "Moins de 211.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 212.5,
+            "over_odds": 1.38,
+            "under_odds": 2.35,
+            "label": "Moins de 212.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 213.5,
+            "over_odds": 1.42,
+            "under_odds": 2.24,
+            "label": "Moins de 213.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 214.5,
+            "over_odds": 1.47,
+            "under_odds": 2.14,
+            "label": "Moins de 214.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 215.5,
+            "over_odds": 1.52,
+            "under_odds": 2.04,
+            "label": "Moins de 215.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 216.5,
+            "over_odds": 1.57,
+            "under_odds": 1.95,
+            "label": "Moins de 216.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 217.5,
+            "over_odds": 1.63,
+            "under_odds": 1.87,
+            "label": "Moins de 217.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 218.5,
+            "over_odds": 1.69,
+            "under_odds": 1.79,
+            "label": "Moins de 218.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 219.5,
+            "over_odds": 1.76,
+            "under_odds": 1.72,
+            "label": "Moins de 219.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 220.5,
+            "over_odds": 1.83,
+            "under_odds": 1.66,
+            "label": "Moins de 220.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 221.5,
+            "over_odds": 1.91,
+            "under_odds": 1.6,
+            "label": "Moins de 221.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 222.5,
+            "over_odds": 1.99,
+            "under_odds": 1.54,
+            "label": "Moins de 222.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 223.5,
+            "over_odds": 2.09,
+            "under_odds": 1.49,
+            "label": "Moins de 223.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 224.5,
+            "over_odds": 2.18,
+            "under_odds": 1.45,
+            "label": "Moins de 224.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 225.5,
+            "over_odds": 2.29,
+            "under_odds": 1.4,
+            "label": "Moins de 225.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 226.5,
+            "over_odds": 2.4,
+            "under_odds": 1.36,
+            "label": "Moins de 226.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 227.5,
+            "over_odds": 2.52,
+            "under_odds": 1.33,
+            "label": "Moins de 227.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 228.5,
+            "over_odds": 2.65,
+            "under_odds": 1.3,
+            "label": "Moins de 228.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 229.5,
+            "over_odds": 2.78,
+            "under_odds": 1.26,
+            "label": "Moins de 229.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 230.5,
+            "over_odds": 2.95,
+            "under_odds": 1.24,
+            "label": "Moins de 230.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 231.5,
+            "over_odds": 3.1,
+            "under_odds": 1.21,
+            "label": "Moins de 231.5",
+            "bookmaker": null,
+            "metadata": {}
+          },
+          {
+            "pivot": 232.5,
+            "over_odds": 3.25,
+            "under_odds": 1.19,
+            "label": "Moins de 232.5",
+            "bookmaker": null,
+            "metadata": {}
+          }
+        ],
+        "screenshot_path": "data/mass_prediction_nba/screenshots/XGBhSozf.jpeg",
+        "raw_payload": {
+          "home_team": "Philadelphia 76ers",
+          "away_team": "LA Clippers",
+          "match_date": "2025-11-18",
+          "markets": [
+            {
+              "label": "Moins de 207.5",
+              "pivot": 207.5,
+              "over_odds": 1.19,
+              "under_odds": 3.25
+            },
+            {
+              "label": "Moins de 208.5",
+              "pivot": 208.5,
+              "over_odds": 1.24,
+              "under_odds": 3.05
+            },
+            {
+              "label": "Moins de 209.5",
+              "pivot": 209.5,
+              "over_odds": 1.27,
+              "under_odds": 2.9
+            },
+            {
+              "label": "Moins de 210.5",
+              "pivot": 210.5,
+              "over_odds": 1.3,
+              "under_odds": 2.75
+            },
+            {
+              "label": "Moins de 211.5",
+              "pivot": 211.5,
+              "over_odds": 1.34,
+              "under_odds": 2.48
+            },
+            {
+              "label": "Moins de 212.5",
+              "pivot": 212.5,
+              "over_odds": 1.38,
+              "under_odds": 2.35
+            },
+            {
+              "label": "Moins de 213.5",
+              "pivot": 213.5,
+              "over_odds": 1.42,
+              "under_odds": 2.24
+            },
+            {
+              "label": "Moins de 214.5",
+              "pivot": 214.5,
+              "over_odds": 1.47,
+              "under_odds": 2.14
+            },
+            {
+              "label": "Moins de 215.5",
+              "pivot": 215.5,
+              "over_odds": 1.52,
+              "under_odds": 2.04
+            },
+            {
+              "label": "Moins de 216.5",
+              "pivot": 216.5,
+              "over_odds": 1.57,
+              "under_odds": 1.95
+            },
+            {
+              "label": "Moins de 217.5",
+              "pivot": 217.5,
+              "over_odds": 1.63,
+              "under_odds": 1.87
+            },
+            {
+              "label": "Moins de 218.5",
+              "pivot": 218.5,
+              "over_odds": 1.69,
+              "under_odds": 1.79
+            },
+            {
+              "label": "Moins de 219.5",
+              "pivot": 219.5,
+              "over_odds": 1.76,
+              "under_odds": 1.72
+            },
+            {
+              "label": "Moins de 220.5",
+              "pivot": 220.5,
+              "over_odds": 1.83,
+              "under_odds": 1.66
+            },
+            {
+              "label": "Moins de 221.5",
+              "pivot": 221.5,
+              "over_odds": 1.91,
+              "under_odds": 1.6
+            },
+            {
+              "label": "Moins de 222.5",
+              "pivot": 222.5,
+              "over_odds": 1.99,
+              "under_odds": 1.54
+            },
+            {
+              "label": "Moins de 223.5",
+              "pivot": 223.5,
+              "over_odds": 2.09,
+              "under_odds": 1.49
+            },
+            {
+              "label": "Moins de 224.5",
+              "pivot": 224.5,
+              "over_odds": 2.18,
+              "under_odds": 1.45
+            },
+            {
+              "label": "Moins de 225.5",
+              "pivot": 225.5,
+              "over_odds": 2.29,
+              "under_odds": 1.4
+            },
+            {
+              "label": "Moins de 226.5",
+              "pivot": 226.5,
+              "over_odds": 2.4,
+              "under_odds": 1.36
+            },
+            {
+              "label": "Moins de 227.5",
+              "pivot": 227.5,
+              "over_odds": 2.52,
+              "under_odds": 1.33
+            },
+            {
+              "label": "Moins de 228.5",
+              "pivot": 228.5,
+              "over_odds": 2.65,
+              "under_odds": 1.3
+            },
+            {
+              "label": "Moins de 229.5",
+              "pivot": 229.5,
+              "over_odds": 2.78,
+              "under_odds": 1.26
+            },
+            {
+              "label": "Moins de 230.5",
+              "pivot": 230.5,
+              "over_odds": 2.95,
+              "under_odds": 1.24
+            },
+            {
+              "label": "Moins de 231.5",
+              "pivot": 231.5,
+              "over_odds": 3.1,
+              "under_odds": 1.21
+            },
+            {
+              "label": "Moins de 232.5",
+              "pivot": 232.5,
+              "over_odds": 3.25,
+              "under_odds": 1.19
+            }
+          ]
+        }
+      },
+      "prediction": {
+        "mean_total": 228.17605037524265,
+        "sigma": 12.379574136897123,
+        "pivot_probabilities": {
+          "207.5": 0.9525575888090316,
+          "208.5": 0.9440145348260849,
+          "209.5": 0.9343018048826246,
+          "210.5": 0.9233310328233557,
+          "211.5": 0.9110198215233362,
+          "212.5": 0.8972941976323792,
+          "213.5": 0.8820911338098656,
+          "214.5": 0.8653610599299058,
+          "215.5": 0.847070276199389,
+          "216.5": 0.8272031758046834,
+          "217.5": 0.8057641832204406,
+          "218.5": 0.7827793171409327,
+          "219.5": 0.7582972943779354,
+          "220.5": 0.7323901030024778,
+          "221.5": 0.7051529892082652,
+          "222.5": 0.6767038222814006,
+          "223.5": 0.6471818248524206,
+          "224.5": 0.6167456802378123,
+          "225.5": 0.5855710539375427,
+          "226.5": 0.5538475909361,
+          "227.5": 0.5217754730372165,
+          "228.5": 0.4895616397999516,
+          "229.5": 0.45741579164609336,
+          "230.5": 0.4255463035175904,
+          "231.5": 0.3941561815113197,
+          "232.5": 0.3634391929718176
+        },
+        "model_path": "models:/point_total_stacking/Production",
+        "model_bias": -0.05562610833887864,
+        "model_uncertainty": 12.379574136897123
+      },
+      "evaluations": [
+        {
+          "pivot": 207.5,
+          "label": "Moins de 207.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.9090810546790531,
+            "odds": 1.19,
+            "fair_odds": 1.1000119239675998,
+            "edge": 0.08180645506807305,
+            "kelly": {
+              "full": 0.43056028983196354,
+              "scaled": {
+                "0.66x": 0.284169791289096
+              }
+            }
+          },
+          "under": {
+            "probability": 0.09091894532094691,
+            "odds": 3.25,
+            "fair_odds": 10.99880774540407,
+            "edge": -0.7045134277069225,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 208.5,
+          "label": "Moins de 208.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.8980235984601719,
+            "odds": 1.24,
+            "fair_odds": 1.113556483053102,
+            "edge": 0.11354926209061311,
+            "kelly": {
+              "full": 0.47312192537755465,
+              "scaled": {
+                "0.66x": 0.31226047074918606
+              }
+            }
+          },
+          "under": {
+            "probability": 0.10197640153982812,
+            "odds": 3.05,
+            "fair_odds": 9.8061903038365,
+            "edge": -0.6889719753035243,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 209.5,
+          "label": "Moins de 209.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.8860185252765285,
+            "odds": 1.27,
+            "fair_odds": 1.128644572852354,
+            "edge": 0.12524352710119113,
+            "kelly": {
+              "full": 0.46386491518959677,
+              "scaled": {
+                "0.66x": 0.3061508440251339
+              }
+            }
+          },
+          "under": {
+            "probability": 0.11398147472347153,
+            "odds": 2.9,
+            "fair_odds": 8.773355516114197,
+            "edge": -0.6694537233019326,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 210.5,
+          "label": "Moins de 210.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.8730391325258545,
+            "odds": 1.3,
+            "fair_odds": 1.145424028252692,
+            "edge": 0.13495087228361102,
+            "kelly": {
+              "full": 0.44983624094537,
+              "scaled": {
+                "0.66x": 0.29689191902394424
+              }
+            }
+          },
+          "under": {
+            "probability": 0.12696086747414548,
+            "odds": 2.75,
+            "fair_odds": 7.876442717309266,
+            "edge": -0.6508576144460999,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 211.5,
+          "label": "Moins de 211.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.8590650303172433,
+            "odds": 1.34,
+            "fair_odds": 1.1640562293994332,
+            "edge": 0.15114714062510615,
+            "kelly": {
+              "full": 0.44455041360325326,
+              "scaled": {
+                "0.66x": 0.29340327297814717
+              }
+            }
+          },
+          "under": {
+            "probability": 0.14093496968275665,
+            "odds": 2.48,
+            "fair_odds": 7.095471069039792,
+            "edge": -0.6504812751867635,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 212.5,
+          "label": "Moins de 212.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.8440829046474558,
+            "odds": 1.38,
+            "fair_odds": 1.184717750465122,
+            "edge": 0.16483440841348895,
+            "kelly": {
+              "full": 0.43377475898286577,
+              "scaled": {
+                "0.66x": 0.2862913409286914
+              }
+            }
+          },
+          "under": {
+            "probability": 0.15591709535254417,
+            "odds": 2.35,
+            "fair_odds": 6.413664888631358,
+            "edge": -0.6335948259215212,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 213.5,
+          "label": "Moins de 213.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.8280872162705221,
+            "odds": 1.42,
+            "fair_odds": 1.2076022674323195,
+            "edge": 0.1758838471041413,
+            "kelly": {
+              "full": 0.4187710645336698,
+              "scaled": {
+                "0.66x": 0.2763889025922221
+              }
+            }
+          },
+          "under": {
+            "probability": 0.17191278372947794,
+            "odds": 2.24,
+            "fair_odds": 5.816903073209498,
+            "edge": -0.6149153644459694,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 214.5,
+          "label": "Moins de 214.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.8110808153629312,
+            "odds": 1.47,
+            "fair_odds": 1.2329227631312347,
+            "edge": 0.1922887985835089,
+            "kelly": {
+              "full": 0.40912510336916785,
+              "scaled": {
+                "0.66x": 0.2700225682236508
+              }
+            }
+          },
+          "under": {
+            "probability": 0.1889191846370688,
+            "odds": 2.14,
+            "fair_odds": 5.293268663640976,
+            "edge": -0.5957129448766727,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 215.5,
+          "label": "Moins de 215.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.793075452837166,
+            "odds": 1.52,
+            "fair_odds": 1.2609140737146478,
+            "edge": 0.20547468831249227,
+            "kelly": {
+              "full": 0.39514363137017744,
+              "scaled": {
+                "0.66x": 0.2607947967043171
+              }
+            }
+          },
+          "under": {
+            "probability": 0.20692454716283404,
+            "odds": 2.04,
+            "fair_odds": 4.832679417261574,
+            "edge": -0.5778739237878185,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 216.5,
+          "label": "Moins de 216.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.7740921705371381,
+            "odds": 1.57,
+            "fair_odds": 1.2918358279041962,
+            "edge": 0.21532470774330692,
+            "kelly": {
+              "full": 0.3777626451636963,
+              "scaled": {
+                "0.66x": 0.24932334580803955
+              }
+            }
+          },
+          "under": {
+            "probability": 0.22590782946286192,
+            "odds": 1.95,
+            "fair_odds": 4.426584073591814,
+            "edge": -0.5594797325474192,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 217.5,
+          "label": "Moins de 217.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.7541615545551796,
+            "odds": 1.63,
+            "fair_odds": 1.3259758389431837,
+            "edge": 0.2292833339249427,
+            "kelly": {
+              "full": 0.3639417998808615,
+              "scaled": {
+                "0.66x": 0.24020158792136861
+              }
+            }
+          },
+          "under": {
+            "probability": 0.24583844544482036,
+            "odds": 1.87,
+            "fair_odds": 4.067712021976867,
+            "edge": -0.5402821070181859,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 218.5,
+          "label": "Moins de 218.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.733323838512104,
+            "odds": 1.69,
+            "fair_odds": 1.3636540195242737,
+            "edge": 0.23931728708545585,
+            "kelly": {
+              "full": 0.34683664794993607,
+              "scaled": {
+                "0.66x": 0.2289121876469578
+              }
+            }
+          },
+          "under": {
+            "probability": 0.26667616148789597,
+            "odds": 1.79,
+            "fair_odds": 3.7498664838303837,
+            "edge": -0.5226496709366661,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 219.5,
+          "label": "Moins de 219.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.7116288467851214,
+            "odds": 1.76,
+            "fair_odds": 1.4052269023629858,
+            "edge": 0.25246677034181375,
+            "kelly": {
+              "full": 0.33219311887080755,
+              "scaled": {
+                "0.66x": 0.21924745845473298
+              }
+            }
+          },
+          "under": {
+            "probability": 0.2883711532148786,
+            "odds": 1.72,
+            "fair_odds": 3.4677532369364767,
+            "edge": -0.5040016164704089,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 220.5,
+          "label": "Moins de 220.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.6891357712748353,
+            "odds": 1.83,
+            "fair_odds": 1.4510928639651017,
+            "edge": 0.2611184614329487,
+            "kelly": {
+              "full": 0.31460055594331165,
+              "scaled": {
+                "0.66x": 0.2076363669225857
+              }
+            }
+          },
+          "under": {
+            "probability": 0.3108642287251647,
+            "odds": 1.66,
+            "fair_odds": 3.2168384381211665,
+            "edge": -0.4839653803162266,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 221.5,
+          "label": "Moins de 221.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.6659127792720536,
+            "odds": 1.91,
+            "fair_odds": 1.5016981669778973,
+            "edge": 0.2718934084096223,
+            "kelly": {
+              "full": 0.2987839652852992,
+              "scaled": {
+                "0.66x": 0.1971974170882975
+              }
+            }
+          },
+          "under": {
+            "probability": 0.3340872207279464,
+            "odds": 1.6,
+            "fair_odds": 2.993230324168308,
+            "edge": -0.46546044683528576,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 222.5,
+          "label": "Moins de 222.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.6420364541988991,
+            "odds": 1.99,
+            "fair_odds": 1.5575439579170778,
+            "edge": 0.2776525438558093,
+            "kelly": {
+              "full": 0.28045711500586795,
+              "scaled": {
+                "0.66x": 0.18510169590387285
+              }
+            }
+          },
+          "under": {
+            "probability": 0.3579635458011009,
+            "odds": 1.54,
+            "fair_odds": 2.79358055234943,
+            "edge": -0.44873613946630464,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 223.5,
+          "label": "Moins de 223.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.6175910753234464,
+            "odds": 2.09,
+            "fair_odds": 1.6191943827495847,
+            "edge": 0.2907653474260028,
+            "kelly": {
+              "full": 0.2667571994733971,
+              "scaled": {
+                "0.66x": 0.1760597516524421
+              }
+            }
+          },
+          "under": {
+            "probability": 0.38240892467655363,
+            "odds": 1.49,
+            "fair_odds": 2.61500173105482,
+            "edge": -0.43021070223193514,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 224.5,
+          "label": "Moins de 224.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.592667746840145,
+            "odds": 2.18,
+            "fair_odds": 1.6872860136755865,
+            "edge": 0.2920156881115161,
+            "kelly": {
+              "full": 0.24747092212840346,
+              "scaled": {
+                "0.66x": 0.1633308086047463
+              }
+            }
+          },
+          "under": {
+            "probability": 0.407332253159855,
+            "odds": 1.45,
+            "fair_odds": 2.4549983269003652,
+            "edge": -0.40936823291821023,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 225.5,
+          "label": "Moins de 225.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.567363390823197,
+            "odds": 2.29,
+            "fair_odds": 1.762538817580534,
+            "edge": 0.29926216498512104,
+            "kelly": {
+              "full": 0.23198617440707056,
+              "scaled": {
+                "0.66x": 0.15311087510866658
+              }
+            }
+          },
+          "under": {
+            "probability": 0.432636609176803,
+            "odds": 1.4,
+            "fair_odds": 2.3114086482481095,
+            "edge": -0.39430874715247577,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 226.5,
+          "label": "Moins de 226.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.5417796223528079,
+            "odds": 2.4,
+            "fair_odds": 1.8457689413589613,
+            "edge": 0.30027109364673876,
+            "kelly": {
+              "full": 0.2144793526048134,
+              "scaled": {
+                "0.66x": 0.14155637271917684
+              }
+            }
+          },
+          "under": {
+            "probability": 0.45822037764719215,
+            "odds": 1.36,
+            "fair_odds": 2.182356020774686,
+            "edge": -0.3768202863998187,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 227.5,
+          "label": "Moins de 227.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "bet_over",
+          "over": {
+            "probability": 0.516021528449244,
+            "odds": 2.52,
+            "fair_odds": 1.9379036432941388,
+            "edge": 0.30037425169209486,
+            "kelly": {
+              "full": 0.19761463927111503,
+              "scaled": {
+                "0.66x": 0.13042566191893593
+              }
+            }
+          },
+          "under": {
+            "probability": 0.483978471550756,
+            "odds": 1.33,
+            "fair_odds": 2.066207607945486,
+            "edge": -0.3563086328374945,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 228.5,
+          "label": "Moins de 228.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.49019637520577364,
+            "odds": 2.65,
+            "fair_odds": 2.0399987649444,
+            "edge": 0.29902039429530003,
+            "kelly": {
+              "full": 0.18122448139109093,
+              "scaled": {
+                "0.66x": 0.11960815771812001
+              }
+            }
+          },
+          "under": {
+            "probability": 0.5098036247942264,
+            "odds": 1.3,
+            "fair_odds": 1.9615396034181458,
+            "edge": -0.3372552877675057,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 229.5,
+          "label": "Moins de 229.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.46441226958744497,
+            "odds": 2.78,
+            "fair_odds": 2.153259217049407,
+            "edge": 0.29106610945309686,
+            "kelly": {
+              "full": 0.163520286209605,
+              "scaled": {
+                "0.66x": 0.1079233888983393
+              }
+            }
+          },
+          "under": {
+            "probability": 0.535587730412555,
+            "odds": 1.26,
+            "fair_odds": 1.867107745783712,
+            "edge": -0.3251594596801807,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 230.5,
+          "label": "Moins de 230.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.43877680368122574,
+            "odds": 2.95,
+            "fair_odds": 2.2790630489357104,
+            "edge": 0.2943915708596161,
+            "kelly": {
+              "full": 0.15097003633826464,
+              "scaled": {
+                "0.66x": 0.09964022398325467
+              }
+            }
+          },
+          "under": {
+            "probability": 0.5612231963187743,
+            "odds": 1.24,
+            "fair_odds": 1.7818222884572308,
+            "edge": -0.3040832365647199,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 231.5,
+          "label": "Moins de 231.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.4133957096950359,
+            "odds": 3.1,
+            "fair_odds": 2.4189897876243203,
+            "edge": 0.28152670005461133,
+            "kelly": {
+              "full": 0.13406033335933873,
+              "scaled": {
+                "0.66x": 0.08847982001716356
+              }
+            }
+          },
+          "under": {
+            "probability": 0.5866042903049641,
+            "odds": 1.21,
+            "fair_odds": 1.7047267067892047,
+            "edge": -0.29020880873099353,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        },
+        {
+          "pivot": 232.5,
+          "label": "Moins de 232.5",
+          "bookmaker": null,
+          "mean_total": 228.12042426690377,
+          "sigma": 15.444651253115765,
+          "recommendation": "watch",
+          "over": {
+            "probability": 0.3883715536894867,
+            "odds": 3.25,
+            "fair_odds": 2.5748538751103442,
+            "edge": 0.2622075494908318,
+            "kelly": {
+              "full": 0.11653668866259191,
+              "scaled": {
+                "0.66x": 0.07691421451731066
+              }
+            }
+          },
+          "under": {
+            "probability": 0.6116284463105133,
+            "odds": 1.19,
+            "fair_odds": 1.634979546867441,
+            "edge": -0.2721621488904893,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          }
+        }
+      ],
+      "summary": {
+        "recommended": [
+          {
+            "pivot": 227.5,
+            "label": "Moins de 227.5",
+            "bookmaker": null,
+            "side": "over",
+            "edge": 0.30037425169209486,
+            "probability": 0.516021528449244,
+            "kelly": 0.19761463927111503
+          }
+        ],
+        "safe": {
+          "over": {
+            "pivot": 227.5,
+            "label": "Moins de 227.5",
+            "bookmaker": null,
+            "side": "over",
+            "edge": 0.30037425169209486,
+            "probability": 0.516021528449244,
+            "kelly": 0.19761463927111503
+          },
+          "under": null,
+          "paired": {
+            "reason": "Aucune combinaison over/under ne dépasse la couverture minimale 1.50 avec l'edge requis."
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "ocr_payload": {
+      "success": true,
+      "matches": [
+        {
+          "home_team": "Philadelphia 76ers",
+          "away_team": "LA Clippers",
+          "match_date": "2025-11-18",
+          "markets": [
+            {
+              "label": "Moins de 207.5",
+              "pivot": 207.5,
+              "over_odds": 1.19,
+              "under_odds": 3.25
+            },
+            {
+              "label": "Moins de 208.5",
+              "pivot": 208.5,
+              "over_odds": 1.24,
+              "under_odds": 3.05
+            },
+            {
+              "label": "Moins de 209.5",
+              "pivot": 209.5,
+              "over_odds": 1.27,
+              "under_odds": 2.9
+            },
+            {
+              "label": "Moins de 210.5",
+              "pivot": 210.5,
+              "over_odds": 1.3,
+              "under_odds": 2.75
+            },
+            {
+              "label": "Moins de 211.5",
+              "pivot": 211.5,
+              "over_odds": 1.34,
+              "under_odds": 2.48
+            },
+            {
+              "label": "Moins de 212.5",
+              "pivot": 212.5,
+              "over_odds": 1.38,
+              "under_odds": 2.35
+            },
+            {
+              "label": "Moins de 213.5",
+              "pivot": 213.5,
+              "over_odds": 1.42,
+              "under_odds": 2.24
+            },
+            {
+              "label": "Moins de 214.5",
+              "pivot": 214.5,
+              "over_odds": 1.47,
+              "under_odds": 2.14
+            },
+            {
+              "label": "Moins de 215.5",
+              "pivot": 215.5,
+              "over_odds": 1.52,
+              "under_odds": 2.04
+            },
+            {
+              "label": "Moins de 216.5",
+              "pivot": 216.5,
+              "over_odds": 1.57,
+              "under_odds": 1.95
+            },
+            {
+              "label": "Moins de 217.5",
+              "pivot": 217.5,
+              "over_odds": 1.63,
+              "under_odds": 1.87
+            },
+            {
+              "label": "Moins de 218.5",
+              "pivot": 218.5,
+              "over_odds": 1.69,
+              "under_odds": 1.79
+            },
+            {
+              "label": "Moins de 219.5",
+              "pivot": 219.5,
+              "over_odds": 1.76,
+              "under_odds": 1.72
+            },
+            {
+              "label": "Moins de 220.5",
+              "pivot": 220.5,
+              "over_odds": 1.83,
+              "under_odds": 1.66
+            },
+            {
+              "label": "Moins de 221.5",
+              "pivot": 221.5,
+              "over_odds": 1.91,
+              "under_odds": 1.6
+            },
+            {
+              "label": "Moins de 222.5",
+              "pivot": 222.5,
+              "over_odds": 1.99,
+              "under_odds": 1.54
+            },
+            {
+              "label": "Moins de 223.5",
+              "pivot": 223.5,
+              "over_odds": 2.09,
+              "under_odds": 1.49
+            },
+            {
+              "label": "Moins de 224.5",
+              "pivot": 224.5,
+              "over_odds": 2.18,
+              "under_odds": 1.45
+            },
+            {
+              "label": "Moins de 225.5",
+              "pivot": 225.5,
+              "over_odds": 2.29,
+              "under_odds": 1.4
+            },
+            {
+              "label": "Moins de 226.5",
+              "pivot": 226.5,
+              "over_odds": 2.4,
+              "under_odds": 1.36
+            },
+            {
+              "label": "Moins de 227.5",
+              "pivot": 227.5,
+              "over_odds": 2.52,
+              "under_odds": 1.33
+            },
+            {
+              "label": "Moins de 228.5",
+              "pivot": 228.5,
+              "over_odds": 2.65,
+              "under_odds": 1.3
+            },
+            {
+              "label": "Moins de 229.5",
+              "pivot": 229.5,
+              "over_odds": 2.78,
+              "under_odds": 1.26
+            },
+            {
+              "label": "Moins de 230.5",
+              "pivot": 230.5,
+              "over_odds": 2.95,
+              "under_odds": 1.24
+            },
+            {
+              "label": "Moins de 231.5",
+              "pivot": 231.5,
+              "over_odds": 3.1,
+              "under_odds": 1.21
+            },
+            {
+              "label": "Moins de 232.5",
+              "pivot": 232.5,
+              "over_odds": 3.25,
+              "under_odds": 1.19
+            }
+          ]
+        }
+      ],
+      "notes": null,
+      "error": null
+    },
+    "screenshot": "data/mass_prediction_nba/screenshots/XGBhSozf.jpeg"
+  },
+  "model_path": "models:/point_total_stacking/Production",
+  "model_label": "registry models:/point_total_stacking/Production"
+}
