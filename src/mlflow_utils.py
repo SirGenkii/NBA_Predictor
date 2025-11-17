@@ -97,3 +97,60 @@ def get_latest_run_dir(
     )
     tracking_path = _resolve_tracking_path(tracking_uri)
     return tracking_path / run.info.experiment_id / run.info.run_id
+
+
+def iter_run_dirs(
+    *,
+    target: str,
+    experiment_name: Optional[str] = None,
+    tracking_uri: str = DEFAULT_TRACKING_URI,
+    filter_string: Optional[str] = None,
+    max_results: int = 50,
+):
+    mlflow.set_tracking_uri(tracking_uri)
+    client = MlflowClient()
+
+    filters = [f"params.target = '{target}'"]
+    if filter_string:
+        filters.append(filter_string)
+    filter_expr = " and ".join(filters)
+
+    tracking_path = _resolve_tracking_path(tracking_uri)
+    runs: list[Run] = []
+    for exp in _iter_experiments(client, experiment_name):
+        exp_runs = client.search_runs(
+            experiment_ids=[exp.experiment_id],
+            filter_string=filter_expr,
+            order_by=["attributes.start_time DESC"],
+            max_results=max_results,
+        )
+        runs.extend(exp_runs)
+
+    runs.sort(key=lambda r: r.info.start_time, reverse=True)
+    for run in runs:
+        yield tracking_path / run.info.experiment_id / run.info.run_id
+
+
+def find_run_dir_with_artifact(
+    *,
+    target: str,
+    experiment_name: Optional[str] = None,
+    tracking_uri: str = DEFAULT_TRACKING_URI,
+    filter_string: Optional[str] = None,
+    artifact_subdir: str = "model",
+    max_results: int = 50,
+) -> Path:
+    for run_dir in iter_run_dirs(
+        target=target,
+        experiment_name=experiment_name,
+        tracking_uri=tracking_uri,
+        filter_string=filter_string,
+        max_results=max_results,
+    ):
+        artifact_path = run_dir / "artifacts" / artifact_subdir
+        if artifact_path.exists():
+            return run_dir
+    raise ValueError(
+        f"No MLflow run with artifact '{artifact_subdir}' found for target='{target}' "
+        f"in experiment '{experiment_name or 'default'}'."
+    )

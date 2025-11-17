@@ -1,0 +1,5 @@
+{
+  "screenshot": "data/mass_prediction_nba/screenshots/TfgPTI14.jpeg",
+  "error": "Réponse JSON invalide : Expecting ',' delimiter: line 262 column 10 (char 6213) (dump: data/mass_prediction_nba/payloads/ocr_raw/2025-11-13/TfgPTI14_184122.txt)",
+  "recorded_at": "2025-11-13T18:41:22"
+}

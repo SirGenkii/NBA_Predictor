@@ -81,13 +81,16 @@ def match_rows_to_team_rows(
         base["IS_WIN"] = match_df.get(f"{prefix}IS_WIN", match_df["IS_WIN"])
 
         source_columns = include or _infer_feature_columns(match_df, prefix)
+        new_cols = {}
         for col in source_columns:
             src = f"{prefix}{col}"
             if src in match_df:
-                base[col] = match_df[src]
+                new_cols[col] = match_df[src]
             opp_src = f"{opp_prefix}{col}"
             if opp_src in match_df:
-                base[f"OPP_{col}"] = match_df[opp_src]
+                new_cols[f"OPP_{col}"] = match_df[opp_src]
+        if new_cols:
+            base = pd.concat([base, pd.DataFrame(new_cols)], axis=1)
 
         frames.append(base)
 
@@ -139,6 +142,7 @@ def add_diff_columns(
     df = match_df.copy()
     bases = limit_to if limit_to is not None else _derive_diff_bases(df.columns)
 
+    diff_columns = {}
     for base in bases:
         home_col = f"HOME_{base}"
         away_col = f"AWAY_{base}"
@@ -146,7 +150,10 @@ def add_diff_columns(
         if home_col in df.columns and away_col in df.columns:
             if not (is_numeric_dtype(df[home_col]) and is_numeric_dtype(df[away_col])):
                 continue
-            df[diff_col] = df[home_col] - df[away_col]
+            diff_columns[diff_col] = df[home_col] - df[away_col]
+
+    if diff_columns:
+        df = pd.concat([df, pd.DataFrame(diff_columns)], axis=1)
 
     return df
 

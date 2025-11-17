@@ -9,6 +9,7 @@ from feast.types import Bool, Float32, Int64
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SILVER_EXPORT_PATH = PROJECT_ROOT / "data" / "feast_sources" / "silver_latest.parquet"
+SILVER_DIR = PROJECT_ROOT / "data" / "02_silver"
 
 DEFAULT_EXCLUDE_COLUMNS: Set[str] = {
     "match_id",
@@ -35,12 +36,16 @@ def _dtype_to_feast_type(dtype) -> Optional[type]:
 
 
 def load_silver_dataframe(path: Path = SILVER_EXPORT_PATH) -> pd.DataFrame:
-    if not path.exists():
-        raise FileNotFoundError(
-            f"Feast silver export not found at {path}. Run "
-            "`python -m src.feast.pipeline ...` to generate it before applying Feast."
-        )
-    return pd.read_parquet(path)
+    target = path
+    if not target.exists():
+        # Fallback: pick the latest silver dataset from the standard directory.
+        candidates = sorted(SILVER_DIR.glob("silver_dataset_*.parquet"))
+        if not candidates:
+            raise FileNotFoundError(
+                f"No Feast export at {path} and no silver_dataset_*.parquet found in {SILVER_DIR}."
+            )
+        target = candidates[-1]
+    return pd.read_parquet(target)
 
 
 def infer_feature_fields(

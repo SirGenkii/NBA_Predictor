@@ -5,6 +5,7 @@ from typing import Dict, List, Optional
 
 import optuna
 
+from src.config import POINT_TOTAL_DEFAULT_MODELS
 from .config import DatasetConfig, TrainingConfig
 from .trainer import ModelTrainer
 
@@ -36,19 +37,33 @@ def _param_space(trial: optuna.trial.Trial, model_key: str, task_type: str) -> D
             "model__reg_alpha": trial.suggest_float("reg_alpha", 1e-8, 1e-1, log=True),
             "model__reg_lambda": trial.suggest_float("reg_lambda", 1e-8, 1e-1, log=True),
         }
-    if model_key == "ngboost":
+    # if model_key == "ngboost":
+    #     return {
+    #         "model__n_estimators": trial.suggest_int("n_estimators", 300, 1500, step=200),
+    #         "model__learning_rate": trial.suggest_float("learning_rate", 0.01, 0.2, log=True),
+    #         "model__minibatch_frac": trial.suggest_float("minibatch_frac", 0.5, 1.0),
+    #     }
+    if model_key == "catboost":
         return {
-            "model__n_estimators": trial.suggest_int("n_estimators", 300, 1500, step=200),
+            "model__depth": trial.suggest_int("depth", 6, 10),
             "model__learning_rate": trial.suggest_float("learning_rate", 0.01, 0.2, log=True),
-            "model__minibatch_frac": trial.suggest_float("minibatch_frac", 0.5, 1.0),
+            "model__l2_leaf_reg": trial.suggest_float("l2_leaf_reg", 1.0, 10.0),
+            "model__subsample": trial.suggest_float("subsample", 0.5, 1.0),
         }
-    if model_key == "stacking":
+    if model_key in {"stacking", "stacking_full"}:
         if task_type == "classification":
             return {
                 "final_estimator__C": trial.suggest_float("stack_C", 1e-3, 10.0, log=True),
             }
         return {
             "final_estimator__alpha": trial.suggest_float("stack_alpha", 1e-3, 10.0, log=True),
+        }
+    if model_key == "stacking_linear":
+        return {}
+    if model_key == "stacking_xgbmeta":
+        return {
+            "final_estimator__learning_rate": trial.suggest_float("stack_lr", 0.01, 0.2, log=True),
+            "final_estimator__max_depth": trial.suggest_int("stack_depth", 2, 5),
         }
     raise ValueError(f"No Optuna search space configured for model '{model_key}'.")
 
@@ -74,7 +89,9 @@ def tune_point_total(
     """
 
     trainer = ModelTrainer(dataset_cfg, training_cfg)
-    target_models = models or trainer.available_models()
+    available = trainer.available_models()
+    desired = models or POINT_TOTAL_DEFAULT_MODELS
+    target_models = [model for model in desired if model in available]
     return _run_tuning(trainer, target_models, n_trials=n_trials, metric=metric)
 
 

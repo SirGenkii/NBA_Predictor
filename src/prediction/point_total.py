@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import json
+import logging
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
-from typing import Iterable, List, Sequence
+from typing import Iterable, List, Optional, Sequence
 
 import mlflow
 import mlflow.sklearn
@@ -12,13 +13,17 @@ import numpy as np
 import pandas as pd
 from scipy.stats import norm
 
-from src.config import DATA_BRONZE_MATCHES_DIR
+from src.config import (
+    DATA_BRONZE_MATCHES_DIR,
+    MLFLOW_POINT_TOTAL_MODEL_NAME,
+    MLFLOW_POINT_TOTAL_MODEL_STAGE,
+)
 from src.datasets.base import run_pipeline
 from src.datasets.recipes import (
     DEFAULT_SILVER_FEATURE_STEPS,
     gold_steps_for_target,
 )
-from src.mlflow_utils import get_latest_run_dir
+from src.mlflow_utils import find_run_dir_with_artifact
 from src.modeling.config import DatasetConfig, TrainingConfig
 from src.modeling.data import load_dataset, prepare_features
 from src.modeling.builders import build_point_total_trainer, point_total_bundle
@@ -32,6 +37,7 @@ EXPERIMENT_NAME = "point_total_regression"
 STACKING_FILTER = "params.model_key = 'stacking'"
 BEST_PARAMS_PATH = Path("artifacts/point_total_best_params.json")
 PREDICTION_ID_COL = "__prediction_game_id"
+LOGGER = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)
@@ -42,6 +48,9 @@ class PredictionOutput:
     prediction: float
     sigma: float
     probabilities: dict
+    model_path: Optional[str]
+    model_bias: float
+    model_uncertainty: float
 
 
 def run_prediction_pipeline(
@@ -98,6 +107,9 @@ def run_prediction_pipeline(
             prediction=mean_val,
             sigma=float(sigma),
             probabilities=probs,
+            model_path=training_ref.model_path,
+            model_bias=training_ref.residual_mean,
+            model_uncertainty=training_ref.residual_std,
         )
     return [result_map[_prediction_game_id(req)] for req in requests]
 
@@ -106,12 +118,14 @@ def run_prediction_pipeline(
 class _TrainingReference:
     feature_names: List[str]
     residual_std: float
+    residual_mean: float
     model: object
+    model_path: Optional[str]
 
 
 @lru_cache(maxsize=1)
 def _training_reference() -> _TrainingReference:
-    trainer = build_point_total_trainer()
+    trainer = build_point_total_trainer(enable_registry=False)
     best_params = _load_best_params().get("stacking")
     return _fit_or_load_model(trainer, best_params)
 
@@ -172,7 +186,7 @@ def _prediction_game_id(req: PredictionRequest) -> str:
 
 def _build_trainer() -> ModelTrainer:
     # Deprecated alias kept for backward compatibility within this module.
-    return build_point_total_trainer()
+    return build_point_total_trainer(enable_registry=False)
 
 
 def _load_best_params() -> dict:
@@ -204,25 +218,48 @@ def _normalize_stacking_params(params: dict) -> dict:
 
 def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _TrainingReference:
     model = None
-    try:
-        run_dir = get_latest_run_dir(
-            target="POINT_TOTAL",
-            experiment_name=EXPERIMENT_NAME,
-            filter_string=STACKING_FILTER,
-        )
-        model = mlflow.sklearn.load_model(str(run_dir / "artifacts/model"))
-    except Exception:
-        model = None
+    model_path: Optional[str] = None
+
+    if MLFLOW_POINT_TOTAL_MODEL_NAME:
+        registry_uri = f"models:/{MLFLOW_POINT_TOTAL_MODEL_NAME}/{MLFLOW_POINT_TOTAL_MODEL_STAGE}"
+        try:
+            model = mlflow.sklearn.load_model(registry_uri)
+            model_path = registry_uri
+            LOGGER.info("Loaded point_total model from MLflow Registry (%s)", registry_uri)
+        except Exception as exc:  # noqa: BLE001
+            LOGGER.warning("Unable to load MLflow registry model (%s): %s", registry_uri, exc)
+            model = None
+
+    if model is None:
+        try:
+            run_dir = find_run_dir_with_artifact(
+                target="POINT_TOTAL",
+                experiment_name=EXPERIMENT_NAME,
+                filter_string=STACKING_FILTER,
+                artifact_subdir="model",
+                max_results=100,
+            )
+            model = mlflow.sklearn.load_model(str(run_dir / "artifacts/model"))
+            model_path = str(run_dir)
+            LOGGER.info("Loaded point_total model from MLflow run %s", model_path)
+        except Exception as exc:
+            LOGGER.warning("Unable to load MLflow point_total model from runs: %s", exc)
+            model = None
 
     if model is None:
         pipeline = trainer._build_model("stacking", overrides=overrides)
         pipeline.fit(trainer.X_train, trainer.y_train)
         model = pipeline
+        LOGGER.info("Trained point_total stacking model locally (no MLflow artifact).")
 
     preds = model.predict(trainer.X_train)
-    residual_std = float(np.std(trainer.y_train - preds))
+    residuals = trainer.y_train - preds
+    residual_std = float(np.std(residuals))
+    residual_mean = float(np.mean(residuals))
     return _TrainingReference(
         feature_names=trainer._feature_names,
         residual_std=residual_std,
+        residual_mean=residual_mean,
         model=model,
+        model_path=model_path,
     )

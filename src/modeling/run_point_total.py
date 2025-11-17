@@ -7,6 +7,7 @@ from typing import Dict, List, Optional
 
 import pandas as pd
 
+from src.config import POINT_TOTAL_DEFAULT_MODELS
 from src.modeling.builders import build_point_total_trainer, point_total_bundle
 from src.modeling.tuning import tune_point_total
 from src.modeling.trainer import ModelTrainer
@@ -44,6 +45,11 @@ def parse_args():
     )
     parser.add_argument("--skip-training", action="store_true", help="Skip final training phase.")
     parser.add_argument("--metric", default="rmse", help="Metric used during tuning.")
+    parser.add_argument(
+        "--register-prod",
+        action="store_true",
+        help="Register the configured production model in the MLflow registry after training.",
+    )
     return parser.parse_args()
 
 
@@ -54,15 +60,25 @@ def _normalize_stacking_params(params: Optional[Dict[str, float]]) -> Optional[D
     for key, value in params.items():
         if key in {"stack_alpha", "final_estimator__alpha"}:
             normalized["final_estimator__alpha"] = value
+        elif key in {"stack_depth", "final_estimator__max_depth"}:
+            normalized["final_estimator__max_depth"] = value
+        elif key in {"stack_lr", "final_estimator__learning_rate"}:
+            normalized["final_estimator__learning_rate"] = value
         else:
             normalized[key] = value
     return normalized
 
 
+def _filter_models(trainer: ModelTrainer, models: Optional[List[str]]) -> List[str]:
+    available = trainer.available_models()
+    desired = models or POINT_TOTAL_DEFAULT_MODELS
+    return [model for model in desired if model in available]
+
+
 def train_with_best_params(trainer: ModelTrainer, models: Optional[List[str]] = None) -> pd.DataFrame:
     cache = load_best_params()
     rows = []
-    target_models = models or trainer.available_models()
+    target_models = _filter_models(trainer, models)
     for model_key in target_models:
         overrides = cache.get(model_key, {}).get("params")
         if overrides and model_key == "stacking":
@@ -78,8 +94,8 @@ def train_with_best_params(trainer: ModelTrainer, models: Optional[List[str]] = 
 
 def main():
     args = parse_args()
-    bundle = point_total_bundle()
-    trainer = build_point_total_trainer()
+    bundle = point_total_bundle(enable_registry=args.register_prod)
+    trainer = build_point_total_trainer(enable_registry=args.register_prod)
 
     if args.tune:
         results = tune_point_total(

@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import os
 import subprocess
+import sys
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -101,6 +102,9 @@ def run_feast_materialize(
 def _run_feast_cmd(args: Sequence[str]) -> None:
     cmd = ["feast", *args]
     env = os.environ.copy()
+    # Inject the venv bin directory into PATH so `feast` is found even without activation.
+    python_bin = Path(sys.executable)
+    env["PATH"] = f"{python_bin.parent}:{env.get('PATH', '')}"
     existing = env.get("PYTHONPATH", "")
     repo_path = str(REPO_ROOT)
     if existing:

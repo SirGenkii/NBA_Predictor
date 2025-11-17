@@ -1,0 +1,1789 @@
+{
+  "run_id": "nba-run-20251113-183131-963954",
+  "created_at": "2025-11-13T18:31:31",
+  "matches": [
+    {
+      "match": {
+        "home": {
+          "team_id": 1610612739,
+          "name": "Cleveland Cavaliers",
+          "aliases": [
+            "CLE",
+            "Cavaliers",
+            "Cleveland",
+            "Cleveland Cavaliers",
+            "Cleveland Cavalierss"
+          ],
+          "input_name": "Cleveland Cavaliers"
+        },
+        "away": {
+          "team_id": 1610612761,
+          "name": "Toronto Raptors",
+          "aliases": [
+            "Raptors",
+            "TOR",
+            "Toronto",
+            "Toronto Raptors",
+            "Toronto Raptorss"
+          ],
+          "input_name": "Toronto Raptors"
+        },
+        "match_date": "2025-11-13",
+        "metadata": {
+          "match_time": "17:33",
+          "source": "ocr",
+          "overrides": {
+            "match_date": false,
+            "home_team": false,
+            "away_team": false
+          },
+          "team_dataset": "data/01_bronze/teams/nba_teams__2025-11-04_22-08-02.csv"
+        },
+        "markets": [
+          {
+            "pivot": 224.5,
+            "over_odds": 1.17,
+            "under_odds": 3.35,
+            "label": "Moins de 224.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 225.5,
+            "over_odds": 1.2,
+            "under_odds": 3.2,
+            "label": "Moins de 225.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 226.5,
+            "over_odds": 1.22,
+            "under_odds": 3.0,
+            "label": "Moins de 226.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 227.5,
+            "over_odds": 1.25,
+            "under_odds": 2.85,
+            "label": "Moins de 227.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 228.5,
+            "over_odds": 1.28,
+            "under_odds": 2.7,
+            "label": "Moins de 228.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 229.5,
+            "over_odds": 1.31,
+            "under_odds": 2.58,
+            "label": "Moins de 229.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 230.5,
+            "over_odds": 1.35,
+            "under_odds": 2.44,
+            "label": "Moins de 230.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 231.5,
+            "over_odds": 1.39,
+            "under_odds": 2.32,
+            "label": "Moins de 231.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 232.5,
+            "over_odds": 1.43,
+            "under_odds": 2.21,
+            "label": "Moins de 232.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 233.5,
+            "over_odds": 1.48,
+            "under_odds": 2.11,
+            "label": "Moins de 233.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 234.5,
+            "over_odds": 1.53,
+            "under_odds": 2.07,
+            "label": "Moins de 234.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 235.5,
+            "over_odds": 1.59,
+            "under_odds": 1.92,
+            "label": "Moins de 235.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 236.5,
+            "over_odds": 1.64,
+            "under_odds": 1.84,
+            "label": "Moins de 236.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 237.5,
+            "over_odds": 1.71,
+            "under_odds": 1.77,
+            "label": "Moins de 237.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 238.5,
+            "over_odds": 1.78,
+            "under_odds": 1.7,
+            "label": "Moins de 238.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 239.5,
+            "over_odds": 1.85,
+            "under_odds": 1.64,
+            "label": "Moins de 239.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 240.5,
+            "over_odds": 1.93,
+            "under_odds": 1.58,
+            "label": "Moins de 240.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 241.5,
+            "over_odds": 2.02,
+            "under_odds": 1.53,
+            "label": "Moins de 241.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 242.5,
+            "over_odds": 2.11,
+            "under_odds": 1.48,
+            "label": "Moins de 242.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 243.5,
+            "over_odds": 2.21,
+            "under_odds": 1.43,
+            "label": "Moins de 243.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 244.5,
+            "over_odds": 2.32,
+            "under_odds": 1.39,
+            "label": "Moins de 244.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 245.5,
+            "over_odds": 2.43,
+            "under_odds": 1.35,
+            "label": "Moins de 245.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 246.5,
+            "over_odds": 2.55,
+            "under_odds": 1.32,
+            "label": "Moins de 246.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 247.5,
+            "over_odds": 2.68,
+            "under_odds": 1.29,
+            "label": "Moins de 247.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 248.5,
+            "over_odds": 2.82,
+            "under_odds": 1.26,
+            "label": "Moins de 248.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 249.5,
+            "over_odds": 2.95,
+            "under_odds": 1.23,
+            "label": "Moins de 249.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          },
+          {
+            "pivot": 250.5,
+            "over_odds": 3.1,
+            "under_odds": 1.21,
+            "label": "Moins de 250.5",
+            "bookmaker": "Unibet",
+            "metadata": {
+              "bookmaker": "Unibet"
+            }
+          }
+        ],
+        "screenshot_path": "data/mass_prediction_nba/screenshots/XirNATkp.jpeg",
+        "raw_payload": {
+          "home_team": "Cleveland Cavaliers",
+          "away_team": "Toronto Raptors",
+          "match_date": "2025-11-13",
+          "match_time": "17:33",
+          "bookmaker": "Unibet",
+          "markets": [
+            {
+              "label": "Moins de 224.5",
+              "pivot": 224.5,
+              "over_odds": 1.17,
+              "under_odds": 3.35,
+              "notes": null
+            },
+            {
+              "label": "Moins de 225.5",
+              "pivot": 225.5,
+              "over_odds": 1.2,
+              "under_odds": 3.2,
+              "notes": null
+            },
+            {
+              "label": "Moins de 226.5",
+              "pivot": 226.5,
+              "over_odds": 1.22,
+              "under_odds": 3.0,
+              "notes": null
+            },
+            {
+              "label": "Moins de 227.5",
+              "pivot": 227.5,
+              "over_odds": 1.25,
+              "under_odds": 2.85,
+              "notes": null
+            },
+            {
+              "label": "Moins de 228.5",
+              "pivot": 228.5,
+              "over_odds": 1.28,
+              "under_odds": 2.7,
+              "notes": null
+            },
+            {
+              "label": "Moins de 229.5",
+              "pivot": 229.5,
+              "over_odds": 1.31,
+              "under_odds": 2.58,
+              "notes": null
+            },
+            {
+              "label": "Moins de 230.5",
+              "pivot": 230.5,
+              "over_odds": 1.35,
+              "under_odds": 2.44,
+              "notes": null
+            },
+            {
+              "label": "Moins de 231.5",
+              "pivot": 231.5,
+              "over_odds": 1.39,
+              "under_odds": 2.32,
+              "notes": null
+            },
+            {
+              "label": "Moins de 232.5",
+              "pivot": 232.5,
+              "over_odds": 1.43,
+              "under_odds": 2.21,
+              "notes": null
+            },
+            {
+              "label": "Moins de 233.5",
+              "pivot": 233.5,
+              "over_odds": 1.48,
+              "under_odds": 2.11,
+              "notes": null
+            },
+            {
+              "label": "Moins de 234.5",
+              "pivot": 234.5,
+              "over_odds": 1.53,
+              "under_odds": 2.07,
+              "notes": null
+            },
+            {
+              "label": "Moins de 235.5",
+              "pivot": 235.5,
+              "over_odds": 1.59,
+              "under_odds": 1.92,
+              "notes": null
+            },
+            {
+              "label": "Moins de 236.5",
+              "pivot": 236.5,
+              "over_odds": 1.64,
+              "under_odds": 1.84,
+              "notes": null
+            },
+            {
+              "label": "Moins de 237.5",
+              "pivot": 237.5,
+              "over_odds": 1.71,
+              "under_odds": 1.77,
+              "notes": null
+            },
+            {
+              "label": "Moins de 238.5",
+              "pivot": 238.5,
+              "over_odds": 1.78,
+              "under_odds": 1.7,
+              "notes": null
+            },
+            {
+              "label": "Moins de 239.5",
+              "pivot": 239.5,
+              "over_odds": 1.85,
+              "under_odds": 1.64,
+              "notes": null
+            },
+            {
+              "label": "Moins de 240.5",
+              "pivot": 240.5,
+              "over_odds": 1.93,
+              "under_odds": 1.58,
+              "notes": null
+            },
+            {
+              "label": "Moins de 241.5",
+              "pivot": 241.5,
+              "over_odds": 2.02,
+              "under_odds": 1.53,
+              "notes": null
+            },
+            {
+              "label": "Moins de 242.5",
+              "pivot": 242.5,
+              "over_odds": 2.11,
+              "under_odds": 1.48,
+              "notes": null
+            },
+            {
+              "label": "Moins de 243.5",
+              "pivot": 243.5,
+              "over_odds": 2.21,
+              "under_odds": 1.43,
+              "notes": null
+            },
+            {
+              "label": "Moins de 244.5",
+              "pivot": 244.5,
+              "over_odds": 2.32,
+              "under_odds": 1.39,
+              "notes": null
+            },
+            {
+              "label": "Moins de 245.5",
+              "pivot": 245.5,
+              "over_odds": 2.43,
+              "under_odds": 1.35,
+              "notes": null
+            },
+            {
+              "label": "Moins de 246.5",
+              "pivot": 246.5,
+              "over_odds": 2.55,
+              "under_odds": 1.32,
+              "notes": null
+            },
+            {
+              "label": "Moins de 247.5",
+              "pivot": 247.5,
+              "over_odds": 2.68,
+              "under_odds": 1.29,
+              "notes": null
+            },
+            {
+              "label": "Moins de 248.5",
+              "pivot": 248.5,
+              "over_odds": 2.82,
+              "under_odds": 1.26,
+              "notes": null
+            },
+            {
+              "label": "Moins de 249.5",
+              "pivot": 249.5,
+              "over_odds": 2.95,
+              "under_odds": 1.23,
+              "notes": null
+            },
+            {
+              "label": "Moins de 250.5",
+              "pivot": 250.5,
+              "over_odds": 3.1,
+              "under_odds": 1.21,
+              "notes": null
+            }
+          ]
+        }
+      },
+      "prediction": {
+        "mean_total": 185.98337430392792,
+        "sigma": 16.27734614149655,
+        "pivot_probabilities": {
+          "224.5": 0.008984122989954102,
+          "225.5": 0.007597308457736318,
+          "226.5": 0.0064025907359253065,
+          "227.5": 0.005377237282130132,
+          "228.5": 0.004500552915179035,
+          "229.5": 0.003753804522074078,
+          "230.5": 0.0031201293346100334,
+          "231.5": 0.0025844307758123852,
+          "232.5": 0.002133265543468932,
+          "233.5": 0.001754725225922571,
+          "234.5": 0.0014383153501892343,
+          "235.5": 0.0011748343588193766,
+          "236.5": 0.0009562546122416915,
+          "237.5": 0.0007756071279600985,
+          "238.5": 0.000626871405187357,
+          "239.5": 0.00050487134947097,
+          "240.5": 0.00040517801086270566,
+          "241.5": 0.0003240195837067583,
+          "242.5": 0.00025819888717215633,
+          "243.5": 0.00020501835290054338,
+          "244.5": 0.00016221238823510564,
+          "245.5": 0.00012788685825082524,
+          "246.5": 0.00010046533446517181,
+          "247.5": 7.864168951210448e-05,
+          "248.5": 6.133857186063629e-05,
+          "249.5": 4.767126944849043e-05,
+          "250.5": 3.6916462544334117e-05
+        }
+      },
+      "evaluations": [
+        {
+          "pivot": 224.5,
+          "label": "Moins de 224.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.008984122989954102,
+            "odds": 1.17,
+            "fair_odds": 111.30746997989492,
+            "edge": -0.9894885761017537,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9910158770100459,
+            "odds": 3.35,
+            "fair_odds": 1.009065569178427,
+            "edge": 2.319903187983654,
+            "kelly": {
+              "full": 0.9871928459504911,
+              "scaled": {
+                "0.66x": 0.6515472783273242
+              }
+            }
+          }
+        },
+        {
+          "pivot": 225.5,
+          "label": "Moins de 225.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.007597308457736318,
+            "odds": 1.2,
+            "fair_odds": 131.62556260062112,
+            "edge": -0.9908832298507164,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9924026915422637,
+            "odds": 3.2,
+            "fair_odds": 1.0076554694203113,
+            "edge": 2.175688612935244,
+            "kelly": {
+              "full": 0.9889493695160199,
+              "scaled": {
+                "0.66x": 0.6527065838805731
+              }
+            }
+          }
+        },
+        {
+          "pivot": 226.5,
+          "label": "Moins de 226.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.0064025907359253065,
+            "odds": 1.22,
+            "fair_odds": 156.18677520475302,
+            "edge": -0.9921888393021712,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9935974092640747,
+            "odds": 3.0,
+            "fair_odds": 1.006443848057804,
+            "edge": 1.9807922277922243,
+            "kelly": {
+              "full": 0.9903961138961122,
+              "scaled": {
+                "0.66x": 0.653661435171434
+              }
+            }
+          }
+        },
+        {
+          "pivot": 227.5,
+          "label": "Moins de 227.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.005377237282130132,
+            "odds": 1.25,
+            "fair_odds": 185.96910412029675,
+            "edge": -0.9932784533973373,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9946227627178699,
+            "odds": 2.85,
+            "fair_odds": 1.0054063082845968,
+            "edge": 1.834674873745929,
+            "kelly": {
+              "full": 0.9917161479707725,
+              "scaled": {
+                "0.66x": 0.6545326576607099
+              }
+            }
+          }
+        },
+        {
+          "pivot": 228.5,
+          "label": "Moins de 228.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.004500552915179146,
+            "odds": 1.28,
+            "fair_odds": 222.19492112341817,
+            "edge": -0.9942392922685707,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9954994470848209,
+            "odds": 2.7,
+            "fair_odds": 1.004520899462434,
+            "edge": 1.6878485071290164,
+            "kelly": {
+              "full": 0.9928520630170683,
+              "scaled": {
+                "0.66x": 0.6552823615912651
+              }
+            }
+          }
+        },
+        {
+          "pivot": 229.5,
+          "label": "Moins de 229.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.003753804522074078,
+            "odds": 1.31,
+            "fair_odds": 266.39639707383407,
+            "edge": -0.995082516076083,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9962461954779259,
+            "odds": 2.58,
+            "fair_odds": 1.003767948664811,
+            "edge": 1.5703151843330487,
+            "kelly": {
+              "full": 0.9938703698310435,
+              "scaled": {
+                "0.66x": 0.6559544440884887
+              }
+            }
+          }
+        },
+        {
+          "pivot": 230.5,
+          "label": "Moins de 230.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.0031201293346099224,
+            "odds": 1.35,
+            "fair_odds": 320.49953471721057,
+            "edge": -0.9957878253982766,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9968798706653901,
+            "odds": 2.44,
+            "fair_odds": 1.0031298950118506,
+            "edge": 1.4323868844235519,
+            "kelly": {
+              "full": 0.9947131141830222,
+              "scaled": {
+                "0.66x": 0.6565106553607947
+              }
+            }
+          }
+        },
+        {
+          "pivot": 231.5,
+          "label": "Moins de 231.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.0025844307758124963,
+            "odds": 1.39,
+            "fair_odds": 386.93239894793425,
+            "edge": -0.9964076412216206,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9974155692241875,
+            "odds": 2.32,
+            "fair_odds": 1.002591127365119,
+            "edge": 1.314004120600115,
+            "kelly": {
+              "full": 0.9954576671212993,
+              "scaled": {
+                "0.66x": 0.6570020603000576
+              }
+            }
+          }
+        },
+        {
+          "pivot": 232.5,
+          "label": "Moins de 232.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.002133265543468932,
+            "odds": 1.43,
+            "fair_odds": 468.7648957072107,
+            "edge": -0.9969494302728394,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9978667344565311,
+            "odds": 2.21,
+            "fair_odds": 1.0021378260942138,
+            "edge": 1.2052854831489337,
+            "kelly": {
+              "full": 0.9961037050817634,
+              "scaled": {
+                "0.66x": 0.6574284453539638
+              }
+            }
+          }
+        },
+        {
+          "pivot": 233.5,
+          "label": "Moins de 233.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.001754725225922682,
+            "odds": 1.48,
+            "fair_odds": 569.8897954089496,
+            "edge": -0.9974030066656344,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9982452747740773,
+            "odds": 2.11,
+            "fair_odds": 1.0017578096989437,
+            "edge": 1.106297529773303,
+            "kelly": {
+              "full": 0.9966644412372101,
+              "scaled": {
+                "0.66x": 0.6577985312165587
+              }
+            }
+          }
+        },
+        {
+          "pivot": 234.5,
+          "label": "Moins de 234.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.0014383153501892343,
+            "odds": 1.53,
+            "fair_odds": 695.257823583982,
+            "edge": -0.9977993775142104,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9985616846498108,
+            "odds": 2.07,
+            "fair_odds": 1.001440387081038,
+            "edge": 1.067022687225108,
+            "kelly": {
+              "full": 0.9972174646963629,
+              "scaled": {
+                "0.66x": 0.6581635266995995
+              }
+            }
+          }
+        },
+        {
+          "pivot": 235.5,
+          "label": "Moins de 235.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.0011748343588193766,
+            "odds": 1.59,
+            "fair_odds": 851.183822207011,
+            "edge": -0.9981320133694772,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9988251656411806,
+            "odds": 1.92,
+            "fair_odds": 1.0011762162180458,
+            "edge": 0.9177443180310667,
+            "kelly": {
+              "full": 0.9975481717728987,
+              "scaled": {
+                "0.66x": 0.6583817933701132
+              }
+            }
+          }
+        },
+        {
+          "pivot": 236.5,
+          "label": "Moins de 236.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.0009562546122416915,
+            "odds": 1.64,
+            "fair_odds": 1045.7465900799775,
+            "edge": -0.9984317424359236,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9990437453877583,
+            "odds": 1.84,
+            "fair_odds": 1.0009571699103832,
+            "edge": 0.8382404915134753,
+            "kelly": {
+              "full": 0.9979053470398516,
+              "scaled": {
+                "0.66x": 0.6586175290463021
+              }
+            }
+          }
+        },
+        {
+          "pivot": 237.5,
+          "label": "Moins de 237.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.0007756071279600985,
+            "odds": 1.71,
+            "fair_odds": 1289.3125449092645,
+            "edge": -0.9986737118111882,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9992243928720399,
+            "odds": 1.77,
+            "fair_odds": 1.0007762091613184,
+            "edge": 0.7686271753835106,
+            "kelly": {
+              "full": 0.9982171108876761,
+              "scaled": {
+                "0.66x": 0.6588232931858662
+              }
+            }
+          }
+        },
+        {
+          "pivot": 238.5,
+          "label": "Moins de 238.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.000626871405187357,
+            "odds": 1.78,
+            "fair_odds": 1595.2235047331976,
+            "edge": -0.9988841688987665,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9993731285948126,
+            "odds": 1.7,
+            "fair_odds": 1.0006272646194407,
+            "edge": 0.6989343186111814,
+            "kelly": {
+              "full": 0.9984775980159735,
+              "scaled": {
+                "0.66x": 0.6589952146905426
+              }
+            }
+          }
+        },
+        {
+          "pivot": 239.5,
+          "label": "Moins de 239.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.000504871349471081,
+            "odds": 1.85,
+            "fair_odds": 1980.70261076932,
+            "edge": -0.9990659880034785,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9994951286505289,
+            "odds": 1.64,
+            "fair_odds": 1.000505126373305,
+            "edge": 0.6391720109868673,
+            "kelly": {
+              "full": 0.9987062671669803,
+              "scaled": {
+                "0.66x": 0.659146136330207
+              }
+            }
+          }
+        },
+        {
+          "pivot": 240.5,
+          "label": "Moins de 240.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.00040517801086270566,
+            "odds": 1.93,
+            "fair_odds": 2468.0510126173886,
+            "edge": -0.999218006439035,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9995948219891373,
+            "odds": 1.58,
+            "fair_odds": 1.000405342246628,
+            "edge": 0.579359818742837,
+            "kelly": {
+              "full": 0.9988962392117878,
+              "scaled": {
+                "0.66x": 0.65927151787978
+              }
+            }
+          }
+        },
+        {
+          "pivot": 241.5,
+          "label": "Moins de 241.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.0003240195837067583,
+            "odds": 2.02,
+            "fair_odds": 3086.233210227849,
+            "edge": -0.9993454804409123,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9996759804162932,
+            "odds": 1.53,
+            "fair_odds": 1.0003241246064267,
+            "edge": 0.5295042500369287,
+            "kelly": {
+              "full": 0.9990646227111861,
+              "scaled": {
+                "0.66x": 0.6593826509893829
+              }
+            }
+          }
+        },
+        {
+          "pivot": 242.5,
+          "label": "Moins de 242.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.00025819888717215633,
+            "odds": 2.11,
+            "fair_odds": 3872.9833848324893,
+            "edge": -0.9994552003480668,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9997418011128278,
+            "odds": 1.48,
+            "fair_odds": 1.0002582655710552,
+            "edge": 0.47961786564698516,
+            "kelly": {
+              "full": 0.9992038867645524,
+              "scaled": {
+                "0.66x": 0.6594745652646046
+              }
+            }
+          }
+        },
+        {
+          "pivot": 243.5,
+          "label": "Moins de 243.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.00020501835290054338,
+            "odds": 2.21,
+            "fair_odds": 4877.6121057079745,
+            "edge": -0.9995469094400898,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9997949816470995,
+            "odds": 1.43,
+            "fair_odds": 1.0002050603940447,
+            "edge": 0.4297068237553521,
+            "kelly": {
+              "full": 0.9993181947798887,
+              "scaled": {
+                "0.66x": 0.6595500085547266
+              }
+            }
+          }
+        },
+        {
+          "pivot": 244.5,
+          "label": "Moins de 244.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.00016221238823510564,
+            "odds": 2.32,
+            "fair_odds": 6164.757272118026,
+            "edge": -0.9996236672592945,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9998377876117649,
+            "odds": 1.39,
+            "fair_odds": 1.000162238705363,
+            "edge": 0.389774524780353,
+            "kelly": {
+              "full": 0.9994218584111618,
+              "scaled": {
+                "0.66x": 0.6596184265513668
+              }
+            }
+          }
+        },
+        {
+          "pivot": 245.5,
+          "label": "Moins de 245.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.00012788685825082524,
+            "odds": 2.43,
+            "fair_odds": 7819.411733758398,
+            "edge": -0.9996892349344505,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9998721131417492,
+            "odds": 1.35,
+            "fair_odds": 1.0001279032153911,
+            "edge": 0.34982735274136156,
+            "kelly": {
+              "full": 0.9995067221181756,
+              "scaled": {
+                "0.66x": 0.659674436597996
+              }
+            }
+          }
+        },
+        {
+          "pivot": 246.5,
+          "label": "Moins de 246.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 0.00010046533446517181,
+            "odds": 2.55,
+            "fair_odds": 9953.682086696967,
+            "edge": -0.9997438133971138,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9998995346655348,
+            "odds": 1.32,
+            "fair_odds": 1.0001004754287628,
+            "edge": 0.31986738575850593,
+            "kelly": {
+              "full": 0.9995855804953309,
+              "scaled": {
+                "0.66x": 0.6597264831269184
+              }
+            }
+          }
+        },
+        {
+          "pivot": 247.5,
+          "label": "Moins de 247.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 7.864168951221551e-05,
+            "odds": 2.68,
+            "fair_odds": 12715.901784443082,
+            "edge": -0.9997892402721072,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9999213583104878,
+            "odds": 1.29,
+            "fair_odds": 1.0000786478745138,
+            "edge": 0.2898985522205293,
+            "kelly": {
+              "full": 0.9996501800707905,
+              "scaled": {
+                "0.66x": 0.6597691188467217
+              }
+            }
+          }
+        },
+        {
+          "pivot": 248.5,
+          "label": "Moins de 248.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 6.133857186063629e-05,
+            "odds": 2.82,
+            "fair_odds": 16302.955378094559,
+            "edge": -0.999827025227353,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9999386614281394,
+            "odds": 1.26,
+            "fair_odds": 1.000061342334512,
+            "edge": 0.2599227133994555,
+            "kelly": {
+              "full": 0.9997027438440595,
+              "scaled": {
+                "0.66x": 0.6598038109370793
+              }
+            }
+          }
+        },
+        {
+          "pivot": 249.5,
+          "label": "Moins de 249.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 4.767126944849043e-05,
+            "odds": 2.95,
+            "fair_odds": 20976.995401402433,
+            "edge": -0.9998593697551269,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9999523287305515,
+            "odds": 1.23,
+            "fair_odds": 1.0000476735421067,
+            "edge": 0.22994136433857837,
+            "kelly": {
+              "full": 0.9997450623416452,
+              "scaled": {
+                "0.66x": 0.6598317411454858
+              }
+            }
+          }
+        },
+        {
+          "pivot": 250.5,
+          "label": "Moins de 250.5",
+          "bookmaker": "Unibet",
+          "mean_total": 185.98337430392792,
+          "sigma": 16.27734614149655,
+          "recommendation": "bet_under",
+          "over": {
+            "probability": 3.691646254444514e-05,
+            "odds": 3.1,
+            "fair_odds": 27088.18589527807,
+            "edge": -0.9998855589661122,
+            "kelly": {
+              "full": 0.0,
+              "scaled": {
+                "0.66x": 0.0
+              }
+            }
+          },
+          "under": {
+            "probability": 0.9999630835374556,
+            "odds": 1.21,
+            "fair_odds": 1.00003691782542,
+            "edge": 0.20995533108032127,
+            "kelly": {
+              "full": 0.9997872908586729,
+              "scaled": {
+                "0.66x": 0.6598596119667242
+              }
+            }
+          }
+        }
+      ],
+      "summary": {
+        "recommended": [
+          {
+            "pivot": 224.5,
+            "side": "under",
+            "label": "Moins de 224.5",
+            "edge": 2.319903187983654
+          },
+          {
+            "pivot": 225.5,
+            "side": "under",
+            "label": "Moins de 225.5",
+            "edge": 2.175688612935244
+          },
+          {
+            "pivot": 226.5,
+            "side": "under",
+            "label": "Moins de 226.5",
+            "edge": 1.9807922277922243
+          },
+          {
+            "pivot": 227.5,
+            "side": "under",
+            "label": "Moins de 227.5",
+            "edge": 1.834674873745929
+          },
+          {
+            "pivot": 228.5,
+            "side": "under",
+            "label": "Moins de 228.5",
+            "edge": 1.6878485071290164
+          },
+          {
+            "pivot": 229.5,
+            "side": "under",
+            "label": "Moins de 229.5",
+            "edge": 1.5703151843330487
+          },
+          {
+            "pivot": 230.5,
+            "side": "under",
+            "label": "Moins de 230.5",
+            "edge": 1.4323868844235519
+          },
+          {
+            "pivot": 231.5,
+            "side": "under",
+            "label": "Moins de 231.5",
+            "edge": 1.314004120600115
+          },
+          {
+            "pivot": 232.5,
+            "side": "under",
+            "label": "Moins de 232.5",
+            "edge": 1.2052854831489337
+          },
+          {
+            "pivot": 233.5,
+            "side": "under",
+            "label": "Moins de 233.5",
+            "edge": 1.106297529773303
+          },
+          {
+            "pivot": 234.5,
+            "side": "under",
+            "label": "Moins de 234.5",
+            "edge": 1.067022687225108
+          },
+          {
+            "pivot": 235.5,
+            "side": "under",
+            "label": "Moins de 235.5",
+            "edge": 0.9177443180310667
+          },
+          {
+            "pivot": 236.5,
+            "side": "under",
+            "label": "Moins de 236.5",
+            "edge": 0.8382404915134753
+          },
+          {
+            "pivot": 237.5,
+            "side": "under",
+            "label": "Moins de 237.5",
+            "edge": 0.7686271753835106
+          },
+          {
+            "pivot": 238.5,
+            "side": "under",
+            "label": "Moins de 238.5",
+            "edge": 0.6989343186111814
+          },
+          {
+            "pivot": 239.5,
+            "side": "under",
+            "label": "Moins de 239.5",
+            "edge": 0.6391720109868673
+          },
+          {
+            "pivot": 240.5,
+            "side": "under",
+            "label": "Moins de 240.5",
+            "edge": 0.579359818742837
+          },
+          {
+            "pivot": 241.5,
+            "side": "under",
+            "label": "Moins de 241.5",
+            "edge": 0.5295042500369287
+          },
+          {
+            "pivot": 242.5,
+            "side": "under",
+            "label": "Moins de 242.5",
+            "edge": 0.47961786564698516
+          },
+          {
+            "pivot": 243.5,
+            "side": "under",
+            "label": "Moins de 243.5",
+            "edge": 0.4297068237553521
+          },
+          {
+            "pivot": 244.5,
+            "side": "under",
+            "label": "Moins de 244.5",
+            "edge": 0.389774524780353
+          },
+          {
+            "pivot": 245.5,
+            "side": "under",
+            "label": "Moins de 245.5",
+            "edge": 0.34982735274136156
+          },
+          {
+            "pivot": 246.5,
+            "side": "under",
+            "label": "Moins de 246.5",
+            "edge": 0.31986738575850593
+          },
+          {
+            "pivot": 247.5,
+            "side": "under",
+            "label": "Moins de 247.5",
+            "edge": 0.2898985522205293
+          },
+          {
+            "pivot": 248.5,
+            "side": "under",
+            "label": "Moins de 248.5",
+            "edge": 0.2599227133994555
+          },
+          {
+            "pivot": 249.5,
+            "side": "under",
+            "label": "Moins de 249.5",
+            "edge": 0.22994136433857837
+          },
+          {
+            "pivot": 250.5,
+            "side": "under",
+            "label": "Moins de 250.5",
+            "edge": 0.20995533108032127
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "ocr_payload": {
+      "success": true,
+      "matches": [
+        {
+          "home_team": "Cleveland Cavaliers",
+          "away_team": "Toronto Raptors",
+          "match_date": "2025-11-13",
+          "match_time": "17:33",
+          "bookmaker": "Unibet",
+          "markets": [
+            {
+              "label": "Moins de 224.5",
+              "pivot": 224.5,
+              "over_odds": 1.17,
+              "under_odds": 3.35,
+              "notes": null
+            },
+            {
+              "label": "Moins de 225.5",
+              "pivot": 225.5,
+              "over_odds": 1.2,
+              "under_odds": 3.2,
+              "notes": null
+            },
+            {
+              "label": "Moins de 226.5",
+              "pivot": 226.5,
+              "over_odds": 1.22,
+              "under_odds": 3.0,
+              "notes": null
+            },
+            {
+              "label": "Moins de 227.5",
+              "pivot": 227.5,
+              "over_odds": 1.25,
+              "under_odds": 2.85,
+              "notes": null
+            },
+            {
+              "label": "Moins de 228.5",
+              "pivot": 228.5,
+              "over_odds": 1.28,
+              "under_odds": 2.7,
+              "notes": null
+            },
+            {
+              "label": "Moins de 229.5",
+              "pivot": 229.5,
+              "over_odds": 1.31,
+              "under_odds": 2.58,
+              "notes": null
+            },
+            {
+              "label": "Moins de 230.5",
+              "pivot": 230.5,
+              "over_odds": 1.35,
+              "under_odds": 2.44,
+              "notes": null
+            },
+            {
+              "label": "Moins de 231.5",
+              "pivot": 231.5,
+              "over_odds": 1.39,
+              "under_odds": 2.32,
+              "notes": null
+            },
+            {
+              "label": "Moins de 232.5",
+              "pivot": 232.5,
+              "over_odds": 1.43,
+              "under_odds": 2.21,
+              "notes": null
+            },
+            {
+              "label": "Moins de 233.5",
+              "pivot": 233.5,
+              "over_odds": 1.48,
+              "under_odds": 2.11,
+              "notes": null
+            },
+            {
+              "label": "Moins de 234.5",
+              "pivot": 234.5,
+              "over_odds": 1.53,
+              "under_odds": 2.07,
+              "notes": null
+            },
+            {
+              "label": "Moins de 235.5",
+              "pivot": 235.5,
+              "over_odds": 1.59,
+              "under_odds": 1.92,
+              "notes": null
+            },
+            {
+              "label": "Moins de 236.5",
+              "pivot": 236.5,
+              "over_odds": 1.64,
+              "under_odds": 1.84,
+              "notes": null
+            },
+            {
+              "label": "Moins de 237.5",
+              "pivot": 237.5,
+              "over_odds": 1.71,
+              "under_odds": 1.77,
+              "notes": null
+            },
+            {
+              "label": "Moins de 238.5",
+              "pivot": 238.5,
+              "over_odds": 1.78,
+              "under_odds": 1.7,
+              "notes": null
+            },
+            {
+              "label": "Moins de 239.5",
+              "pivot": 239.5,
+              "over_odds": 1.85,
+              "under_odds": 1.64,
+              "notes": null
+            },
+            {
+              "label": "Moins de 240.5",
+              "pivot": 240.5,
+              "over_odds": 1.93,
+              "under_odds": 1.58,
+              "notes": null
+            },
+            {
+              "label": "Moins de 241.5",
+              "pivot": 241.5,
+              "over_odds": 2.02,
+              "under_odds": 1.53,
+              "notes": null
+            },
+            {
+              "label": "Moins de 242.5",
+              "pivot": 242.5,
+              "over_odds": 2.11,
+              "under_odds": 1.48,
+              "notes": null
+            },
+            {
+              "label": "Moins de 243.5",
+              "pivot": 243.5,
+              "over_odds": 2.21,
+              "under_odds": 1.43,
+              "notes": null
+            },
+            {
+              "label": "Moins de 244.5",
+              "pivot": 244.5,
+              "over_odds": 2.32,
+              "under_odds": 1.39,
+              "notes": null
+            },
+            {
+              "label": "Moins de 245.5",
+              "pivot": 245.5,
+              "over_odds": 2.43,
+              "under_odds": 1.35,
+              "notes": null
+            },
+            {
+              "label": "Moins de 246.5",
+              "pivot": 246.5,
+              "over_odds": 2.55,
+              "under_odds": 1.32,
+              "notes": null
+            },
+            {
+              "label": "Moins de 247.5",
+              "pivot": 247.5,
+              "over_odds": 2.68,
+              "under_odds": 1.29,
+              "notes": null
+            },
+            {
+              "label": "Moins de 248.5",
+              "pivot": 248.5,
+              "over_odds": 2.82,
+              "under_odds": 1.26,
+              "notes": null
+            },
+            {
+              "label": "Moins de 249.5",
+              "pivot": 249.5,
+              "over_odds": 2.95,
+              "under_odds": 1.23,
+              "notes": null
+            },
+            {
+              "label": "Moins de 250.5",
+              "pivot": 250.5,
+              "over_odds": 3.1,
+              "under_odds": 1.21,
+              "notes": null
+            }
+          ]
+        }
+      ],
+      "notes": null,
+      "error": null
+    },
+    "screenshot": "data/mass_prediction_nba/screenshots/XirNATkp.jpeg"
+  }
+}

@@ -3,7 +3,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Tuple
 
-from src.config import DATA_SILVER_DIR
+from src.config import (
+    DATA_SILVER_DIR,
+    MLFLOW_POINT_TOTAL_MODEL_NAME,
+    MLFLOW_POINT_TOTAL_MODEL_STAGE,
+    POINT_TOTAL_DEFAULT_MODELS,
+    POINT_TOTAL_PRODUCTION_MODEL_KEY,
+)
 from .config import DatasetConfig, TrainingConfig
 from .trainer import ModelTrainer
 
@@ -14,11 +20,13 @@ class TrainerBundle:
     training: TrainingConfig
 
 
-def point_total_bundle() -> TrainerBundle:
+def point_total_bundle(*, enable_registry: bool = False) -> TrainerBundle:
     dataset_cfg = DatasetConfig(
         target="POINT_TOTAL",
         gold_dir=DATA_SILVER_DIR,
         gold_pattern="silver_dataset_*.parquet",
+        # Keep all Feast features (numeric) and let Feast/schema_loader drop only true leaks/IDs.
+        drop_columns=[],
         use_feast=True,
         feast_feature_service="point_total_service",
     )
@@ -34,12 +42,15 @@ def point_total_bundle() -> TrainerBundle:
         enable_learning_curve=False,
         enable_sigma_model=True,
         min_sigma=6.0,
+        registry_model_name=MLFLOW_POINT_TOTAL_MODEL_NAME if enable_registry else None,
+        registry_stage=MLFLOW_POINT_TOTAL_MODEL_STAGE,
+        production_model_key=POINT_TOTAL_PRODUCTION_MODEL_KEY if enable_registry else None,
     )
     return TrainerBundle(dataset=dataset_cfg, training=training_cfg)
 
 
-def build_point_total_trainer() -> ModelTrainer:
-    bundle = point_total_bundle()
+def build_point_total_trainer(*, enable_registry: bool = False) -> ModelTrainer:
+    bundle = point_total_bundle(enable_registry=enable_registry)
     return ModelTrainer(bundle.dataset, bundle.training)
 
 

@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 
@@ -184,3 +185,40 @@ DATA_GRID_SIMULATIONS_BETS_DIR = DATA_ROOT / "grid_simulations"
 
 ERROR_LOG_FOLDER = Path("logs")
 BOXSCORES_SCRAPPING_LOG_FILE = ERROR_LOG_FOLDER / "boxscores_scrapping.log"
+
+
+# NBA mass prediction configuration
+NBA_MASS_PREDICTION_DIR = DATA_ROOT / "mass_prediction_nba"
+NBA_MASS_SCREENSHOT_DIR = NBA_MASS_PREDICTION_DIR / "screenshots"
+NBA_MASS_SCREENSHOT_PROCESSED_DIR = NBA_MASS_SCREENSHOT_DIR / "processed"
+NBA_MASS_SCREENSHOT_ERROR_DIR = NBA_MASS_SCREENSHOT_DIR / "error"
+NBA_MASS_LOG_DIR = NBA_MASS_PREDICTION_DIR / "logs"
+NBA_MASS_RUNS_DIR = NBA_MASS_PREDICTION_DIR / "runs"
+NBA_MASS_PAYLOAD_DIR = NBA_MASS_PREDICTION_DIR / "payloads"
+NBA_MASS_PREDICTIONS_CSV = NBA_MASS_PREDICTION_DIR / "predictions_log.csv"
+NBA_MASS_DEFAULT_MAX_WORKERS = int(os.getenv("NBA_MASS_DEFAULT_MAX_WORKERS", 2))
+
+NBA_OCR_OPENAI_MODEL = os.getenv("NBA_OCR_OPENAI_MODEL", "gpt-4o-mini")
+NBA_OCR_OPENAI_API_KEY = os.getenv("NBA_OCR_OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
+
+NBA_MASS_EDGE_THRESHOLD = float(os.getenv("NBA_MASS_EDGE_THRESHOLD", 0.01))
+NBA_MASS_KELLY_SCALING = float(os.getenv("NBA_MASS_KELLY_SCALING", 0.66))
+NBA_MASS_SAFE_COVERAGE = float(os.getenv("NBA_MASS_SAFE_COVERAGE", 1.5))
+NBA_MASS_UNCERTAINTY_SCALE = float(os.getenv("NBA_MASS_UNCERTAINTY_SCALE", 50.0))
+
+MLFLOW_POINT_TOTAL_MODEL_NAME = os.getenv("MLFLOW_POINT_TOTAL_MODEL_NAME", "point_total_stacking")
+MLFLOW_POINT_TOTAL_MODEL_STAGE = os.getenv("MLFLOW_POINT_TOTAL_MODEL_STAGE", "Production")
+POINT_TOTAL_PRODUCTION_MODEL_KEY = os.getenv("POINT_TOTAL_PRODUCTION_MODEL_KEY", "catboost")
+#_POINT_TOTAL_MODELS = os.getenv(
+#    "POINT_TOTAL_MODELS",
+#    "lgbm,xgb,ngboost,catboost,stacking,stacking_full,stacking_linear,stacking_xgbmeta",
+#)
+
+_POINT_TOTAL_MODELS = os.getenv(
+    "POINT_TOTAL_MODELS",
+    # Keep the default set focused on the strongest models; stacking_full is the prod target.
+    # ngboost temporairement désactivé pour tuning/production.
+    #"lgbm,xgb,catboost,stacking_full",
+    "lgbm,xgb,catboost",
+)
+POINT_TOTAL_DEFAULT_MODELS = [model.strip() for model in _POINT_TOTAL_MODELS.split(",") if model.strip()]

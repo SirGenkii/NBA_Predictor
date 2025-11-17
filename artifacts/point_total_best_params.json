@@ -1,38 +1,64 @@
 {
-  "lgbm": {
-    "metric": 21.677618818802664,
+  "catboost": {
+    "metric": 18.040247905088375,
     "params": {
-      "colsample_bytree": 0.9490028505622151,
-      "learning_rate": 0.011951251319248029,
-      "n_estimators": 1000,
-      "num_leaves": 49,
-      "subsample": 0.6550541832432322
+      "depth": 10,
+      "l2_leaf_reg": 8.990342670760363,
+      "learning_rate": 0.03403429708074992,
+      "subsample": 0.8926905410412753
+    }
+  },
+  "lgbm": {
+    "metric": 18.232094514467917,
+    "params": {
+      "colsample_bytree": 0.9510441813802453,
+      "learning_rate": 0.04216097641539405,
+      "n_estimators": 1400,
+      "num_leaves": 211,
+      "subsample": 0.7911324118800371
     }
   },
   "ngboost": {
-    "metric": 21.820588378448004,
+    "metric": 21.574922253550298,
     "params": {
-      "learning_rate": 0.0593888799643802,
-      "minibatch_frac": 0.9103135104287114,
-      "n_estimators": 1300
+      "learning_rate": 0.05172108258037665,
+      "minibatch_frac": 0.7235269880069297,
+      "n_estimators": 1100
     }
   },
   "stacking": {
-    "metric": 21.645479758036807,
+    "metric": 21.358158578550356,
     "params": {
-      "final_estimator__alpha": 0.008055047549037757
+      "stack_alpha": 4.340062057444679
+    }
+  },
+  "stacking_full": {
+    "metric": 21.35334971743514,
+    "params": {
+      "stack_alpha": 3.1006932115117114
+    }
+  },
+  "stacking_linear": {
+    "metric": 21.358812550822062,
+    "params": {}
+  },
+  "stacking_xgbmeta": {
+    "metric": 21.43751708271914,
+    "params": {
+      "stack_depth": 3,
+      "stack_lr": 0.09729643842834153
     }
   },
   "xgb": {
-    "metric": 21.866634142471565,
+    "metric": 18.31300827206323,
     "params": {
-      "colsample_bytree": 0.6666627249165662,
-      "learning_rate": 0.029623988528859776,
-      "max_depth": 5,
+      "colsample_bytree": 0.6957627669483172,
+      "learning_rate": 0.053860018170965196,
+      "max_depth": 7,
       "n_estimators": 1600,
-      "reg_alpha": 0.052952888818049805,
-      "reg_lambda": 3.1724072480883e-08,
-      "subsample": 0.6176512754046953
+      "reg_alpha": 3.4052133147221157e-06,
+      "reg_lambda": 1.2377034319415777e-05,
+      "subsample": 0.9922271348661864
     }
   }
 }

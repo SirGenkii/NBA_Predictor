@@ -90,6 +90,10 @@ class TrainingConfig:
     pivot_values: Optional[List[float]] = None
     enable_sigma_model: bool = True
     min_sigma: float = 5.0
+    registry_model_name: Optional[str] = None
+    registry_stage: str = "Production"
+    registry_archive_existing: bool = True
+    production_model_key: Optional[str] = None
 
 
 @dataclass

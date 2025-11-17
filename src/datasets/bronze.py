@@ -65,7 +65,12 @@ def load_games_dataframe(path: Optional[Path] = None) -> pd.DataFrame:
     csv_path = _resolve_path(path, DATA_BRONZE_GAMES_DIR)
     df = pd.read_csv(csv_path)
     df["GAME_ID"] = df["GAME_ID"].astype(str)
-    df["TEAM_ID"] = df["TEAM_ID"].astype(str)
+    # TEAM_ID can come in as float (e.g., 1610612738.0); normalize to integer-like strings.
+    df["TEAM_ID"] = (
+        pd.to_numeric(df["TEAM_ID"], errors="coerce")
+        .astype("Int64")
+        .astype(str)
+    )
     df["GAME_DATE"] = pd.to_datetime(df["GAME_DATE"])
     df["SEASON"] = df["SEASON"].astype(str)
     df["IS_HOME"] = df["MATCHUP"].str.contains("vs").astype(int)

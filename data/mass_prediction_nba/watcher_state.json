@@ -1,0 +1,8 @@
+{
+  "state": "running",
+  "written_at": "2025-11-18T00:15:44",
+  "pid": 172467,
+  "started_at": "2025-11-17T23:15:44.734576+00:00",
+  "engine": "nba_mass_prediction",
+  "heartbeat": "2025-11-17T23:15:44.734576+00:00"
+}

@@ -36,24 +36,27 @@ def compute_rolling_features(df, group_col, sort_cols, value_cols, windows, meth
         pd.DataFrame enrichi.
     """
     df = df.sort_values(sort_cols).copy()
+    new_columns = {}
+
+    grouped = df.groupby(group_col)
 
     for col in value_cols:
         for window in windows:
             roll_col = f"ROLL_{col}_{window}"
             if method == "ewm":
-                df[roll_col] = (
-                    df.groupby(group_col)[col]
-                    .transform(lambda x: x.shift(1).ewm(span=window, min_periods=1).mean())
+                values = grouped[col].transform(
+                    lambda x, span=window: x.shift(1).ewm(span=span, min_periods=1).mean()
                 )
             else:
-                df[roll_col] = (
-                    df.groupby(group_col)[col]
-                    .transform(lambda x: x.shift(1).rolling(window, min_periods=1).mean())
+                values = grouped[col].transform(
+                    lambda x, w=window: x.shift(1).rolling(w, min_periods=1).mean()
                 )
-
             if apply_log:
-                # On remplace directement la colonne par sa version log1p
-                df[roll_col] = np.log1p(df[roll_col].clip(lower=0))
+                values = np.log1p(values.clip(lower=0))
+            new_columns[roll_col] = values
+
+    if new_columns:
+        df = pd.concat([df, pd.DataFrame(new_columns)], axis=1)
 
     return df
 
