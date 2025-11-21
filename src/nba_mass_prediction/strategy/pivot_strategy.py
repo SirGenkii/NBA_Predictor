@@ -43,6 +43,20 @@ def _validate_decimal_odds(value: float) -> float:
     return value
 
 
+def _format_side_label(label: Optional[str], side: str, pivot: float) -> str:
+    """Return a side-consistent label (avoid 'Moins' with an over pick)."""
+    if label:
+        lower = label.lower()
+        if side == "over" and ("over" in lower or "plus" in lower):
+            return label
+        if side == "under" and ("under" in lower or "moins" in lower):
+            return label
+    prefix = "Over" if side == "over" else "Under"
+    if pivot.is_integer():
+        return f"{prefix} {int(pivot)}"
+    return f"{prefix} {pivot:.1f}"
+
+
 def _build_side_evaluation(
     *,
     side: str,
@@ -165,7 +179,7 @@ def evaluate_match_predictions(
         pick = eval_.over if side == "over" else eval_.under
         return {
             "pivot": eval_.pivot,
-            "label": eval_.label,
+            "label": _format_side_label(eval_.label, side, eval_.pivot),
             "bookmaker": eval_.bookmaker,
             "side": side,
             "edge": pick.edge,

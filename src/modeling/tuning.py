@@ -37,12 +37,12 @@ def _param_space(trial: optuna.trial.Trial, model_key: str, task_type: str) -> D
             "model__reg_alpha": trial.suggest_float("reg_alpha", 1e-8, 1e-1, log=True),
             "model__reg_lambda": trial.suggest_float("reg_lambda", 1e-8, 1e-1, log=True),
         }
-    # if model_key == "ngboost":
-    #     return {
-    #         "model__n_estimators": trial.suggest_int("n_estimators", 300, 1500, step=200),
-    #         "model__learning_rate": trial.suggest_float("learning_rate", 0.01, 0.2, log=True),
-    #         "model__minibatch_frac": trial.suggest_float("minibatch_frac", 0.5, 1.0),
-    #     }
+    if model_key == "ngboost":
+        return {
+            "model__n_estimators": trial.suggest_int("n_estimators", 300, 1500, step=200),
+            "model__learning_rate": trial.suggest_float("learning_rate", 0.01, 0.2, log=True),
+            "model__minibatch_frac": trial.suggest_float("minibatch_frac", 0.5, 1.0),
+        }
     if model_key == "catboost":
         return {
             "model__depth": trial.suggest_int("depth", 6, 10),

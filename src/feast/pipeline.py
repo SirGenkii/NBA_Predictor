@@ -100,7 +100,8 @@ def run_feast_materialize(
 
 
 def _run_feast_cmd(args: Sequence[str]) -> None:
-    cmd = ["feast", *args]
+    feast_bin = Path(sys.executable).parent / "feast"
+    cmd = [str(feast_bin), *args] if feast_bin.exists() else ["feast", *args]
     env = os.environ.copy()
     # Inject the venv bin directory into PATH so `feast` is found even without activation.
     python_bin = Path(sys.executable)
@@ -112,9 +113,14 @@ def _run_feast_cmd(args: Sequence[str]) -> None:
     else:
         env["PYTHONPATH"] = repo_path
     try:
-        subprocess.run(cmd, check=True, env=env)
+        subprocess.run(cmd, check=True, env=env, capture_output=True, text=True)
     except FileNotFoundError as exc:
-        raise RuntimeError("Feast CLI not found on PATH. Install `feast` to continue.") from exc
+        raise RuntimeError("Feast CLI introuvable. Installe `feast` dans le venv.") from exc
+    except subprocess.CalledProcessError as exc:
+        stdout = exc.stdout.strip() if exc.stdout else ""
+        stderr = exc.stderr.strip() if exc.stderr else ""
+        details = stderr or stdout or str(exc)
+        raise RuntimeError(f"Feast a échoué ({' '.join(args)}): {details}") from exc
 
 
 def _infer_default_season(today: Optional[datetime] = None) -> str:

@@ -70,6 +70,15 @@ pip install -r requirements.txt
 
 ---
 
+## 👀 Visualiser rapidement les paris (mass_prediction_nba)
+
+- Voir un résumé console du dernier run: `make nba-mass-report`
+- Forcer un run: `make nba-mass-report REPORT_ARGS="--run-id nba-run-20251113-194436-401517"`
+- Filtrer par date: `make nba-mass-report REPORT_ARGS="--date 2025-11-13"`
+- L'outil affiche les bets recommandés, les picks safe et les meilleurs edges par match à partir de `data/mass_prediction_nba`.
+
+---
+
 ## 📈 Objectif final
 
 Créer un modèle capable de **prédire le vainqueur d’un match NBA** avec un pipeline automatisé prêt à l’usage dans un contexte de **paris sportifs**.

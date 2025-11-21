@@ -1,29 +1,29 @@
 {
   "catboost": {
-    "metric": 18.040247905088375,
+    "metric": 17.96751532897812,
     "params": {
-      "depth": 10,
-      "l2_leaf_reg": 8.990342670760363,
-      "learning_rate": 0.03403429708074992,
-      "subsample": 0.8926905410412753
+      "depth": 6,
+      "l2_leaf_reg": 7.40901813288141,
+      "learning_rate": 0.031604690824377224,
+      "subsample": 0.902440857302847
     }
   },
   "lgbm": {
-    "metric": 18.232094514467917,
+    "metric": 17.997937619792538,
     "params": {
-      "colsample_bytree": 0.9510441813802453,
-      "learning_rate": 0.04216097641539405,
+      "colsample_bytree": 0.7836048340585063,
+      "learning_rate": 0.016502920001742496,
       "n_estimators": 1400,
-      "num_leaves": 211,
-      "subsample": 0.7911324118800371
+      "num_leaves": 59,
+      "subsample": 0.7125644551020737
     }
   },
   "ngboost": {
-    "metric": 21.574922253550298,
+    "metric": 18.069741955703936,
     "params": {
-      "learning_rate": 0.05172108258037665,
-      "minibatch_frac": 0.7235269880069297,
-      "n_estimators": 1100
+      "learning_rate": 0.0221047365187848,
+      "minibatch_frac": 0.6214915790120022,
+      "n_estimators": 1300
     }
   },
   "stacking": {
@@ -50,15 +50,15 @@
     }
   },
   "xgb": {
-    "metric": 18.31300827206323,
+    "metric": 17.95002676024076,
     "params": {
-      "colsample_bytree": 0.6957627669483172,
-      "learning_rate": 0.053860018170965196,
-      "max_depth": 7,
-      "n_estimators": 1600,
-      "reg_alpha": 3.4052133147221157e-06,
-      "reg_lambda": 1.2377034319415777e-05,
-      "subsample": 0.9922271348661864
+      "colsample_bytree": 0.7916088924570831,
+      "learning_rate": 0.01657580442232868,
+      "max_depth": 5,
+      "n_estimators": 800,
+      "reg_alpha": 3.9481302183548696e-07,
+      "reg_lambda": 0.006166514024877559,
+      "subsample": 0.9651241000349096
     }
   }
 }

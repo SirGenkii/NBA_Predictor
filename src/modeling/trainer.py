@@ -123,7 +123,7 @@ class ModelTrainer:
         if self.training_cfg.task_type == "regression":
             base.extend(
                 [
-                    # "ngboost",  # désactivé temporairement
+                    "ngboost",  # désactivé temporairement
                     "catboost",
                     "stacking_full",
                     "stacking_linear",
@@ -462,26 +462,26 @@ class ModelTrainer:
                     ),
                 ]
             )
-        # if key == "ngboost":
-        #     ngb_model = SklearnCompatibleNGB(
-        #         Dist=Normal,
-        #         Score=CRPScore,
-        #         n_estimators=800,
-        #         learning_rate=0.03,
-        #         natural_gradient=True,
-        #         verbose=False,
-        #         random_state=self.training_cfg.random_state,
-        #     )
-        #     return _make_regressor_pipeline(
-        #         [
-        #             ("imputer", SimpleImputer(strategy="median")),
-        #             ("scaler", StandardScaler(with_mean=False)),
-        #             (
-        #                 "model",
-        #                 ngb_model,
-        #             ),
-        #         ]
-        #     )
+        if key == "ngboost":
+            ngb_model = SklearnCompatibleNGB(
+                Dist=Normal,
+                Score=CRPScore,
+                n_estimators=800,
+                learning_rate=0.03,
+                natural_gradient=True,
+                verbose=False,
+                random_state=self.training_cfg.random_state,
+            )
+            return _make_regressor_pipeline(
+                [
+                    ("imputer", SimpleImputer(strategy="median")),
+                    ("scaler", StandardScaler(with_mean=False)),
+                    (
+                        "model",
+                        ngb_model,
+                    ),
+                ]
+            )
         if key == "catboost":
             cat_model = SklearnCompatibleCatBoost(
                 depth=8,
