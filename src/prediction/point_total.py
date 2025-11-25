@@ -5,7 +5,7 @@ import logging
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
-from typing import Iterable, List, Optional, Sequence
+from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 import mlflow
 import mlflow.sklearn
@@ -21,14 +21,17 @@ from src.config import (
     POINT_TOTAL_PRODUCTION_MODEL_KEY,
 )
 from src.datasets.base import run_pipeline
-from src.datasets.recipes import (
-    DEFAULT_SILVER_FEATURE_STEPS,
-    gold_steps_for_target,
+from src.datasets.recipes import DEFAULT_SILVER_FEATURE_STEPS
+from src.feast.data_sources import FEAST_SILVER_EXPORT
+from src.feast.loader import fetch_online_features
+from src.feast.online_store import (
+    POINT_TOTAL_FEATURE_SERVICE,
+    POINT_TOTAL_FEATURE_VIEW,
+    point_total_feature_columns,
+    write_point_total_online_store,
 )
 from src.mlflow_utils import find_run_dir_with_artifact
-from src.modeling.config import DatasetConfig, TrainingConfig
-from src.modeling.data import load_dataset, prepare_features
-from src.modeling.builders import build_point_total_trainer, point_total_bundle
+from src.modeling.builders import build_point_total_trainer
 from src.modeling.constants import CALIBRATION_ARTIFACT_PATH
 from src.modeling.trainer import ModelTrainer
 from src.prediction.data_refresh import refresh_recent_boxscores
@@ -39,7 +42,6 @@ from src.utils import get_latest_file
 EXPERIMENT_NAME = "point_total_regression"
 MODEL_FILTER = f"params.model_key = '{POINT_TOTAL_PRODUCTION_MODEL_KEY}'"
 BEST_PARAMS_PATH = Path("artifacts/point_total_best_params.json")
-PREDICTION_ID_COL = "__prediction_game_id"
 LOGGER = logging.getLogger(__name__)
 
 
@@ -69,53 +71,36 @@ def run_prediction_pipeline(
     if refresh_data:
         refresh_recent_boxscores(seasons)
 
-    base_df = _load_latest_bronze()
-    base_df["GAME_DATE"] = pd.to_datetime(base_df["GAME_DATE"])
-    pred_rows, request_map = _build_prediction_rows(base_df, requests)
-    game_ids = list(request_map.keys())
-    augmented = pd.concat([base_df, pred_rows], ignore_index=True, sort=False)
-
-    silver = run_pipeline(augmented, DEFAULT_SILVER_FEATURE_STEPS)
-    pred_mask = silver["GAME_ID"].isin(game_ids)
-    pred_silver = silver.loc[pred_mask].copy()
-    pred_silver = pred_silver.reset_index(drop=True)
-    pred_ids = pred_silver["GAME_ID"].astype(str).reset_index(drop=True)
-
-    pred_gold = run_pipeline(pred_silver, gold_steps_for_target("POINT_TOTAL"))
-    pred_gold = pred_gold.reset_index(drop=True)
-    pred_gold[PREDICTION_ID_COL] = pred_ids
-
     training_ref = _training_reference()
-    features = _prepare_prediction_features(pred_gold, training_ref.feature_names)
+    features, entities = _collect_prediction_features(requests, training_ref.feature_names)
     model = training_ref.model
     preds = model.predict(features)
     sigma = training_ref.residual_std
     calibration = training_ref.calibration or {}
 
-    result_map = {}
     pivots = list(pivots)
-    for (idx, row), pred_val in zip(pred_gold.iterrows(), preds):
-        game_id = row.get(PREDICTION_ID_COL)
-        if pd.isna(game_id):
-            raise KeyError("Prediction row missing internal GAME_ID reference.")
-        request_obj = request_map[game_id]
+    outputs: List[PredictionOutput] = []
+    for entity, pred_val in zip(entities, preds):
+        request_obj = entity.request
         mean_val = float(pred_val)
         probs: dict[float, float] = {}
         for pivot in pivots:
             raw_prob = float(1 - norm.cdf(pivot, loc=mean_val, scale=sigma))
             probs[float(pivot)] = _apply_calibration(raw_prob, pivot, calibration)
-        result_map[game_id] = PredictionOutput(
-            home_team_id=str(request_obj.home_team_id),
-            away_team_id=str(request_obj.away_team_id),
-            match_date=request_obj.match_date,
-            prediction=mean_val,
-            sigma=float(sigma),
-            probabilities=probs,
-            model_path=training_ref.model_path,
-            model_bias=training_ref.residual_mean,
-            model_uncertainty=training_ref.residual_std,
+        outputs.append(
+            PredictionOutput(
+                home_team_id=str(request_obj.home_team_id),
+                away_team_id=str(request_obj.away_team_id),
+                match_date=request_obj.match_date,
+                prediction=mean_val,
+                sigma=float(sigma),
+                probabilities=probs,
+                model_path=training_ref.model_path,
+                model_bias=training_ref.residual_mean,
+                model_uncertainty=training_ref.residual_std,
+            )
         )
-    return [result_map[_prediction_game_id(req)] for req in requests]
+    return outputs
 
 
 @dataclass
@@ -204,14 +189,21 @@ def _load_latest_bronze() -> pd.DataFrame:
 
 
 def _build_prediction_rows(
-    base_df: pd.DataFrame, requests: Sequence[PredictionRequest]
+    base_df: pd.DataFrame,
+    requests: Sequence[PredictionRequest],
+    *,
+    match_ids: Optional[Sequence[str]] = None,
 ) -> (pd.DataFrame, dict):
     template = {col: np.nan for col in base_df.columns}
     rows = []
     mapping = {}
-    for req in requests:
+    overrides = list(match_ids) if match_ids is not None else None
+    for idx, req in enumerate(requests):
         season = infer_season(req.match_date)
-        game_id = _prediction_game_id(req)
+        if overrides and idx < len(overrides):
+            game_id = overrides[idx]
+        else:
+            game_id = _prediction_game_id(req)
         row = template.copy()
         row.update(
             {
@@ -325,3 +317,151 @@ def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _Traini
         model_path=model_path,
         calibration=calibration,
     )
+
+
+@dataclass(frozen=True)
+class _RequestEntity:
+    request: PredictionRequest
+    match_id: str
+    event_timestamp: pd.Timestamp
+
+
+def _collect_prediction_features(
+    requests: Sequence[PredictionRequest],
+    feature_names: Sequence[str],
+) -> Tuple[pd.DataFrame, List[_RequestEntity]]:
+    entities = _build_request_entities(requests)
+    feature_rows = _fetch_or_materialize_features(entities)
+    ordered_rows = []
+    for entity in entities:
+        row = feature_rows.get(entity.match_id)
+        if row is None:
+            raise RuntimeError(f"Aucune feature Feast disponible pour le match_id {entity.match_id}")
+        ordered_rows.append(row)
+    feature_df = pd.DataFrame(ordered_rows)
+    feature_df = _prepare_prediction_features(feature_df, list(feature_names))
+    return feature_df, entities
+
+
+def _build_request_entities(requests: Sequence[PredictionRequest]) -> List[_RequestEntity]:
+    lookup = _match_lookup_map()
+    entities: List[_RequestEntity] = []
+    for req in requests:
+        match_date = pd.to_datetime(req.match_date)
+        key = (int(req.home_team_id), int(req.away_team_id), match_date.date())
+        match_id = lookup.get(key) or _prediction_game_id(req)
+        entities.append(
+            _RequestEntity(
+                request=req,
+                match_id=str(match_id),
+                event_timestamp=match_date,
+            )
+        )
+    return entities
+
+
+def _fetch_or_materialize_features(
+    entities: Sequence[_RequestEntity],
+) -> Dict[str, pd.Series]:
+    if not entities:
+        return {}
+    fetched, missing = _fetch_features_from_feast(entities)
+    if missing:
+        computed = _compute_features_for_entities(missing)
+        fetched.update(computed)
+    still_missing = [ent.match_id for ent in entities if ent.match_id not in fetched]
+    if still_missing:
+        raise RuntimeError(f"Impossible de récupérer les features pour {still_missing}")
+    return fetched
+
+
+def _fetch_features_from_feast(
+    entities: Sequence[_RequestEntity],
+) -> Tuple[Dict[str, pd.Series], List[_RequestEntity]]:
+    match_ids = [ent.match_id for ent in entities]
+    request_df = pd.DataFrame({"match_id": match_ids})
+    online_df = pd.DataFrame()
+    try:
+        online_df = fetch_online_features(
+            request_df=request_df,
+            feature_service=POINT_TOTAL_FEATURE_SERVICE,
+        )
+    except Exception as exc:  # noqa: BLE001
+        LOGGER.warning("Echec de récupération des features online Feast: %s", exc)
+    rows: Dict[str, pd.Series] = {}
+    if not online_df.empty:
+        online_df["match_id"] = online_df["match_id"].astype(str)
+        feature_cols = [col for col in online_df.columns if col != "match_id"]
+        for _, row in online_df.iterrows():
+            match_id = row["match_id"]
+            data = row[feature_cols]
+            if feature_cols and data.isna().all():
+                continue
+            rows[match_id] = data
+    missing = [ent for ent in entities if ent.match_id not in rows]
+    return rows, missing
+
+
+def _compute_features_for_entities(
+    entities: Sequence[_RequestEntity],
+) -> Dict[str, pd.Series]:
+    if not entities:
+        return {}
+    base_df = _load_latest_bronze()
+    base_df["GAME_DATE"] = pd.to_datetime(base_df["GAME_DATE"])
+    feature_cols = point_total_feature_columns()
+    if not feature_cols:
+        LOGGER.warning("FeatureView %s vide: skip materialization.", POINT_TOTAL_FEATURE_VIEW)
+        return {}
+
+    grouped: Dict[pd.Timestamp, List[_RequestEntity]] = {}
+    for ent in entities:
+        grouped.setdefault(ent.event_timestamp.normalize(), []).append(ent)
+
+    rows: Dict[str, pd.Series] = {}
+    for event_ts, batch in grouped.items():
+        history_mask = base_df["GAME_DATE"] < event_ts
+        history = base_df.loc[history_mask].copy()
+        match_ids = [ent.match_id for ent in batch]
+        requests = [ent.request for ent in batch]
+        pred_rows, _ = _build_prediction_rows(base_df, requests, match_ids=match_ids)
+        augmented = pd.concat([history, pred_rows], ignore_index=True, sort=False)
+        silver = run_pipeline(augmented, DEFAULT_SILVER_FEATURE_STEPS)
+        pred_mask = silver["GAME_ID"].astype(str).isin(match_ids)
+        pred_silver = silver.loc[pred_mask].copy().reset_index(drop=True)
+        if pred_silver.empty:
+            LOGGER.warning("Aucune feature calculée pour les matches %s", match_ids)
+            continue
+        pred_silver["match_id"] = pred_silver["GAME_ID"].astype(str)
+        missing_cols = [col for col in feature_cols if col not in pred_silver.columns]
+        for col in missing_cols:
+            pred_silver[col] = np.nan
+        write_point_total_online_store(pred_silver)
+        for _, row in pred_silver.iterrows():
+            rows[row["match_id"]] = row[feature_cols]
+    return rows
+
+
+@lru_cache(maxsize=1)
+def _match_lookup_map() -> Dict[Tuple[int, int, object], str]:
+    path = Path(FEAST_SILVER_EXPORT)
+    if not path.exists():
+        return {}
+    try:
+        df = pd.read_parquet(path, columns=["match_id", "HOME_TEAM_ID", "AWAY_TEAM_ID", "GAME_DATE"])
+    except Exception as exc:  # noqa: BLE001
+        LOGGER.warning("Impossible de charger l'export silver Feast: %s", exc)
+        return {}
+    df["HOME_TEAM_ID"] = pd.to_numeric(df["HOME_TEAM_ID"], errors="coerce").astype("Int64")
+    df["AWAY_TEAM_ID"] = pd.to_numeric(df["AWAY_TEAM_ID"], errors="coerce").astype("Int64")
+    df["GAME_DATE"] = pd.to_datetime(df["GAME_DATE"]).dt.date
+    mapping: Dict[Tuple[int, int, object], str] = {}
+    for _, row in df.iterrows():
+        home = row["HOME_TEAM_ID"]
+        away = row["AWAY_TEAM_ID"]
+        date = row["GAME_DATE"]
+        match_id = row["match_id"]
+        if pd.isna(home) or pd.isna(away) or pd.isna(date) or pd.isna(match_id):
+            continue
+        mapping[(int(home), int(away), date)] = str(match_id)
+    return mapping
