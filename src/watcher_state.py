@@ -19,7 +19,11 @@ def write_state(state: str, **kwargs: Any) -> None:
         "state": state,
         "written_at": datetime.now().isoformat(timespec="seconds"),
     }
-    payload.update(kwargs)
+    for key, value in kwargs.items():
+        if isinstance(value, Mapping):
+            payload[key] = {k: v for k, v in value.items() if v is not None}
+        elif value is not None:
+            payload[key] = value
     WATCHER_STATE_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
 
 

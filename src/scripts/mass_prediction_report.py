@@ -44,6 +44,8 @@ class BetRow:
     safe_pick: bool
     safe_pair_coverage: Optional[float]
     safe_pair_edge_sum: Optional[float]
+    safe_pick_confidence: Optional[float]
+    safe_reason: Optional[str]
 
 
 def _safe_float(value: object) -> Optional[float]:
@@ -138,6 +140,8 @@ def _load_predictions_for_run(run_id: str, match_index: dict[tuple[int, int, str
                     safe_pick=row.get("safe_pick") == "1",
                     safe_pair_coverage=_safe_float(row.get("safe_pair_coverage")),
                     safe_pair_edge_sum=_safe_float(row.get("safe_pair_edge_sum")),
+                    safe_pick_confidence=_safe_float(row.get("safe_pick_confidence")),
+                    safe_reason=row.get("safe_reason") or None,
                 )
             )
     return bets
@@ -230,11 +234,12 @@ def _print_match_block(match: MatchInfo, bets: list[BetRow], top_n: int) -> None
         elif rec_side:
             tags.append(f"pick={rec_side}")
         if bet.safe_pick:
-            tags.append("SAFE")
-        if bet.safe_pair_coverage:
-            tags.append(f"couverture pair {bet.safe_pair_coverage:.2f}")
-        if bet.safe_pair_edge_sum:
-            tags.append(f"edge pair {bet.safe_pair_edge_sum:+.2f}")
+            label_safe = "SAFE"
+            if bet.safe_pick_confidence is not None:
+                label_safe = f"{label_safe} (conf {bet.safe_pick_confidence:.2f})"
+            tags.append(label_safe)
+        elif bet.safe_reason:
+            tags.append(f"safe_reason={bet.safe_reason}")
         if bet.bookmaker:
             tags.append(f"book {bet.bookmaker}")
 

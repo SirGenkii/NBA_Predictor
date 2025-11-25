@@ -208,7 +208,7 @@ NBA_MASS_UNCERTAINTY_SCALE = float(os.getenv("NBA_MASS_UNCERTAINTY_SCALE", 50.0)
 
 MLFLOW_POINT_TOTAL_MODEL_NAME = os.getenv("MLFLOW_POINT_TOTAL_MODEL_NAME", "point_total_stacking")
 MLFLOW_POINT_TOTAL_MODEL_STAGE = os.getenv("MLFLOW_POINT_TOTAL_MODEL_STAGE", "Production")
-POINT_TOTAL_PRODUCTION_MODEL_KEY = os.getenv("POINT_TOTAL_PRODUCTION_MODEL_KEY", "xgb")
+POINT_TOTAL_PRODUCTION_MODEL_KEY = os.getenv("POINT_TOTAL_PRODUCTION_MODEL_KEY", "xgb_calibrated")
 #_POINT_TOTAL_MODELS = os.getenv(
 #    "POINT_TOTAL_MODELS",
 #    "lgbm,xgb,ngboost,catboost,stacking,stacking_full,stacking_linear,stacking_xgbmeta",
@@ -219,6 +219,6 @@ _POINT_TOTAL_MODELS = os.getenv(
     # Keep the default set focused on the strongest models; stacking_full is the prod target.
     # ngboost temporairement désactivé pour tuning/production.
     #"lgbm,xgb,catboost,stacking_full",
-    "lgbm,xgb",
+    "lgbm,xgb,xgb_calibrated",
 )
 POINT_TOTAL_DEFAULT_MODELS = [model.strip() for model in _POINT_TOTAL_MODELS.split(",") if model.strip()]

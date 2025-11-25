@@ -191,20 +191,14 @@ def _append_prediction_log(run_id: str, results: List[MatchStrategyResult], csv_
         match = result.prediction.match
         safe_entries = result.summary.get("safe") or {}
         safe_pairs: set[tuple] = set()
-        pair_entry = safe_entries.get("paired")
-        pair_coverage = pair_entry.get("coverage") if isinstance(pair_entry, dict) else None
-        pair_edge = pair_entry.get("combined_edge") if isinstance(pair_entry, dict) else None
-
-        for key in ("over", "under"):
-            entry = safe_entries.get(key)
-            if isinstance(entry, dict):
-                safe_pairs.add((entry.get("side"), entry.get("pivot")))
-
-        if isinstance(pair_entry, dict):
-            for key in ("over", "under"):
-                entry = pair_entry.get(key)
-                if isinstance(entry, dict):
-                    safe_pairs.add((entry.get("side"), entry.get("pivot")))
+        safe_pick_entry = safe_entries.get("pick") if isinstance(safe_entries, dict) else None
+        safe_confidence = None
+        if isinstance(safe_pick_entry, dict):
+            safe_pairs.add((safe_pick_entry.get("side"), safe_pick_entry.get("pivot")))
+            safe_confidence = safe_pick_entry.get("confidence")
+        safe_reason = safe_entries.get("reason") if isinstance(safe_entries, dict) else None
+        pair_coverage = None
+        pair_edge = None
 
         screenshot = match.screenshot_path.name if match.screenshot_path else None
         for evaluation in result.evaluations:
@@ -233,8 +227,10 @@ def _append_prediction_log(run_id: str, results: List[MatchStrategyResult], csv_
                         "recommendation": evaluation.recommendation,
                         "model_path": result.prediction.model_path,
                         "safe_pick": int((side_name, evaluation.pivot) in safe_pairs),
-                        "safe_pair_coverage": pair_coverage if (side_name, evaluation.pivot) in safe_pairs else None,
-                        "safe_pair_edge_sum": pair_edge if (side_name, evaluation.pivot) in safe_pairs else None,
+                        "safe_pick_confidence": safe_confidence if (side_name, evaluation.pivot) in safe_pairs else None,
+                        "safe_pair_coverage": pair_coverage,
+                        "safe_pair_edge_sum": pair_edge,
+                        "safe_reason": safe_reason,
                         "model_bias": result.prediction.model_bias,
                         "model_uncertainty": result.prediction.model_uncertainty,
                     }
@@ -266,8 +262,10 @@ def _append_prediction_log(run_id: str, results: List[MatchStrategyResult], csv_
         "recommendation",
         "model_path",
         "safe_pick",
+        "safe_pick_confidence",
         "safe_pair_coverage",
         "safe_pair_edge_sum",
+        "safe_reason",
         "model_bias",
         "model_uncertainty",
     ]

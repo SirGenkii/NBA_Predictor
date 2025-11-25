@@ -1,7 +1,8 @@
 from __future__ import annotations
 
+import json
 import tempfile
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 from pathlib import Path
 from collections.abc import Mapping
 from contextlib import nullcontext
@@ -18,6 +19,7 @@ from scipy.stats import norm
 from sklearn.base import BaseEstimator, RegressorMixin
 from sklearn.ensemble import StackingClassifier, StackingRegressor
 from sklearn.impute import SimpleImputer
+from sklearn.isotonic import IsotonicRegression
 from sklearn.linear_model import LinearRegression, LogisticRegression, Ridge
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
@@ -42,6 +44,7 @@ from .plots import (
     plot_residual_hist,
     plot_gaussian_prediction,
 )
+from .constants import CALIBRATION_ARTIFACT_PATH
 
 
 class RegressorPipeline(Pipeline, RegressorMixin):
@@ -130,6 +133,7 @@ class ModelTrainer:
                     "stacking_xgbmeta",
                 ]
             )
+            base.append("xgb_calibrated")
         return base
 
     def train_models(self, models: List[str]) -> pd.DataFrame:
@@ -227,6 +231,16 @@ class ModelTrainer:
                 sigma_series = self._get_sigma_predictions(model_key, pipeline)
                 if log_run:
                     mlflow.log_metric("residual_std", float(sigma_series.mean()))
+                calibration_payload = None
+                calibration_frame = None
+                if model_key == "xgb_calibrated":
+                    calibration_payload, calibration_frame = self._fit_isotonic_calibrators(
+                        y_pred,
+                        sigma_series,
+                        self._pivot_list(),
+                    )
+                    if calibration_payload and log_run:
+                        self._log_calibration_artifact(calibration_payload, calibration_frame)
                 preds_df = pd.DataFrame(
                     {
                         "y_true": self.y_test,
@@ -443,7 +457,7 @@ class ModelTrainer:
                     ),
                 ]
             )
-        if key == "xgb":
+        if key in {"xgb", "xgb_calibrated"}:
             return _make_regressor_pipeline(
                 [
                     ("imputer", SimpleImputer(strategy="median")),
@@ -749,3 +763,74 @@ class ModelTrainer:
         mlflow.log_artifact(
             sample_path, artifact_path=f"probabilities/{model_key}/samples"
         )
+
+    def _fit_isotonic_calibrators(
+        self,
+        y_pred: pd.Series,
+        sigma_series: pd.Series,
+        pivots: List[float],
+    ) -> tuple[Dict[str, Dict[str, List[float]]], Optional[pd.DataFrame]]:
+        if not pivots:
+            return {}, None
+        calibrations: Dict[str, Dict[str, List[float]]] = {}
+        analysis_rows: List[pd.DataFrame] = []
+        sigma = sigma_series.clip(lower=self.training_cfg.min_sigma).to_numpy()
+        preds = y_pred.to_numpy()
+        actual = self.y_test.to_numpy()
+        for pivot in pivots:
+            actual_over = (actual > pivot).astype(int)
+            if actual_over.min() == actual_over.max():
+                continue
+            prob_over = 1 - norm.cdf(pivot, loc=preds, scale=sigma)
+            ir = IsotonicRegression(out_of_bounds="clip")
+            try:
+                ir.fit(prob_over, actual_over)
+            except ValueError:
+                continue
+            calibrated = ir.predict(prob_over)
+            calibrations[str(float(pivot))] = {
+                "x": ir.X_thresholds_.tolist(),
+                "y": ir.y_thresholds_.tolist(),
+            }
+            analysis_rows.append(
+                pd.DataFrame(
+                    {
+                        "pivot": float(pivot),
+                        "prob_raw": prob_over,
+                        "prob_calibrated": calibrated,
+                        "actual_over": actual_over,
+                    }
+                )
+            )
+        frame = None
+        if analysis_rows:
+            frame = pd.concat(analysis_rows, ignore_index=True)
+        return calibrations, frame
+
+    def _log_calibration_artifact(
+        self,
+        payload: Dict[str, Dict[str, List[float]]],
+        frame: Optional[pd.DataFrame],
+    ) -> None:
+        if not payload:
+            return
+        mlflow.log_dict(payload, CALIBRATION_ARTIFACT_PATH)
+        if frame is None or frame.empty:
+            return
+        summary = (
+            frame.groupby("pivot")
+            .agg(
+                prob_raw_mean=("prob_raw", "mean"),
+                prob_calibrated_mean=("prob_calibrated", "mean"),
+                actual_mean=("actual_over", "mean"),
+                count=("actual_over", "count"),
+            )
+            .reset_index()
+        )
+        tmp_dir = Path(tempfile.mkdtemp())
+        raw_path = tmp_dir / "calibration_samples.csv"
+        frame.to_csv(raw_path, index=False)
+        mlflow.log_artifact(raw_path, artifact_path="calibration")
+        summary_path = tmp_dir / "calibration_summary.csv"
+        summary.to_csv(summary_path, index=False)
+        mlflow.log_artifact(summary_path, artifact_path="calibration")

@@ -27,6 +27,21 @@ def _normal_cdf(x: float, mean: float, sigma: float) -> float:
     return 0.5 * (1.0 + erf(z))
 
 
+def _lookup_calibrated_probability(prob_map: dict, pivot: float) -> Optional[float]:
+    if not prob_map:
+        return None
+    if pivot in prob_map:
+        return float(prob_map[pivot])
+    pivot_key = str(float(pivot))
+    if pivot_key in prob_map:
+        return float(prob_map[pivot_key])
+    # try rounding issues
+    for key in (f"{pivot:.1f}", f"{pivot:.2f}"):
+        if key in prob_map:
+            return float(prob_map[key])
+    return None
+
+
 @dataclass(frozen=True)
 class StrategyConfig:
     edge_threshold: float = NBA_MASS_EDGE_THRESHOLD
@@ -34,6 +49,7 @@ class StrategyConfig:
     safe_edge_threshold: float = NBA_MASS_EDGE_THRESHOLD / 2
     safe_coverage_threshold: float = NBA_MASS_SAFE_COVERAGE
     min_probability: float = 0.5
+    safe_confidence_threshold: float = 0.2
     kelly_scales: Sequence[float] = (NBA_MASS_KELLY_SCALING,)
 
 
@@ -88,10 +104,14 @@ def evaluate_match_predictions(
     cfg = config or StrategyConfig()
     raw_entries: List[dict] = []
 
+    probability_map = prediction.pivot_probabilities or {}
+
     for market in prediction.match.markets:
         mean = prediction.mean_total + prediction.model_bias
         sigma = prediction.sigma * (1 + prediction.model_uncertainty / NBA_MASS_UNCERTAINTY_SCALE)
-        prob_over = 1.0 - _normal_cdf(market.pivot, mean, sigma)
+        prob_over = _lookup_calibrated_probability(probability_map, market.pivot)
+        if prob_over is None:
+            prob_over = 1.0 - _normal_cdf(market.pivot, mean, sigma)
         prob_under = 1.0 - prob_over
 
         over_eval = _build_side_evaluation(
@@ -134,24 +154,6 @@ def evaluate_match_predictions(
             best_under_edge = entry["under"].edge
             best_under_idx = idx
 
-    safe_over_idx: Optional[int] = None
-    safe_under_idx: Optional[int] = None
-    safe_over_score: Optional[tuple] = None
-    safe_under_score: Optional[tuple] = None
-    safe_pair: Optional[tuple] = None  # (over_idx, under_idx, coverage, combined_edge)
-
-    for idx, entry in enumerate(raw_entries):
-        if entry["over"].edge >= cfg.safe_edge_threshold and entry["over"].probability >= cfg.min_probability:
-            score = (entry["pivot_diff"], -entry["over"].edge)
-            if safe_over_score is None or score < safe_over_score:
-                safe_over_score = score
-                safe_over_idx = idx
-        if entry["under"].edge >= cfg.safe_edge_threshold and entry["under"].probability >= cfg.min_probability:
-            score = (entry["pivot_diff"], -entry["under"].edge)
-            if safe_under_score is None or score < safe_under_score:
-                safe_under_score = score
-                safe_under_idx = idx
-
     evaluations: List[PivotEvaluation] = []
     for idx, entry in enumerate(raw_entries):
         recommendation = "skip"
@@ -185,6 +187,7 @@ def evaluate_match_predictions(
             "edge": pick.edge,
             "probability": pick.probability,
             "kelly": pick.kelly.full,
+            "odds": pick.odds,
         }
 
     recommended_summary = [
@@ -193,52 +196,32 @@ def evaluate_match_predictions(
         if eval_.recommendation.startswith("bet_")
     ]
 
-    safe_summary: dict = {}
-    if safe_over_idx is not None:
-        safe_summary["over"] = _summary_entry(evaluations[safe_over_idx], "over")
-    else:
-        safe_summary["over"] = None
-    if safe_under_idx is not None:
-        safe_summary["under"] = _summary_entry(evaluations[safe_under_idx], "under")
-    else:
-        safe_summary["under"] = None
-
-    safe_pair_entry = None
-    best_pair_rank: Optional[tuple] = None
-    for over_idx, over_entry in enumerate(raw_entries):
-        over_eval = over_entry["over"]
-        if not (over_eval.edge >= cfg.safe_edge_threshold and over_eval.probability >= cfg.min_probability):
-            continue
-        for under_idx, under_entry in enumerate(raw_entries):
-            under_eval = under_entry["under"]
-            if not (under_eval.edge >= cfg.safe_edge_threshold and under_eval.probability >= cfg.min_probability):
+    safe_candidate: Optional[tuple] = None  # (idx, side, confidence)
+    safe_rank: Optional[tuple] = None
+    for idx, entry in enumerate(raw_entries):
+        for side in ("over", "under"):
+            pick_eval = entry[side]
+            confidence = abs(pick_eval.probability - 0.5)
+            if pick_eval.edge < cfg.safe_edge_threshold or confidence < cfg.safe_confidence_threshold:
                 continue
-            coverage = over_eval.probability + under_eval.probability
-            if coverage < cfg.safe_coverage_threshold:
-                continue
-            combined_edge = over_eval.edge + under_eval.edge
-            pivot_spread = over_entry["pivot_diff"] + under_entry["pivot_diff"]
-            rank = (-coverage, -combined_edge, pivot_spread)
-            if best_pair_rank is None or rank < best_pair_rank:
-                best_pair_rank = rank
-                safe_pair = (over_idx, under_idx, coverage, combined_edge)
+            score = (-confidence, -pick_eval.edge, entry["pivot_diff"])
+            if safe_rank is None or score < safe_rank:
+                safe_rank = score
+                safe_candidate = (idx, side, confidence)
 
-    if safe_pair is not None:
-        over_idx, under_idx, coverage, combined_edge = safe_pair
-        safe_pair_entry = {
-            "over": _summary_entry(evaluations[over_idx], "over"),
-            "under": _summary_entry(evaluations[under_idx], "under"),
-            "coverage": coverage,
-            "combined_edge": combined_edge,
-        }
+    if safe_candidate:
+        idx, side, confidence = safe_candidate
+        safe_entry = _summary_entry(evaluations[idx], side)
+        safe_entry["confidence"] = confidence
+        safe_summary = {"pick": safe_entry}
     else:
-        safe_pair_entry = {
+        safe_summary = {
+            "pick": None,
             "reason": (
-                "Aucune combinaison over/under ne dépasse la couverture minimale "
-                f"{cfg.safe_coverage_threshold:.2f} avec l'edge requis."
-            )
+                "Aucun pari ne dépasse les seuils "
+                f"edge ≥ {cfg.safe_edge_threshold:.3f} et confiance ≥ {cfg.safe_confidence_threshold:.2f}."
+            ),
         }
-    safe_summary["paired"] = safe_pair_entry
 
     summary = {
         "recommended": recommended_summary,

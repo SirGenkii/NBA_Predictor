@@ -9,6 +9,7 @@ from typing import Iterable, List, Optional, Sequence
 
 import mlflow
 import mlflow.sklearn
+from mlflow.tracking import MlflowClient
 import numpy as np
 import pandas as pd
 from scipy.stats import norm
@@ -17,6 +18,7 @@ from src.config import (
     DATA_BRONZE_MATCHES_DIR,
     MLFLOW_POINT_TOTAL_MODEL_NAME,
     MLFLOW_POINT_TOTAL_MODEL_STAGE,
+    POINT_TOTAL_PRODUCTION_MODEL_KEY,
 )
 from src.datasets.base import run_pipeline
 from src.datasets.recipes import (
@@ -27,6 +29,7 @@ from src.mlflow_utils import find_run_dir_with_artifact
 from src.modeling.config import DatasetConfig, TrainingConfig
 from src.modeling.data import load_dataset, prepare_features
 from src.modeling.builders import build_point_total_trainer, point_total_bundle
+from src.modeling.constants import CALIBRATION_ARTIFACT_PATH
 from src.modeling.trainer import ModelTrainer
 from src.prediction.data_refresh import refresh_recent_boxscores
 from src.prediction.schemas import PredictionRequest
@@ -34,7 +37,7 @@ from src.utils import get_latest_file
 
 
 EXPERIMENT_NAME = "point_total_regression"
-STACKING_FILTER = "params.model_key = 'stacking'"
+MODEL_FILTER = f"params.model_key = '{POINT_TOTAL_PRODUCTION_MODEL_KEY}'"
 BEST_PARAMS_PATH = Path("artifacts/point_total_best_params.json")
 PREDICTION_ID_COL = "__prediction_game_id"
 LOGGER = logging.getLogger(__name__)
@@ -87,6 +90,7 @@ def run_prediction_pipeline(
     model = training_ref.model
     preds = model.predict(features)
     sigma = training_ref.residual_std
+    calibration = training_ref.calibration or {}
 
     result_map = {}
     pivots = list(pivots)
@@ -96,10 +100,10 @@ def run_prediction_pipeline(
             raise KeyError("Prediction row missing internal GAME_ID reference.")
         request_obj = request_map[game_id]
         mean_val = float(pred_val)
-        probs = {
-            float(pivot): float(1 - norm.cdf(pivot, loc=mean_val, scale=sigma))
-            for pivot in pivots
-        }
+        probs: dict[float, float] = {}
+        for pivot in pivots:
+            raw_prob = float(1 - norm.cdf(pivot, loc=mean_val, scale=sigma))
+            probs[float(pivot)] = _apply_calibration(raw_prob, pivot, calibration)
         result_map[game_id] = PredictionOutput(
             home_team_id=str(request_obj.home_team_id),
             away_team_id=str(request_obj.away_team_id),
@@ -121,12 +125,14 @@ class _TrainingReference:
     residual_mean: float
     model: object
     model_path: Optional[str]
+    calibration: Optional[dict] = None
 
 
 @lru_cache(maxsize=1)
 def _training_reference() -> _TrainingReference:
     trainer = build_point_total_trainer(enable_registry=False)
-    best_params = _load_best_params().get("stacking")
+    cache = _load_best_params()
+    best_params = cache.get(POINT_TOTAL_PRODUCTION_MODEL_KEY) or cache.get("xgb")
     return _fit_or_load_model(trainer, best_params)
 
 
@@ -134,6 +140,49 @@ def _prepare_prediction_features(df: pd.DataFrame, feature_names: List[str]) -> 
     pred = df.reindex(columns=feature_names, fill_value=0.0)
     pred.index = df.index
     return pred
+
+
+def _apply_calibration(prob: float, pivot: float, calibration: dict) -> float:
+    if not calibration:
+        return prob
+    key = str(float(pivot))
+    entry = calibration.get(key)
+    if not entry:
+        return prob
+    xs = entry.get("x")
+    ys = entry.get("y")
+    if not xs or not ys:
+        return prob
+    calibrated = float(np.interp(prob, xs, ys))
+    if calibrated < 0.0:
+        return 0.0
+    if calibrated > 1.0:
+        return 1.0
+    return calibrated
+
+
+def _download_calibration_artifact(client: MlflowClient, run_id: str) -> Optional[dict]:
+    try:
+        local_path = Path(client.download_artifacts(run_id, CALIBRATION_ARTIFACT_PATH))
+        if local_path.is_dir():
+            local_path = local_path / Path(CALIBRATION_ARTIFACT_PATH).name
+        if not local_path.exists():
+            return None
+        return json.loads(local_path.read_text())
+    except Exception as exc:
+        LOGGER.warning("Unable to download calibration artifact for run %s: %s", run_id, exc)
+        return None
+
+
+def _load_calibration_from_local(run_dir: Path) -> Optional[dict]:
+    cal_path = Path(run_dir) / "artifacts" / CALIBRATION_ARTIFACT_PATH
+    if not cal_path.exists():
+        return None
+    try:
+        return json.loads(cal_path.read_text())
+    except Exception as exc:
+        LOGGER.warning("Unable to read calibration artifact at %s: %s", cal_path, exc)
+        return None
 
 
 def infer_season(match_date: str) -> str:
@@ -219,6 +268,7 @@ def _normalize_stacking_params(params: dict) -> dict:
 def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _TrainingReference:
     model = None
     model_path: Optional[str] = None
+    calibration: Optional[dict] = None
 
     if MLFLOW_POINT_TOTAL_MODEL_NAME:
         registry_uri = f"models:/{MLFLOW_POINT_TOTAL_MODEL_NAME}/{MLFLOW_POINT_TOTAL_MODEL_STAGE}"
@@ -226,6 +276,12 @@ def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _Traini
             model = mlflow.sklearn.load_model(registry_uri)
             model_path = registry_uri
             LOGGER.info("Loaded point_total model from MLflow Registry (%s)", registry_uri)
+            client = MlflowClient()
+            versions = client.get_latest_versions(
+                MLFLOW_POINT_TOTAL_MODEL_NAME, [MLFLOW_POINT_TOTAL_MODEL_STAGE]
+            )
+            if versions:
+                calibration = _download_calibration_artifact(client, versions[0].run_id)
         except Exception as exc:  # noqa: BLE001
             LOGGER.warning("Unable to load MLflow registry model (%s): %s", registry_uri, exc)
             model = None
@@ -235,22 +291,27 @@ def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _Traini
             run_dir = find_run_dir_with_artifact(
                 target="POINT_TOTAL",
                 experiment_name=EXPERIMENT_NAME,
-                filter_string=STACKING_FILTER,
+                filter_string=MODEL_FILTER,
                 artifact_subdir="model",
                 max_results=100,
             )
             model = mlflow.sklearn.load_model(str(run_dir / "artifacts/model"))
             model_path = str(run_dir)
+            calibration = _load_calibration_from_local(run_dir)
             LOGGER.info("Loaded point_total model from MLflow run %s", model_path)
         except Exception as exc:
             LOGGER.warning("Unable to load MLflow point_total model from runs: %s", exc)
             model = None
 
     if model is None:
-        pipeline = trainer._build_model("stacking", overrides=overrides)
+        target_key = POINT_TOTAL_PRODUCTION_MODEL_KEY or "stacking"
+        try:
+            pipeline = trainer._build_model(target_key, overrides=overrides)
+        except ValueError:
+            pipeline = trainer._build_model("stacking", overrides=overrides)
         pipeline.fit(trainer.X_train, trainer.y_train)
         model = pipeline
-        LOGGER.info("Trained point_total stacking model locally (no MLflow artifact).")
+        LOGGER.info("Trained point_total %s model locally (no MLflow artifact).", target_key)
 
     preds = model.predict(trainer.X_train)
     residuals = trainer.y_train - preds
@@ -262,4 +323,5 @@ def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _Traini
         residual_mean=residual_mean,
         model=model,
         model_path=model_path,
+        calibration=calibration,
     )

@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  web-api:
+    build:
+      context: ./web/api
+      dockerfile: Dockerfile
+    environment:
+      NBA_MASS_DATA_DIR: /data/mass_prediction_nba
+    volumes:
+      - ./data/mass_prediction_nba:/data/mass_prediction_nba:ro
+    ports:
+      - "8000:8000"
+
+  web-ui:
+    build:
+      context: ./web/ui
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL-http://localhost:8000}
+    depends_on:
+      - web-api
+    ports:
+      - "4173:4173"
