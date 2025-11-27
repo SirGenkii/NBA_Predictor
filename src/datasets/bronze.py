@@ -12,6 +12,7 @@ from src.config import (
     DATA_BRONZE_GAMES_DIR,
     DATA_BRONZE_MATCHES_DIR,
     DATA_ODDS_HISTORY_DIR,
+    MATCH_CONTEXT_FLAGS,
     MATCH_IDENTIFIER_COLUMNS,
     cols_player_stats,
     cols_to_sum,
@@ -128,6 +129,15 @@ def _prepare_games_meta(games_df: pd.DataFrame) -> pd.DataFrame:
     merged["POINT_DIFF"] = merged["POINTS_FOR"] - merged["POINTS_AGAINST"]
     merged["POINT_TOTAL"] = merged["POINTS_FOR"] + merged["POINTS_AGAINST"]
     merged["OPP_GAME_DATE"] = merged["GAME_DATE"]
+    merged["IS_PLAYOFF"] = merged["GAME_ID"].astype(str).str.startswith("004").astype(int)
+    merged["IS_IN_SEASON_TOURNAMENT"] = (
+        ((merged["GAME_DATE"].dt.month == 11) | (merged["GAME_DATE"].dt.month == 12))
+        & (merged["GAME_DATE"].dt.year >= 2023)
+    ).astype(int)
+    merged["IS_FINAL_WEEK"] = (
+        ((merged["GAME_DATE"].dt.month == 4) & (merged["GAME_DATE"].dt.day >= 7))
+        | (merged["GAME_DATE"].dt.month >= 5)
+    ).astype(int)
     return merged
 
 
@@ -199,13 +209,16 @@ def assemble_match_dataset(
     team_stats = team_stats.merge(team_players, on=["GAME_ID", "TEAM_ID"], how="left")
     team_stats = _attach_opponent_features(team_stats)
 
-    if odds_dir and Path(odds_dir).exists():
-        odds_df = merge_odds_csv_files(str(odds_dir))
-        team_stats = match_odds_with_dataset(odds_df, team_stats)
+    # Odds ingest disabled: the current bookmaker exports are incomplete so we keep
+    # the helper code but stop injecting moneyline-based columns in silver datasets.
+    # if odds_dir and Path(odds_dir).exists():
+    #     odds_df = merge_odds_csv_files(str(odds_dir))
+    #     team_stats = match_odds_with_dataset(odds_df, team_stats)
 
     team_stats = team_stats.sort_values(["GAME_DATE", "GAME_ID", "TEAM_ID"]).reset_index(drop=True)
 
     keep_cols = set(MATCH_IDENTIFIER_COLUMNS + ["TEAM_ID", "IS_HOME", "IS_WIN", "POINTS_FOR", "POINTS_AGAINST", "POINT_TOTAL", "POINT_DIFF", "ODDS"])
+    keep_cols.update(MATCH_CONTEXT_FLAGS)
     keep_cols.update(BASE_TEAM_FEATURE_COLUMNS)
     filtered_cols = [col for col in team_stats.columns if col in keep_cols]
     filtered = team_stats[filtered_cols].copy()

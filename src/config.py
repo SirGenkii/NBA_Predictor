@@ -131,10 +131,11 @@ PLAYER_AVAILABILITY_BASE = list(dict.fromkeys(PLAYER_AVAILABILITY_BASE))
 PLAYER_AVAILABILITY_WINDOWS = [3, 5, 10, 25]
 
 MATCHUP_WINDOWS = [5, 10, 25]
+MATCH_CONTEXT_FLAGS = ["IS_PLAYOFF", "IS_IN_SEASON_TOURNAMENT", "IS_FINAL_WEEK"]
 
 # Raw stat columns that seed the match-level representation before derived features
 BASE_TEAM_FEATURE_COLUMNS = sorted(
-    set(cols_to_sum + cols_to_weighted_avg + cols_player_stats + player_absent_input_cols)
+    set(cols_to_sum + cols_to_weighted_avg + cols_player_stats + player_absent_input_cols + MATCH_CONTEXT_FLAGS)
 )
 
 RESULT_BASE_COLUMNS = ["IS_WIN", "POINTS_FOR", "POINTS_AGAINST", "POINT_DIFF", "POINT_TOTAL"]
@@ -155,8 +156,9 @@ MATCH_ALLOWED_BASE_COLUMNS = [
     
 features_to_roll = cols_to_sum + cols_to_weighted_avg 
 features_to_roll += [f"OPP_{col}" for col in cols_to_sum + cols_to_weighted_avg]
-top_player_features_to_roll = cols_player_stats.copy()
-top_player_features_to_roll += [f"OPP_{col}" for col in cols_player_stats] 
+top_player_features_to_roll = cols_player_stats + player_absent_input_cols
+top_player_features_to_roll = list(dict.fromkeys(top_player_features_to_roll))
+top_player_features_to_roll += [f"OPP_{col}" for col in top_player_features_to_roll]
 
 N_LIST = [3, 5, 10, 25, 50, 100, 200]
 

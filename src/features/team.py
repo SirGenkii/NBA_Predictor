@@ -2,7 +2,13 @@ from __future__ import annotations
 
 import pandas as pd
 
-from src.config import BASE_TEAM_FEATURE_COLUMNS, features_to_roll
+from src.config import (
+    BASE_TEAM_FEATURE_COLUMNS,
+    MATCHUP_WINDOWS,
+    MATCH_CONTEXT_FLAGS,
+    features_to_roll,
+    top_player_features_to_roll,
+)
 from src.feature_builder import (
     compute_elo,
     compute_elo_season,
@@ -19,7 +25,6 @@ from src.feature_builder import (
     convert_elos_to_elo_diff,
     rename_pts_against_columns,
 )
-from .availability import apply_availability_features
 from .reshaping import attach_team_features, match_rows_to_team_rows
 
 
@@ -31,14 +36,16 @@ def apply_team_history_features(match_df: pd.DataFrame) -> pd.DataFrame:
 
     team_view = _add_shifted_targets(team_view)
     team_view = _add_rest_features(team_view)
+    team_view = _add_context_features(team_view)
     team_view = _add_win_features(team_view)
     team_view = _add_scoring_rollups(team_view)
     team_view = _add_generic_rollings(team_view)
+    team_view = _add_top_player_rollings(team_view)
+    team_view = _add_variance_rollings(team_view)
     team_view = _add_h2h_features(team_view)
     team_view = _add_elo_features(team_view)
     feature_cols = [col for col in team_view.columns if col not in base_columns]
     match_df = attach_team_features(match_df, team_view, feature_cols=feature_cols)
-    match_df = apply_availability_features(match_df)
     return match_df
 
 
@@ -57,6 +64,7 @@ def _add_rest_features(df: pd.DataFrame) -> pd.DataFrame:
     result["DAYS_SINCE_LAST_GAME"] = compute_rest_days(result, "GAME_DATE", "TEAM_ID")
     result["OPP_DAYS_SINCE_LAST_GAME"] = compute_rest_days(result, "GAME_DATE", "OPP_TEAM_ID")
     result["REST_ADVANTAGE"] = result["DAYS_SINCE_LAST_GAME"] - result["OPP_DAYS_SINCE_LAST_GAME"]
+    result = _add_schedule_flags(result)
     result = compute_rolling_rest_advantage(result, "TEAM_ID", "IS_HOME", "REST_ADVANTAGE", windows=[3, 5, 10])
     return result
 
@@ -103,3 +111,92 @@ def _add_elo_features(df: pd.DataFrame) -> pd.DataFrame:
     result = compute_elo_season(result)
     result = convert_elos_to_elo_diff(result)
     return result
+
+
+def _add_schedule_flags(df: pd.DataFrame) -> pd.DataFrame:
+    """Derive schedule congestion indicators and short-term rollings."""
+
+    result = df.sort_values(["TEAM_ID", "GAME_DATE"]).copy()
+    result["IS_BACK_TO_BACK"] = (result["DAYS_SINCE_LAST_GAME"] <= 1).astype(int)
+
+    group = result.groupby("TEAM_ID")
+    two_games_back = group["GAME_DATE"].shift(2)
+    four_games_back = group["GAME_DATE"].shift(4)
+
+    result["IS_3IN4"] = (
+        (result["GAME_DATE"] - two_games_back) <= pd.Timedelta(days=4)
+    ).fillna(False).astype(int)
+    result["IS_5IN7"] = (
+        (result["GAME_DATE"] - four_games_back) <= pd.Timedelta(days=7)
+    ).fillna(False).astype(int)
+
+    for col in ("IS_BACK_TO_BACK", "IS_3IN4", "IS_5IN7"):
+        for window in (5, 10):
+            result[f"ROLL_{col}_{window}"] = group[col].transform(
+                lambda s, w=window: s.shift(1).rolling(w, min_periods=1).mean()
+            )
+
+    return result
+
+
+def _add_context_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Roll tournament/playoff flags to quantify recent importance."""
+
+    result = df.copy()
+    flags = [flag for flag in MATCH_CONTEXT_FLAGS if flag in result.columns]
+    if not flags:
+        return result
+
+    group = result.groupby("TEAM_ID")
+    for flag in flags:
+        for window in MATCHUP_WINDOWS:
+            result[f"ROLL_{flag}_{window}"] = group[flag].transform(
+                lambda s, w=window: s.shift(1).rolling(w, min_periods=1).mean()
+            )
+
+    return result
+
+
+def _add_variance_rollings(df: pd.DataFrame) -> pd.DataFrame:
+    """Capture volatility of shot profiles to gauge matchup variance."""
+
+    variance_cols = [
+        "percentageFieldGoalsAttempted3pt_scoring",
+        "OPP_percentageFieldGoalsAttempted3pt_scoring",
+        "percentagePoints3pt_scoring",
+        "OPP_percentagePoints3pt_scoring",
+        "points_traditional",
+        "OPP_points_traditional",
+        "pace_advanced",
+        "OPP_pace_advanced",
+        "possessions_advanced",
+        "OPP_possessions_advanced",
+    ]
+    available = [col for col in variance_cols if col in df.columns]
+    if not available:
+        return df
+
+    return compute_rolling_features(
+        df,
+        group_col="TEAM_ID",
+        sort_cols=["TEAM_ID", "GAME_DATE"],
+        value_cols=available,
+        windows=[5, 10, 25],
+        method="std",
+        suffix="_STD",
+    )
+
+
+def _add_top_player_rollings(df: pd.DataFrame) -> pd.DataFrame:
+    available = [col for col in top_player_features_to_roll if col in df.columns]
+    if not available:
+        return df
+
+    return compute_rolling_features(
+        df,
+        group_col="TEAM_ID",
+        sort_cols=["TEAM_ID", "GAME_DATE"],
+        value_cols=available,
+        windows=[3, 5, 10, 25],
+        method="ewm",
+    )

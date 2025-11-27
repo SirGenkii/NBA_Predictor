@@ -9,13 +9,13 @@
     }
   },
   "lgbm": {
-    "metric": 18.07620472682875,
+    "metric": 18.10869394522932,
     "params": {
-      "colsample_bytree": 0.7453869061351924,
-      "learning_rate": 0.011280748513047471,
+      "colsample_bytree": 0.6102394617227369,
+      "learning_rate": 0.019625242544460565,
       "n_estimators": 800,
-      "num_leaves": 40,
-      "subsample": 0.6815641731698073
+      "num_leaves": 44,
+      "subsample": 0.8432465247291467
     }
   },
   "ngboost": {
@@ -50,15 +50,15 @@
     }
   },
   "xgb": {
-    "metric": 18.068556037635002,
+    "metric": 18.108866910743355,
     "params": {
-      "colsample_bytree": 0.6187178910504638,
-      "learning_rate": 0.01035663999747931,
+      "colsample_bytree": 0.995575604809875,
+      "learning_rate": 0.010064057081269059,
       "max_depth": 6,
-      "n_estimators": 800,
-      "reg_alpha": 0.0002902740955482978,
-      "reg_lambda": 1.0260118106953716e-05,
-      "subsample": 0.88529887777181
+      "n_estimators": 1400,
+      "reg_alpha": 0.0750876528299267,
+      "reg_lambda": 4.303151336541602e-05,
+      "subsample": 0.8202081703222689
     }
   }
 }

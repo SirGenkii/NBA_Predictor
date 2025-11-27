@@ -18,7 +18,16 @@ def _rolling_shifted_mean(series, group_ids, window):
               .transform(lambda s: s.shift(1).rolling(window, min_periods=1).mean())
     )
 
-def compute_rolling_features(df, group_col, sort_cols, value_cols, windows, method="mean", apply_log=False):
+def compute_rolling_features(
+    df,
+    group_col,
+    sort_cols,
+    value_cols,
+    windows,
+    method="mean",
+    apply_log=False,
+    suffix="",
+):
     """
     Calcule des features de rolling moyenne ou ewm pour une liste de colonnes.
     Si apply_log est True, applique log1p directement sur les colonnes générées, sans les dupliquer.
@@ -42,10 +51,14 @@ def compute_rolling_features(df, group_col, sort_cols, value_cols, windows, meth
 
     for col in value_cols:
         for window in windows:
-            roll_col = f"ROLL_{col}_{window}"
+            roll_col = f"ROLL_{col}_{window}{suffix}"
             if method == "ewm":
                 values = grouped[col].transform(
                     lambda x, span=window: x.shift(1).ewm(span=span, min_periods=1).mean()
+                )
+            elif method == "std":
+                values = grouped[col].transform(
+                    lambda x, w=window: x.shift(1).rolling(w, min_periods=1).std()
                 )
             else:
                 values = grouped[col].transform(

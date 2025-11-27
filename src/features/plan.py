@@ -5,9 +5,10 @@ from typing import Callable, List, Sequence
 
 import pandas as pd
 
-from .availability import apply_availability_features
 from .cleanup import drop_helper_columns, drop_raw_team_columns
 from .matchup import add_matchup_scoring_features
+from .normalization import apply_normalized_matchup_features
+from .rotation import apply_rotation_features
 from .targets import add_point_targets
 from .team import apply_team_history_features
 
@@ -56,16 +57,22 @@ DEFAULT_FEATURE_PLAN = FeaturePlan(
             description="Convert match rows to team view, compute rolling stats (rest, win, H2H, Elo).",
         ),
         FeatureStep(
-            name="availability_rollups",
-            func=apply_availability_features,
-            stage="availability_features",
-            description="Leak-safe rolling absence/injury rates for key players.",
+            name="rotation_metrics",
+            func=apply_rotation_features,
+            stage="rotation_features",
+            description="Estimate expected minutes/bench usage rollings for each team.",
         ),
         FeatureStep(
             name="matchup_scoring",
             func=add_matchup_scoring_features,
             stage="matchup_features",
             description="Combine home/away rolling stats into matchup-level pace, total, and gap metrics.",
+        ),
+        FeatureStep(
+            name="normalized_matchup_features",
+            func=apply_normalized_matchup_features,
+            stage="matchup_features",
+            description="Add relative/normalized matchup features (bench ratios, usage loss, z-scores).",
         ),
         FeatureStep(
             name="drop_raw_team_columns",
