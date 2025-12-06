@@ -1,5 +1,11 @@
 # NBA Predictor – Roadmap
 
+## Update – Handicap odds features
+- Implemented handicap parser/feature step (`apply_handicap_features`) with curve scalars, abs/rel grids (170–260 pas=1, prior±25), flags, and top-3 pivots.
+- Gaussian smoothing configurable via `config.py` (sigma_grid default 1.5, optimized flag, isotone toggle); sigma values logged to MLflow during training.
+- Bronze assembler now retains raw `handicap` JSON; features built in silver pipeline; raw handicap columns dropped after feature extraction.
+- Gold whitelist extended to keep `handicap_*` columns; MLflow plots already overlay market vs model curves.
+
 ## Current Snapshot
 - **Dataset**: Historical matches live under `data/01_bronze` (merged raw boxscores & games for all seasons plus “last” updates). Notebook `05_boxscores_feature_enginering.ipynb` currently jumps straight from bronze inputs to fully engineered tables: it saves a `final` CSV (features + targets) and a “final cleaned” version where post-match columns are manually dropped. These two CSVs implicitly behave like our `02_silver` and `03_gold` layers, but the transformation is notebook-driven, not scripted. Each matchup is still duplicated into two rows (`TEAM_ID`, `OPP_TEAM_ID`, `IS_HOME`, `IS_WIN`).
 - **Feature engineering**: `src/feature_builder.py` and `src/config.py` define rollups, win streaks, Elo, rest advantage, etc. Odds columns are present but mostly dropped before modeling.

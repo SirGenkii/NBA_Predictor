@@ -33,7 +33,13 @@ from ngboost.scores import CRPScore
 from catboost import CatBoostRegressor
 
 from .config import DatasetConfig, TrainingConfig
-from .data import load_dataset, prepare_features, train_test_split_data
+from .data import (
+    TrainCalibTestSplit,
+    generate_walk_forward_folds,
+    load_dataset,
+    prepare_features,
+    train_test_split_data,
+)
 from .metrics import classification_metrics, confusion_matrix_values, regression_metrics
 from .plots import (
     plot_calibration_curve,
@@ -43,8 +49,16 @@ from .plots import (
     plot_pred_vs_actual,
     plot_residual_hist,
     plot_gaussian_prediction,
+    plot_market_vs_model_curve,
 )
 from .constants import CALIBRATION_ARTIFACT_PATH
+from src.config import (
+    HANDICAP_APPLY_ISOTONE,
+    HANDICAP_APPLY_OPTIMIZED_SIGMA,
+    HANDICAP_ENABLE_SMOOTHING,
+    HANDICAP_SIGMA_GRID_DEFAULT,
+    HANDICAP_SIGMA_GRID_OPTIMIZED,
+)
 
 
 class RegressorPipeline(Pipeline, RegressorMixin):
@@ -107,18 +121,31 @@ class ModelTrainer:
         self._dataset_path = None
         self._feature_names: List[str] = []
         self._sigma_models: Dict[str, Pipeline] = {}
+        self._fold_splits: List[TrainCalibTestSplit] = []
+        self.X_calib = None
+        self.y_calib = None
         self._load_data()
 
     def _load_data(self):
         df = load_dataset(self.dataset_cfg)
         self._dataset_path = df.attrs.get("source_path")
         X, y, feature_names = prepare_features(df, self.dataset_cfg)
-        (
-            self.X_train,
-            self.X_test,
-            self.y_train,
-            self.y_test,
-        ) = train_test_split_data(X, y, self.training_cfg)
+        if (
+            self.training_cfg.split_strategy == "walk_forward"
+            and self.training_cfg.walk_forward_folds
+            and self.training_cfg.walk_forward_folds > 1
+        ):
+            self._fold_splits = generate_walk_forward_folds(X, y, self.training_cfg, df_meta=df)
+            final_split = self._fold_splits[-1]
+        else:
+            final_split = train_test_split_data(X, y, self.training_cfg, df_meta=df)
+            self._fold_splits = [final_split]
+        self.X_train = final_split.X_train
+        self.X_calib = final_split.X_calib
+        self.X_test = final_split.X_test
+        self.y_train = final_split.y_train
+        self.y_calib = final_split.y_calib
+        self.y_test = final_split.y_test
         self._feature_names = feature_names
 
     def available_models(self) -> List[str]:
@@ -177,6 +204,7 @@ class ModelTrainer:
 
         pipeline = self._build_model(model_key, overrides=param_overrides)
         run_name = run_name or f"{model_key}"
+        sigma_scale = None
 
         context = mlflow.start_run(run_name=run_name) if log_run else nullcontext()
         with context:
@@ -191,14 +219,21 @@ class ModelTrainer:
                         "task_type": self.training_cfg.task_type,
                     }
                 )
-
-            if self.training_cfg.enable_learning_curve and log_run:
-                self._log_learning_curve(pipeline, model_key)
-
-            pipeline.fit(self.X_train, self.y_train)
-            y_pred = pd.Series(pipeline.predict(self.X_test), index=self.X_test.index)
+                mlflow.log_params(
+                    {
+                        "handicap_sigma_grid_default": HANDICAP_SIGMA_GRID_DEFAULT,
+                        "handicap_sigma_grid_optimized": HANDICAP_SIGMA_GRID_OPTIMIZED,
+                        "handicap_enable_smoothing": HANDICAP_ENABLE_SMOOTHING,
+                        "handicap_apply_isotone": HANDICAP_APPLY_ISOTONE,
+                        "handicap_apply_optimized_sigma": HANDICAP_APPLY_OPTIMIZED_SIGMA,
+                    }
+                )
 
             if self.training_cfg.task_type == "classification":
+                if self.training_cfg.enable_learning_curve and log_run:
+                    self._log_learning_curve(pipeline, model_key)
+                pipeline.fit(self.X_train, self.y_train)
+                y_pred = pd.Series(pipeline.predict(self.X_test), index=self.X_test.index)
                 y_proba = pd.Series(
                     pipeline.predict_proba(self.X_test)[:, 1],
                     index=self.X_test.index,
@@ -224,44 +259,167 @@ class ModelTrainer:
                 if log_run:
                     self._log_classification_plots(model_key, y_pred, y_proba)
             else:
-                metrics = regression_metrics(self.y_test, y_pred)
-                if log_run:
-                    for k, v in metrics.items():
-                        mlflow.log_metric(k, float(v))
-                sigma_series = self._get_sigma_predictions(model_key, pipeline)
-                if log_run:
-                    mlflow.log_metric("residual_std", float(sigma_series.mean()))
-                calibration_payload = None
-                calibration_frame = None
-                if model_key == "xgb_calibrated":
-                    calibration_payload, calibration_frame = self._fit_isotonic_calibrators(
-                        y_pred,
-                        sigma_series,
-                        self._pivot_list(),
+                if self.training_cfg.enable_learning_curve and log_run:
+                    self._log_learning_curve(pipeline, model_key)
+                fold_metrics = []
+                final_payload = {}
+                folds = self._fold_splits if self._fold_splits else [
+                    TrainCalibTestSplit(
+                        X_train=self.X_train,
+                        X_calib=self.X_calib,
+                        X_test=self.X_test,
+                        y_train=self.y_train,
+                        y_calib=self.y_calib,
+                        y_test=self.y_test,
                     )
-                    if calibration_payload and log_run:
-                        self._log_calibration_artifact(calibration_payload, calibration_frame)
-                preds_df = pd.DataFrame(
-                    {
-                        "y_true": self.y_test,
-                        "y_pred": y_pred,
-                        "sigma": sigma_series,
-                        "residual": self.y_test - y_pred,
-                    },
-                    index=self.X_test.index,
-                )
+                ]
+                for fold_idx, split in enumerate(folds):
+                    if model_key in self._sigma_models:
+                        del self._sigma_models[model_key]
+                    pipeline_fold = self._build_model(model_key, overrides=param_overrides)
+                    pipeline_fold.fit(split.X_train, split.y_train)
+                    y_pred_fold = pd.Series(
+                        pipeline_fold.predict(split.X_test), index=split.X_test.index
+                    )
+                    metrics_fold = regression_metrics(split.y_test, y_pred_fold)
+                    residuals_test = split.y_test - y_pred_fold
+                    residual_std_test = float(np.std(residuals_test, ddof=1))
+                    sigma_series = self._get_sigma_predictions(
+                        model_key, pipeline_fold, split.X_test
+                    )
+                    calib_X = split.X_calib if split.X_calib is not None else split.X_test
+                    calib_y = split.y_calib if split.y_calib is not None else split.y_test
+                    y_pred_calib = (
+                        pd.Series(pipeline_fold.predict(calib_X), index=calib_X.index)
+                        if calib_X is not None
+                        else None
+                    )
+                    sigma_calib = (
+                        self._get_sigma_predictions(model_key, pipeline_fold, calib_X)
+                        if calib_X is not None
+                        else sigma_series
+                    )
+                    residuals_calib = (
+                        calib_y - y_pred_calib
+                        if calib_y is not None and y_pred_calib is not None
+                        else None
+                    )
+                    residual_std_calib = (
+                        float(np.std(residuals_calib, ddof=1))
+                        if residuals_calib is not None
+                        else None
+                    )
+                    sigma_pred_mean = float(sigma_series.mean()) if not sigma_series.empty else None
+                    sigma_pred_mean_calib = (
+                        float(sigma_calib.mean()) if sigma_calib is not None and not sigma_calib.empty else None
+                    )
+                    sigma_scale = (
+                        residual_std_calib / sigma_pred_mean_calib
+                        if residual_std_calib and sigma_pred_mean_calib
+                        else None
+                    )
+                    metrics_fold["residual_std_test"] = residual_std_test
+                    metrics_fold["sigma_pred_mean"] = sigma_pred_mean
+                    metrics_fold["sigma_pred_mean_calib"] = sigma_pred_mean_calib
+                    metrics_fold["sigma_scale"] = sigma_scale
+                    fold_metrics.append(metrics_fold)
+                    if log_run:
+                        for k, v in metrics_fold.items():
+                            if v is not None:
+                                mlflow.log_metric(f"{k}_fold{fold_idx}", float(v))
+
+                    calibration_payload = None
+                    calibration_frame = None
+                    if model_key == "xgb_calibrated":
+                        calibration_payload, calibration_frame = self._fit_isotonic_calibrators(
+                            y_pred_calib if y_pred_calib is not None else y_pred_fold,
+                            sigma_calib if sigma_calib is not None else sigma_series,
+                            calib_y if calib_y is not None else split.y_test,
+                            self._pivot_list(),
+                        )
+                        if calibration_payload and log_run and fold_idx == len(folds) - 1:
+                            self._log_calibration_artifact(calibration_payload, calibration_frame)
+
+                    if fold_idx == len(folds) - 1:
+                        preds_df = pd.DataFrame(
+                            {
+                                "y_true": split.y_test,
+                                "y_pred": y_pred_fold,
+                                "sigma": sigma_series,
+                                "residual": residuals_test,
+                            },
+                            index=split.X_test.index,
+                        )
+                        final_payload = {
+                            "pipeline": pipeline_fold,
+                            "preds_df": preds_df,
+                            "y_pred": y_pred_fold,
+                            "sigma_series": sigma_series,
+                            "calibration_payload": calibration_payload,
+                            "calibration_frame": calibration_frame,
+                            "calib_X": calib_X,
+                            "calib_y": calib_y,
+                            "y_pred_calib": y_pred_calib,
+                            "sigma_calib": sigma_calib,
+                            "sigma_scale": sigma_scale,
+                            "residual_std_calib": residual_std_calib,
+                            "sigma_pred_mean_calib": sigma_pred_mean_calib,
+                        }
+
+                # aggregate metrics over folds
+                agg_metrics = {}
+                if fold_metrics:
+                    keys = fold_metrics[0].keys()
+                    for k in keys:
+                        vals = [fm[k] for fm in fold_metrics if fm.get(k) is not None]
+                        if vals:
+                            agg_metrics[k] = float(np.mean(vals))
                 if log_run:
+                    for k, v in agg_metrics.items():
+                        mlflow.log_metric(k, float(v))
+
+                pipeline = final_payload.get("pipeline", pipeline)
+                preds_df = final_payload.get("preds_df")
+                y_pred = final_payload.get("y_pred")
+                sigma_series = final_payload.get("sigma_series", pd.Series(dtype=float))
+                calibration_payload = final_payload.get("calibration_payload")
+                calibration_frame = final_payload.get("calibration_frame")
+                calib_X = final_payload.get("calib_X")
+                y_pred_calib = final_payload.get("y_pred_calib")
+                sigma_calib = final_payload.get("sigma_calib")
+                sigma_scale = final_payload.get("sigma_scale")
+                residual_std_calib = final_payload.get("residual_std_calib")
+                sigma_pred_mean_calib = final_payload.get("sigma_pred_mean_calib")
+                residuals_test = preds_df["residual"] if preds_df is not None else pd.Series()
+                if model_key == "xgb_calibrated" and calibration_payload and log_run:
+                    self._log_calibration_artifact(calibration_payload, calibration_frame)
+                if log_run and preds_df is not None:
                     self._log_regression_plots(
                         model_key,
                         y_pred,
                         sigma_series,
                         self._pivot_list(),
                     )
+                metrics = agg_metrics
 
             if log_run:
-                with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as tmp:
-                    preds_df.to_csv(tmp.name, index=False)
-                    mlflow.log_artifact(tmp.name, artifact_path="predictions")
+                if preds_df is not None:
+                    with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as tmp:
+                        preds_df.to_csv(tmp.name, index=False)
+                        mlflow.log_artifact(tmp.name, artifact_path="predictions")
+
+                sigma_model = self._sigma_models.get(model_key)
+                if sigma_model is not None and self.training_cfg.enable_sigma_model:
+                    with tempfile.NamedTemporaryFile(suffix=".pkl", delete=False) as tmp:
+                        joblib.dump(sigma_model, tmp.name)
+                        mlflow.log_artifact(tmp.name, artifact_path="sigma_model")
+                    sigma_meta = {
+                        "sigma_scale": sigma_scale,
+                        "min_sigma": self.training_cfg.min_sigma,
+                        "sigma_pred_mean_calib": sigma_pred_mean_calib if "sigma_pred_mean_calib" in locals() else None,
+                        "residual_std_calib": residual_std_calib if "residual_std_calib" in locals() else None,
+                    }
+                    mlflow.log_dict(sigma_meta, "sigma_model/meta.json")
 
                 importances = self._extract_feature_importances(pipeline)
                 if importances is not None:
@@ -612,13 +770,15 @@ class ModelTrainer:
         min_len = min(len(names), len(imps))
         return names[:min_len], imps[:min_len]
 
-    def _get_sigma_predictions(self, model_key: str, pipeline) -> pd.Series:
+    def _get_sigma_predictions(self, model_key: str, pipeline, X_target: Optional[pd.DataFrame]) -> pd.Series:
+        if X_target is None or len(X_target) == 0:
+            return pd.Series(dtype=float)
         if not self.training_cfg.enable_sigma_model:
             residuals = self.y_train - pipeline.predict(self.X_train)
             sigma = max(float(residuals.std()), self.training_cfg.min_sigma)
             return pd.Series(
-                np.full(len(self.X_test), sigma),
-                index=self.X_test.index,
+                np.full(len(X_target), sigma),
+                index=X_target.index,
             )
 
         sigma_model = self._sigma_models.get(model_key)
@@ -644,9 +804,9 @@ class ModelTrainer:
             sigma_model.fit(self.X_train, target)
             self._sigma_models[model_key] = sigma_model
 
-        sigma_pred = sigma_model.predict(self.X_test)
+        sigma_pred = sigma_model.predict(X_target)
         sigma_pred = np.maximum(sigma_pred, self.training_cfg.min_sigma)
-        return pd.Series(sigma_pred, index=self.X_test.index)
+        return pd.Series(sigma_pred, index=X_target.index)
 
     def _pivot_list(self) -> List[float]:
         if self.training_cfg.pivot_values:
@@ -710,6 +870,7 @@ class ModelTrainer:
             self._log_gaussian_examples(model_key, y_pred, sigma_series, pivots)
             if pivots:
                 self._log_pivot_probabilities(model_key, y_pred, sigma_series, pivots)
+        self._log_handicap_curve_examples(model_key, y_pred, sigma_series)
 
     def _log_gaussian_examples(self, model_key: str, y_pred, sigma_series: pd.Series, pivots: List[float]):
         if sigma_series.empty:
@@ -727,6 +888,93 @@ class ModelTrainer:
             )
             if fig:
                 mlflow.log_figure(fig, f"plots/{model_key}_gaussian_{idx}.png")
+                plt.close(fig)
+
+    def _handicap_curve_spec(self) -> Optional[Tuple[List[str], List[float], Dict[str, str]]]:
+        if self.X_test is None or len(self.X_test.columns) == 0:
+            return None
+        prefix = "handicap_over_"
+        over_cols: List[str] = []
+        labels: List[float] = []
+        missing_cols: Dict[str, str] = {}
+        for col in self.X_test.columns:
+            if not col.startswith(prefix):
+                continue
+            if col.endswith("_missing"):
+                base = col[: -len("_missing")]
+                missing_cols[base] = col
+                continue
+            label_str = col[len(prefix) :]
+            try:
+                label_val = float(label_str.replace("_", "."))
+            except ValueError:
+                continue
+            over_cols.append(col)
+            labels.append(label_val)
+        if not over_cols:
+            return None
+        order = np.argsort(labels)
+        over_cols = [over_cols[i] for i in order]
+        labels = [labels[i] for i in order]
+        return over_cols, labels, missing_cols
+
+    def _extract_handicap_curve(
+        self,
+        row: pd.Series,
+        spec: Tuple[List[str], List[float], Dict[str, str]],
+    ) -> Tuple[List[float], List[float]]:
+        over_cols, labels, missing_cols = spec
+        xs: List[float] = []
+        probs: List[float] = []
+        for col, label in zip(over_cols, labels):
+            missing_flag = missing_cols.get(col)
+            if missing_flag and missing_flag in row and pd.notna(row[missing_flag]) and row[missing_flag] >= 0.5:
+                continue
+            val = row.get(col, np.nan)
+            if pd.isna(val):
+                continue
+            xs.append(float(label))
+            probs.append(float(val))
+        return xs, probs
+
+    def _log_handicap_curve_examples(
+        self,
+        model_key: str,
+        y_pred: pd.Series,
+        sigma_series: pd.Series,
+        sample_size: int = 10,
+    ):
+        spec = self._handicap_curve_spec()
+        if spec is None or sigma_series.empty or self.y_test is None or self.X_test is None:
+            return
+        rows_with_data: List = []
+        for idx, row in self.X_test.iterrows():
+            labels, market_probs = self._extract_handicap_curve(row, spec)
+            if labels:
+                rows_with_data.append(idx)
+        if not rows_with_data:
+            return
+        n_samples = min(sample_size, len(rows_with_data))
+        rng = np.random.default_rng(self.training_cfg.random_state)
+        sample_idx = rng.choice(rows_with_data, size=n_samples, replace=False)
+        for idx in sample_idx:
+            row = self.X_test.loc[idx]
+            labels, market_probs = self._extract_handicap_curve(row, spec)
+            if not labels:
+                continue
+            if idx not in y_pred.index or idx not in sigma_series.index or idx not in self.y_test.index:
+                continue
+            fig = plot_market_vs_model_curve(
+                labels,
+                market_probs,
+                pred_mean=float(y_pred.loc[idx]),
+                pred_sigma=float(max(sigma_series.loc[idx], self.training_cfg.min_sigma)),
+                actual=float(self.y_test.loc[idx]),
+                min_sigma=self.training_cfg.min_sigma,
+                title="Market vs model curve",
+            )
+            if fig:
+                mlflow.log_figure(fig, f"plots/{model_key}_handicap_curve_{idx}.png")
                 plt.close(fig)
 
     def _log_pivot_probabilities(self, model_key: str, y_pred, sigma_series: pd.Series, pivots: List[float]):
@@ -768,6 +1016,7 @@ class ModelTrainer:
         self,
         y_pred: pd.Series,
         sigma_series: pd.Series,
+        actual: pd.Series,
         pivots: List[float],
     ) -> tuple[Dict[str, Dict[str, List[float]]], Optional[pd.DataFrame]]:
         if not pivots:
@@ -776,7 +1025,7 @@ class ModelTrainer:
         analysis_rows: List[pd.DataFrame] = []
         sigma = sigma_series.clip(lower=self.training_cfg.min_sigma).to_numpy()
         preds = y_pred.to_numpy()
-        actual = self.y_test.to_numpy()
+        actual = actual.to_numpy()
         for pivot in pivots:
             actual_over = (actual > pivot).astype(int)
             if actual_over.min() == actual_over.max():

@@ -50,15 +50,15 @@
     }
   },
   "xgb": {
-    "metric": 18.068556037635002,
+    "metric": 19.077039497448478,
     "params": {
-      "colsample_bytree": 0.6187178910504638,
-      "learning_rate": 0.01035663999747931,
-      "max_depth": 6,
-      "n_estimators": 800,
-      "reg_alpha": 0.0002902740955482978,
-      "reg_lambda": 1.0260118106953716e-05,
-      "subsample": 0.88529887777181
+      "colsample_bytree": 0.5947024540754043,
+      "learning_rate": 0.030720297060257175,
+      "max_depth": 3,
+      "n_estimators": 600,
+      "reg_alpha": 0.0013065246307751822,
+      "reg_lambda": 1.864727754883465e-06,
+      "subsample": 0.9042185317930156
     }
   }
 }

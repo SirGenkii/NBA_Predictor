@@ -81,10 +81,16 @@ class TrainingConfig:
     test_size: float = 0.2
     random_state: int = 42
     stratify: bool = True
+    split_strategy: str = "walk_forward"  # or "random"
+    season_column: str = "SEASON"
+    train_seasons: int = 6
+    calibration_seasons: int = 2
+    test_seasons: int = 2
+    walk_forward_folds: int = 1
     tracking_uri: str = "file:./mlruns"
     experiment_name: str = "is_win_modeling"
     model_output_dir: Path = Path("data/models")
-    task_type: str = "classification"  # or "regression"
+    task_type: str = "regression"  # or "classification"
     enable_learning_curve: bool = True
     pivot_value: Optional[float] = None
     pivot_values: Optional[List[float]] = None

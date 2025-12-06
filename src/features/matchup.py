@@ -17,6 +17,7 @@ def add_matchup_scoring_features(df: pd.DataFrame) -> pd.DataFrame:
         _add_scoring_features(result, window)
         _add_rating_gaps(result, window)
         _add_availability_gaps(result, window)
+    _add_tempo_trends(result)
 
     _add_elo_matchup(result)
 
@@ -70,3 +71,21 @@ def _add_availability_gaps(df: pd.DataFrame, window: int) -> None:
     away_col = f"AWAY_{rate}"
     if home_col in df.columns and away_col in df.columns:
         df[f"MATCH_AVAILABILITY_GAP_{window}"] = df[home_col] - df[away_col]
+
+
+def _add_tempo_trends(df: pd.DataFrame) -> None:
+    """Add simple trend/ratio indicators to capture recent acceleration/slowdown."""
+    def _safe_ratio(num, den):
+        return num / den.replace(0, pd.NA)
+
+    if {"MATCH_PACE_10", "MATCH_PACE_25"}.issubset(df.columns):
+        df["PACE_TREND_10_25"] = df["MATCH_PACE_10"] - df["MATCH_PACE_25"]
+        df["PACE_RATIO_10_25"] = _safe_ratio(df["MATCH_PACE_10"], df["MATCH_PACE_25"])
+    if {"MATCH_PACE_10", "MATCH_PACE_50"}.issubset(df.columns):
+        df["PACE_TREND_10_50"] = df["MATCH_PACE_10"] - df["MATCH_PACE_50"]
+        df["PACE_RATIO_10_50"] = _safe_ratio(df["MATCH_PACE_10"], df["MATCH_PACE_50"])
+
+    if {"TOTAL_POINTS_EXPECTED_10", "TOTAL_POINTS_EXPECTED_25"}.issubset(df.columns):
+        df["TOTAL_POINTS_TREND_10_25"] = df["TOTAL_POINTS_EXPECTED_10"] - df["TOTAL_POINTS_EXPECTED_25"]
+    if {"TOTAL_POINTS_EXPECTED_10", "TOTAL_POINTS_EXPECTED_50"}.issubset(df.columns):
+        df["TOTAL_POINTS_TREND_10_50"] = df["TOTAL_POINTS_EXPECTED_10"] - df["TOTAL_POINTS_EXPECTED_50"]

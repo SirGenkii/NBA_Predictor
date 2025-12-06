@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+import joblib
 
 import mlflow
 import mlflow.sklearn
@@ -43,6 +44,8 @@ EXPERIMENT_NAME = "point_total_regression"
 MODEL_FILTER = f"params.model_key = '{POINT_TOTAL_PRODUCTION_MODEL_KEY}'"
 BEST_PARAMS_PATH = Path("artifacts/point_total_best_params.json")
 LOGGER = logging.getLogger(__name__)
+SIGMA_MODEL_ARTIFACT = "sigma_model/model.pkl"
+SIGMA_META_ARTIFACT = "sigma_model/meta.json"
 
 
 @dataclass(frozen=True)
@@ -75,17 +78,29 @@ def run_prediction_pipeline(
     features, entities = _collect_prediction_features(requests, training_ref.feature_names)
     model = training_ref.model
     preds = model.predict(features)
-    sigma = training_ref.residual_std
+    if training_ref.sigma_model is not None:
+        sigma_raw = training_ref.sigma_model.predict(features)
+        scale = training_ref.sigma_scale if training_ref.sigma_scale else 1.0
+        sigma = pd.Series(
+            np.maximum(sigma_raw * scale, training_ref.min_sigma),
+            index=features.index,
+        )
+    else:
+        sigma = pd.Series(
+            np.full(len(features), max(training_ref.residual_std, training_ref.min_sigma)),
+            index=features.index,
+        )
     calibration = training_ref.calibration or {}
 
     pivots = list(pivots)
     outputs: List[PredictionOutput] = []
-    for entity, pred_val in zip(entities, preds):
+    for idx, (entity, pred_val) in enumerate(zip(entities, preds)):
         request_obj = entity.request
         mean_val = float(pred_val)
+        sigma_val = float(sigma.iloc[idx])
         probs: dict[float, float] = {}
         for pivot in pivots:
-            raw_prob = float(1 - norm.cdf(pivot, loc=mean_val, scale=sigma))
+            raw_prob = float(1 - norm.cdf(pivot, loc=mean_val, scale=sigma_val))
             probs[float(pivot)] = _apply_calibration(raw_prob, pivot, calibration)
         outputs.append(
             PredictionOutput(
@@ -93,7 +108,7 @@ def run_prediction_pipeline(
                 away_team_id=str(request_obj.away_team_id),
                 match_date=request_obj.match_date,
                 prediction=mean_val,
-                sigma=float(sigma),
+                sigma=sigma_val,
                 probabilities=probs,
                 model_path=training_ref.model_path,
                 model_bias=training_ref.residual_mean,
@@ -110,6 +125,9 @@ class _TrainingReference:
     residual_mean: float
     model: object
     model_path: Optional[str]
+    sigma_model: Optional[object] = None
+    sigma_scale: Optional[float] = None
+    min_sigma: float = 0.0
     calibration: Optional[dict] = None
 
 
@@ -168,6 +186,42 @@ def _load_calibration_from_local(run_dir: Path) -> Optional[dict]:
     except Exception as exc:
         LOGGER.warning("Unable to read calibration artifact at %s: %s", cal_path, exc)
         return None
+
+
+def _download_sigma_artifacts(client: MlflowClient, run_id: str) -> Tuple[Optional[object], Optional[dict]]:
+    sigma_model = None
+    sigma_meta = None
+    try:
+        local_path = Path(client.download_artifacts(run_id, SIGMA_MODEL_ARTIFACT))
+        if local_path.exists():
+            sigma_model = joblib.load(local_path)
+    except Exception as exc:
+        LOGGER.warning("Unable to download sigma model artifact for run %s: %s", run_id, exc)
+    try:
+        meta_path = Path(client.download_artifacts(run_id, SIGMA_META_ARTIFACT))
+        if meta_path.exists():
+            sigma_meta = json.loads(meta_path.read_text())
+    except Exception as exc:
+        LOGGER.warning("Unable to download sigma meta artifact for run %s: %s", run_id, exc)
+    return sigma_model, sigma_meta
+
+
+def _load_sigma_from_local(run_dir: Path) -> Tuple[Optional[object], Optional[dict]]:
+    model_path = Path(run_dir) / "artifacts" / SIGMA_MODEL_ARTIFACT
+    meta_path = Path(run_dir) / "artifacts" / SIGMA_META_ARTIFACT
+    sigma_model = None
+    sigma_meta = None
+    if model_path.exists():
+        try:
+            sigma_model = joblib.load(model_path)
+        except Exception as exc:
+            LOGGER.warning("Unable to load sigma model at %s: %s", model_path, exc)
+    if meta_path.exists():
+        try:
+            sigma_meta = json.loads(meta_path.read_text())
+        except Exception as exc:
+            LOGGER.warning("Unable to read sigma meta at %s: %s", meta_path, exc)
+    return sigma_model, sigma_meta
 
 
 def infer_season(match_date: str) -> str:
@@ -261,6 +315,10 @@ def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _Traini
     model = None
     model_path: Optional[str] = None
     calibration: Optional[dict] = None
+    sigma_model: Optional[object] = None
+    sigma_meta: Optional[dict] = None
+    sigma_scale: Optional[float] = None
+    min_sigma = trainer.training_cfg.min_sigma
 
     if MLFLOW_POINT_TOTAL_MODEL_NAME:
         registry_uri = f"models:/{MLFLOW_POINT_TOTAL_MODEL_NAME}/{MLFLOW_POINT_TOTAL_MODEL_STAGE}"
@@ -274,6 +332,7 @@ def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _Traini
             )
             if versions:
                 calibration = _download_calibration_artifact(client, versions[0].run_id)
+                sigma_model, sigma_meta = _download_sigma_artifacts(client, versions[0].run_id)
         except Exception as exc:  # noqa: BLE001
             LOGGER.warning("Unable to load MLflow registry model (%s): %s", registry_uri, exc)
             model = None
@@ -290,6 +349,7 @@ def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _Traini
             model = mlflow.sklearn.load_model(str(run_dir / "artifacts/model"))
             model_path = str(run_dir)
             calibration = _load_calibration_from_local(run_dir)
+            sigma_model, sigma_meta = _load_sigma_from_local(run_dir)
             LOGGER.info("Loaded point_total model from MLflow run %s", model_path)
         except Exception as exc:
             LOGGER.warning("Unable to load MLflow point_total model from runs: %s", exc)
@@ -303,18 +363,37 @@ def _fit_or_load_model(trainer: ModelTrainer, overrides: dict | None) -> _Traini
             pipeline = trainer._build_model("stacking", overrides=overrides)
         pipeline.fit(trainer.X_train, trainer.y_train)
         model = pipeline
+        calib_X = trainer.X_calib if trainer.X_calib is not None else trainer.X_test
+        calib_y = trainer.y_calib if trainer.y_calib is not None else trainer.y_test
+        if trainer.training_cfg.enable_sigma_model:
+            trainer._get_sigma_predictions(target_key, pipeline, calib_X)
+            sigma_model = trainer._sigma_models.get(target_key)
+            if sigma_model is not None and calib_X is not None and calib_y is not None:
+                y_pred_calib = pipeline.predict(calib_X)
+                sigma_calib = trainer._get_sigma_predictions(target_key, pipeline, calib_X)
+                if not sigma_calib.empty:
+                    residual_std_calib = float(np.std(calib_y - y_pred_calib, ddof=1))
+                    sigma_pred_mean_calib = float(sigma_calib.mean())
+                    if sigma_pred_mean_calib > 0:
+                        sigma_scale = residual_std_calib / sigma_pred_mean_calib
         LOGGER.info("Trained point_total %s model locally (no MLflow artifact).", target_key)
 
     preds = model.predict(trainer.X_train)
     residuals = trainer.y_train - preds
     residual_std = float(np.std(residuals))
     residual_mean = float(np.mean(residuals))
+    if sigma_meta:
+        sigma_scale = sigma_meta.get("sigma_scale", sigma_scale)
+        min_sigma = sigma_meta.get("min_sigma", min_sigma)
     return _TrainingReference(
         feature_names=trainer._feature_names,
         residual_std=residual_std,
         residual_mean=residual_mean,
         model=model,
         model_path=model_path,
+        sigma_model=sigma_model,
+        sigma_scale=sigma_scale,
+        min_sigma=min_sigma,
         calibration=calibration,
     )
 

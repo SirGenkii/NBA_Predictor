@@ -7,7 +7,9 @@ import pandas as pd
 
 from .availability import apply_availability_features
 from .cleanup import drop_helper_columns, drop_raw_team_columns
+from .handicap import apply_handicap_features
 from .matchup import add_matchup_scoring_features
+from .pruning import prune_low_quality_features
 from .targets import add_point_targets
 from .team import apply_team_history_features
 
@@ -68,6 +70,12 @@ DEFAULT_FEATURE_PLAN = FeaturePlan(
             description="Combine home/away rolling stats into matchup-level pace, total, and gap metrics.",
         ),
         FeatureStep(
+            name="handicap_features",
+            func=apply_handicap_features,
+            stage="handicap_features",
+            description="Parse handicap JSON odds, derive curve/grid features (abs/rel) + flags/top-K.",
+        ),
+        FeatureStep(
             name="drop_raw_team_columns",
             func=drop_raw_team_columns,
             stage="cleanup",
@@ -78,6 +86,12 @@ DEFAULT_FEATURE_PLAN = FeaturePlan(
             func=drop_helper_columns,
             stage="cleanup",
             description="Remove helper columns used only during feature construction.",
+        ),
+        FeatureStep(
+            name="prune_features",
+            func=prune_low_quality_features,
+            stage="pruning",
+            description="Drop columns with extreme missingness / zero variance to slim the feature set.",
         ),
     ],
     target_steps=[

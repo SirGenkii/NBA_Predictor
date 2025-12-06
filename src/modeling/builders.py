@@ -33,10 +33,15 @@ def point_total_bundle(*, enable_registry: bool = False) -> TrainerBundle:
     training_cfg = TrainingConfig(
         experiment_name="point_total_regression",
         tracking_uri="file:./mlruns",
-        test_size=0.2,
+        test_size=0.2,  # unused when split_strategy=walk_forward
         random_state=42,
         stratify=False,
         task_type="regression",
+        split_strategy="walk_forward",
+        train_seasons=8,
+        calibration_seasons=2,
+        test_seasons=1,
+        walk_forward_folds=8,
         pivot_value=220.0,
         pivot_values=[v + 0.5 for v in range(218, 245)],
         enable_learning_curve=False,

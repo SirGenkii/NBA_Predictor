@@ -32,7 +32,7 @@ COLS_TO_DROP_TARGET_POINT_DIFF = [
     "SEASON",
 ]
 
-COLS_ODDS = ["ODDS", "OPP_ODDS", "HOME_MONEYLINE", "AWAY_MONEYLINE"]
+COLS_ODDS = []; #["ODDS", "OPP_ODDS", "HOME_MONEYLINE", "AWAY_MONEYLINE"]
 
 
 cols_to_sum = [
@@ -130,7 +130,7 @@ PLAYER_AVAILABILITY_BASE = [
 PLAYER_AVAILABILITY_BASE = list(dict.fromkeys(PLAYER_AVAILABILITY_BASE))
 PLAYER_AVAILABILITY_WINDOWS = [3, 5, 10, 25]
 
-MATCHUP_WINDOWS = [5, 10, 25]
+MATCHUP_WINDOWS = [5, 10, 25, 50]
 
 # Raw stat columns that seed the match-level representation before derived features
 BASE_TEAM_FEATURE_COLUMNS = sorted(
@@ -141,7 +141,17 @@ RESULT_BASE_COLUMNS = ["IS_WIN", "POINTS_FOR", "POINTS_AGAINST", "POINT_DIFF", "
 
 MATCH_IDENTIFIER_COLUMNS = ["GAME_ID", "GAME_DATE", "SEASON"]
 MATCH_SIDE_PREFIXES = ("HOME", "AWAY")
-MATCH_ALLOWED_PREFIXES = ("HOME_", "AWAY_", "DIFF_", "MATCH_", "TOTAL_", "ODDS_", "IMPLIED_")
+MATCH_ALLOWED_PREFIXES = (
+    "HOME_",
+    "AWAY_",
+    "DIFF_",
+    "MATCH_",
+    "TOTAL_",
+    "ODDS_",
+    "IMPLIED_",
+    "handicap_",
+    "HANDICAP_",
+)
 MATCH_ALLOWED_BASE_COLUMNS = [
     "GAME_ID",
     "GAME_DATE",
@@ -186,6 +196,27 @@ DATA_GRID_SIMULATIONS_BETS_DIR = DATA_ROOT / "grid_simulations"
 ERROR_LOG_FOLDER = Path("logs")
 BOXSCORES_SCRAPPING_LOG_FILE = ERROR_LOG_FOLDER / "boxscores_scrapping.log"
 
+# Handicap odds feature defaults
+HANDICAP_GRID_MIN = 175.5
+HANDICAP_GRID_MAX = 250
+HANDICAP_GRID_STEP = 1.0
+HANDICAP_GRID_REL_RANGE = 25.0
+HANDICAP_SIGMA_GRID_DEFAULT = float(os.getenv("HANDICAP_SIGMA_GRID_DEFAULT", 1.5))
+HANDICAP_SIGMA_GRID_OPTIMIZED = float(
+    os.getenv("HANDICAP_SIGMA_GRID_OPTIMIZED", HANDICAP_SIGMA_GRID_DEFAULT)
+)
+HANDICAP_ENABLE_SMOOTHING = bool(int(os.getenv("HANDICAP_ENABLE_SMOOTHING", "1")))
+HANDICAP_APPLY_ISOTONE = bool(int(os.getenv("HANDICAP_APPLY_ISOTONE", "0")))
+HANDICAP_APPLY_OPTIMIZED_SIGMA = bool(int(os.getenv("HANDICAP_APPLY_OPTIMIZED_SIGMA", "0")))
+HANDICAP_TOP_K = 3
+HANDICAP_SLOPE_PRIOR_SCALE = 9.0
+
+# Feature pruning defaults
+PRUNE_FEATURES_ENABLED = bool(int(os.getenv("PRUNE_FEATURES_ENABLED", "1")))
+PRUNE_MISSING_THRESHOLD = float(os.getenv("PRUNE_MISSING_THRESHOLD", 0.95))  # drop if >98% missing
+PRUNE_MIN_NON_MISSING = int(os.getenv("PRUNE_MIN_NON_MISSING", 500))  # drop if <200 non-null rows
+PRUNE_DROP_ZERO_VARIANCE = bool(int(os.getenv("PRUNE_DROP_ZERO_VARIANCE", "1")))
+
 
 # NBA mass prediction configuration
 NBA_MASS_PREDICTION_DIR = DATA_ROOT / "mass_prediction_nba"
@@ -208,7 +239,7 @@ NBA_MASS_UNCERTAINTY_SCALE = float(os.getenv("NBA_MASS_UNCERTAINTY_SCALE", 50.0)
 
 MLFLOW_POINT_TOTAL_MODEL_NAME = os.getenv("MLFLOW_POINT_TOTAL_MODEL_NAME", "point_total_stacking")
 MLFLOW_POINT_TOTAL_MODEL_STAGE = os.getenv("MLFLOW_POINT_TOTAL_MODEL_STAGE", "Production")
-POINT_TOTAL_PRODUCTION_MODEL_KEY = os.getenv("POINT_TOTAL_PRODUCTION_MODEL_KEY", "xgb_calibrated")
+POINT_TOTAL_PRODUCTION_MODEL_KEY = os.getenv("POINT_TOTAL_PRODUCTION_MODEL_KEY", "xgb")
 #_POINT_TOTAL_MODELS = os.getenv(
 #    "POINT_TOTAL_MODELS",
 #    "lgbm,xgb,ngboost,catboost,stacking,stacking_full,stacking_linear,stacking_xgbmeta",
@@ -219,6 +250,6 @@ _POINT_TOTAL_MODELS = os.getenv(
     # Keep the default set focused on the strongest models; stacking_full is the prod target.
     # ngboost temporairement désactivé pour tuning/production.
     #"lgbm,xgb,catboost,stacking_full",
-    "lgbm,xgb,xgb_calibrated",
+    "xgb,catboost",
 )
 POINT_TOTAL_DEFAULT_MODELS = [model.strip() for model in _POINT_TOTAL_MODELS.split(",") if model.strip()]

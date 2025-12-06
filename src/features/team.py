@@ -57,6 +57,21 @@ def _add_rest_features(df: pd.DataFrame) -> pd.DataFrame:
     result["DAYS_SINCE_LAST_GAME"] = compute_rest_days(result, "GAME_DATE", "TEAM_ID")
     result["OPP_DAYS_SINCE_LAST_GAME"] = compute_rest_days(result, "GAME_DATE", "OPP_TEAM_ID")
     result["REST_ADVANTAGE"] = result["DAYS_SINCE_LAST_GAME"] - result["OPP_DAYS_SINCE_LAST_GAME"]
+    # Fatigue flags
+    result["IS_B2B"] = (result["DAYS_SINCE_LAST_GAME"] <= 1).astype(int)
+    prev_3 = result.groupby("TEAM_ID")["GAME_DATE"].shift(3)
+    result["IS_3IN4"] = ((result["GAME_DATE"] - prev_3).dt.days <= 4).astype(int).fillna(0)
+    for n in [3, 5, 10]:
+        result[f"ROLL_B2B_RATE_{n}"] = (
+            result.groupby("TEAM_ID")["IS_B2B"]
+            .transform(lambda s: s.shift(1).rolling(n, min_periods=1).mean())
+            .fillna(0)
+        )
+        result[f"ROLL_3IN4_RATE_{n}"] = (
+            result.groupby("TEAM_ID")["IS_3IN4"]
+            .transform(lambda s: s.shift(1).rolling(n, min_periods=1).mean())
+            .fillna(0)
+        )
     result = compute_rolling_rest_advantage(result, "TEAM_ID", "IS_HOME", "REST_ADVANTAGE", windows=[3, 5, 10])
     return result
 

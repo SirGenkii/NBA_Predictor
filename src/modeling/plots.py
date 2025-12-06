@@ -100,3 +100,50 @@ def plot_gaussian_prediction(mean, sigma, actual, pivot=None):
     ax.legend()
     fig.tight_layout()
     return fig
+
+
+def plot_market_vs_model_curve(
+    labels,
+    market_probs,
+    pred_mean: float,
+    pred_sigma: float,
+    actual: float,
+    *,
+    min_sigma: float = 1.0,
+    title: str | None = None,
+):
+    """Overlay market over-prob curve, model-implied curve, and actual total."""
+    labels_arr = np.asarray(labels, dtype=float)
+    market_arr = np.asarray(market_probs, dtype=float)
+    mask = np.isfinite(labels_arr) & np.isfinite(market_arr)
+    labels_arr = labels_arr[mask]
+    market_arr = market_arr[mask]
+    if labels_arr.size == 0:
+        return None
+    order = np.argsort(labels_arr)
+    labels_arr = labels_arr[order]
+    market_arr = np.clip(market_arr[order], 0.0, 1.0)
+
+    x_low = float(np.min(labels_arr))
+    x_high = float(np.max(labels_arr))
+    x_low = min(x_low, pred_mean, actual)
+    x_high = max(x_high, pred_mean, actual)
+    span = max(10.0, x_high - x_low)
+    pad = span * 0.2
+    xs = np.linspace(x_low - pad, x_high + pad, 400)
+
+    sigma = max(pred_sigma, min_sigma)
+    model_probs = 1.0 - norm.cdf(xs, loc=pred_mean, scale=sigma)
+
+    fig, ax = plt.subplots(figsize=(6, 4))
+    ax.plot(labels_arr, market_arr, label="Market over prob", color="C0", marker="o")
+    ax.plot(xs, model_probs, label="Model over prob", color="C1")
+    ax.axvline(actual, color="k", linestyle="--", label=f"Actual {actual:.1f}")
+    ax.axvline(pred_mean, color="C1", linestyle=":", label=f"Pred mean {pred_mean:.1f}")
+    ax.set_ylim(0.0, 1.0)
+    ax.set_xlabel("Total points pivot")
+    ax.set_ylabel("P(Over)")
+    ax.set_title(title or "Market vs model curve")
+    ax.legend()
+    fig.tight_layout()
+    return fig

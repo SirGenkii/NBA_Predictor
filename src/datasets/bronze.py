@@ -205,7 +205,10 @@ def assemble_match_dataset(
 
     team_stats = team_stats.sort_values(["GAME_DATE", "GAME_ID", "TEAM_ID"]).reset_index(drop=True)
 
-    keep_cols = set(MATCH_IDENTIFIER_COLUMNS + ["TEAM_ID", "IS_HOME", "IS_WIN", "POINTS_FOR", "POINTS_AGAINST", "POINT_TOTAL", "POINT_DIFF", "ODDS"])
+    keep_cols = set(
+        MATCH_IDENTIFIER_COLUMNS
+        + ["TEAM_ID", "IS_HOME", "IS_WIN", "POINTS_FOR", "POINTS_AGAINST", "POINT_TOTAL", "POINT_DIFF", "ODDS", "handicap"]
+    )
     keep_cols.update(BASE_TEAM_FEATURE_COLUMNS)
     filtered_cols = [col for col in team_stats.columns if col in keep_cols]
     filtered = team_stats[filtered_cols].copy()

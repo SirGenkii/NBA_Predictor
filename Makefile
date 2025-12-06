@@ -52,7 +52,7 @@ model-point-total-prod:
 	$(PYTHON) -m src.modeling.run_point_total --register-prod
 
 model-point-total-tuned-prod:
-	$(PYTHON) -m src.modeling.run_point_total --tune --trials 50 --register-prod
+	$(PYTHON) -m src.modeling.run_point_total --tune --trials 30 --register-prod
 
 # Limitation mémoire via cgroup (systemd-run) pour éviter l'OOM tout en permettant le swap.
 # Exemple: MEMORY_HIGH=75% make model-point-total-tuned-prod-capped
